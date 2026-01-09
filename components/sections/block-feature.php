@@ -2,7 +2,7 @@
 /**
  * Feature Block Component
  *
- * This component renders a flexible content block with text and media (image/grid) sections.
+ * This component renders a flexible content block with text on the left and dynamic content on the right.
  * Supports dynamic layout configurations and checkbox-style lists.
  *
  * Expected variables:
@@ -10,16 +10,20 @@
  * - $title (string): Main heading text
  * - $paragraphs (array): Array of paragraph text strings
  * - $button (array): Button configuration with 'url' and 'label' keys
- * - $grid_items (array): Array of grid items with 'icon' and 'label' keys
- * - $center_item (array, optional): Center grid item with 'type' ('image' or 'text'), and 'content' (image path or text)
  * - $checkbox_list (array, optional): Array of checkbox items with 'icon' and 'label' keys
  * - $layout (string, optional): Layout configuration - 'image-left' (default), 'image-right', 'image-top', 'image-bottom'
+ * - $right_content (string, optional): Dynamic HTML content for the right-side section
+ *
+ * Legacy variables (for backward compatibility - will be auto-converted to $right_content):
+ * - $grid_items (array): Array of grid items with 'icon' and 'label' keys
+ * - $center_item (array, optional): Center grid item with 'type' ('image' or 'text'), and 'content' (image path or text)
  */
 
 // Set defaults for optional variables
 $tagline = $tagline ?? '';
 $checkbox_list = $checkbox_list ?? [];
 $layout = $layout ?? 'image-left';
+$right_content = $right_content ?? null;
 
 /**
  * Helper function to render grid items with proper encoding
@@ -54,6 +58,30 @@ $render_grid_items_feature = function($items, $center_item) {
         </a>
     <?php endforeach;
 };
+
+// Backward compatibility: Convert legacy grid_items to right_content if not provided
+if ($right_content === null && isset($grid_items)) {
+    $center_item = $center_item ?? null;
+    ob_start();
+    ?>
+    <div class="performance-grid performance-grid--right js-overlay-container">
+      <div class="performance-grid__container">
+        <div class="performance-grid__bg">
+          <img src="../assets/img/bgGrid.svg" alt="Ellipses" aria-hidden="true">
+        </div>
+
+        <?php $render_grid_items_feature($grid_items, $center_item); ?>
+      </div>
+
+      <div class="performance-grid__overlay" aria-hidden="true">
+        <div class="performance-grid__container">
+          <?php $render_grid_items_feature($grid_items, $center_item); ?>
+        </div>
+      </div>
+    </div>
+    <?php
+    $right_content = ob_get_clean();
+}
 ?>
 
 <link rel="stylesheet" href="../assets/css/section-block_feature.css" />
@@ -91,21 +119,7 @@ $render_grid_items_feature = function($items, $center_item) {
   </div>
 
   <div class="block-feature__col block-feature__col--media">
-    <div class="performance-grid performance-grid--right js-overlay-container">
-      <div class="performance-grid__container">
-        <div class="performance-grid__bg">
-          <img src="../assets/img/bgGrid.svg" alt="Ellipses" aria-hidden="true">
-        </div>
-
-        <?php $render_grid_items_feature($grid_items, $center_item); ?>
-      </div>
-
-      <div class="performance-grid__overlay" aria-hidden="true">
-        <div class="performance-grid__container">
-          <?php $render_grid_items_feature($grid_items, $center_item); ?>
-        </div>
-      </div>
-    </div>
+    <?php echo $right_content; ?>
   </div>
 </section>
 
