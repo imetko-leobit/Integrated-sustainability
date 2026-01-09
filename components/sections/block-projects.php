@@ -33,6 +33,7 @@ $projects_page_link = '/insights';
 <link rel="stylesheet" href="../assets/css/components-gradient_link.css" />
 <section class="block-projects">
   <div class="block-projects__wrapper">
+    <!-- Wrapper for vertical layout: image on top, text below -->
     <div class="block-projects__content">
       <div class="block-projects__media block-projects__col--image">
         <div class="swiper-container js-projects-image-slider">

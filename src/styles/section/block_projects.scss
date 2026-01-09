@@ -42,7 +42,7 @@
     display: flex;
     flex-direction: column;
     gap: 32px;
-    max-width: 40%;
+    max-width: $block-projects-max-width;
     width: 100%;
 
     @media (max-width: 991px) {
