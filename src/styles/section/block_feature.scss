@@ -1,0 +1,173 @@
+@import "../common/variable";
+@import "../common/mixins";
+@import "../components/performance_grid";
+
+.block-feature {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 80px;
+  padding: 0 0 120px;
+
+  @media (max-width: 991px) {
+    padding: 0 24px 48px;
+  }
+
+  &__col {
+      padding-top: 12px;
+      padding-bottom: 66px;
+      width: 100%;
+      width: calc(50% - 40px);
+
+      @media (max-width: 1199px) {
+        width: 100%;
+        padding-top: none;
+      }
+  }
+
+  &__col--media {
+      @media (max-width: 1199px) {
+          display: none;
+      }
+  }
+
+  .heading {
+      padding-bottom: 40px;
+      .title--h3 {
+          @include text-h3;
+      }
+
+      @media (max-width: 991px) {
+        display: none;
+      }
+  }
+
+  .text-content {
+      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+  }
+
+  /* Checkbox list with item-marked styles (matching UL/LI from home page) */
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 22px;
+    margin-bottom: 2rem;
+    list-style: none;
+    padding-left: 0;
+
+    @media (max-width: 991px) {
+      gap: 12px;
+    }
+
+    li {
+      @include item-marked;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 22px;
+
+      @media (max-width: 991px) {
+        gap: 12px;
+      }
+    }
+  }
+
+  .btn {
+    min-width: 260px;
+  }
+
+  &__actions {
+      margin-top: 64px;
+
+      @media (max-width: 991px) {
+        margin-top: 32px;
+        width: 100%;
+
+        .btn {
+            width: 100%;
+        }
+      }
+  }
+
+  .performance-grid__link.hidden {
+      visibility: hidden;
+  }
+
+  /* Layout variations */
+  &--image-left {
+    flex-direction: row;
+
+    .block-feature__col--text {
+      order: 2;
+    }
+
+    .block-feature__col--media {
+      order: 1;
+    }
+  }
+
+  &--image-right {
+    flex-direction: row;
+
+    .block-feature__col--text {
+      order: 1;
+    }
+
+    .block-feature__col--media {
+      order: 2;
+    }
+  }
+
+  &--image-top {
+    flex-direction: column;
+
+    .block-feature__col {
+      width: 100%;
+
+      @media (min-width: 1200px) {
+        width: 100%;
+      }
+    }
+
+    .block-feature__col--text {
+      order: 2;
+    }
+
+    .block-feature__col--media {
+      order: 1;
+
+      @media (max-width: 1199px) {
+        display: block;
+      }
+    }
+  }
+
+  &--image-bottom {
+    flex-direction: column;
+
+    .block-feature__col {
+      width: 100%;
+
+      @media (min-width: 1200px) {
+        width: 100%;
+      }
+    }
+
+    .block-feature__col--text {
+      order: 1;
+    }
+
+    .block-feature__col--media {
+      order: 2;
+
+      @media (max-width: 1199px) {
+        display: block;
+      }
+    }
+  }
+}

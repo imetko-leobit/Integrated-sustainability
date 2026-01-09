@@ -70,6 +70,7 @@
         'type' => 'image',
         'content' => '../assets/img/directions.svg'
       ];
+      $layout = 'image-right';
       $checkbox_list = [
         ['icon' => 'mark.svg', 'label' => 'Partner with academic institutions and research bodies to align emerging studies with real-world environmental and infrastructure challenges.'],
         ['icon' => 'mark.svg', 'label' => 'Support graduate and PhD-level research connected to live projects - providing clients with feasibility-grade analysis, system optimization, and early-stage innovation scouting.'],
@@ -77,7 +78,7 @@
         ['icon' => 'mark.svg', 'label' => 'We are often sought to help translate field performance into data that supports academic publication and informs regulatory and policy frameworks.'],
       ];
 
-      include('../components/sections/block_reusable.php')
+      include('../components/sections/block-feature.php')
     ?>
 
     <?php
@@ -87,31 +88,6 @@
         $link_text = null;
         $custom_icon = null;
         include('../components/sections/block-section-heading.php');
-    ?>
-
-    <?php
-      $tagline = 'COMMUNITY empowerment';
-      $title = 'Integrating social, cultural, and environmental value into project delivery';
-      $paragraphs = [
-        'Infrastructure succeeds when it strengthens the communities and ecosystems it serves. By basing our design in environmental science and aligning local priorities, we create enduring outcomes that extend beyond the site boundary. Our performance approach helps to:',
-      ];
-      $button = [
-        'url' => '/services',
-        'label' => 'Become a Partner'
-      ];
-      $center_item = [
-        'type' => 'image',
-        'content' => '../assets/img/directions.svg'
-      ];
-      $checkbox_list = [
-        ['icon' => 'mark.svg', 'label' => 'Engage early with municipalities, local industries, and community organizations to align infrastructure planning with regional development goals sensitive to cultural values and environmental priorities.'],
-        ['icon' => 'mark.svg', 'label' => 'Incorporate natural and hybrid infrastructure systems that provide flood protection, habitat restoration, and carbon reduction while lowering lifecycle costs.'],
-        ['icon' => 'mark.svg', 'label' => 'Involve local stakeholders in project monitoring and operations to strengthen technical capacity and environmental stewardship.'],
-        ['icon' => 'mark.svg', 'label' => 'Maintain transparent communication and measurable reporting that demonstrate performance and accountability throughout the project lifecycle.'],
-        ['icon' => 'mark.svg', 'label' => 'Build enduring indigenous partnerships focused on procurement, training, and shared economic participation.'],
-      ];
-
-      include('../components/sections/block_reusable.php')
     ?>
 
     <?php

@@ -1,8 +1,9 @@
 <?php
 /**
- * Reusable Block Component
+ * Feature Block Component
  *
- * This component renders a content block with text on the left and a grid on the right.
+ * This component renders a flexible content block with text and media (image/grid) sections.
+ * Supports dynamic layout configurations and checkbox-style lists.
  *
  * Expected variables:
  * - $tagline (string, optional): Top tagline text
@@ -12,16 +13,18 @@
  * - $grid_items (array): Array of grid items with 'icon' and 'label' keys
  * - $center_item (array, optional): Center grid item with 'type' ('image' or 'text'), and 'content' (image path or text)
  * - $checkbox_list (array, optional): Array of checkbox items with 'icon' and 'label' keys
+ * - $layout (string, optional): Layout configuration - 'image-left' (default), 'image-right', 'image-top', 'image-bottom'
  */
 
 // Set defaults for optional variables
 $tagline = $tagline ?? '';
 $checkbox_list = $checkbox_list ?? [];
+$layout = $layout ?? 'image-left';
 
 /**
  * Helper function to render grid items with proper encoding
  */
-function render_grid_items_reusable($items, $center_item) {
+function render_grid_items_feature($items, $center_item) {
     foreach ($items as $index => $item):
         if ($index === 4 && !empty($center_item)): ?>
           <?php if ($center_item['type'] === 'image'): ?>
@@ -53,11 +56,11 @@ function render_grid_items_reusable($items, $center_item) {
 }
 ?>
 
-<link rel="stylesheet" href="../assets/css/section-block_reduce_fragmentation.css" />
+<link rel="stylesheet" href="../assets/css/section-block_feature.css" />
 <link rel="stylesheet" href="../assets/css/components-performance_grid.css" />
 
-<section class="block-reduce-fragmentation">
-  <div class="block-reduce-fragmentation__col block-reduce-fragmentation__col--text">
+<section class="block-feature block-feature--<?php echo htmlspecialchars($layout); ?>">
+  <div class="block-feature__col block-feature__col--text">
     <?php if (!empty($tagline)): ?>
     <p class="tagline"><?php echo htmlspecialchars($tagline); ?></p>
     <?php endif; ?>
@@ -73,38 +76,33 @@ function render_grid_items_reusable($items, $center_item) {
     </div>
 
     <?php if (!empty($checkbox_list)): ?>
-    <div class="checkbox-list">
+    <ul class="block-feature__list">
       <?php foreach ($checkbox_list as $item): ?>
-      <div class="checkbox-item">
-        <?php if (!empty($item['icon'])): ?>
-        <img src="../assets/img/<?php echo htmlspecialchars($item['icon']); ?>" alt="<?php echo htmlspecialchars($item['label']); ?>" class="checkbox-icon">
-        <?php endif; ?>
-        <span><?php echo htmlspecialchars($item['label']); ?></span>
-      </div>
+      <li><?php echo htmlspecialchars($item['label']); ?></li>
       <?php endforeach; ?>
-    </div>
+    </ul>
     <?php endif; ?>
 
-    <div class="block-reduce-fragmentation_actions">
+    <div class="block-feature__actions">
       <a href="<?php echo htmlspecialchars($button['url']); ?>" aria-label="<?php echo htmlspecialchars($button['label']); ?>">
         <button class="btn btn--gradient"><?php echo htmlspecialchars($button['label']); ?></button>
       </a>
     </div>
   </div>
 
-  <div class="block-reduce-fragmentation__col block-reduce-fragmentation__col--media">
+  <div class="block-feature__col block-feature__col--media">
     <div class="performance-grid performance-grid--right js-overlay-container">
       <div class="performance-grid__container">
         <div class="performance-grid__bg">
           <img src="../assets/img/bgGrid.svg" alt="Ellipses" aria-hidden="true">
         </div>
 
-        <?php render_grid_items_reusable($grid_items, $center_item); ?>
+        <?php render_grid_items_feature($grid_items, $center_item); ?>
       </div>
 
       <div class="performance-grid__overlay" aria-hidden="true">
         <div class="performance-grid__container">
-          <?php render_grid_items_reusable($grid_items, $center_item); ?>
+          <?php render_grid_items_feature($grid_items, $center_item); ?>
         </div>
       </div>
     </div>
