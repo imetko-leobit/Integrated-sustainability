@@ -44,20 +44,37 @@
     &--text-below {
       grid-template-columns: repeat(12, 1fr);
       grid-template-rows: auto auto;
+      gap: 0;
+
+      &::before {
+        content: none;
+      }
 
       .block-projects__media {
         grid-column: span 12;
         grid-row: 1;
+        padding: 0;
       }
 
       .block-projects__description {
         grid-column: span 12;
         grid-row: 2;
-        padding-top: 48px;
-        padding-right: 0;
+        padding: 56px;
 
-        @media (max-width: 991px) {
-          padding-top: 0;
+        &::before {
+          content: '';
+          position: absolute;
+          bottom: 0px;
+          right: 0px;
+          height: 100%;
+          width: 100%;
+          @include bg-image;
+          overflow: hidden;
+          z-index: -1;
+
+          @media (max-width: 991px) {
+            display: none;
+          }
         }
       }
     }
