@@ -17,6 +17,40 @@
 // Set defaults for optional variables
 $tagline = $tagline ?? '';
 $checkbox_list = $checkbox_list ?? [];
+
+/**
+ * Helper function to render grid items with proper encoding
+ */
+function render_grid_items_reusable($items, $center_item) {
+    foreach ($items as $index => $item):
+        if ($index === 4 && !empty($center_item)): ?>
+          <?php if ($center_item['type'] === 'image'): ?>
+          <div class="performance-grid__item performance-grid__item--center-img">
+            <img src="<?php echo $center_item['content']; ?>" />
+          </div>
+          <?php else: ?>
+          <div class="performance-grid__item performance-grid__item--center">
+            <span class="text-gradient"><?php echo $center_item['content']; ?></span>
+          </div>
+          <?php endif; ?>
+        <?php endif; ?>
+        <a href="/services#<?php echo urlencode($item['label']); ?>"
+          class="performance-grid__link <?php echo empty($item['label']) ? 'hidden' : ''; ?>"
+          aria-hidden="<?php echo empty($item['label']) ? 'true' : 'false'; ?>"
+          aria-label="Learn more about <?php echo htmlspecialchars($item['label']); ?> services">
+          <div class="performance-grid__item <?php echo !empty($center_item) && $center_item['type'] === 'image' ? 'performance-grid__item--square' : ''; ?>">
+            <?php if (!empty($item['icon'])): ?>
+            <div class="performance-grid__icon">
+              <img src="../assets/img/<?php echo $item['icon']; ?>" alt="<?php echo htmlspecialchars($item['label']); ?>">
+            </div>
+            <?php endif; ?>
+            <?php if (!empty($item['label'])): ?>
+            <span class="performance-grid__label"><?php echo htmlspecialchars($item['label']); ?></span>
+            <?php endif; ?>
+          </div>
+        </a>
+    <?php endforeach;
+}
 ?>
 
 <link rel="stylesheet" href="../assets/css/section-block_reduce_fragmentation.css" />
@@ -25,7 +59,7 @@ $checkbox_list = $checkbox_list ?? [];
 <section class="block-reduce-fragmentation">
   <div class="block-reduce-fragmentation__col block-reduce-fragmentation__col--text">
     <?php if (!empty($tagline)): ?>
-    <p class="tagline"><?php echo $tagline; ?></p>
+    <p class="tagline"><?php echo htmlspecialchars($tagline); ?></p>
     <?php endif; ?>
     <div class="heading">
       <h3 class="title title--h3">
@@ -43,59 +77,26 @@ $checkbox_list = $checkbox_list ?? [];
       <?php foreach ($checkbox_list as $item): ?>
       <div class="checkbox-item">
         <?php if (!empty($item['icon'])): ?>
-        <img src="../assets/img/<?php echo $item['icon']; ?>" alt="<?php echo $item['label']; ?>" class="checkbox-icon">
+        <img src="../assets/img/<?php echo htmlspecialchars($item['icon']); ?>" alt="<?php echo htmlspecialchars($item['label']); ?>" class="checkbox-icon">
         <?php endif; ?>
-        <span><?php echo $item['label']; ?></span>
+        <span><?php echo htmlspecialchars($item['label']); ?></span>
       </div>
       <?php endforeach; ?>
     </div>
     <?php endif; ?>
     
     <div class="block-reduce-fragmentation_actions">
-      <a href="<?php echo $button['url']; ?>" aria-label="<?php echo $button['label']; ?>">
-        <button class="btn btn--gradient"><?php echo $button['label']; ?></button>
+      <a href="<?php echo htmlspecialchars($button['url']); ?>" aria-label="<?php echo htmlspecialchars($button['label']); ?>">
+        <button class="btn btn--gradient"><?php echo htmlspecialchars($button['label']); ?></button>
       </a>
     </div>
   </div>
 
   <div class="block-reduce-fragmentation__col block-reduce-fragmentation__col--media">
     <div class="performance-grid performance-grid--right js-overlay-container">
-      <?php
-                function render_grid_items_reusable($items, $center_item) {
-                    foreach ($items as $index => $item):
-                        if ($index === 4 && !empty($center_item)): ?>
-      <?php if ($center_item['type'] === 'image'): ?>
-      <div class="performance-grid__item performance-grid__item--center-img">
-        <img src="<?php echo $center_item['content']; ?>" />
-      </div>
-      <?php else: ?>
-      <div class="performance-grid__item performance-grid__item--center">
-        <span class="text-gradient"><?php echo $center_item['content']; ?></span>
-      </div>
-      <?php endif; ?>
-      <?php endif; ?>
-      <a href="/services#<?php echo $item['label']; ?>"
-        class="performance-grid__link <?php echo empty($item['label']) ? 'hidden' : ''; ?>"
-        aria-hidden="<?php echo empty($item['label']) ? 'true' : 'false'; ?>"
-        aria-label="Learn more about <?php echo $item['label']; ?> services">
-        <div class="performance-grid__item <?php echo !empty($center_item) && $center_item['type'] === 'image' ? 'performance-grid__item--square' : ''; ?>">
-          <?php if (!empty($item['icon'])): ?>
-          <div class="performance-grid__icon">
-            <img src="../assets/img/<?php echo $item['icon']; ?>" alt="<?php echo $item['label']; ?>">
-          </div>
-          <?php endif; ?>
-          <?php if (!empty($item['label'])): ?>
-          <span class="performance-grid__label"><?php echo $item['label']; ?></span>
-          <?php endif; ?>
-        </div>
-      </a>
-      <?php endforeach;
-                }
-            ?>
-
       <div class="performance-grid__container">
         <div class="performance-grid__bg">
-          <img src="../assets/img/bgGrid.svg" alt="Elipses" aria-hidden="true">
+          <img src="../assets/img/bgGrid.svg" alt="Ellipses" aria-hidden="true">
         </div>
 
         <?php render_grid_items_reusable($grid_items, $center_item); ?>
