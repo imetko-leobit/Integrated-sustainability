@@ -70,6 +70,7 @@
         'type' => 'image',
         'content' => '../assets/img/directions.svg'
       ];
+      $layout = 'image-right';
       $checkbox_list = [
         ['icon' => 'check.svg', 'label' => 'Partner with academic institutions and research bodies to align emerging studies with real-world environmental and infrastructure challenges.'],
         ['icon' => 'check.svg', 'label' => 'Support graduate and PhD-level research connected to live projects - providing clients with feasibility-grade analysis, system optimization, and early-stage innovation scouting.'],
@@ -77,7 +78,7 @@
         ['icon' => 'check.svg', 'label' => 'We are often sought to help translate field performance into data that supports academic publication and informs regulatory and policy frameworks.'],
       ];
 
-      include('../components/sections/block_reusable.php')
+      include('../components/sections/block-feature.php')
     ?>
 
     <?php
