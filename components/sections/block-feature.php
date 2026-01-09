@@ -23,8 +23,9 @@ $layout = $layout ?? 'image-left';
 
 /**
  * Helper function to render grid items with proper encoding
+ * Using an anonymous function to avoid redeclaration when block is included multiple times
  */
-function render_grid_items_feature($items, $center_item) {
+$render_grid_items_feature = function($items, $center_item) {
     foreach ($items as $index => $item):
         if ($index === 4 && !empty($center_item)): ?>
           <?php if ($center_item['type'] === 'image'): ?>
@@ -53,7 +54,7 @@ function render_grid_items_feature($items, $center_item) {
           </div>
         </a>
     <?php endforeach;
-}
+};
 ?>
 
 <link rel="stylesheet" href="../assets/css/section-block_feature.css" />
@@ -97,12 +98,12 @@ function render_grid_items_feature($items, $center_item) {
           <img src="../assets/img/bgGrid.svg" alt="Ellipses" aria-hidden="true">
         </div>
 
-        <?php render_grid_items_feature($grid_items, $center_item); ?>
+        <?php $render_grid_items_feature($grid_items, $center_item); ?>
       </div>
 
       <div class="performance-grid__overlay" aria-hidden="true">
         <div class="performance-grid__container">
-          <?php render_grid_items_feature($grid_items, $center_item); ?>
+          <?php $render_grid_items_feature($grid_items, $center_item); ?>
         </div>
       </div>
     </div>
