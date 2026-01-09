@@ -1,0 +1,59 @@
+@import "../common/variable";
+@import "../common/mixins";
+
+.slider-preview {
+  padding: 80px 0 36px;
+  width: 100%;
+  max-width: 1600px;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+
+  .js-main-slider-preview {
+    width: 100%;
+    overflow: hidden;
+
+    .swiper-slide img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+  }
+
+  .thumbs-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    width: 100%;
+  }
+
+  .js-thumbs-slider-preview {
+    flex: 1;
+    overflow: hidden;
+
+    .swiper-slide {
+      cursor: pointer;
+      opacity: 0.5;
+      transition: opacity 0.3s;
+
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      &-thumb-active {
+        opacity: 1;
+      }
+    }
+  }
+
+  .cards-navigation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+  }
+}

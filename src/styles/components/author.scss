@@ -1,0 +1,153 @@
+@import "../common/variable";
+@import "../common/mixins";
+
+.block-author {
+  padding: 60px 0 120px;
+
+  .title {
+    margin-top: 60px;
+    margin-bottom: 56px;
+  }
+
+  .block-author__wrapper {
+    border: 1px solid var(--color-grey-200);
+    padding: 48px 64px 48px 48px;
+    width: 100%;
+
+    .person-card {
+      max-width: 500px;
+      text-align: left;
+      padding: 0;
+      margin-bottom: 48px;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      gap: 38px;
+    }
+
+    .person-card__image-container{
+      height: 180px;
+      width: 180px;
+    }
+
+    .person-card__info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100%;
+
+      .card__title {
+        margin: 0;
+      }
+    }
+
+    .author__person {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-self: flex-start;
+
+      @media (max-width: 991px) {
+        flex-direction: column;
+
+        .author__actions {
+          flex-direction: row;
+          margin: 0 0 32px;
+        }
+      }
+    }
+    
+    .author__actions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;;
+      gap: 10px;
+      margin-top: 36px;
+
+      .social-link {
+        height: 38px;
+        width: 38px;
+        padding: 8px;
+        color: var(--color-grey-100);
+        background-color: #1E1E1E;
+        border-radius: 10px;
+      }
+
+      .mail-button {
+        background: none;
+        border: none;
+        height: 38px;
+        width: 38px;
+        padding: 6px;
+        background-color: #1E1E1E;
+        border-radius: 10px;
+      }
+
+    }
+    .author__description {
+      @include text-body-small;
+      color: var(--color-grey-200);
+      margin: 0;
+
+    }
+
+    .link {
+      @include text-body-base;
+      color: white;
+      transition: color 0.3s ease;
+      display: flex;
+      padding-top: 34px;
+      margin: 0;
+
+      &--large {
+        @include text-body-large;
+      }
+
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        gap: 10px;
+      }
+
+      .link__text {
+        display: block;
+        margin: 0;
+      }
+
+      & .arrow-icon {
+        width: 24px;
+        height: 24px;
+        padding: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease;
+        svg {
+            .icon-arrow {
+              fill: white;
+              transition: fill 0.3s ease;
+            }
+        }
+      }
+
+      &:hover {
+        color: white;
+        -webkit-text-fill-color: white;
+        background: none;
+
+        .arrow-icon {      
+            transform: translate(3px, -3px);
+            svg {
+              .icon-arrow {
+                fill: white;
+              }
+            }
+        }
+
+      }
+    }
+  }
+}

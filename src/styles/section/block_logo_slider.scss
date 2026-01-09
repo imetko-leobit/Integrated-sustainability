@@ -1,0 +1,54 @@
+.block-logo-slider {
+  padding: 48px 0 130px;
+  background-color: #040404;
+  color: white;
+  width: 100%;
+  overflow: hidden;
+  padding-left: 138px;
+
+  @media (max-width: 991px) {
+    padding-left: 0;
+    min-width: 100vw;
+  }
+
+  .swiper-container {
+    overflow: hidden;
+  }
+  
+  .swiper-wrapper {
+    display: flex;
+    align-items: center;
+  }
+  
+  .swiper-slide {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  
+    @media (max-width: 1199px) {
+      padding-left: 0;
+      overflow: auto;
+    }
+  }
+  
+  .logo-carousel__item {
+    width: auto;
+    
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .logo-carousel__img {
+    height: auto;
+    width: auto;
+    min-width: 156px;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+    
+    &:hover {
+        opacity: 1;
+    }
+  }
+}

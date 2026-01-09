@@ -1,0 +1,20 @@
+$content-width: 1600px;
+$padding-inline: 40px;
+
+@mixin container {
+  max-width: $content-width;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.container {
+  @include container;
+}
+
+/*-- for full width --*/
+.alignfull {
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}

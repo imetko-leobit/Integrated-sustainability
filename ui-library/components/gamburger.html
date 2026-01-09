@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hamburger Menu</title>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 250px;
+      height: 100%;
+      background: #333;
+      color: #fff;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+      z-index: 1001;
+    }
+
+    .menu.open {
+      transform: translateX(0);
+    }
+
+    .menu ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .menu ul li {
+      padding: 15px;
+      border-bottom: 1px solid #444;
+    }
+
+    .menu ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .hamburger {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      cursor: pointer;
+      z-index: 1002;
+    }
+
+    .hamburger div {
+      width: 30px;
+      height: 3px;
+      background: #333;
+      margin: 5px 0;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .hamburger.open div {
+      background: #fff;
+    }
+
+    .hamburger.open div:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.open div:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.open div:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    .menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      display: none;
+    }
+
+    .menu-overlay.hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+<div class="hamburger js-hamburger">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+
+<div class="menu">
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</div>
+
+<div class="menu-overlay hidden"></div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.js-hamburger');
+    const menu = document.querySelector('.menu');
+    const menuOverlay = document.querySelector('.menu-overlay');
+
+    hamburger.addEventListener('click', function(event) {
+      event.stopPropagation();
+      menu.classList.toggle('open');
+      menuOverlay.classList.toggle('hidden');
+      hamburger.classList.toggle('open');
+      document.body.classList.toggle('modal-open');
+    });
+
+    document.addEventListener('click', function(event) {
+      if (menu.classList.contains('open') && !menu.contains(event.target) && !hamburger.contains(event.target)) {
+        menu.classList.remove('open');
+        menuOverlay.classList.add('hidden');
+        hamburger.classList.remove('open');
+        document.body.classList.remove('modal-open');
+      }
+    });
+
+    menuOverlay.addEventListener('click', function() {
+      menu.classList.remove('open');
+      menuOverlay.classList.add('hidden');
+      hamburger.classList.remove('open');
+      document.body.classList.remove('modal-open');
+    });
+  });
+</script>
+</body>
+</html>

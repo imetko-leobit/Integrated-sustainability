@@ -1,0 +1,24 @@
+@import "../common/variable";
+@import "../common/mixins";
+
+.metadata-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 40px;
+
+  @media (max-width: 991px) {
+    margin-bottom: 24px;
+  }
+
+  .metadata-group__links{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+}

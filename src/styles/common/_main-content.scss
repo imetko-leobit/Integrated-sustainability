@@ -1,0 +1,37 @@
+.main {
+    width: 100%;
+    position: relative;
+  
+    // --- LAYOUT LOGIC ---
+    // Apply constraints to all direct children of .main, EXCEPT:
+    // 1. .alignleft / .alignright (floating elements)
+    // 2. .alignfull (blocks intended to be full width)
+    // 3. .block-hero (hero sections are always full width)
+    
+    & > :where(:not(.alignleft):not(.alignright):not(.alignfull):not(.block-hero)) {
+      max-width: var(--wp--style--global--content-size-large);
+      margin-left: auto !important;
+      margin-right: auto !important;
+  
+      // Add side padding to prevent content from sticking to edges on mobile
+      padding-left: 20px;
+      padding-right: 20px;
+  
+      // Optional: Reset padding for larger screens
+      @include min-laptop {
+         padding-left: 0;
+         padding-right: 0;
+      }
+
+    }
+    @media (max-width: 1599px) {
+      & > :where(:not(.alignleft):not(.alignright):not(.alignfull):not(.block-hero)) {
+        max-width: var(--wp--style--global--content-size-medium);
+      }
+    }
+    @media (max-width: 1199px) {
+      & > :where(:not(.alignleft):not(.alignright):not(.alignfull):not(.block-hero)) {
+        max-width: var(--wp--style--global--content-size-small);
+      }
+    }
+  }

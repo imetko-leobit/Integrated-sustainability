@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    .image-zoom {
+      position: relative;
+      display: flex;
+      height: 100%;
+    }
+    .image-zoom img {
+      width: 100%;
+      object-fit: cover;
+      border-radius: r(20);
+    }
+    .image-zoom:after{
+       display: var(--display);
+       content: '';
+       width: 100%;
+       height: 100%;
+       background-color: black;
+       background-image: var(--url);
+       background-size: 200%;
+       background-position: var(--zoom-x) var(--zoom-y);
+       position: absolute;
+       left: 0;
+       top: 0;
+     }
+
+  </style>
+</head>
+<body>
+
+<div class="js-image-zoom image-zoom"
+     style="
+          --url: url('../../assets/img/home-big-slider.jpg');
+          --zoom-x: 0%;
+          --zoom-y: 0%;
+          --display: none
+      ">
+  <img src="../assets/img/home-big-slider.jpg" alt="big">
+</div>
+<script !src="">
+  const jsImageZoom = document.querySelectorAll('.js-image-zoom');
+  if (jsImageZoom.length) {
+    jsImageZoom.forEach(imageZoom => {
+      let zoomActive = false;
+      imageZoom.addEventListener('click', (event) => {
+        zoomActive = !zoomActive;
+        if (zoomActive) {
+          imageZoom.classList.add('zoom-active');
+          const pointer = {
+            x: (event.offsetX * 100) / imageZoom.offsetWidth,
+            y: (event.offsetY * 100) / imageZoom.offsetHeight
+          };
+          imageZoom.style.setProperty('--zoom-x', pointer.x + '%');
+          imageZoom.style.setProperty('--zoom-y', pointer.y + '%');
+          imageZoom.style.setProperty('--display', 'block');
+          imageZoom.addEventListener('mousemove', zoom);
+        } else {
+          imageZoom.classList.remove('zoom-active');
+          imageZoom.style.setProperty('--display', 'none');
+          imageZoom.removeEventListener('mousemove', zoom);
+        }
+      });
+      function zoom(event) {
+        const pointer = {
+          x: (event.offsetX * 100) / imageZoom.offsetWidth,
+          y: (event.offsetY * 100) / imageZoom.offsetHeight
+        };
+        imageZoom.style.setProperty('--zoom-x', pointer.x + '%');
+        imageZoom.style.setProperty('--zoom-y', pointer.y + '%');
+      }
+    });
+  }
+</script>
+
+</body>
+</html>

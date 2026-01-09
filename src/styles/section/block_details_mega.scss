@@ -1,0 +1,62 @@
+@import "../common/variable";
+@import "../common/mixins";
+
+.block-details-mega {
+  padding: 0 0 60px ;
+
+  @media (max-width: 991px) {
+    padding: 0 0 60px ;
+
+    .details-general,
+    .block-author{
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+  }
+
+  &__wrapper {
+    display: grid;
+    position: relative;
+    grid-template-columns: repeat(12, 1fr);
+    align-items: start;
+    gap: 56px;
+    padding: 0 0 80px;
+
+    @media (max-width: 1599px) {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      padding: 0 24px;
+    }
+  }
+
+  .details-content__wrapper {
+    padding-right: 80px;
+    grid-column: 1/9;
+    width: 100%;
+
+    @media (max-width: 1199px) {
+      padding-right: 0;
+    }
+  }
+
+  .asside-card {
+    grid-column: 9/13;
+    width: 100%;
+    position: sticky;
+    top: 80px;
+    align-self: start;
+    z-index: 10;
+  }
+
+  .gallery-wrapper{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px; 
+  }
+
+  .gallery-wrapper figcaption{
+      display:none;
+  }
+
+}

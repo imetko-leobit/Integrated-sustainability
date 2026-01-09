@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .accordion__item {
+            transition: box-shadow 0.3s ease-in-out;
+        }
+        .accordion__item.active .accordion__body {
+            -ms-grid-rows: 1fr;
+            grid-template-rows: 1fr;
+        }
+
+        .accordion__header {
+            position: relative;
+            cursor: pointer;
+        }
+        .accordion__body {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: all 0.5s ease-out;
+        }
+        .accordion__body-holder {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<div class="accordion">
+    <div class="accordion__item active">
+        <div class="accordion__header js-accordion-header">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </div>
+        <div class="accordion__body">
+            <div class="accordion__body-holder">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictumst pulvinar est facilisi condimentum commodo, mattis est nisl facilisis. Sem augue dolor fusce sed. Tempus suscipit turpis eu pellentesque turpis non. In consectetur magna feugiat id nisl lorem leo vel eget. Tempus suscipit turpis eu pellentesque turpis non. </p>
+            </div>
+        </div>
+    </div>
+    <div class="accordion__item">
+        <div class="accordion__header js-accordion-header">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra mi lacinia aliquam quis morbi orci at nisi, dignissim.
+        </div>
+        <div class="accordion__body">
+            <div class="accordion__body-holder">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictumst pulvinar est facilisi condimentum commodo, mattis est nisl facilisis. Sem augue dolor fusce sed. Tempus suscipit turpis eu pellentesque turpis non. In consectetur magna feugiat id nisl lorem leo vel eget. Tempus suscipit turpis eu pellentesque turpis non. </p>
+            </div>
+        </div>
+    </div>
+    <div class="accordion__item">
+        <div class="accordion__header js-accordion-header">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </div>
+        <div class="accordion__body">
+            <div class="accordion__body-holder">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictumst pulvinar est facilisi condimentum commodo, mattis est nisl facilisis. Sem augue dolor fusce sed. Tempus suscipit turpis eu pellentesque turpis non. In consectetur magna feugiat id nisl lorem leo vel eget. Tempus suscipit turpis eu pellentesque turpis non. </p>
+            </div>
+        </div>
+    </div>
+    <div class="accordion__item">
+        <div class="accordion__header js-accordion-header">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra mi lacinia aliquam quis morbi orci at nisi, dignissim.
+        </div>
+        <div class="accordion__body">
+            <div class="accordion__body-holder">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictumst pulvinar est facilisi condimentum commodo, mattis est nisl facilisis. Sem augue dolor fusce sed. Tempus suscipit turpis eu pellentesque turpis non. In consectetur magna feugiat id nisl lorem leo vel eget. Tempus suscipit turpis eu pellentesque turpis non. </p>
+            </div>
+        </div>
+    </div>
+    <div class="accordion__item">
+        <div class="accordion__header js-accordion-header">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            
+        </div>
+        <div class="accordion__body">
+            <div class="accordion__body-holder">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisc</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    const accButtons = document.querySelectorAll('.js-accordion-header');
+    accButtons.forEach(btn => {
+        btn.addEventListener('click', function () {
+            const item = this.parentElement;
+            // Close all other items if you need collapse
+            // accButtons.forEach(button => {
+            //     const otherItem = button.parentElement;
+            //     if (otherItem !== item) {
+            //         otherItem.classList.remove('active');
+            //     }
+            // });
+            // Toggle the current item
+            item.classList.toggle('active');
+        });
+    });
+</script>
+</body>
+</html>

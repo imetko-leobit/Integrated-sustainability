@@ -1,0 +1,62 @@
+@import "../common/variable";
+@import "../common/mixins";
+
+.gradient-link {
+  @include text-body-base;
+  background: $primary-gradient;
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: color 0.3s ease;
+  display: flex;
+  width: fit-content;
+
+  &--large {
+    @include text-body-large;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .gradient-link__text {
+    display: block;
+  }
+
+  & .arrow-icon {
+    width: 24px;
+    height: 24px;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    svg {
+        .icon-arrow {
+          fill: url(#svg-gradient-primary);
+          transition: fill 0.3s ease;
+        }
+    }
+}
+
+  &:hover {
+    color: white;
+    -webkit-text-fill-color: white;
+    background: none;
+
+    .arrow-icon {      
+        transform: translate(3px, -3px);
+        svg {
+          .icon-arrow {
+            fill: white;
+          }
+        }
+    }
+
+  }
+}

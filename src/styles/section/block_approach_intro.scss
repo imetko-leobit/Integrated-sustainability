@@ -1,0 +1,243 @@
+@import "../common/variable";
+@import "../common/mixins";
+
+.block-approach-intro {
+    padding: 0 0 180px;
+
+    @media (max-width: 991px) {
+        padding: 0 24px 80px;
+    }
+    
+    
+    &__wrapper {
+        display: grid;
+        grid-template-columns: 7fr 5fr;
+        gap: 56px;
+        flex-wrap: wrap;
+        width: 100%;
+
+        @media (max-width: 1199px) {
+            grid-template-columns: 6fr 6fr;
+            gap: 32px;
+        }
+        @media (max-width: 991px) {
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+    }
+    
+    &__col {
+        &--text {
+            grid-column: 1;
+            padding-right: 80px;
+
+            @media (max-width: 1199px) {
+                padding-right: 0;
+            }
+        }
+        &--media {
+            grid-column: 2;
+            align-items: flex-start;
+            display: flex;
+            height: fit-content;
+            position: relative;
+
+            @media (max-width: 991px) {
+                display: none;
+            }
+
+            &::before {
+              content: '';
+              position: absolute;
+              bottom: 0px;
+              right: 0px;
+              height: calc(100% - 56px);
+              width: calc(100% - 56px);
+              @include bg-image;
+              overflow: hidden;
+              z-index: -1;
+            }
+      
+          img {
+            padding-right: 56px;
+            padding-bottom: 56px;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+          }
+
+            @media (max-width: 991px) {
+                grid-column: 1;
+            }
+        }
+    }
+
+    .heading {
+        padding-bottom: 40px;
+
+        @media (max-width: 991px) {
+            padding-bottom: 16px;
+        }
+
+        .title--h3 {
+            @include text-h3;
+
+            @media (max-width: 991px) {
+                @include text-h5;
+            }
+        }
+    }
+    
+    .text-content {
+        margin-bottom: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        p {
+            margin-bottom: 1rem;
+        }
+    }
+
+    /* --- Scroll Link Style --- */
+    .block-approach-intro__actions {
+        @include text-body-large;
+        margin-top: 40px;
+        display: inline-flex;
+        align-items: center;
+        gap: 20px;
+
+        @media (max-width: 991px) {
+            margin-top: 0px;
+        }
+
+        .link-with-arrow {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: white; 
+            font-size: 16px;
+            
+            .icon-arrow-down {
+                background: white;
+                border: none;
+                border-radius: 50%;
+                padding: 6px;
+                width: 30px;
+                height: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                transition: background 0.3s ease;
+                
+                svg {
+                    color: var(--color-black);
+                    display: block;
+                    height: 100%;
+                    .icon-arrow {
+                        fill: var(--color-black);
+                    }
+                }
+            }
+            
+            &:hover {
+                transform: translate(0, 3px);
+            }
+        }
+    }
+
+    /* --- Person Card (Right Column) --- */
+    .approach-media-link {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        text-decoration: none;
+        color: white;
+        transition: all 0.3s ease;
+    }
+    
+    .approach-person-card {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        @media (max-width: 991px) {
+            flex-direction: row;
+            gap: 16px;
+            padding: 24px;
+        }
+        
+        &__image-container {
+            width: 180px; 
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 20px;
+            padding: 4px;
+
+            @media (max-width: 991px) {
+                width: 80px;
+                height: 80px;
+                margin-bottom: 0;
+            }
+            
+            .approach-person-card__image {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 50%;
+                
+                filter: grayscale(100%);
+                transition: filter 0.5s ease;
+            }
+        }
+
+        .approach-person-card__info {
+            text-align: left;
+
+            .approach-person-card__name {
+                font-size: 20px;
+                font-weight: $w-semibold;
+                margin-bottom: 6px;
+
+                @media (max-width: 991px) {
+                    @include text-h7;
+                    margin-bottom: 0;
+                }
+
+            }
+            .approach-person-card__credentials {
+                @include text-body-small;
+                margin-bottom: 16px;
+
+                @media (max-width: 991px) {
+                    margin-bottom: 12px;
+                }
+            }
+            .approach-person-card__title {
+                @include text-body-small;
+                font-size: 16px;
+            }
+        }
+    }
+
+    .approach-media-link:hover .approach-person-card__image {
+        filter: grayscale(0%);
+    }
+
+    .accordion {
+        padding: 0 20px 56px;
+        .accordion-item__divider {
+            visibility: hidden;
+            padding-top: 6px;
+        }
+    
+    }
+}
+

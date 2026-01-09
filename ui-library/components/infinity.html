@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+
+    .marquee {
+      width: 100%;
+      overflow: hidden;
+      background-color: #f0f0f0;
+      white-space: nowrap;
+    }
+
+    /* Content of the ticker */
+    .marquee-content {
+      display: inline-block;
+      animation: marquee 10s linear infinite;
+    }
+
+    @keyframes marquee {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    .marquee-content span {
+      padding: 0 2rem;
+      font-size: 1.5rem;
+      color: #333;
+    }
+
+  </style>
+</head>
+<body>
+<div class="marquee">
+  <div class="marquee-content">
+    <span>It's an endless ticker!</span>
+    <span>It's an endless ticker!</span>
+    <span>It's an endless ticker!</span>
+    <span>It's an endless ticker!</span>
+    <span>It's an endless ticker!</span>
+    <span>It's an endless ticker!</span>
+    <span>It's an endless ticker!</span>
+    <span>It's an endless ticker!</span>
+  </div>
+</div>
+
+</body>
+</html>

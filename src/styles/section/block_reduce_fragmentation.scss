@@ -1,0 +1,71 @@
+@import "../common/variable";
+@import "../common/mixins";
+@import "../components/performance_grid";
+
+.block-reduce-fragmentation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 80px;
+  padding: 0 0 120px;
+
+  @media (max-width: 991px) {
+    padding: 0 24px 48px;
+  }
+  
+  &__col {
+      padding-top: 12px;
+      padding-bottom: 66px;
+      width: 100%;
+      width: calc(50% - 40px);
+      
+      @media (max-width: 1199px) {
+        width: 100%;
+        padding-top: none;
+      }
+  }
+
+  &__col--media {
+      @media (max-width: 1199px) {
+          display: none;
+      }
+  }
+
+  .heading {
+      padding-bottom: 40px;
+      .title--h3 {
+          @include text-h3;
+      }
+
+      @media (max-width: 991px) {
+        display: none;
+      }
+  }
+  
+  .text-content {
+      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+  }
+
+  .btn {
+    min-width: 260px;
+  }
+
+  &_actions {
+      margin-top: 64px;
+
+      @media (max-width: 991px) {
+        margin-top: 32px;
+        width: 100%;
+
+        .btn {
+            width: 100%;
+        }
+      }
+  }
+
+  .performance-grid__link.hidden {
+      visibility: hidden;
+  }
+}

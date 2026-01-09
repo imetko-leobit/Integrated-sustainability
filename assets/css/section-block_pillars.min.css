@@ -1,0 +1,1 @@
+.block-pillars{display:grid;gap:56px;grid-template-columns:repeat(3,1fr);padding-bottom:140px}@media (max-width:1199px){.block-pillars{gap:32px;grid-template-columns:1fr;padding-bottom:48px}}

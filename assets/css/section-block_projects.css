@@ -1,0 +1,223 @@
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/styles/section/block_projects.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************/
+/*images*/
+.block-projects {
+  position: relative;
+  padding: 0 0 32px;
+  height: 100%; }
+  @media (max-width: 991px) {
+    .block-projects {
+      padding: 0 24px 48px; } }
+  .block-projects .block-projects__wrapper {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    margin: 0 auto;
+    height: 100%;
+    position: relative;
+    gap: 56px; }
+    @media (max-width: 991px) {
+      .block-projects .block-projects__wrapper {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        gap: 24px; } }
+    .block-projects .block-projects__wrapper::before {
+      content: '';
+      position: absolute;
+      bottom: 0px;
+      right: 0px;
+      height: calc(100% - 28px);
+      width: calc(100% - 138px);
+      background-image: url(../../assets/img/overlay.svg);
+      background-blend-mode: normal, overlay;
+      background-size: cover;
+      background-position: right top;
+      background-repeat: no-repeat;
+      overflow: hidden;
+      z-index: -1; }
+      @media (max-width: 991px) {
+        .block-projects .block-projects__wrapper::before {
+          display: none; } }
+  .block-projects .block-projects__media {
+    grid-column: span 8;
+    height: 100%;
+    padding-bottom: 74px; }
+    @media (max-width: 991px) {
+      .block-projects .block-projects__media {
+        width: 100%;
+        padding: 0; } }
+  .block-projects .block-projects__description {
+    grid-column: span 4;
+    height: 100%;
+    padding-bottom: 74px; }
+    @media (max-width: 991px) {
+      .block-projects .block-projects__description {
+        width: 100%;
+        padding: 0; } }
+  .block-projects .block-projects__col--text {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    position: relative;
+    margin: 0;
+    padding-top: 78px;
+    padding-right: 70px; }
+    @media (max-width: 991px) {
+      .block-projects .block-projects__col--text {
+        padding: 0; } }
+  .block-projects .block-projects__col--image {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 100%;
+    flex: 1 1 100%;
+    max-width: 100%;
+    overflow: hidden;
+    height: 100%; }
+  .block-projects .title--h4 {
+    font-family: "PoppinsSBold", "Roboto", "Arial", sans-serif;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 36px;
+    font-weight: 600; }
+    @media (max-width: 991px) {
+      .block-projects .title--h4 {
+        font-size: 20px;
+        line-height: 28px; } }
+  .block-projects .block-projects__slide-image img {
+    width: 100%;
+    height: auto;
+    max-height: 600px;
+    display: block;
+    -o-object-fit: cover;
+    object-fit: cover; }
+  .block-projects .js-projects-text-slider {
+    overflow: visible; }
+  .block-projects .projects-navigation {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    gap: 20px; }
+    @media (max-width: 991px) {
+      .block-projects .projects-navigation {
+        gap: 14px; } }
+  .block-projects .swiper-container {
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch; }
+  .block-projects .swiper-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    height: 100%;
+    gap: 0;
+    margin-left: 1px; }
+  .block-projects .swiper-slide {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    gap: 30px;
+    height: 100%; }
+  .block-projects .swiper-button-prev,
+  .block-projects .swiper-button-next {
+    position: static;
+    margin: 0;
+    background: var(--color-grey-300);
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s ease; }
+    @media (max-width: 991px) {
+      .block-projects .swiper-button-prev,
+      .block-projects .swiper-button-next {
+        width: 36px;
+        height: 36px;
+        padding: 10px; } }
+    .block-projects .swiper-button-prev svg,
+    .block-projects .swiper-button-next svg {
+      display: block; }
+      .block-projects .swiper-button-prev svg .icon-arrow,
+      .block-projects .swiper-button-next svg .icon-arrow {
+        fill: var(--color-black); }
+    .block-projects .swiper-button-prev:hover,
+    .block-projects .swiper-button-next:hover {
+      background: white; }
+    .block-projects .swiper-button-prev::after,
+    .block-projects .swiper-button-next::after {
+      content: '';
+      display: none; }
+  .block-projects .swiper-button-disabled.btn--arrow {
+    background-color: var(--color-grey-500);
+    color: var(--color-black);
+    pointer-events: none; }
+  .block-projects .block-projects__links {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    gap: 12px;
+    height: 100%;
+    margin-top: 40px;
+    margin-bottom: 20px; }
+    @media (max-width: 991px) {
+      .block-projects .block-projects__links {
+        margin-top: 24px;
+        gap: 12px; } }
+
+
+/*# sourceMappingURL=section-block_projects.css.map*/

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div data-svg="img.svg"></div>
+
+<script !src="">
+  const containersSvg = document.querySelectorAll('[data-svg]');
+
+  if (containersSvg.length) {
+    containersSvg.forEach(container => {
+      const svgPath = container.getAttribute('data-svg');
+      fetch(svgPath)
+              .then(response => response.text())
+              .then(svgData => {
+                container.insertAdjacentHTML('beforebegin', svgData);
+                container.parentNode.removeChild(container);
+              })
+              .catch(error => {
+                console.error('Error SVG:', error);
+              });
+    });
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1 @@
+{"version":3,"file":"./assets/css/section-block_publications.css","mappings":";;;AAAA;EACE,iBAAiB;EACjB;IAFF;MAGI,oBAAoB,IAEvB","sources":["webpack:///./src/styles/section/block_publications.scss"],"sourcesContent":[".block-publications {\n  padding: 0 0 80px;\n  @media (max-width: 991px) {\n    padding: 0 24px 48px;\n  }\n}"],"names":[],"sourceRoot":""}

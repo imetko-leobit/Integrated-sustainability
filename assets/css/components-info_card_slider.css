@@ -1,0 +1,113 @@
+/*!****************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/styles/components/info_card_slider.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************/
+/*images*/
+.info-slider-container {
+  position: relative;
+  width: 100%; }
+
+.info-card-wrapper {
+  position: relative;
+  height: 690px; }
+  .info-card-wrapper .info-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    -webkit-transition: opacity 0.5s ease;
+    transition: opacity 0.5s ease;
+    z-index: 1; }
+    .info-card-wrapper .info-card.active {
+      opacity: 1;
+      z-index: 2; }
+    .info-card-wrapper .info-card .info-card__image {
+      width: 100%;
+      height: 100%;
+      -o-object-fit: cover;
+      object-fit: cover;
+      -webkit-filter: brightness(0.7);
+      filter: brightness(0.7); }
+    .info-card-wrapper .info-card .info-card__content {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding: 56px;
+      background-image: url(../../assets/img/overlay.svg);
+      background-blend-mode: normal, overlay;
+      background-size: cover;
+      background-position: right top;
+      background-repeat: no-repeat;
+      text-align: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      gap: 32px; }
+      .info-card-wrapper .info-card .info-card__content .title {
+        font-weight: 300;
+        font-size: 25px;
+        font-family: "PoppinsLight", "Roboto", "Arial", sans-serif;
+        line-height: 144%;
+        margin-bottom: 32px;
+        text-align: left; }
+        .info-card-wrapper .info-card .info-card__content .title strong {
+          font-weight: 600;
+          font-family: "PoppinsSBold", "Roboto", "Arial", sans-serif; }
+      .info-card-wrapper .info-card .info-card__content .text-content {
+        text-align: left; }
+      .info-card-wrapper .info-card .info-card__content .btn {
+        margin-top: 48px; }
+
+.slider-controls {
+  padding: 0 0 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 15px; }
+  .slider-controls .progress-bar {
+    width: 100%;
+    height: 2px;
+    background: var(--color-grey-400);
+    position: relative; }
+    .slider-controls .progress-bar .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #81FEE5 0%, #818FFE 100%);
+      width: 33.33%;
+      /* change dynamically with js */
+      opacity: 1;
+      -webkit-transition: width 0.3s ease;
+      transition: width 0.3s ease; }
+  .slider-controls .dots {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    gap: 16px; }
+    .slider-controls .dots .dot {
+      width: 12px;
+      height: 12px;
+      background: white;
+      border-radius: 50%;
+      cursor: pointer;
+      -webkit-transition: all 0.3s ease;
+      transition: all 0.3s ease; }
+      .slider-controls .dots .dot.active {
+        background: white;
+        width: 22px;
+        height: 22px; }
+
+
+/*# sourceMappingURL=components-info_card_slider.css.map*/

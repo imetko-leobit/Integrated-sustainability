@@ -1,0 +1,250 @@
+/*!******************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/styles/section/block_cta.scss ***!
+  \******************************************************************************************************************************************************************************************************************************/
+/*images*/
+.block-cta {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 60px 0 180px; }
+  @media (max-width: 991px) {
+    .block-cta {
+      padding: 24px; } }
+  .block-cta__background {
+    width: 100%;
+    height: 90vh;
+    min-height: 600px;
+    max-height: 800px;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+    .block-cta__background .block-cta__image {
+      -o-object-fit: cover;
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+      background-position: center; }
+      @media (max-width: 991px) {
+        .block-cta__background .block-cta__image {
+          height: 100%; } }
+  .block-cta__card-wrapper {
+    position: absolute;
+    inset: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    z-index: 10; }
+    @media (max-width: 991px) {
+      .block-cta__card-wrapper {
+        bottom: 0;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center; } }
+  .block-cta__card {
+    margin: 0 auto;
+    padding: 60px;
+    max-width: 600px;
+    width: 100%;
+    background-image: url(../../assets/img/overlay.svg);
+    background-blend-mode: normal, overlay;
+    background-size: cover;
+    background-position: right top;
+    background-repeat: no-repeat;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px); }
+    @media (max-width: 991px) {
+      .block-cta__card {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        padding: 48px;
+        margin: 0; } }
+    @media (max-width: 767px) {
+      .block-cta__card {
+        padding: 32px 24px; } }
+  .block-cta__card-content {
+    color: white;
+    text-align: center;
+    padding: 16px; }
+  .block-cta .title {
+    padding-bottom: 28px; }
+    @media (max-width: 991px) {
+      .block-cta .title {
+        padding-bottom: 16px; } }
+  .block-cta .title--h2 {
+    font-family: "PoppinsSBold", "Roboto", "Arial", sans-serif;
+    font-style: normal;
+    font-size: 40px;
+    line-height: 52px;
+    font-weight: 600; }
+    @media (max-width: 991px) {
+      .block-cta .title--h2 {
+        font-size: 28px;
+        line-height: 36px; } }
+  .block-cta__description {
+    font-family: "PoppinsLight", "Roboto", "Arial", sans-serif;
+    font-weight: 300;
+    -webkit-font-smoothing: subpixel-antialiased;
+    font-style: normal;
+    font-size: 17px;
+    line-height: 28px;
+    padding-bottom: 70px; }
+    @media (max-width: 991px) {
+      .block-cta__description {
+        font-size: 16px;
+        line-height: 24px; } }
+    @media (max-width: 991px) {
+      .block-cta__description {
+        font-family: "Poppins", "Roboto", "Arial", sans-serif;
+        font-weight: 400;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-style: normal;
+        font-size: 16px;
+        line-height: 24px;
+        padding-bottom: 32px; } }
+  @media (max-width: 991px) and (max-width: 991px) {
+    .block-cta__description {
+      font-size: 14px;
+      line-height: 22px; } }
+  .block-cta--center {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+    .block-cta--center .block-cta__card {
+      min-width: 760px;
+      margin: 0; }
+      @media (max-width: 991px) {
+        .block-cta--center .block-cta__card {
+          min-width: 100%; }
+          .block-cta--center .block-cta__card .block-cta__card-content {
+            padding: 24px 0; } }
+  .block-cta--default .block-cta__card-wrapper {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 56px; }
+    @media (max-width: 991px) {
+      .block-cta--default .block-cta__card-wrapper {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
+        justify-content: flex-end; } }
+  .block-cta--default .block-cta__card {
+    grid-column: 7/12;
+    height: 100%;
+    padding: 60px;
+    max-width: 100%; }
+    @media (max-width: 1599px) {
+      .block-cta--default .block-cta__card {
+        padding: 48px; } }
+    @media (max-width: 991px) {
+      .block-cta--default .block-cta__card {
+        min-width: 100%;
+        margin: 0;
+        padding: 48px 16px;
+        height: auto; } }
+    @media (max-width: 767px) {
+      .block-cta--default .block-cta__card {
+        padding: 24px 16px;
+        height: -webkit-fit-content;
+        height: -moz-fit-content;
+        height: fit-content; }
+        .block-cta--default .block-cta__card .block-cta__card-wrapper {
+          -webkit-box-pack: end;
+          -ms-flex-pack: end;
+          justify-content: flex-end; } }
+  .block-cta--default .block-cta__card-content {
+    text-align: left;
+    padding-top: 70px; }
+    @media (max-width: 991px) {
+      .block-cta--default .block-cta__card-content {
+        padding: 0; } }
+  .block-cta--right .block-cta__card-wrapper {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 56px; }
+    @media (max-width: 991px) {
+      .block-cta--right .block-cta__card-wrapper {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
+        justify-content: flex-end; } }
+  .block-cta--right .block-cta__card {
+    grid-column: 8/13;
+    height: 100%;
+    padding: 60px;
+    max-width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+    @media (max-width: 1599px) {
+      .block-cta--right .block-cta__card {
+        padding: 48px; } }
+    @media (max-width: 991px) {
+      .block-cta--right .block-cta__card {
+        min-width: 100%;
+        margin: 0;
+        padding: 48px 16px;
+        height: auto; } }
+    @media (max-width: 767px) {
+      .block-cta--right .block-cta__card {
+        padding: 24px 16px;
+        height: -webkit-fit-content;
+        height: -moz-fit-content;
+        height: fit-content; }
+        .block-cta--right .block-cta__card .block-cta__card-wrapper {
+          -webkit-box-pack: end;
+          -ms-flex-pack: end;
+          justify-content: flex-end; } }
+  .block-cta--right .block-cta__card-content {
+    text-align: left; }
+    @media (max-width: 991px) {
+      .block-cta--right .block-cta__card-content {
+        padding: 0; } }
+  .block-cta .btn--gradient {
+    min-width: 320px; }
+    @media (max-width: 991px) {
+      .block-cta .btn--gradient {
+        min-width: 260px;
+        width: 260px; } }
+
+
+/*# sourceMappingURL=section-block_cta.css.map*/

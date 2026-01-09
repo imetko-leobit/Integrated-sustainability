@@ -1,0 +1,55 @@
+/*!*********************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/styles/components/info_card.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************/
+/*images*/
+.info-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  position: relative; }
+  .info-card .info-card__image {
+    width: 100%;
+    height: auto; }
+  .info-card .info-card__content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 48px;
+    width: 100%;
+    background-image: url(../../assets/img/overlay.svg);
+    background-blend-mode: normal, overlay;
+    background-size: cover;
+    background-position: right top;
+    background-repeat: no-repeat; }
+  @media (max-width: 767px) {
+    .info-card .btn {
+      width: 100%; } }
+
+
+/*# sourceMappingURL=components-info_card.css.map*/

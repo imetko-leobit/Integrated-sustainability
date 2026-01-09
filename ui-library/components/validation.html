@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/daterangepicker/3.0.5/daterangepicker.min.css"/>
+
+    <style>
+        .input__container {
+            margin-bottom: 40px;
+        }
+
+        .input__container .text-error {
+            color: red;
+        }
+
+        .input_radios.error label {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+
+<form class="contacts-form js_validate" name="modal-contacts">
+    <div class="h4-title">Leave a request</div>
+    <label class="main-label" for="name">Name*</label>
+    <div class="input__container">
+        <input class="form-control" id="name" type="text" name="name" data-validate="text" data-error-wrong="Invalid characters" data-error-empty="character count(2-30)" data-minsign="2" data-maxsign="30" required="" />
+        <p class="text-error"></p>
+    </div>
+    <label class="main-label" for="secondName">Lastname*</label>
+    <div class="input__container">
+        <input class="form-control" id="secondName" type="text" name="second-name" data-validate="text" data-error-wrong="Invalid characters" data-error-empty="character count(2-30)" data-minsign="2" data-maxsign="30" required="" />
+    </div>
+    <label class="main-label" for="login">Login*</label>
+    <div class="input__container">
+        <input class="form-control" id="login" type="text" name="login" data-validate="text" data-error-wrong="Invalid characters" data-error-empty="character count(2-30)" data-minsign="2" data-maxsign="30" required="" />
+    </div>
+    <label class="main-label" for="phone">Phone*</label>
+    <div class="input__container">
+        <input class="form-control" id="phone" type="tel" name="phone" data-validate="phone" data-error-empty="Fill in the field" maxlength="19" data-error-wrong="The “Phone” field is not filled in correctly" required="" />
+    </div>
+    <label class="main-label" for="email">Email*</label>
+    <div class="input__container">
+        <input class="form-control" id="email" type="email" name="email" data-validate="email" data-error-wrong="The “Email” field is not filled in correctly" data-error-empty="The “Email” field is not filled in" data-error-max="Email: no more than 37 characters" data-error-min="Email: at least 6 characters" required="" />
+    </div>
+    <label class="main-label" for="country">Country*</label>
+    <div class="input__container">
+        <input class="form-control" id="country" type="text" name="country" data-validate="text" data-error-wrong="Invalid characters" data-error-empty="character count(2-30)" data-minsign="2" data-maxsign="30" required="" />
+    </div>
+    <div class="input__container">
+        <label class="main-label" for="orderStreet">Street*</label>
+        <input class="form-control" id="street" type="text" name="street" data-validate="text" data-error-wrong="Invalid characters" data-error-empty="character count(2-30)" data-minsign="2" data-maxsign="30" required="" />
+    </div>
+    <div class="input__container">
+        <label class="main-label" for="orderHouse">House*</label>
+        <input class="form-control js_number" id="house" type="text" name="house" data-validate="house" data-error-wrong="character count(1-5)" data-error-empty="character count(1-5)" data-minsign="1" data-maxsign="5" required="" />
+    </div>
+    <div class="input__container">
+        <label class="main-label" for="orderHouse">Appartment*</label>
+        <input class="form-control js_number" id="flat" type="number" name="flat" data-validate="number " data-error-wrong="character count(1-5)" data-error-empty="character count(1-5)" data-minsign="1" data-maxsign="5" required="" />
+    </div>
+    <div class="input__container js_valid-select">
+        <select name="country" required="">
+            <option disabled="true" selected="true">Country</option>
+            <option value="Ukraine">Ukraine</option>
+            <option value="UK">UK</option>
+        </select>
+    </div>
+
+    <div class="input__container radio-container js_valid-radio">
+        <span class="h5-title">3. Method of payment</span>
+        <div class="radio">
+            <input id="cash" type="radio" name="payment" value="payment" />
+            <label for="cash">By cash</label>
+        </div>
+        <div class="radio">
+            <input id="cart" type="radio" name="payment" value="cart" />
+            <label for="cart">By card upon receipt</label>
+        </div>
+        <div class="radio">
+            <input id="cartSite" type="radio" name="payment" value="cart-site" />
+            <label for="cartSite">By card on the website</label>
+        </div>
+        <div class="radio">
+            <input id="payPart" type="radio" name="payment" value="pay-part" />
+            <label for="payPart">Payment in installments</label>
+        </div>
+    </div>
+    <label class="main-label" for="message">Message</label>
+    <div class="input__container input__container--textarea">
+        <textarea class="form-control" id="message" name="message" maxlength="10000"></textarea>
+    </div>
+    <div class="input__container checkbox-container js_valid-checkbox" data-error="This item is required">
+        <div class="checkbox">
+            <input class="" id="agree" type="checkbox" value="agree" checked="" />
+            <label for="agree">I agree to the processing and protection of personal data</label>
+        </div>
+    </div>
+    <button class="btn btn--primary" type="submit">Send</button>
+</form>
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Adding events to submit buttons
+            document.querySelectorAll('.js_validate button[type="submit"]').forEach(function (btnEl) {
+                btnEl.addEventListener('click', function (e) {
+                    const thisForm = btnEl.closest('.js_validate');
+                    if (!validate(thisForm)) e.preventDefault();
+                });
+            });
+
+            // Functions for working with rating
+            const itemRating = document.querySelectorAll('.js_rating .rating__star');
+
+            if (itemRating.length) {
+                const fillStar = (star, rating, className) => {
+                    const starIndex = +star.getAttribute('data-index');
+                    const stars = rating.querySelectorAll('.rating__star');
+                    stars.forEach((s, i) => {
+                        s.classList.toggle(className, i <= starIndex);
+                    });
+                };
+
+                itemRating.forEach(function (star) {
+                    const rating = star.closest('.js_rating');
+                    star.addEventListener('click', () => fillStar(star, rating, 'active'));
+                    star.addEventListener('mouseenter', () => fillStar(star, rating, 'hover'));
+                    star.addEventListener('mouseleave', () => star.classList.remove('hover'));
+                });
+
+                document.querySelector('.js_rating').addEventListener('mouseleave', function () {
+                    this.querySelectorAll('.rating__star').forEach(star => star.classList.remove('hover'));
+                });
+            }
+
+            // Function for adding an error message
+            const setErrorText = (container, message) => {
+                let errorTextElement = container.querySelector('.text-error');
+                if (!errorTextElement) {
+                    errorTextElement = document.createElement('div');
+                    errorTextElement.classList.add('text-error');
+                    container.appendChild(errorTextElement);
+                }
+                errorTextElement.textContent = message;
+            };
+
+            // Error message clearing function
+            const clearErrorText = (container) => {
+                const errorTextElement = container.querySelector('.text-error');
+                if (errorTextElement) {
+                    errorTextElement.textContent = '';
+                }
+            };
+
+            // Form validation function
+            function validate(form) {
+                const errorClass = 'error';
+                const successClass = 'pass';
+                let hasError = false;
+
+                const toggleClass = (el, hasError, message = '') => {
+                    const container = el.closest('.input__container');
+                    container.classList.toggle(errorClass, hasError);
+                    container.classList.toggle(successClass, !hasError);
+
+                    if (hasError) {
+                        setErrorText(container, message);
+                    } else {
+                        clearErrorText(container);
+                    }
+                };
+
+                form.querySelectorAll('[required]').forEach(input => {
+                    const dataValidate = input.getAttribute('data-validate');
+                    const value = input.value.trim();
+                    let isValid = false;
+                    let errorMessage = '';
+
+                    switch (dataValidate) {
+                        case 'text':
+                        case 'house':
+                            const min = parseInt(input.getAttribute('data-minsign'), 10);
+                            const max = parseInt(input.getAttribute('data-maxsign'), 10);
+                            isValid = value.length >= min && value.length <= max;
+                            if (!isValid) {
+                                errorMessage = value.length === 0 ?
+                                    input.getAttribute('data-error-empty') :
+                                    `The length should be from ${min} to ${max} characters`;
+                            } else {
+                                errorMessage = input.getAttribute('data-error-wrong');
+                            }
+                            break;
+                        case 'email':
+                            const regEmail = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+                            isValid = regEmail.test(value);
+                            if (!isValid) errorMessage = value ? input.getAttribute('data-error-wrong') : input.getAttribute('data-error-empty');
+                            break;
+                        case 'phone':
+                            const regPhone = /[0-9 -()+]{16}$/;
+                            isValid = regPhone.test(value);
+                            if (!isValid) errorMessage = value ? input.getAttribute('data-error-wrong') : input.getAttribute('data-error-empty');
+                            break;
+                        case 'number':
+                            const minNum = parseInt(input.getAttribute('data-minsign'), 10);
+                            const maxNum = parseInt(input.getAttribute('data-maxsign'), 10);
+                            const regNumber = new RegExp(`^[0-9]{${minNum},${maxNum}}$`);
+                            isValid = regNumber.test(value);
+                            if (!isValid) errorMessage = value.length === 0 ? input.getAttribute('data-error-empty') : input.getAttribute('data-error-wrong');
+                            break;
+                        default:
+                            isValid = value !== '';
+                            if (!isValid) errorMessage = input.getAttribute('data-error-empty');
+                            break;
+                    }
+
+                    toggleClass(input, !isValid, errorMessage);
+                    if (!isValid) hasError = true;
+                });
+
+                // Checking radio buttons, checkboxes and selectors
+                ['.js_valid-radio', '.js_valid-checkbox', '.js_valid-select'].forEach(selector => {
+                    form.querySelectorAll(selector).forEach(group => {
+                        const inputs = group.querySelectorAll('input, select');
+                        const isChecked = Array.from(inputs).some(input => input.checked || input.selected);
+                        inputs.forEach(input => toggleClass(input, !isChecked, 'Select at least one value'));
+                        if (!isChecked) hasError = true;
+                    });
+                });
+
+                return !hasError;
+            }
+
+            // Processing of changing the value of fields with the required attribute
+            document.querySelectorAll('[required]').forEach(input => {
+                input.addEventListener('change', function () {
+                    const form = this.closest('.js_validate');
+                    if (form) {
+                        validate(form);
+                    }
+                });
+            });
+
+            // File processing
+            document.querySelectorAll('.input__container-file__files').forEach(function (input) {
+                input.addEventListener('change', function () {
+                    const fileName = this.files[0]?.name || '';
+                    this.closest('.input__container-file__inner').querySelector('.input__container-file__text').textContent = fileName;
+                    this.closest('.input__container-file').classList.toggle('filled', fileName);
+                });
+            });
+
+            document.querySelectorAll('.js_delete-file').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    const input = btn.closest('.input__container-file__inner').querySelector('.input__container-file__files');
+                    input.value = '';
+                    input.closest('.input__container').classList.remove('error', 'filled');
+                });
+            });
+
+            // Lock the button if the checkbox is unchecked
+            const agreeCheckbox = document.querySelector('.js_checkbox-agree');
+            if (agreeCheckbox) {
+                agreeCheckbox.addEventListener('change', function () {
+                    const submitButton = this.closest('.js_validate').querySelector('.btn');
+                    submitButton.classList.toggle('disabled', !this.checked);
+                });
+            }
+
+            // Input length limitation
+            document.querySelectorAll('.js_number').forEach(function (el) {
+                el.addEventListener('input', function () {
+                    const max = this.getAttribute('data-maxsign');
+                    if (this.value.length > max) this.value = this.value.slice(0, max);
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

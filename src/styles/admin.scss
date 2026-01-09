@@ -1,0 +1,128 @@
+//CSS file for WP admin
+.acf-block-preview {
+  @import "style";
+
+  @import "./layout/container";
+
+  @import "./components/performance_grid";
+  @import "./components/accordion";
+  @import "./components/accordion_scroll";
+  @import "./components/gradient_link";
+  @import "./components/person_card";
+  @import "./components/footer";
+  @import "./components/main_menu";
+  @import "./components/post_card";
+  @import "./components/info_card";
+  @import "./components/info_card_slider";
+  @import "./components/metadata_group";
+  @import "./components/details_content";
+  @import "./components/details_content_informational";
+  @import "./components/details_content_links";
+  @import "./components/details_general";
+  @import "./components/asside";
+  @import "./components/author";
+  @import "./components/quote";
+  @import "./components/slider_preview";
+  @import "./components/custom_select";
+  @import "./components/filter_form";
+  @import "./components/search_form";
+  @import "./components/link_card";
+  @import "./components/contact_card";
+  @import "./components/pillar_card";
+
+  @import "./section/block_hero";
+  @import "./section/block_approach_intro";
+  @import "./section/block_section_heading";
+  @import "./section/block_reduce_fragmentation";
+  @import "./section/block_category_navigation";
+  @import "./section/block_approach_intro";
+  @import "./section/block_slider";
+  @import "./section/block_accordion";
+  @import "./section/block_insights";
+  @import "./section/block_logo_slider";
+  @import "./section/block_cta";
+  @import "./section/block_projects";
+  @import "./section/block_project_cards";
+  @import "./section/block_post_cards";
+  @import "./section/block_cards_slider";
+  @import "./section/block_details_sidebar";
+  @import "./section/block_details_author";
+  @import "./section/block_details_mega";
+  @import "./section/block_publications";
+  @import "./section/block_publications_simple";
+  @import "./section/block_search_results";
+  @import "./section/block_media";
+  @import "./section/block_pillars";
+  @import "./section/block_publications_pillar";
+  @import "./section/block_accordion_scroll";
+  @import "./section/block_accordion_inside";
+  @import "./section/block_media_grid";
+}
+
+.wp-block {
+  max-width: 1440px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.wp-block-post-title {
+  margin-bottom: 60px !important;
+}
+
+.acf-block-component .acf-block-fields,
+.acf-block-component .components-placeholder {
+  padding-top: 40px !important;
+}
+
+.wp-block.acf-block-component:not(.acf-block-preview)::before {
+  position: absolute;
+  top: 8px;
+  left: 20px;
+  z-index: 9;
+  content: attr(data-title);
+}
+.term-description-wrap {
+  display: none;
+}
+.interface-interface-skeleton__sidebar,
+.interface-complementary-area__fill,
+.interface-complementary-area.editor-sidebar {
+  @media (min-width: 1200px) {
+    width: 600px !important;
+    flex: 0 0 600px !important;
+  }
+}
+.is-root-container {
+  color: #f5f5f5;
+  background: #040404;
+}
+.block-editor-block-list__empty-block-inserter
+  .block-editor-inserter__toggle.components-button.has-icon,
+.block-editor-block-list__insertion-point-inserter
+  .block-editor-inserter__toggle.components-button.has-icon,
+.block-editor-default-block-appender
+  .block-editor-inserter__toggle.components-button.has-icon {
+  color: #000;
+  background: #f9a361;
+}
+.empty-block {
+  font-size: 14px;
+  color: #999;
+  .notice {
+    padding: 20px;
+    color: #606060;
+    background: #e3dede;
+    &-info {
+      border-left-color: #f9a361;
+    }
+    p {
+      &:before {
+        content: "🛈";
+        margin-right: 5px;
+      }
+    }
+  }
+}
+:root :where(.wp-site-blocks) > * {
+  margin-top: 0 !important;
+}

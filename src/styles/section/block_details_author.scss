@@ -1,0 +1,48 @@
+@import "../common/variable";
+@import "../common/mixins";
+
+.block-details-author {
+  padding: 0 0 60px ;
+
+  @media (max-width: 991px) {
+    padding: 0 0 60px ;
+
+    .details-general,
+    .block-author{
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+  }
+
+  &__wrapper {
+    display: grid;
+    position: relative;
+    grid-template-columns: 8fr 4fr;
+    align-items: start;
+    gap: 56px;
+
+    @media (max-width: 1199px) {
+      grid-template-columns: 1fr; 
+      gap: 40px;
+    }
+  }
+
+  .details-content__wrapper {
+    padding-right: 80px;
+
+    @media (max-width: 1199px) {
+      padding-right: 0;
+    }
+  }
+
+  .gallery-wrapper{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px; 
+  }
+
+  .gallery-wrapper figcaption{
+      display:none;
+  }
+
+}

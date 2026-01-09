@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    body,html {
+      cursor: none; /* Hide the default cursor */
+    }
+
+    .custom-cursor {
+      width: 20px;
+      height: 20px;
+      background-color: black; /* Cursor color */
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 1000;
+      transition: transform 0.1s ease-out;
+    }
+
+  </style>
+</head>
+<body>
+<div class="custom-cursor"></div>
+
+<script !src="">
+  const cursor = document.querySelector('.custom-cursor');
+
+  document.addEventListener('mousemove', (e) => {
+    cursor.style.left = `${e.clientX}px`;
+    cursor.style.top = `${e.clientY}px`;
+  });
+
+  // Optionally: Add effects when hovering over elements
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.style.transform = 'scale(1.5)';
+      cursor.style.backgroundColor = 'red'; // Change color on hover
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.style.transform = 'scale(1)';
+      cursor.style.backgroundColor = 'black'; // Revert color after hover
+    });
+  });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+/*!******************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/styles/components/asside.scss ***!
+  \******************************************************************************************************************************************************************************************************************************/
+/*images*/
+.asside {
+  position: sticky;
+  top: 80px;
+  -ms-flex-item-align: start;
+  align-self: start;
+  z-index: 10; }
+  .asside .card {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+    .asside .card--center {
+      background-image: url(../../assets/img/overlay.svg);
+      background-blend-mode: normal, overlay;
+      background-size: cover;
+      background-position: right top;
+      background-repeat: no-repeat;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      padding: 56px 66px;
+      gap: 26px; }
+      .asside .card--center .btn {
+        margin-top: 24px; }
+
+
+/*# sourceMappingURL=components-asside.css.map*/

@@ -1,0 +1,11 @@
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/styles/section/block_publications.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************/
+.block-publications {
+  padding: 0 0 80px; }
+  @media (max-width: 991px) {
+    .block-publications {
+      padding: 0 24px 48px; } }
+
+
+/*# sourceMappingURL=section-block_publications.css.map*/

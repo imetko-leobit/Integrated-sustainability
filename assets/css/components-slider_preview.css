@@ -1,0 +1,68 @@
+/*!**************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/styles/components/slider_preview.scss ***!
+  \**************************************************************************************************************************************************************************************************************************************/
+/*images*/
+.slider-preview {
+  padding: 80px 0 36px;
+  width: 100%;
+  max-width: 1600px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 56px; }
+  .slider-preview .js-main-slider-preview {
+    width: 100%;
+    overflow: hidden; }
+    .slider-preview .js-main-slider-preview .swiper-slide img {
+      width: 100%;
+      height: auto;
+      display: block;
+      -o-object-fit: cover;
+      object-fit: cover; }
+  .slider-preview .thumbs-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 36px;
+    width: 100%; }
+  .slider-preview .js-thumbs-slider-preview {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    overflow: hidden; }
+    .slider-preview .js-thumbs-slider-preview .swiper-slide {
+      cursor: pointer;
+      opacity: 0.5;
+      -webkit-transition: opacity 0.3s;
+      transition: opacity 0.3s; }
+      .slider-preview .js-thumbs-slider-preview .swiper-slide img {
+        width: 100%;
+        height: auto;
+        display: block; }
+      .slider-preview .js-thumbs-slider-preview .swiper-slide-thumb-active {
+        opacity: 1; }
+  .slider-preview .cards-navigation {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 16px; }
+
+
+/*# sourceMappingURL=components-slider_preview.css.map*/

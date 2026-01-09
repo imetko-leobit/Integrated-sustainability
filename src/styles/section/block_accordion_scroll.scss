@@ -1,0 +1,80 @@
+@import "../common/variable";
+@import "../common/mixins";
+
+.block-accordion-scroll {
+  padding: 0 0 80px;
+  position: relative;
+  height: 100%;
+
+  @media (max-width: 991px) {
+    padding: 0 24px 32px;
+  }
+
+  &__wrapper {
+      display: flex;
+      justify-content: space-between;
+
+      flex-wrap: wrap;
+      position: relative;
+      height: 100%;
+
+      @media (max-width: 991px) {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+      }
+  }
+
+  &__description {
+    flex: 0 0 55%;
+    background-color: var(--color-black);
+    z-index: 1;
+
+    @media (max-width: 991px) {
+      width: 100%;
+      height: auto;
+    }
+
+    &--text {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+  }
+
+  &__media {
+    flex: 0 0 35%;
+
+    @media (max-width: 991px) {
+      width: 100%;
+      height: auto;
+    }
+
+    .accordion-card__image-wrapper {
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 56px;
+        left: 56px;
+        height: 100%;
+        width: 100%;
+        @include bg-image;
+        overflow: hidden;
+        z-index: -1;
+
+        @media (max-width: 991px) {
+          display: none;
+        }
+      }
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+  }
+}

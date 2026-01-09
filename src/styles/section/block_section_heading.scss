@@ -1,0 +1,119 @@
+@import "../common/variable";
+@import "../common/mixins";
+
+.block-section-heading {
+  position: relative;
+  padding: 80px 0 60px;
+  margin-bottom: 60px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    height: 100%;
+    opacity: 0.1;
+    z-index: -1;
+    background: radial-gradient(232.15% 232.15% at 50% 119.48%, rgba(129, 254, 229, 0.5) 0%, rgba(104, 115, 205, 0.5) 12.98%, #000 24.04%);
+  }
+
+  @media (max-width: 991px) {
+    padding: 48px 24px 24px;
+    margin-bottom: 32px;
+  }
+  
+  &--center {
+    text-align: center;
+  }
+
+  .title {
+    text-align: left;
+    padding-right: 120px;
+
+    @media (max-width: 991px) {
+      padding-right: 0;
+      
+    }
+
+    &--h2 {
+      @include text-h1;
+
+      @media (max-width: 991px) {
+        @include text-h3;
+      }
+    }
+  }
+
+  .heading-action {
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+
+  .divider {
+    @media (max-width: 991px) {
+      left: 24px;
+      width: calc(100% - 48px);
+    }
+  }
+
+  .person-card {
+    display: flex;
+    justify-content: flex-end;
+
+    .person-card__info {
+      padding: 12px 32px;
+      text-align: right;
+
+      .card__name {
+          font-size: 19px;
+          font-weight: $w-semibold;
+
+          @media (max-width: 991px) {
+              @include text-h7;
+              margin-bottom: 0;
+          }
+
+      }
+      .card__credentials {
+          @include text-body-small;
+          margin-bottom: 12px;
+
+          @media (max-width: 991px) {
+              margin-bottom: 12px;
+          }
+      }
+      .card__date {
+        color: var(--color-grey-300);
+        font-family: $font-light;
+        font-style: normal;
+        font-size: 16px;
+        line-height: 34px;
+        font-weight: $w-light;
+      }
+
+    }
+
+    &__image-container {
+      width: 130px; 
+      height: 130px;
+      min-width: 130px;
+      border-radius: 50%;
+      overflow: hidden;
+      
+      .person-card__image {
+          height: 100%;
+          object-fit: cover;
+          filter: grayscale(100%);
+          transition: filter 0.5s ease;
+      }
+    }
+
+    &:hover {
+      .person-card__image {
+        filter: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,167 @@
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/styles/components/pillar_card.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************/
+/*images*/
+.pillar-card {
+  height: 580px;
+  width: 100%; }
+  @media (max-width: 1199px) {
+    .pillar-card {
+      height: 320px; } }
+  .pillar-card .pillar-card__content {
+    height: 100%;
+    width: 100%;
+    background: var(--color-grey-900);
+    border: 1px solid var(--color-grey-600);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 42px; }
+    @media (max-width: 991px) {
+      .pillar-card .pillar-card__content {
+        padding: 24px; } }
+    .pillar-card .pillar-card__content .pillar-card__caption {
+      font-family: "Poppins", "Roboto", "Arial", sans-serif;
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 187%;
+      letter-spacing: 0.6em;
+      text-transform: uppercase;
+      color: white;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--color-grey-600);
+      margin-bottom: 40px; }
+    .pillar-card .pillar-card__content .pillar-card__title {
+      font-family: "PoppinsSBold", "Roboto", "Arial", sans-serif;
+      font-style: normal;
+      font-size: 48px;
+      line-height: 60px;
+      font-weight: 600;
+      margin-bottom: 20px; }
+      @media (max-width: 991px) {
+        .pillar-card .pillar-card__content .pillar-card__title {
+          font-size: 32px;
+          line-height: 42px; } }
+      @media (max-width: 991px) {
+        .pillar-card .pillar-card__content .pillar-card__title {
+          font-family: "PoppinsSBold", "Roboto", "Arial", sans-serif;
+          font-style: normal;
+          font-size: 40px;
+          line-height: 52px;
+          font-weight: 600; } }
+  @media (max-width: 991px) and (max-width: 991px) {
+    .pillar-card .pillar-card__content .pillar-card__title {
+      font-size: 28px;
+      line-height: 36px; } }
+    .pillar-card .pillar-card__content .pillar-card__desc {
+      font-family: "PoppinsSBold", "Roboto", "Arial", sans-serif;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 36px;
+      font-weight: 600; }
+      @media (max-width: 991px) {
+        .pillar-card .pillar-card__content .pillar-card__desc {
+          font-size: 20px;
+          line-height: 28px; } }
+      @media (max-width: 991px) {
+        .pillar-card .pillar-card__content .pillar-card__desc {
+          font-family: "PoppinsLight", "Roboto", "Arial", sans-serif;
+          font-style: normal;
+          font-size: 14px;
+          line-height: 28px;
+          font-weight: 300; } }
+  @media (max-width: 991px) and (max-width: 991px) {
+    .pillar-card .pillar-card__content .pillar-card__desc {
+      font-family: "PoppinsSBold", "Roboto", "Arial", sans-serif;
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 600; } }
+    .pillar-card .pillar-card__content .pillar-card__action {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: end;
+      -ms-flex-align: end;
+      align-items: flex-end;
+      -webkit-box-pack: start;
+      -ms-flex-pack: start;
+      justify-content: flex-start;
+      height: 32px; }
+      .pillar-card .pillar-card__content .pillar-card__action .pillar-card__card__action-text {
+        visibility: hidden;
+        width: 0;
+        font-family: "Poppins", "Roboto", "Arial", sans-serif;
+        font-weight: 400;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-style: normal;
+        font-size: 16px;
+        line-height: 24px;
+        background: linear-gradient(90deg, #81FEE5 0%, #818FFE 100%);
+        background-clip: text;
+        color: transparent;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        transition: all 0.3s ease;
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+        font-family: "PoppinsLight", "Roboto", "Arial", sans-serif;
+        font-weight: 300;
+        font-size: 21px;
+        line-height: 133%;
+        text-transform: lowercase; }
+        @media (max-width: 991px) {
+          .pillar-card .pillar-card__content .pillar-card__action .pillar-card__card__action-text {
+            font-size: 14px;
+            line-height: 22px; } }
+      .pillar-card .pillar-card__content .pillar-card__action .arrow-icon {
+        width: 32px;
+        height: 32px;
+        padding: 8px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease; }
+        .pillar-card .pillar-card__content .pillar-card__action .arrow-icon svg .icon-arrow {
+          fill: white;
+          -webkit-transition: fill 0.3s ease;
+          transition: fill 0.3s ease; }
+        @media (max-width: 991px) {
+          .pillar-card .pillar-card__content .pillar-card__action .arrow-icon {
+            width: 24px;
+            height: 24px; } }
+  .pillar-card:hover .pillar-card__content {
+    background-image: url(../../assets/img/overlay.svg);
+    background-blend-mode: normal, overlay;
+    background-size: cover;
+    background-position: right top;
+    background-repeat: no-repeat; }
+    .pillar-card:hover .pillar-card__content .pillar-card__action .pillar-card__card__action-text {
+      visibility: visible;
+      margin-right: 24px;
+      width: auto; }
+      @media (max-width: 991px) {
+        .pillar-card:hover .pillar-card__content .pillar-card__action .pillar-card__card__action-text {
+          margin-right: 8px; } }
+    .pillar-card:hover .pillar-card__content .pillar-card__action .arrow-icon svg .icon-arrow {
+      fill: url(#svg-gradient-primary); }
+
+
+/*# sourceMappingURL=components-pillar_card.css.map*/

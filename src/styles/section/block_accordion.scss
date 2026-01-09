@@ -1,0 +1,125 @@
+@import "../common/variable";
+@import "../common/mixins";
+
+.block-accordion {
+  padding: 0 0 180px;
+  position: relative;
+
+  @media (max-width: 991px) {
+    padding: 64px 24px 32px;
+  }
+
+  &__wrapper {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      flex-wrap: wrap;
+      gap: 56px;
+      position: relative;
+      height: 100%;
+
+      @media (max-width: 991px) {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 32px;
+      }
+  }
+
+  &__description {
+    grid-column: 7/13;
+    background-color: var(--color-black);
+    z-index: 1;
+
+    @media (max-width: 991px) {
+      width: 100%;
+    }
+
+    &--text {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+  }
+
+  &__media {
+    grid-column: span 5;
+
+    @media (max-width: 991px) {
+      display: none;
+    }
+
+    &--mobile {
+      display: none;
+
+      @media (max-width: 991px) {
+        display: block;
+
+        .accordion-card__image-wrapper {
+          height: 240px;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+
+    .accordion-card__image-wrapper {
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 56px;
+        left: 56px;
+        height: 100%;
+        width: 100%;
+        @include bg-image;
+        overflow: hidden;
+        z-index: -1;
+
+        @media (max-width: 991px) {
+          display: none;
+        }
+      }
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+  }
+
+  .heading {
+      .title {
+          padding-bottom: 50px;
+
+          @media (max-width: 991px) {
+            padding-bottom: 16px;
+          }
+      }
+      .title--h2 {
+          @include text-h2;
+
+          @media (max-width: 991px) {
+            @include text-h5;
+          }
+      }
+  }
+
+  .text-content {
+      p {
+        margin-bottom: 16px;
+      }
+
+      &--additional {
+        @media (max-width: 991px) {
+          display: none;
+        }
+      }
+  }
+
+}

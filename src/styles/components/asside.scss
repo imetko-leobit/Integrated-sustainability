@@ -1,0 +1,26 @@
+@import "../common/variable";
+@import "../common/mixins";
+
+.asside {
+  position: sticky;
+  top: 80px;
+  align-self: start;
+  z-index: 10;
+
+  .card {
+    display: flex;
+    flex-direction: column;
+
+    &--center {
+      @include bg-image;
+      align-items: center;
+      justify-content: center;
+      padding: 56px 66px;
+      gap: 26px;
+
+      .btn {
+        margin-top: 24px
+      }
+    }
+  }
+}

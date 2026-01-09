@@ -1,0 +1,38 @@
+@import "../common/variable";
+@import "../common/mixins";
+
+.info-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: relative;
+
+  .info-card__image {
+    width: 100%;
+    height: auto;
+  }
+
+  .info-card__content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 48px;
+    width: 100%;
+
+    @include bg-image;
+  }
+
+  .btn {
+    @media (max-width: 767px) {
+      width: 100%;
+    }
+  }
+}

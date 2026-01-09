@@ -1,0 +1,146 @@
+$primaryColor: var(--color-primary);
+$secondaryColor: var(--color-secondary);
+$textColor: var(--color-text);
+$hoverColor: var(--color-hover);
+$offWhite: var(--color-offwhite);
+$grey: var(--color-grey);
+$font: var(--base-font);
+$lightFont: var(--light-font);
+$mediumFont: var(--medium-font);
+$semiboldFont: var(--semibold-font);
+$fontSizeBase: 16px;
+$borderRadius: 32px;
+$mt: 1rem;
+$mt2: $mt * 2;
+$mb: 1rem;
+$mb2: $mb * 2;
+$minDesktop: 1470px;
+$primary-gradient: linear-gradient(90deg, #81FEE5 0%, #818FFE 100%);
+$primary-gradient-5: linear-gradient(90deg, rgba(129, 254, 229, 0.05) 0%, rgba(129, 144, 254, 0.05) 100%);
+$primary-gradient-20: linear-gradient(90deg, rgba(129, 254, 229, 0.2) 0%, rgba(129, 143, 254, 0.2) 100%);
+$primary-gradient-10: linear-gradient(125deg, rgba(129, 254, 229, 0.1) 0%, rgba(129, 143, 254, 0.1) 100%);
+$card-bg-gradient: linear-gradient(155deg, rgba(4, 4, 4, 1) 50%, rgba(129, 254, 229, 0.3) 70%, rgba(129, 143, 254, 0.5) 90%);
+$grey-gradient: linear-gradient(90deg, #BBBFC7 0%, #94989A 100%);
+$grey-gradient-50: linear-gradient(90deg, rgba(187, 191, 199, 0.5) 0%, rgba(148, 152, 154, 0.5) 100%);
+$green-gradient: linear-gradient(90deg, rgba(129, 254, 229, 0.2) 0%, rgba(4,4,4,0) 100%);
+$card-dark-gradient: linear-gradient(90deg, rgba(4, 4, 4, 0.75) 0%, rgba(4, 4, 4, 0.85) 100%);
+$card-gradient: linear-gradient(90deg, rgba(4, 4, 4, 0.75) 0%, rgba(4, 4, 4, 0.85) 100%);
+$blurred-background:
+    linear-gradient(155deg, rgba(4, 4, 4, 1) 00%, rgba(129, 254, 229, 0.2) 50%, rgba(129, 143, 254, 0.2) 90%),
+    radial-gradient(at 70% 85%, rgba(129, 143, 254, 0.1) 0px, transparent 50%),
+    radial-gradient(at 15% 35%, rgba(129, 254, 229, 0.1) 0px, transparent 50%),
+    rgba(4, 4, 4, 0.85);
+
+// --- Typography: Font Family ---
+$font-primary: 'Poppins', 'Roboto', 'Arial', sans-serif;
+$font-light: 'PoppinsLight', 'Roboto', 'Arial', sans-serif;
+$font-medium: 'PoppinsMedium', 'Roboto', 'Arial', sans-serif;
+$font-semibold: 'PoppinsSBold', 'Roboto', 'Arial', sans-serif;
+$font-bold: 'PoppinsBold', 'Roboto', 'Arial', sans-serif;
+
+// --- Typography: Weights ---
+$w-light: 300;
+$w-regular: 400;
+$w-medium: 500;
+$w-semibold: 600;
+
+// --- Typography: Headings (Size / Line-Height) ---
+// H0 (Hero)
+$h0-size: 70px;
+$h0-lh: 110%; // 1.1
+
+$h0-size-mobile: 32px;
+$h0-lh-mobile: 42px;
+
+// H1
+$h1-size: 48px;
+$h1-lh: 60px;
+
+$h1-size-mobile: 32px;
+$h1-lh-mobile: 42px;
+
+// H2
+$h2-size: 40px;
+$h2-lh: 52px;
+
+$h2-size-mobile: 28px;
+$h2-lh-mobile: 36px;
+
+// H3 
+$h3-size: 32px;
+$h3-lh: 44px;
+
+$h3-size-mobile: 24px;
+$h3-lh-mobile: 32px;
+
+// H4
+$h4-size: 24px;
+$h4-lh: 36px;
+
+$h4-size-mobile: 20px;
+$h4-lh-mobile: 28px;
+
+// H5
+$h5-size: 20px;
+$h5-lh: 30px;
+
+$h5-size-mobile: 18px;
+$h5-lh-mobile: 26px;
+
+// H6
+$h6-size: 14px;
+$h6-lh: 28px;
+
+$h6-size-mobile: 16px;
+$h6-lh-mobile: 24px;
+
+// H7
+$h7-size: 14px;
+$h7-lh: 20px;
+
+// --- Typography: Body & UI ---
+// Title (Small Heading)
+$text-title-size: 16px;
+$text-title-lh: 24px;
+
+// Body Large
+$text-body-large-size: 17px;
+$text-body-large-lh: 28px;
+
+$text-body-large-size-mobile: 16px;
+$text-body-large-lh-mobile: 24px;
+
+// Body Base (Default)
+$text-body-base-size: 16px;
+$text-body-base-lh: 24px;
+
+$text-body-base-size-mobile: 14px;
+$text-body-base-lh-mobile: 22px;
+
+// Body Small
+$text-body-small-size: 15px;
+$text-body-small-lh: 24px;
+
+$text-body-small-size-mobile: 12px;
+$text-body-small-lh-mobile: 20px;
+
+// Caption (Style "400")
+$text-caption-size: 14px;
+$text-caption-lh: 20px;
+
+$text-caption-size-mobile: 12px;
+$text-caption-lh-mobile: 18px;
+
+// Button (Style "600")
+$text-button-size: 16px;
+$text-button-lh: 20px;
+
+$text-button-size-mobile: 14px;
+$text-button-lh-mobile: 20px;
+
+// Link (Style "600")
+$text-link-size: 16px;
+$text-link-lh: 24px;
+
+$text-link-size-mobile: 14px;
+$text-link-lh-mobile: 20px;

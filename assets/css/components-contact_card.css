@@ -1,0 +1,174 @@
+/*!************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/styles/components/contact_card.scss ***!
+  \************************************************************************************************************************************************************************************************************************************/
+/*images*/
+.support-card {
+  color: #ffffff;
+  padding: 56px;
+  width: 100%;
+  background-image: url(../../assets/img/overlay.svg);
+  background-blend-mode: normal, overlay;
+  background-size: cover;
+  background-position: right top;
+  background-repeat: no-repeat;
+  margin: 56px 0; }
+  .support-card__title {
+    font-family: "PoppinsSBold", "Roboto", "Arial", sans-serif;
+    font-style: normal;
+    font-size: 32px;
+    line-height: 44px;
+    font-weight: 600;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--color-grey-500);
+    margin-bottom: 32px; }
+    @media (max-width: 991px) {
+      .support-card__title {
+        font-size: 24px;
+        line-height: 32px; } }
+  .support-card__description {
+    font-family: "Poppins", "Roboto", "Arial", sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--color-grey-200);
+    margin-bottom: 32px; }
+    @media (max-width: 991px) {
+      .support-card__description {
+        font-size: 14px;
+        line-height: 22px; } }
+  .support-card__cta {
+    font-family: "Poppins", "Roboto", "Arial", sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--color-grey-200);
+    margin-bottom: 32px; }
+    @media (max-width: 991px) {
+      .support-card__cta {
+        font-size: 14px;
+        line-height: 22px; } }
+    .support-card__cta a {
+      font-family: "Poppins", "Roboto", "Arial", sans-serif;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-style: normal;
+      font-size: 16px;
+      line-height: 24px;
+      color: var(--color-grey-200);
+      -webkit-transition: all 0.3s ease;
+      transition: all 0.3s ease; }
+      @media (max-width: 991px) {
+        .support-card__cta a {
+          font-size: 14px;
+          line-height: 22px; } }
+      .support-card__cta a:hover {
+        color: white; }
+  .support-card__contacts {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 20px; }
+    .support-card__contacts .contact-item {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      gap: 28px; }
+      .support-card__contacts .contact-item .phone {
+        font-family: "PoppinsSBold", "Roboto", "Arial", sans-serif;
+        font-style: normal;
+        font-size: 24px;
+        line-height: 36px;
+        font-weight: 600; }
+        @media (max-width: 991px) {
+          .support-card__contacts .contact-item .phone {
+            font-size: 20px;
+            line-height: 28px; } }
+      .support-card__contacts .contact-item .contact-tag {
+        border-radius: 32px;
+        padding: 8px 20px;
+        background-image: url(../../assets/img/overlay.svg);
+        background-blend-mode: normal, overlay;
+        background-size: cover;
+        background-position: right top;
+        background-repeat: no-repeat;
+        background-position: center; }
+      .support-card__contacts .contact-item .badge {
+        font-family: "Poppins", "Roboto", "Arial", sans-serif;
+        font-weight: 400;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-style: normal;
+        font-size: 16px;
+        line-height: 24px;
+        background: linear-gradient(90deg, #81FEE5 0%, #818FFE 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent; }
+        @media (max-width: 991px) {
+          .support-card__contacts .contact-item .badge {
+            font-size: 14px;
+            line-height: 22px; } }
+
+.support-card .support-card__description {
+  font-family: "Poppins", "Roboto", "Arial", sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-grey-200);
+  margin-bottom: 32px; }
+  @media (max-width: 991px) {
+    .support-card .support-card__description {
+      font-size: 14px;
+      line-height: 22px; } }
+
+.support-card .support-card__cta {
+  font-family: "Poppins", "Roboto", "Arial", sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-grey-200);
+  margin-bottom: 32px; }
+  @media (max-width: 991px) {
+    .support-card .support-card__cta {
+      font-size: 14px;
+      line-height: 22px; } }
+  .support-card .support-card__cta a {
+    font-family: "Poppins", "Roboto", "Arial", sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--color-grey-200);
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease; }
+    @media (max-width: 991px) {
+      .support-card .support-card__cta a {
+        font-size: 14px;
+        line-height: 22px; } }
+    .support-card .support-card__cta a:hover {
+      color: white; }
+
+
+/*# sourceMappingURL=components-contact_card.css.map*/

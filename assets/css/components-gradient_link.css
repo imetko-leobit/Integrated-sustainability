@@ -1,0 +1,91 @@
+/*!*************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/styles/components/gradient_link.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************/
+/*images*/
+.gradient-link {
+  font-family: "Poppins", "Roboto", "Arial", sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 24px;
+  background: linear-gradient(90deg, #81FEE5 0%, #818FFE 100%);
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content; }
+  @media (max-width: 991px) {
+    .gradient-link {
+      font-size: 14px;
+      line-height: 22px; } }
+  .gradient-link--large {
+    font-family: "PoppinsLight", "Roboto", "Arial", sans-serif;
+    font-weight: 300;
+    -webkit-font-smoothing: subpixel-antialiased;
+    font-style: normal;
+    font-size: 17px;
+    line-height: 28px; }
+    @media (max-width: 991px) {
+      .gradient-link--large {
+        font-size: 16px;
+        line-height: 24px; } }
+  .gradient-link a {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    gap: 10px; }
+  .gradient-link .gradient-link__text {
+    display: block; }
+  .gradient-link .arrow-icon {
+    width: 24px;
+    height: 24px;
+    padding: 6px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-transition: -webkit-transform 0.3s ease;
+    transition: -webkit-transform 0.3s ease;
+    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, -webkit-transform 0.3s ease; }
+    .gradient-link .arrow-icon svg .icon-arrow {
+      fill: url(#svg-gradient-primary);
+      -webkit-transition: fill 0.3s ease;
+      transition: fill 0.3s ease; }
+  .gradient-link:hover {
+    color: white;
+    -webkit-text-fill-color: white;
+    background: none; }
+    .gradient-link:hover .arrow-icon {
+      -webkit-transform: translate(3px, -3px);
+      -ms-transform: translate(3px, -3px);
+      transform: translate(3px, -3px); }
+      .gradient-link:hover .arrow-icon svg .icon-arrow {
+        fill: white; }
+
+
+/*# sourceMappingURL=components-gradient_link.css.map*/

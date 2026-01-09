@@ -1,0 +1,148 @@
+@import "../common/variable";
+@import "../common/mixins";
+
+.block-insights {
+  padding: 0 0 180px;
+  position: relative;
+
+  @media (max-width: 991px) {
+    padding: 0 24px 80px;
+  }
+
+  &__wrapper {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      position: relative;
+      height: 100%;
+      gap: 56px;
+
+      @media (max-width: 1199px) {
+        grid-template-columns: 1fr;
+        grid-template-areas: 'center';
+        gap: 24px;
+      }
+  }
+
+  &__description {
+    grid-column: span 5;
+
+    @media (max-width: 1199px) {
+      grid-area: center;
+    }
+
+      &--text {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+      }
+  }
+
+  &__media {
+    
+    grid-column: 7 / -1;
+
+    @media (max-width: 1199px) {
+      grid-area: center;
+    }
+    @media (max-width: 991px) {
+      display: none;
+    }
+
+    .insights-card__image-wrapper {
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        bottom: -56px;
+        left: -56px;
+        height: 100%;
+        width: 100%;
+        @include bg-image;
+        overflow: hidden;
+        z-index: -1;
+
+        @media (max-width: 1199px) {
+          display: none;
+        }
+      }
+
+      .insights-card__image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+      }
+
+      .insights-person-card__wrapper {
+        position: absolute;
+        bottom: 88px;
+        left: 88px;
+        padding-right: 56px;
+        
+        .person-card {
+          background: rgba(0, 0, 0, 0.8);
+        }
+
+        @media (max-width: 991px) {
+          position: relative;
+          bottom: 0;
+          left: 0;
+          padding-right: 0;
+        }
+      }
+
+    }
+
+  }
+
+  .heading {
+    .title {
+          padding-bottom: 50px;
+
+          @media (max-width: 991px) {
+            padding-bottom: 30px;
+          }
+      }
+    .title--h2 {
+          @include text-h2;
+
+          @media (max-width: 991px) {
+            @include text-h5;
+          }
+      }
+  }
+
+  .text-content {
+      p {
+          margin-bottom: 16px;
+      }
+  }
+
+  &__action {
+    margin-top: 32px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+
+    .icon--active {
+
+      img {
+        width: 44px;
+        height: 44px;
+      }
+    }
+
+    .icon--active:hover {
+      img {
+        transform: translate(3px, 0);
+      }
+    }
+
+    .action-text {
+      @include text-body-large
+    }
+  }
+
+}

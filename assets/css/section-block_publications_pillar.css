@@ -1,0 +1,96 @@
+/*!**********************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/styles/section/block_publications_pillar.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************/
+/*images*/
+.block-publications-pillar {
+  padding: 0 0 80px; }
+  @media (max-width: 991px) {
+    .block-publications-pillar {
+      padding: 0 24px 48px; } }
+  @media (max-width: 991px) {
+    .block-publications-pillar .publications {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      overflow-x: auto;
+      -ms-flex-direction: flex-start;
+      flex-direction: flex-start;
+      gap: 16px;
+      margin-top: 32px;
+      scrollbar-width: none; }
+      .block-publications-pillar .publications::-webkit-scrollbar {
+        display: none; }
+      .block-publications-pillar .publications .post-card {
+        min-width: 70vw; }
+        .block-publications-pillar .publications .post-card .post-card__image-wrapper {
+          -webkit-filter: grayscale(0%);
+          filter: grayscale(0%); }
+        .block-publications-pillar .publications .post-card .post-card__content {
+          height: -webkit-fit-content;
+          height: -moz-fit-content;
+          height: fit-content;
+          -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+          background: rgba(0, 0, 0, 0.5);
+          padding: 24px 24px 60px; }
+          .block-publications-pillar .publications .post-card .post-card__content .post-card__title {
+            -webkit-line-clamp: 3;
+            font-family: "PoppinsMedium", "Roboto", "Arial", sans-serif;
+            font-style: normal;
+            font-size: 20px;
+            line-height: 30px;
+            font-weight: 500; } }
+        @media (max-width: 991px) and (max-width: 991px) {
+          .block-publications-pillar .publications .post-card .post-card__content .post-card__title {
+            font-size: 18px;
+            line-height: 26px; } }
+  @media (max-width: 991px) {
+          .block-publications-pillar .publications .post-card .post-card__content .post-card__description {
+            visibility: visible;
+            opacity: 1;
+            font-family: "PoppinsMedium", "Roboto", "Arial", sans-serif;
+            font-style: normal;
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 500; } }
+        @media (max-width: 991px) and (max-width: 991px) {
+          .block-publications-pillar .publications .post-card .post-card__content .post-card__description {
+            font-family: "Poppins", "Roboto", "Arial", sans-serif;
+            font-style: normal;
+            font-size: 12px;
+            line-height: 18px;
+            font-weight: 400; } }
+  @media (max-width: 991px) {
+          .block-publications-pillar .publications .post-card .post-card__content::after {
+            display: none; }
+        .block-publications-pillar .publications .post-card .post-card__arrow {
+          bottom: 24px;
+          left: 24px; }
+          .block-publications-pillar .publications .post-card .post-card__arrow .arrow-text {
+            visibility: visible;
+            margin-right: 14px;
+            width: auto; }
+          .block-publications-pillar .publications .post-card .post-card__arrow .arrow-icon {
+            padding: 4px; }
+            .block-publications-pillar .publications .post-card .post-card__arrow .arrow-icon svg .icon-arrow {
+              fill: url(#svg-gradient-primary); } }
+  @media (max-width: 767px) {
+    .block-publications-pillar .posts__actions {
+      display: none; } }
+  .block-publications-pillar .additional-card {
+    height: 100%;
+    width: 100%; }
+  .block-publications-pillar .pillar-card,
+  .block-publications-pillar .post-card {
+    height: 550px; }
+    @media (max-width: 991px) {
+      .block-publications-pillar .pillar-card,
+      .block-publications-pillar .post-card {
+        height: 360px; } }
+
+
+/*# sourceMappingURL=section-block_publications_pillar.css.map*/

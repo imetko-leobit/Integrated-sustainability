@@ -1,0 +1,280 @@
+/*!*****************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/styles/section/block_approach_intro.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************/
+/*images*/
+.block-approach-intro {
+  padding: 0 0 180px;
+  /* --- Scroll Link Style --- */
+  /* --- Person Card (Right Column) --- */ }
+  @media (max-width: 991px) {
+    .block-approach-intro {
+      padding: 0 24px 80px; } }
+  .block-approach-intro__wrapper {
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+    gap: 56px;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    width: 100%; }
+    @media (max-width: 1199px) {
+      .block-approach-intro__wrapper {
+        grid-template-columns: 6fr 6fr;
+        gap: 32px; } }
+    @media (max-width: 991px) {
+      .block-approach-intro__wrapper {
+        grid-template-columns: 1fr;
+        gap: 32px; } }
+  .block-approach-intro__col--text {
+    grid-column: 1;
+    padding-right: 80px; }
+    @media (max-width: 1199px) {
+      .block-approach-intro__col--text {
+        padding-right: 0; } }
+  .block-approach-intro__col--media {
+    grid-column: 2;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    position: relative; }
+    @media (max-width: 991px) {
+      .block-approach-intro__col--media {
+        display: none; } }
+    .block-approach-intro__col--media::before {
+      content: '';
+      position: absolute;
+      bottom: 0px;
+      right: 0px;
+      height: calc(100% - 56px);
+      width: calc(100% - 56px);
+      background-image: url(../../assets/img/overlay.svg);
+      background-blend-mode: normal, overlay;
+      background-size: cover;
+      background-position: right top;
+      background-repeat: no-repeat;
+      overflow: hidden;
+      z-index: -1; }
+    .block-approach-intro__col--media img {
+      padding-right: 56px;
+      padding-bottom: 56px;
+      width: 100%;
+      height: 100%;
+      -o-object-fit: contain;
+      object-fit: contain;
+      display: block; }
+    @media (max-width: 991px) {
+      .block-approach-intro__col--media {
+        grid-column: 1; } }
+  .block-approach-intro .heading {
+    padding-bottom: 40px; }
+    @media (max-width: 991px) {
+      .block-approach-intro .heading {
+        padding-bottom: 16px; } }
+    .block-approach-intro .heading .title--h3 {
+      font-family: "PoppinsSBold", "Roboto", "Arial", sans-serif;
+      font-style: normal;
+      font-size: 32px;
+      line-height: 44px;
+      font-weight: 600; }
+      @media (max-width: 991px) {
+        .block-approach-intro .heading .title--h3 {
+          font-size: 24px;
+          line-height: 32px; } }
+      @media (max-width: 991px) {
+        .block-approach-intro .heading .title--h3 {
+          font-family: "PoppinsMedium", "Roboto", "Arial", sans-serif;
+          font-style: normal;
+          font-size: 20px;
+          line-height: 30px;
+          font-weight: 500; } }
+  @media (max-width: 991px) and (max-width: 991px) {
+    .block-approach-intro .heading .title--h3 {
+      font-size: 18px;
+      line-height: 26px; } }
+  .block-approach-intro .text-content {
+    margin-bottom: 2rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 20px; }
+    .block-approach-intro .text-content p {
+      margin-bottom: 1rem; }
+  .block-approach-intro .block-approach-intro__actions {
+    font-family: "PoppinsLight", "Roboto", "Arial", sans-serif;
+    font-weight: 300;
+    -webkit-font-smoothing: subpixel-antialiased;
+    font-style: normal;
+    font-size: 17px;
+    line-height: 28px;
+    margin-top: 40px;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 20px; }
+    @media (max-width: 991px) {
+      .block-approach-intro .block-approach-intro__actions {
+        font-size: 16px;
+        line-height: 24px; } }
+    @media (max-width: 991px) {
+      .block-approach-intro .block-approach-intro__actions {
+        margin-top: 0px; } }
+    .block-approach-intro .block-approach-intro__actions .link-with-arrow {
+      display: -webkit-inline-box;
+      display: -ms-inline-flexbox;
+      display: inline-flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      text-decoration: none;
+      color: white;
+      font-size: 16px; }
+      .block-approach-intro .block-approach-intro__actions .link-with-arrow .icon-arrow-down {
+        background: white;
+        border: none;
+        border-radius: 50%;
+        padding: 6px;
+        width: 30px;
+        height: 30px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        cursor: pointer;
+        -webkit-transition: background 0.3s ease;
+        transition: background 0.3s ease; }
+        .block-approach-intro .block-approach-intro__actions .link-with-arrow .icon-arrow-down svg {
+          color: var(--color-black);
+          display: block;
+          height: 100%; }
+          .block-approach-intro .block-approach-intro__actions .link-with-arrow .icon-arrow-down svg .icon-arrow {
+            fill: var(--color-black); }
+      .block-approach-intro .block-approach-intro__actions .link-with-arrow:hover {
+        -webkit-transform: translate(0, 3px);
+        -ms-transform: translate(0, 3px);
+        transform: translate(0, 3px); }
+  .block-approach-intro .approach-media-link {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: white;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease; }
+  .block-approach-intro .approach-person-card {
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center; }
+    @media (max-width: 991px) {
+      .block-approach-intro .approach-person-card {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        gap: 16px;
+        padding: 24px; } }
+    .block-approach-intro .approach-person-card__image-container {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 20px;
+      padding: 4px; }
+      @media (max-width: 991px) {
+        .block-approach-intro .approach-person-card__image-container {
+          width: 80px;
+          height: 80px;
+          margin-bottom: 0; } }
+      .block-approach-intro .approach-person-card__image-container .approach-person-card__image {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        border-radius: 50%;
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+        -webkit-transition: -webkit-filter 0.5s ease;
+        transition: -webkit-filter 0.5s ease;
+        transition: filter 0.5s ease;
+        transition: filter 0.5s ease, -webkit-filter 0.5s ease; }
+    .block-approach-intro .approach-person-card .approach-person-card__info {
+      text-align: left; }
+      .block-approach-intro .approach-person-card .approach-person-card__info .approach-person-card__name {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 6px; }
+        @media (max-width: 991px) {
+          .block-approach-intro .approach-person-card .approach-person-card__info .approach-person-card__name {
+            font-family: "PoppinsMedium", "Roboto", "Arial", sans-serif;
+            font-style: normal;
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 500;
+            margin-bottom: 0; } }
+      .block-approach-intro .approach-person-card .approach-person-card__info .approach-person-card__credentials {
+        font-family: "Poppins", "Roboto", "Arial", sans-serif;
+        font-style: normal;
+        font-size: 15px;
+        line-height: 24px;
+        font-weight: 400;
+        margin-bottom: 16px; }
+        @media (max-width: 991px) {
+          .block-approach-intro .approach-person-card .approach-person-card__info .approach-person-card__credentials {
+            font-size: 12px;
+            line-height: 20px; } }
+        @media (max-width: 991px) {
+          .block-approach-intro .approach-person-card .approach-person-card__info .approach-person-card__credentials {
+            margin-bottom: 12px; } }
+      .block-approach-intro .approach-person-card .approach-person-card__info .approach-person-card__title {
+        font-family: "Poppins", "Roboto", "Arial", sans-serif;
+        font-style: normal;
+        font-size: 15px;
+        line-height: 24px;
+        font-weight: 400;
+        font-size: 16px; }
+        @media (max-width: 991px) {
+          .block-approach-intro .approach-person-card .approach-person-card__info .approach-person-card__title {
+            font-size: 12px;
+            line-height: 20px; } }
+  .block-approach-intro .approach-media-link:hover .approach-person-card__image {
+    -webkit-filter: grayscale(0%);
+    filter: grayscale(0%); }
+  .block-approach-intro .accordion {
+    padding: 0 20px 56px; }
+    .block-approach-intro .accordion .accordion-item__divider {
+      visibility: hidden;
+      padding-top: 6px; }
+
+
+/*# sourceMappingURL=section-block_approach_intro.css.map*/

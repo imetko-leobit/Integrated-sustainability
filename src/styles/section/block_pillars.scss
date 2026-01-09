@@ -1,0 +1,15 @@
+@import "../common/variable";
+@import "../common/mixins";
+
+.block-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 56px;
+  padding-bottom: 140px;
+
+  @media (max-width: 1199px)  {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-bottom: 48px;
+  }
+}

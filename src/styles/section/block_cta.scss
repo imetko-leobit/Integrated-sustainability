@@ -1,0 +1,220 @@
+@import "../common/variable";
+@import "../common/mixins";
+
+.block-cta {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 60px 0 180px;
+
+    @media (max-width: 991px) {
+        padding: 24px;
+    }
+
+  &__background {
+      width: 100%;
+      height: 90vh;
+      min-height: 600px;
+      max-height: 800px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .block-cta__image {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+        background-position: center;
+
+        @media (max-width: 991px) {
+            height: 100%;
+        }
+
+      }
+  }
+
+  &__card-wrapper {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+
+        @media (max-width: 991px) {
+            bottom: 0;
+            justify-content: center;
+        }
+  }
+
+  &__card {
+      margin: 0 auto;
+      padding: 60px;
+      max-width: 600px;
+      width: 100%;
+      @include bg-image;
+      backdrop-filter: blur(5px);
+
+    @media (max-width: 991px) {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        padding: 48px;
+        margin: 0;
+    }
+    
+    @media (max-width: 767px) {
+        padding: 32px 24px;
+    }
+  }
+  
+  &__card-content {
+      color: white;
+      text-align: center;
+      padding: 16px;  
+  }
+
+  .title {
+      padding-bottom: 28px;
+
+      @media (max-width: 991px) {
+        padding-bottom: 16px;
+    }
+  }
+  .title--h2 {
+      @include text-h2;
+  }
+
+  &__description {
+      @include text-body-large;
+      padding-bottom: 70px;
+
+      @media (max-width: 991px) {
+        @include text-body-base;
+        padding-bottom: 32px;
+    }
+  }
+
+  &--center {
+      justify-content: center;
+      .block-cta__card {
+          min-width: 760px;
+          margin: 0;
+
+        @media (max-width: 991px) {
+            min-width: 100%;
+
+            .block-cta__card-content {
+              padding: 24px 0;
+            }
+        }
+      }
+  }
+  
+  &--default {
+      .block-cta__card-wrapper {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 56px;
+
+        @media (max-width: 991px) {
+          display: flex;
+          justify-content: flex-end;
+        }
+      }
+      .block-cta__card {
+          grid-column: 7/12;
+          height: 100%;
+          padding: 60px;
+          max-width: 100%;
+
+        @media (max-width: 1599px) {
+            padding: 48px;
+        }
+        @media (max-width: 991px) {
+            min-width: 100%;
+            margin: 0;
+            padding: 48px 16px;
+            height: auto;
+        }
+        @media (max-width: 767px) {
+            padding: 24px 16px;
+            height: fit-content;
+
+            .block-cta__card-wrapper {
+              justify-content: flex-end;
+            }
+        }
+      }
+
+      .block-cta__card-content {
+          text-align: left;
+          padding-top: 70px;
+
+          @media (max-width: 991px) {
+            padding: 0;
+        }
+      }
+  }
+
+  &--right {
+      .block-cta__card-wrapper {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 56px;
+
+        @media (max-width: 991px) {
+          display: flex;
+          justify-content: flex-end;
+        }
+      }
+      .block-cta__card {
+          grid-column: 8/13;
+          height: 100%;
+          padding: 60px;
+          max-width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+
+        @media (max-width: 1599px) {
+            padding: 48px;
+        }
+        @media (max-width: 991px) {
+            min-width: 100%;
+            margin: 0;
+            padding: 48px 16px;
+            height: auto;
+        }
+        @media (max-width: 767px) {
+            padding: 24px 16px;
+            height: fit-content;
+
+            .block-cta__card-wrapper {
+              justify-content: flex-end;
+            }
+        }
+      }
+
+      .block-cta__card-content {
+          text-align: left;
+
+          @media (max-width: 991px) {
+            padding: 0;
+        }
+      }
+  }
+  .btn--gradient {
+    min-width: 320px;
+
+    @media (max-width: 991px) {
+        min-width: 260px;
+        width: 260px;
+    }
+  }
+}

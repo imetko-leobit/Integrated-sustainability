@@ -1,0 +1,162 @@
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/styles/components/person_card.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************/
+/*images*/
+.person-card {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  gap: 42px;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+  padding: 36px; }
+  @media (max-width: 991px) {
+    .person-card {
+      gap: 16px;
+      padding: 24px;
+      width: 100%;
+      height: -webkit-fit-content;
+      height: -moz-fit-content;
+      height: fit-content;
+      -webkit-box-pack: start;
+      -ms-flex-pack: start;
+      justify-content: flex-start; } }
+  @media (max-width: 767px) {
+    .person-card {
+      gap: 16px;
+      padding: 24px;
+      width: 100%; } }
+  .person-card .person-card__content {
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    gap: 42px;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center; }
+    @media (max-width: 991px) {
+      .person-card .person-card__content {
+        gap: 16px; } }
+    @media (max-width: 767px) {
+      .person-card .person-card__content {
+        gap: 16px; } }
+  .person-card__image-container {
+    width: 125px;
+    height: 125px;
+    min-width: 125px;
+    border-radius: 50%;
+    overflow: hidden; }
+    .person-card__image-container .person-card__image {
+      height: 100%;
+      -o-object-fit: cover;
+      object-fit: cover;
+      -webkit-filter: grayscale(100%);
+      filter: grayscale(100%);
+      -webkit-transition: -webkit-filter 0.5s ease;
+      transition: -webkit-filter 0.5s ease;
+      transition: filter 0.5s ease;
+      transition: filter 0.5s ease, -webkit-filter 0.5s ease; }
+    @media (max-width: 1199px) {
+      .person-card__image-container {
+        width: 80px;
+        height: 80px;
+        min-width: 80px; } }
+  .person-card .person-card__info {
+    text-align: left; }
+    .person-card .person-card__info .card__name {
+      font-size: 20px;
+      font-weight: 600;
+      border: none;
+      padding: 0;
+      margin: 0; }
+      @media (max-width: 991px) {
+        .person-card .person-card__info .card__name {
+          font-family: "PoppinsMedium", "Roboto", "Arial", sans-serif;
+          font-style: normal;
+          font-size: 14px;
+          line-height: 20px;
+          font-weight: 500; } }
+    .person-card .person-card__info .card__credentials {
+      font-family: "Poppins", "Roboto", "Arial", sans-serif;
+      font-style: normal;
+      font-size: 15px;
+      line-height: 24px;
+      font-weight: 400;
+      margin-bottom: 16px; }
+      @media (max-width: 991px) {
+        .person-card .person-card__info .card__credentials {
+          font-size: 12px;
+          line-height: 20px; } }
+      @media (max-width: 991px) {
+        .person-card .person-card__info .card__credentials {
+          margin-bottom: 12px; } }
+    .person-card .person-card__info .card__title {
+      font-family: "Poppins", "Roboto", "Arial", sans-serif;
+      font-style: normal;
+      font-size: 15px;
+      line-height: 24px;
+      font-weight: 400;
+      font-size: 16px; }
+      @media (max-width: 991px) {
+        .person-card .person-card__info .card__title {
+          font-size: 12px;
+          line-height: 20px; } }
+    .person-card .person-card__info .person-card__description {
+      font-family: "PoppinsMedium", "Roboto", "Arial", sans-serif;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 30px;
+      font-weight: 500;
+      padding-bottom: 16px; }
+      @media (max-width: 991px) {
+        .person-card .person-card__info .person-card__description {
+          font-size: 18px;
+          line-height: 26px; } }
+    .person-card .person-card__info .arrow-icon {
+      width: 32px;
+      height: 32px;
+      padding: 8px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-transition: -webkit-transform 0.3s ease;
+      transition: -webkit-transform 0.3s ease;
+      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, -webkit-transform 0.3s ease; }
+  .person-card:hover .person-card__image {
+    -webkit-filter: none;
+    filter: none; }
+  .person-card:hover .arrow-icon {
+    -webkit-transform: translate(3px, -3px);
+    -ms-transform: translate(3px, -3px);
+    transform: translate(3px, -3px); }
+
+
+/*# sourceMappingURL=components-person_card.css.map*/

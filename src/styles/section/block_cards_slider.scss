@@ -1,0 +1,68 @@
+@import "../common/variable";
+@import "../common/mixins";
+@import "../components/post_card";
+
+.cards-slider {
+  padding: 0 0 80px;
+
+  @media (max-width: 991px) {
+    padding: 0 24px 60px;
+  }
+
+  .heading {
+    position: relative;
+    margin-bottom: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 48px;
+    padding-bottom: 70px;
+
+    @media (max-width: 991px) {
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+    }
+  }
+
+  .cards-navigation {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    @media (max-width: 991px) {
+      display: none;
+    }
+  }
+
+  .swiper-container {
+    overflow: hidden;
+  }
+
+  .swiper-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    @media (max-width: 991px) {
+      flex-direction: column;
+    }
+  }
+
+  .js-button-prev,
+  .js-button-next {
+    position: static;
+    margin: 0;
+    @include button-arrow;
+
+    &::after {
+      content: "";
+      display: none;
+    }
+  }
+
+  .swiper-button-disabled.btn--arrow {
+    background-color: var(--color-grey-500);
+    color: var(--color-black);
+    pointer-events: none;
+  }
+}

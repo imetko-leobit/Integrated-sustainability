@@ -1,0 +1,28 @@
+.block-publications-simple {
+  padding: 0 0 60px ;
+
+  @media (max-width: 991px) {
+    padding: 0 24px 48px;
+  }
+
+  .publications {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 56px;
+
+    @media (max-width: 1199px) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+    }
+
+    @media (max-width: 991px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 767px) {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+}
