@@ -1,5 +1,11 @@
 <?php
 
+// Optional parameter to control text positioning
+// Set $text_below = true to position text below the image
+if (!isset($text_below)) {
+    $text_below = false;
+}
+
 $projects = [
     [
         'title' => '600m³/day mine water treatment plant design & commissioning',
@@ -26,13 +32,16 @@ $portfolio_links_json = json_encode($portfolio_links);
 
 $projects_page_link = '/insights';
 
+// Build CSS class with modifier if text_below is enabled
+$wrapper_class = 'block-projects__wrapper' . ($text_below ? ' block-projects__wrapper--text-below' : '');
+
 ?>
 
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 <link rel="stylesheet" href="../assets/css/section-block_projects.css" />
 <link rel="stylesheet" href="../assets/css/components-gradient_link.css" />
 <section class="block-projects">
-  <div class="block-projects__wrapper">
+  <div class="<?php echo $wrapper_class; ?>">
 
     <div class="block-projects__media block-projects__col--image">
       <div class="swiper-container js-projects-image-slider">

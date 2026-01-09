@@ -39,6 +39,28 @@
         display: none;
       }
     }
+
+    // Modifier class for text-below layout
+    &--text-below {
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: auto auto;
+
+      .block-projects__media {
+        grid-column: span 12;
+        grid-row: 1;
+      }
+
+      .block-projects__description {
+        grid-column: span 12;
+        grid-row: 2;
+        padding-top: 48px;
+        padding-right: 0;
+
+        @media (max-width: 991px) {
+          padding-top: 0;
+        }
+      }
+    }
   }
 
   .block-projects__media {
