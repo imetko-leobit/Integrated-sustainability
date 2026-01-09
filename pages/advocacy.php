@@ -31,9 +31,38 @@
         include('../components/sections/block-section-heading.php');
     ?>
     <?php
-      $top_tagline = 'mission statement';
-
-    include('../components/sections/block-fragmentation-small.php')
+      // Define data for the reusable block component
+      $tagline = 'mission statement';
+      $title = 'creating the optimum conditions for high-performance infrastructure';
+      $paragraphs = [
+        'To us, advocacy is a structured process of collaboration built on evidence and a shared purpose. It aligns technical innovation, academic insight, and local expertise to establish the consensus that turns ambition into responsible assets - for all stakeholders.',
+        'Through this model, we strengthen the three fundamentals of project success—feasibility, acceptability, and viability—and create a continuous feedback system that drives performance from concept through operation.',
+        'Advocacy connects performance with responsibility and is key to unlocking better environmental, social, and commercial outcomes.'
+      ];
+      $button = [
+        'url' => '/services',
+        'label' => 'Read More'
+      ];
+      $grid_items = [
+        ['icon' => '', 'label' => ''],
+        ['icon' => 'regulatory.svg', 'label' => 'academic partnerships'],
+        ['icon' => '', 'label' => ''],
+        ['icon' => 'carbon.svg', 'label' => 'technology advocacy'],
+        ['icon' => 'equipment.svg', 'label' => 'community empowerment'],
+        ['icon' => '', 'label' => ''],
+        ['icon' => 'compliance.svg', 'label' => 'project success'],
+      ];
+      $center_item = [
+        'type' => 'image',
+        'content' => '../assets/img/directions.svg'
+      ];
+      // Optional checkbox list (not used in this instance)
+      // $checkbox_list = [
+      //   ['icon' => 'check.svg', 'label' => 'Item 1'],
+      //   ['icon' => 'check.svg', 'label' => 'Item 2']
+      // ];
+      
+      include('../components/sections/block_reusable.php')
     ?>
 
     <?php
