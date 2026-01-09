@@ -15,6 +15,7 @@
   &__col {
       padding-top: 12px;
       padding-bottom: 66px;
+      /* Half of the parent gap (80px / 2 = 40px) */
       width: calc(50% - 40px);
       
       @media (max-width: 1199px) {

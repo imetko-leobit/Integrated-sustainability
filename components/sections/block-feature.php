@@ -69,7 +69,7 @@ function render_grid_items_feature($items, $center_item) {
           <div class="performance-grid__item <?php echo !empty($center_item) && $center_item['type'] === 'image' ? 'performance-grid__item--square' : ''; ?>">
             <?php if (!empty($item['icon'])): ?>
             <div class="performance-grid__icon">
-              <img src="../assets/img/<?php echo $item['icon']; ?>" alt="<?php echo htmlspecialchars($item['label']); ?>">
+              <img src="../assets/img/<?php echo htmlspecialchars($item['icon']); ?>" alt="<?php echo htmlspecialchars($item['label']); ?>">
             </div>
             <?php endif; ?>
             <span class="performance-grid__label"><?php echo htmlspecialchars($item['label']); ?></span>
