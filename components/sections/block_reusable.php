@@ -26,11 +26,11 @@ function render_grid_items_reusable($items, $center_item) {
         if ($index === 4 && !empty($center_item)): ?>
           <?php if ($center_item['type'] === 'image'): ?>
           <div class="performance-grid__item performance-grid__item--center-img">
-            <img src="<?php echo $center_item['content']; ?>" />
+            <img src="<?php echo htmlspecialchars($center_item['content']); ?>" />
           </div>
           <?php else: ?>
           <div class="performance-grid__item performance-grid__item--center">
-            <span class="text-gradient"><?php echo $center_item['content']; ?></span>
+            <span class="text-gradient"><?php echo htmlspecialchars($center_item['content']); ?></span>
           </div>
           <?php endif; ?>
         <?php endif; ?>
@@ -63,12 +63,12 @@ function render_grid_items_reusable($items, $center_item) {
     <?php endif; ?>
     <div class="heading">
       <h3 class="title title--h3">
-        <?php echo $title; ?>
+        <?php echo htmlspecialchars($title); ?>
       </h3>
     </div>
     <div class="text-content text-content--large text-content--grey">
       <?php foreach ($paragraphs as $paragraph): ?>
-      <p><?php echo $paragraph; ?></p>
+      <p><?php echo htmlspecialchars($paragraph); ?></p>
       <?php endforeach; ?>
     </div>
     
