@@ -62,9 +62,9 @@ function render_grid_items_feature($items, $center_item) {
           </div>
           <?php endif; ?>
         <?php endif; ?>
+        <?php if (!empty($item['label'])): ?>
         <a href="/services#<?php echo urlencode($item['label']); ?>"
-          class="performance-grid__link <?php echo empty($item['label']) ? 'hidden' : ''; ?>"
-          aria-hidden="<?php echo empty($item['label']) ? 'true' : 'false'; ?>"
+          class="performance-grid__link"
           aria-label="Learn more about <?php echo htmlspecialchars($item['label']); ?> services">
           <div class="performance-grid__item <?php echo !empty($center_item) && $center_item['type'] === 'image' ? 'performance-grid__item--square' : ''; ?>">
             <?php if (!empty($item['icon'])): ?>
@@ -72,11 +72,10 @@ function render_grid_items_feature($items, $center_item) {
               <img src="../assets/img/<?php echo $item['icon']; ?>" alt="<?php echo htmlspecialchars($item['label']); ?>">
             </div>
             <?php endif; ?>
-            <?php if (!empty($item['label'])): ?>
             <span class="performance-grid__label"><?php echo htmlspecialchars($item['label']); ?></span>
-            <?php endif; ?>
           </div>
         </a>
+        <?php endif; ?>
     <?php endforeach;
 }
 ?>
