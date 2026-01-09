@@ -20,7 +20,7 @@
       
       @media (max-width: 1199px) {
         width: 100%;
-        padding-top: none;
+        padding-top: 0;
       }
   }
 
@@ -103,11 +103,11 @@
     flex-direction: row;
     
     .block-feature__col--text {
-      order: 1;
+      order: 2;
     }
     
     .block-feature__col--media {
-      order: 2;
+      order: 1;
     }
   }
 
@@ -128,10 +128,6 @@
     
     .block-feature__col {
       width: 100%;
-      
-      @media (min-width: 1200px) {
-        width: 100%;
-      }
     }
     
     .block-feature__col--text {
@@ -152,10 +148,6 @@
     
     .block-feature__col {
       width: 100%;
-      
-      @media (min-width: 1200px) {
-        width: 100%;
-      }
     }
     
     .block-feature__col--text {

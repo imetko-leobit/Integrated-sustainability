@@ -16,8 +16,8 @@
  * - $center_item (array, optional): Center grid item with 'type' ('image' or 'text'), and 'content' (image path or text)
  * - $checkbox_list (array, optional): Array of items with 'label' key. Note: 'icon' key is ignored; checkmarks are added via CSS using the item-marked mixin.
  * - $layout (string, optional): Layout configuration
- *     - 'image-left' (default): Text left, image/grid right
- *     - 'image-right': Text left, image/grid right (same as default)
+ *     - 'image-left': Image/grid left, text right
+ *     - 'image-right' (default): Text left, image/grid right
  *     - 'image-top': Image/grid top, text bottom
  *     - 'image-bottom': Text top, image/grid bottom
  *
@@ -44,7 +44,7 @@
 // Set defaults for optional variables
 $tagline = $tagline ?? '';
 $checkbox_list = $checkbox_list ?? [];
-$layout = $layout ?? 'image-left';
+$layout = $layout ?? 'image-right';
 
 /**
  * Helper function to render grid items with proper encoding
