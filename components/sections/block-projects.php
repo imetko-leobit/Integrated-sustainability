@@ -5,6 +5,8 @@
 if (!isset($text_below)) {
     $text_below = false;
 }
+// Ensure $text_below is a boolean
+$text_below = (bool) $text_below;
 
 $projects = [
     [
@@ -41,7 +43,7 @@ $wrapper_class = 'block-projects__wrapper' . ($text_below ? ' block-projects__wr
 <link rel="stylesheet" href="../assets/css/section-block_projects.css" />
 <link rel="stylesheet" href="../assets/css/components-gradient_link.css" />
 <section class="block-projects">
-  <div class="<?php echo $wrapper_class; ?>">
+  <div class="<?php echo htmlspecialchars($wrapper_class, ENT_QUOTES, 'UTF-8'); ?>">
 
     <div class="block-projects__media block-projects__col--image">
       <div class="swiper-container js-projects-image-slider">
