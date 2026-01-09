@@ -46,6 +46,10 @@
         include('../components/sections/block-section-heading.php');
     ?>
 
+    <?php
+      $text_below = true;
+      include('../components/sections/block-projects.php');
+    ?>
 
     <?php
         $section_title = "translate research into operational insight";

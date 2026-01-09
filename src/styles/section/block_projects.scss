@@ -39,6 +39,28 @@
         display: none;
       }
     }
+
+    // Modifier class for text-below layout
+    &--text-below {
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: auto auto;
+
+      .block-projects__media {
+        grid-column: span 12;
+        grid-row: 1;
+      }
+
+      .block-projects__description {
+        grid-column: span 12;
+        grid-row: 2;
+        padding-top: 48px;
+        padding-right: 0;
+
+        @media (max-width: 991px) {
+          padding-top: 0;
+        }
+      }
+    }
   }
 
   .block-projects__media {
@@ -80,7 +102,7 @@
   .block-projects__col--image {
     flex: 1 1 100%;
     max-width: 100%;
-    overflow: hidden; 
+    overflow: hidden;
     height: 100%;
   }
 
@@ -99,7 +121,7 @@
   }
 
   .js-projects-text-slider {
-    overflow: visible; 
+    overflow: visible;
   }
 
   .projects-navigation {
@@ -140,12 +162,12 @@
 
   .swiper-button-prev,
   .swiper-button-next {
-    position: static; 
+    position: static;
     margin: 0;
     @include button-arrow;
-    
+
     &::after {
-        content: ''; 
+        content: '';
         display: none;
     }
   }
