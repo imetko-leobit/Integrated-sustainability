@@ -108,8 +108,8 @@ function render_grid_items_feature($items, $center_item) {
     <?php endif; ?>
 
     <div class="block-feature__actions">
-      <a href="<?php echo htmlspecialchars($button['url']); ?>" aria-label="<?php echo htmlspecialchars($button['label']); ?>">
-        <button class="btn btn--gradient"><?php echo htmlspecialchars($button['label']); ?></button>
+      <a href="<?php echo htmlspecialchars($button['url']); ?>" class="btn btn--gradient" aria-label="<?php echo htmlspecialchars($button['label']); ?>">
+        <?php echo htmlspecialchars($button['label']); ?>
       </a>
     </div>
   </div>
