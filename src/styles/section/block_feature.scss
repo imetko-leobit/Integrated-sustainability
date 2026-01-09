@@ -30,6 +30,12 @@
       }
   }
 
+  &.no-right-content {
+    .block-feature__col--text {
+      width: 100%;
+    }
+  }
+
   .heading {
       padding-bottom: 40px;
       .title--h3 {

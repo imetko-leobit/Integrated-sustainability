@@ -20,46 +20,47 @@
 $tagline = $tagline ?? '';
 $checkbox_list = $checkbox_list ?? [];
 $layout = $layout ?? 'image-left';
+$right_content = $right_content ?? '';
 
 /**
  * Helper function to render grid items with proper encoding
  */
 $render_grid_items_feature = function($items, $center_item) {
-    foreach ($items as $index => $item):
-        if ($index === 4 && !empty($center_item)): ?>
-          <?php if ($center_item['type'] === 'image'): ?>
-          <div class="performance-grid__item performance-grid__item--center-img">
-            <img src="<?php echo htmlspecialchars($center_item['content']); ?>" />
-          </div>
-          <?php else: ?>
-          <div class="performance-grid__item performance-grid__item--center">
-            <span class="text-gradient"><?php echo htmlspecialchars($center_item['content']); ?></span>
+  foreach ($items as $index => $item):
+      if ($index === 4 && !empty($center_item)): ?>
+        <?php if ($center_item['type'] === 'image'): ?>
+        <div class="performance-grid__item performance-grid__item--center-img">
+          <img src="<?php echo htmlspecialchars($center_item['content']); ?>" />
+        </div>
+        <?php else: ?>
+        <div class="performance-grid__item performance-grid__item--center">
+          <span class="text-gradient"><?php echo htmlspecialchars($center_item['content']); ?></span>
+        </div>
+        <?php endif; ?>
+      <?php endif; ?>
+      <a href="/services#<?php echo urlencode($item['label']); ?>"
+        class="performance-grid__link <?php echo empty($item['label']) ? 'hidden' : ''; ?>"
+        aria-hidden="<?php echo empty($item['label']) ? 'true' : 'false'; ?>"
+        aria-label="Learn more about <?php echo htmlspecialchars($item['label']); ?> services">
+        <div class="performance-grid__item <?php echo !empty($center_item) && $center_item['type'] === 'image' ? 'performance-grid__item--square' : ''; ?>">
+          <?php if (!empty($item['icon'])): ?>
+          <div class="performance-grid__icon">
+            <img src="../assets/img/<?php echo $item['icon']; ?>" alt="<?php echo htmlspecialchars($item['label']); ?>">
           </div>
           <?php endif; ?>
-        <?php endif; ?>
-        <a href="/services#<?php echo urlencode($item['label']); ?>"
-          class="performance-grid__link <?php echo empty($item['label']) ? 'hidden' : ''; ?>"
-          aria-hidden="<?php echo empty($item['label']) ? 'true' : 'false'; ?>"
-          aria-label="Learn more about <?php echo htmlspecialchars($item['label']); ?> services">
-          <div class="performance-grid__item <?php echo !empty($center_item) && $center_item['type'] === 'image' ? 'performance-grid__item--square' : ''; ?>">
-            <?php if (!empty($item['icon'])): ?>
-            <div class="performance-grid__icon">
-              <img src="../assets/img/<?php echo $item['icon']; ?>" alt="<?php echo htmlspecialchars($item['label']); ?>">
-            </div>
-            <?php endif; ?>
-            <?php if (!empty($item['label'])): ?>
-            <span class="performance-grid__label"><?php echo htmlspecialchars($item['label']); ?></span>
-            <?php endif; ?>
-          </div>
-        </a>
-    <?php endforeach;
-};
+          <?php if (!empty($item['label'])): ?>
+          <span class="performance-grid__label"><?php echo htmlspecialchars($item['label']); ?></span>
+          <?php endif; ?>
+        </div>
+      </a>
+  <?php endforeach;
+  };
 ?>
 
 <link rel="stylesheet" href="../assets/css/section-block_feature.css" />
 <link rel="stylesheet" href="../assets/css/components-performance_grid.css" />
 
-<section class="block-feature block-feature--<?php echo htmlspecialchars($layout); ?>">
+<section class="block-feature block-feature--<?php echo htmlspecialchars($layout); ?> <?php echo !empty($right_content) ? '' : 'no-right-content'; ?>">
   <div class="block-feature__col block-feature__col--text">
     <?php if (!empty($tagline)): ?>
     <p class="tagline"><?php echo htmlspecialchars($tagline); ?></p>
@@ -90,23 +91,11 @@ $render_grid_items_feature = function($items, $center_item) {
     </div>
   </div>
 
+  <?php if (!empty($right_content)): ?>
   <div class="block-feature__col block-feature__col--media">
-    <div class="performance-grid performance-grid--right js-overlay-container">
-      <div class="performance-grid__container">
-        <div class="performance-grid__bg">
-          <img src="../assets/img/bgGrid.svg" alt="Ellipses" aria-hidden="true">
-        </div>
-
-        <?php $render_grid_items_feature($grid_items, $center_item); ?>
-      </div>
-
-      <div class="performance-grid__overlay" aria-hidden="true">
-        <div class="performance-grid__container">
-          <?php $render_grid_items_feature($grid_items, $center_item); ?>
-        </div>
-      </div>
-    </div>
+    <?php echo $right_content; ?>
   </div>
+  <?php endif; ?>
 </section>
 
 <script type='text/javascript' src="../assets/js/components-performance_grid.js"></script>
