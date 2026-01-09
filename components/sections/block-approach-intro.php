@@ -56,7 +56,11 @@ $approach_scroll_id = "pillar1";
     </div>
 
     <div class="block-approach-intro__col block-approach-intro__col--media">
-      <img src="../assets/img/strengthen.png" alt="picture representing strengthen capital planning" />
+      <?php 
+        $image_src = "../assets/img/strengthen.png";
+        $image_alt = "picture representing strengthen capital planning";
+        include('../components/elements/component-image.php');
+      ?>
       <!-- <a href="<?php echo $approach_link; ?>" class="approach-media-link" aria-label="Learn more from <?php echo $person_name; ?>">
                 <div class="approach-person-card">
                     <div class="approach-person-card__image-container">
