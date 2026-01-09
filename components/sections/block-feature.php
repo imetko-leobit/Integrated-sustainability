@@ -3,7 +3,9 @@
  * Feature Block Component
  *
  * This component renders a flexible content block with text and media (image/grid) sections.
- * Supports dynamic layout configurations and checkbox-style lists.
+ * Supports dynamic layout configurations and checkbox-style lists with automatic checkmark icons.
+ *
+ * Replaces: block_reusable.php with enhanced functionality
  *
  * Expected variables:
  * - $tagline (string, optional): Top tagline text
@@ -12,8 +14,31 @@
  * - $button (array): Button configuration with 'url' and 'label' keys
  * - $grid_items (array): Array of grid items with 'icon' and 'label' keys
  * - $center_item (array, optional): Center grid item with 'type' ('image' or 'text'), and 'content' (image path or text)
- * - $checkbox_list (array, optional): Array of checkbox items with 'icon' and 'label' keys
- * - $layout (string, optional): Layout configuration - 'image-left' (default), 'image-right', 'image-top', 'image-bottom'
+ * - $checkbox_list (array, optional): Array of items with 'label' key. Note: 'icon' key is ignored; checkmarks are added via CSS using the item-marked mixin.
+ * - $layout (string, optional): Layout configuration
+ *     - 'image-left' (default): Text left, image/grid right
+ *     - 'image-right': Text left, image/grid right (same as default)
+ *     - 'image-top': Image/grid top, text bottom
+ *     - 'image-bottom': Text top, image/grid bottom
+ *
+ * Example usage:
+ * <?php
+ *   $tagline = 'Academic Partnerships';
+ *   $title = 'Bridging research with execution';
+ *   $paragraphs = ['We actively collaborate with universities...'];
+ *   $button = ['url' => '/services', 'label' => 'Become a Partner'];
+ *   $layout = 'image-right';
+ *   $checkbox_list = [
+ *     ['label' => 'Partner with academic institutions'],
+ *     ['label' => 'Support graduate research'],
+ *   ];
+ *   $grid_items = [
+ *     ['icon' => 'feasibility.svg', 'label' => 'feasibility'],
+ *     ['icon' => 'laboratory.svg', 'label' => 'laboratory'],
+ *   ];
+ *   $center_item = ['type' => 'image', 'content' => '../assets/img/logo.svg'];
+ *   include('../components/sections/block-feature.php');
+ * ?>
  */
 
 // Set defaults for optional variables
