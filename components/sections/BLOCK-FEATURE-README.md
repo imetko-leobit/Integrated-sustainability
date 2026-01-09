@@ -81,6 +81,7 @@ include('../components/sections/block-feature.php');
 - `$checkbox_list` (array): Array of checkbox items with 'label' keys
 - `$layout` (string): Layout configuration - 'image-left', 'image-right', 'image-top', 'image-bottom' (default: 'image-left')
 - `$right_content` (string): Dynamic HTML content for the right-side section
+  - ⚠️ **Security Note**: This content is output directly without escaping. Only pass trusted, pre-sanitized HTML to prevent XSS vulnerabilities.
 
 ### Legacy Parameters (Auto-converted to $right_content)
 - `$grid_items` (array): Array of grid items with 'icon' and 'label' keys

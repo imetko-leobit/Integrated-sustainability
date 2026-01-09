@@ -13,6 +13,8 @@
  * - $checkbox_list (array, optional): Array of checkbox items with 'icon' and 'label' keys
  * - $layout (string, optional): Layout configuration - 'image-left' (default), 'image-right', 'image-top', 'image-bottom'
  * - $right_content (string, optional): Dynamic HTML content for the right-side section
+ *                                     SECURITY NOTE: This content is output directly without escaping.
+ *                                     Only pass trusted, pre-sanitized HTML content to prevent XSS vulnerabilities.
  *
  * Legacy variables (for backward compatibility - will be auto-converted to $right_content):
  * - $grid_items (array): Array of grid items with 'icon' and 'label' keys
@@ -60,7 +62,7 @@ $render_grid_items_feature = function($items, $center_item) {
 };
 
 // Backward compatibility: Convert legacy grid_items to right_content if not provided
-if ($right_content === null && isset($grid_items)) {
+if (empty($right_content) && isset($grid_items)) {
     $center_item = $center_item ?? null;
     ob_start();
     ?>

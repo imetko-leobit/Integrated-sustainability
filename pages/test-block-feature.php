@@ -178,9 +178,6 @@
             ['icon' => 'mark.svg', 'label' => 'We are often sought to help translate field performance into data that supports academic publication and informs regulatory and policy frameworks.'],
         ];
         
-        // Note: $grid_items is NOT set here, so it should use the default (empty right_content)
-        // But wait, advocacy.php doesn't set $grid_items either! Let me check this...
-        
         include('../components/sections/block-feature.php');
         ?>
     </div>
