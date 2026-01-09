@@ -14,7 +14,14 @@
  *   include('components/elements/component-image.php');
  */
 
+// Validate required parameters
+if (!isset($image_src) || !isset($image_alt)) {
+    trigger_error('component-image.php requires $image_src and $image_alt parameters', E_USER_WARNING);
+    return;
+}
+
 $image_class = $image_class ?? '';
+$class_attr = $image_class ? ' class="' . htmlspecialchars($image_class, ENT_QUOTES, 'UTF-8') . '"' : '';
 ?>
 
-<img src="<?php echo htmlspecialchars($image_src, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($image_alt, ENT_QUOTES, 'UTF-8'); ?>" <?php if ($image_class): ?>class="<?php echo htmlspecialchars($image_class, ENT_QUOTES, 'UTF-8'); ?>"<?php endif; ?> />
+<img src="<?php echo htmlspecialchars($image_src, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($image_alt, ENT_QUOTES, 'UTF-8'); ?>"<?php echo $class_attr; ?> />
