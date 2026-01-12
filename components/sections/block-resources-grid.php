@@ -83,7 +83,7 @@ $resources = [
   <div class="container">
     <!-- Header Section -->
     <div class="block-resources-grid__header">
-      <h2 class="title title--h2"><?php echo isset($section_title) ? $section_title : 'Resources & Insights'; ?></h2>
+      <h2 class="title title--h2"><?php echo htmlspecialchars(isset($section_title) ? $section_title : 'Resources & Insights', ENT_QUOTES, 'UTF-8'); ?></h2>
     </div>
 
     <!-- Grid Section -->
@@ -91,7 +91,7 @@ $resources = [
       <?php foreach ($resources as $index => $resource) : 
         $is_hidden = $index >= $initial_items ? 'is-hidden' : '';
       ?>
-      <div class="block-resources-grid__item <?php echo $is_hidden; ?>" data-index="<?php echo $index; ?>">
+      <div class="block-resources-grid__item <?php echo htmlspecialchars($is_hidden, ENT_QUOTES, 'UTF-8'); ?>" data-index="<?php echo (int)$index; ?>">
         <?php
           $title = $resource['title'];
           $description = $resource['description'];
@@ -105,7 +105,7 @@ $resources = [
     <!-- Load More Button -->
     <?php if (count($resources) > $initial_items) : ?>
     <div class="block-resources-grid__actions">
-      <button class="btn btn--gradient js-load-more-resources" data-initial="<?php echo $initial_items; ?>" data-increment="<?php echo $load_more_increment; ?>">
+      <button class="btn btn--gradient js-load-more-resources" data-initial="<?php echo (int)$initial_items; ?>" data-increment="<?php echo (int)$load_more_increment; ?>">
         Load More
       </button>
     </div>

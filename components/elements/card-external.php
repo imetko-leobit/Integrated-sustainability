@@ -1,12 +1,12 @@
 <link rel="stylesheet" href="../assets/css/components-card_external.css" />
 
-<a href="<?php echo $url; ?>" class="card-external" target="_blank" rel="noopener noreferrer">
+<a href="<?php echo htmlspecialchars($url, ENT_QUOTES, 'UTF-8'); ?>" class="card-external" target="_blank" rel="noopener noreferrer">
   <div class="card-external__content">
     <h3 class="card-external__title title title--h4">
-      <?php echo $title; ?>
+      <?php echo htmlspecialchars($title, ENT_QUOTES, 'UTF-8'); ?>
     </h3>
     <p class="card-external__description text-content">
-      <?php echo $description; ?>
+      <?php echo htmlspecialchars($description, ENT_QUOTES, 'UTF-8'); ?>
     </p>
   </div>
   <div class="card-external__arrow">
