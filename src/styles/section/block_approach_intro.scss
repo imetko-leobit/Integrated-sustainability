@@ -8,6 +8,17 @@
         padding: 0 24px 80px;
     }
     
+    // Tagline styling (optional)
+    &__tagline {
+        margin-bottom: 16px;
+        
+        span {
+            @include text-body-small;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--color-grey, #999);
+        }
+    }
     
     &__wrapper {
         display: grid;
@@ -23,6 +34,33 @@
         @media (max-width: 991px) {
             grid-template-columns: 1fr;
             gap: 32px;
+        }
+    }
+    
+    // Reverse layout modifier
+    &--reverse {
+        .block-approach-intro__col {
+            &--text {
+                grid-column: 2;
+                padding-right: 0;
+                padding-left: 80px;
+
+                @media (max-width: 1199px) {
+                    padding-left: 0;
+                }
+                
+                @media (max-width: 991px) {
+                    grid-column: 1;
+                    padding-left: 0;
+                }
+            }
+            &--media {
+                grid-column: 1;
+                
+                @media (max-width: 991px) {
+                    grid-column: 1;
+                }
+            }
         }
     }
     
