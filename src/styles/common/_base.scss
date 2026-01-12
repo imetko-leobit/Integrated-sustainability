@@ -15,10 +15,10 @@ body {
 }
 
 html, body {
-  // For sticky elements to work properly 
-  overflow-x: clip; 
+  // For sticky elements to work properly
+  overflow-x: clip;
   overflow-y: visible;
-  height: auto; 
+  height: auto;
 }
 
 a {
@@ -36,7 +36,7 @@ a {
 img {
   max-width: 100%;
   height: auto;
-  vertical-align: middle; 
+  vertical-align: middle;
 }
 
 .container {
@@ -67,18 +67,18 @@ img {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  
-  @include text-button; 
-  
+
+  @include text-button;
+
   padding: 12px 40px;
-  border-radius: 100px; 
+  border-radius: 100px;
 
   // --- Button gradient ---
   // &--gradient {
   //   position: relative;
   //   color: var(--color-white, #fff);
   //   border: 2px solid transparent;
-  //   background-image: 
+  //   background-image:
   //       linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)),
   //       url(../../assets/img/overlay.png),
   //       $primary-gradient;
@@ -87,8 +87,8 @@ img {
 
   //   &:hover {
   //     color: var(--color-black, #000);
-  //     background-image: 
-  //         $primary-gradient, 
+  //     background-image:
+  //         $primary-gradient,
   //         $primary-gradient;
   //   }
   // }
@@ -103,28 +103,28 @@ img {
       background: transparent;
       border: none;
       z-index: 1;
-      
+
       min-width: fit-content;
       overflow: hidden;
-    
+
       &::before {
         content: "";
         position: absolute;
         inset: 0;
-        border-radius: 100px; 
-        padding: 2px; 
+        border-radius: 100px;
+        padding: 2px;
         background: $primary-gradient;
-        -webkit-mask: 
-           linear-gradient(#fff 0 0) content-box, 
+        -webkit-mask:
+           linear-gradient(#fff 0 0) content-box,
            linear-gradient(#fff 0 0);
-        mask: 
-           linear-gradient(#fff 0 0) content-box, 
+        mask:
+           linear-gradient(#fff 0 0) content-box,
            linear-gradient(#fff 0 0);
         -webkit-mask-composite: xor;
         mask-composite: exclude;
         transition: opacity 0.4s ease;
       }
-    
+
       &::after {
         content: "";
         position: absolute;
@@ -135,7 +135,7 @@ img {
         opacity: 0;
         transition: opacity 0.4s ease;
       }
-    
+
       &:hover {
         color: black;
         &::after {
@@ -146,7 +146,7 @@ img {
         }
       }
   }
-  
+
 
   &--text {
     background: none;
@@ -218,12 +218,12 @@ h6 {
     flex-shrink: 0;
     gap: 2rem;
   }
-  
+
   .action-text {
       @include text-body-large;
       display: block;
   }
-    
+
   .icon {
       display: flex;
       align-items: center;
@@ -241,7 +241,7 @@ h6 {
           height: 44px;
         }
       }
-      
+
       &--simple {
         width: 65px;
         height: 65px;
@@ -251,33 +251,33 @@ h6 {
           height: 48px;
         }
       }
-      
+
       svg {
           color: var(--color-black);
           width: 24px;
           height: 24px;
       }
-  
+
       &.icon-img {
           object-fit: contain;
-  
+
       }
   }
-    
+
   .heading-action--down {
       flex-direction: column;
       align-items: flex-end;
       text-align: right;
       gap: 0.5rem;
-  
+
       .icon--active:hover {
           transform: translate(0, 3px);
       }
   }
-    
+
   .heading-action--right {
       text-align: right;
-  
+
       .icon--active:hover {
         transform: translate(3px, 0);
       }
@@ -311,6 +311,11 @@ h6 {
   height: 1px;
   background-image: $primary-gradient;
   opacity: 0.8;
+
+  &-element {
+    position: relative;
+    margin-bottom: 60px;
+  }
 }
 
 .desktop {
@@ -368,8 +373,8 @@ h6 {
     width: 6px;
     height: 16px;
     background-color: white;
-    
-    
+
+
     mask-image: url('../../assets/img/expand-more.svg');
     mask-size: contain;
     mask-repeat: no-repeat;
@@ -380,8 +385,8 @@ h6 {
 
   &:hover {
       color: var(--color-black, #000);
-      background-image: 
-          $primary-gradient, 
+      background-image:
+          $primary-gradient,
           $primary-gradient;
       background-clip: none;
   }
