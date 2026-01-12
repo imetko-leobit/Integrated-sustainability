@@ -82,33 +82,37 @@
         include('../components/sections/block-section-heading.php');
     ?>
 
-    <?php
-      $tagline = 'academic Partnerships';
-      $title = 'Bridging research with execution to advance infrastructure intelligence';
-      $paragraphs = [
-        'We actively collaborate with universities, research councils, and innovation networks to transform applied research into operational results. These partnerships create opportunities for students, researchers, and faculty to test ideas where theory meets the field, while giving our clients access to emerging science, feasibility-grade analysis, and data-driven insights that inform project design and investment decisions.',
-      ];
-      $button = [
-        'url' => '/services',
-        'label' => 'Become a Partner'
-      ];
-      $center_item = [
-        'type' => 'image',
-        'content' => '../assets/img/directions.svg'
-      ];
-      $layout = 'image-right';
-      $right_content = '<div class="block-approach-intro__col block-approach-intro__col--media">
-        <img src="../assets/img/strengthen.png" alt="picture representing strengthen capital planning" />
-      </div>';
-      $checkbox_list = [
-        ['icon' => 'mark.svg', 'label' => 'Partner with academic institutions and research bodies to align emerging studies with real-world environmental and infrastructure challenges.'],
-        ['icon' => 'mark.svg', 'label' => 'Support graduate and PhD-level research connected to live projects - providing clients with feasibility-grade analysis, system optimization, and early-stage innovation scouting.'],
-        ['icon' => 'mark.svg', 'label' => 'Our experts actively contribute to academic committees, evaluate theses, and mentor student competition teams advancing applied sustainability innovation.'],
-        ['icon' => 'mark.svg', 'label' => 'We are often sought to help translate field performance into data that supports academic publication and informs regulatory and policy frameworks.'],
-      ];
+    <div style="display: flex;">
+      <?php
+        $tagline = 'academic Partnerships';
+        $title = 'Bridging research with execution to advance infrastructure intelligence';
+        $paragraphs = [
+          'We actively collaborate with universities, research councils, and innovation networks to transform applied research into operational results. These partnerships create opportunities for students, researchers, and faculty to test ideas where theory meets the field, while giving our clients access to emerging science, feasibility-grade analysis, and data-driven insights that inform project design and investment decisions.',
+        ];
+        $button = [
+          'url' => '/services',
+          'label' => 'Become a Partner'
+        ];
+        $center_item = [
+          'type' => 'image',
+          'content' => '../assets/img/directions.svg'
+        ];
+        $checkbox_list = [
+          ['icon' => 'mark.svg', 'label' => 'Partner with academic institutions and research bodies to align emerging studies with real-world environmental and infrastructure challenges.'],
+          ['icon' => 'mark.svg', 'label' => 'Support graduate and PhD-level research connected to live projects - providing clients with feasibility-grade analysis, system optimization, and early-stage innovation scouting.'],
+          ['icon' => 'mark.svg', 'label' => 'Our experts actively contribute to academic committees, evaluate theses, and mentor student competition teams advancing applied sustainability innovation.'],
+          ['icon' => 'mark.svg', 'label' => 'We are often sought to help translate field performance into data that supports academic publication and informs regulatory and policy frameworks.'],
+        ];
 
-      include('../components/sections/block-feature.php')
-    ?>
+        include('../components/sections/block-feature.php')
+      ?>
+
+      <?php
+        $image_src = "../assets/img/strengthen.png";
+        $image_alt = "picture representing strengthen capital planning";
+        include('../components/elements/image-card.php');
+      ?>
+    </div>
 
     <?php
         $section_title = "embed local expertise into the infrastructure lifecycle";
