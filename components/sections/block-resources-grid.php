@@ -1,4 +1,17 @@
 <?php
+// Configuration
+if (!isset($items_per_row)) {
+    $items_per_row = 3; // Default: 3 columns
+}
+if (!isset($initial_rows)) {
+    $initial_rows = 3; // Default: 3 rows
+}
+if (!isset($load_more_increment)) {
+    $load_more_increment = 3; // Default: load 3 more items
+}
+
+$initial_items = $items_per_row * $initial_rows;
+
 // Sample data - in production this would come from a database or API
 $resources = [
     [
@@ -62,9 +75,6 @@ $resources = [
         'url' => '#resource-12'
     ],
 ];
-
-// Set initial visible items (3 rows x 3 columns = 9 items)
-$initial_items = 9;
 ?>
 
 <link rel="stylesheet" href="../assets/css/section-block_resources_grid.css" />
@@ -95,7 +105,7 @@ $initial_items = 9;
     <!-- Load More Button -->
     <?php if (count($resources) > $initial_items) : ?>
     <div class="block-resources-grid__actions">
-      <button class="btn btn--gradient js-load-more-resources" data-initial="<?php echo $initial_items; ?>" data-increment="3">
+      <button class="btn btn--gradient js-load-more-resources" data-initial="<?php echo $initial_items; ?>" data-increment="<?php echo $load_more_increment; ?>">
         Load More
       </button>
     </div>
