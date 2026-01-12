@@ -4,7 +4,7 @@
 <footer class="footer">
   <div class="footer-logo">
     <img src="../assets/img/logo.png" alt="Integrated Sustainability Logo">
-    <div class="divider"></div>
+    <?php include('../components/elements/component-divider.php'); ?>
   </div>
   <div class="footer-links-wrapper tablet">
     <div class="footer-sections">

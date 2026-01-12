@@ -55,5 +55,5 @@
         <?php endif; ?>
     </div>
 
-    <div class="divider"></div> 
+    <?php include('../components/elements/component-divider.php'); ?>
 </section>

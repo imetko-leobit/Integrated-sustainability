@@ -79,7 +79,7 @@ $projects_data = [
                 </button>
             </div>
 
-            <div class="divider"></div> 
+            <?php include('../components/elements/component-divider.php'); ?>
         </div>
 
         <div class="swiper-wrapper">
