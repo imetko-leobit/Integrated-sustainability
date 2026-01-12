@@ -6,6 +6,7 @@
   <title>Advocacy</title>
   <?php include('../components/head/_head.php') ?>
   <link rel="stylesheet" href="../assets/css/admin.css">
+  <link rel="stylesheet" href="../assets/css/components-block_wrapper.css">
 </head>
 
 <body class="home">
@@ -46,7 +47,7 @@
         include('../components/sections/block-section-heading.php');
     ?>
 
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px;">
+    <div class="block-wrapper block-wrapper--grid">
       <?php
         $text_below = true;
         include('../components/sections/block-projects.php');
@@ -82,7 +83,7 @@
         include('../components/sections/block-section-heading.php');
     ?>
 
-    <div style="display: flex;">
+    <div class="block-wrapper block-wrapper--flex">
       <?php
         $tagline = 'academic Partnerships';
         $title = 'Bridging research with execution to advance infrastructure intelligence';
@@ -92,10 +93,6 @@
         $button = [
           'url' => '/services',
           'label' => 'Become a Partner'
-        ];
-        $center_item = [
-          'type' => 'image',
-          'content' => '../assets/img/directions.svg'
         ];
         $checkbox_list = [
           ['icon' => 'mark.svg', 'label' => 'Partner with academic institutions and research bodies to align emerging studies with real-world environmental and infrastructure challenges.'],
@@ -133,11 +130,6 @@
         'url' => '/services',
         'label' => 'Become a Partner'
       ];
-      $center_item = [
-        'type' => 'image',
-        'content' => '../assets/img/directions.svg'
-      ];
-      $layout = 'image-right';
       $checkbox_list = [
         ['icon' => 'mark.svg', 'label' => 'Partner with academic institutions and research bodies to align emerging studies with real-world environmental and infrastructure challenges.'],
         ['icon' => 'mark.svg', 'label' => 'Support graduate and PhD-level research connected to live projects - providing clients with feasibility-grade analysis, system optimization, and early-stage innovation scouting.'],
