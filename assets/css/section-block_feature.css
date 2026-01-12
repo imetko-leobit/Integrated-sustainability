@@ -155,7 +155,7 @@
     width: 100%; }
     @media (max-width: 1199px) {
       .block-feature__col {
-        padding-top: none; } }
+        padding-top: 0; } }
   .block-feature .heading {
     padding-bottom: 40px; }
     .block-feature .heading .title--h3 {

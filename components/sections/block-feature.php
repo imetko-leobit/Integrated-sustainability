@@ -2,7 +2,7 @@
 /**
  * Feature Block Component
  *
- * This component renders a content block with text section.
+ * This component renders a content block with a text section.
  * Supports checkbox-style lists.
  *
  * Expected variables:
