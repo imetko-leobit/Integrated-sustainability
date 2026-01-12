@@ -23,6 +23,11 @@
     <?php include('../components/elements/divider.php'); ?>
 
     <?php
+        $section_title = "Open Vacancies";
+        include('../components/sections/block-resources-grid.php')
+    ?>
+
+    <?php
         $section_title = "purpose without pretence";
         include('../components/sections/block-section-heading.php');
     ?>
