@@ -2,25 +2,20 @@
 /**
  * Feature Block Component
  *
- * This component renders a flexible content block with text and media (image/grid) sections.
- * Supports dynamic layout configurations and checkbox-style lists.
+ * This component renders a content block with a text section.
+ * Supports checkbox-style lists.
  *
  * Expected variables:
  * - $tagline (string, optional): Top tagline text
  * - $title (string): Main heading text
  * - $paragraphs (array): Array of paragraph text strings
  * - $button (array): Button configuration with 'url' and 'label' keys
- * - $grid_items (array): Array of grid items with 'icon' and 'label' keys
- * - $center_item (array, optional): Center grid item with 'type' ('image' or 'text'), and 'content' (image path or text)
  * - $checkbox_list (array, optional): Array of checkbox items with 'icon' and 'label' keys
- * - $layout (string, optional): Layout configuration - 'image-left' (default), 'image-right', 'image-top', 'image-bottom'
  */
 
 // Set defaults for optional variables
 $tagline = $tagline ?? '';
 $checkbox_list = $checkbox_list ?? [];
-$layout = $layout ?? 'image-left';
-$right_content = $right_content ?? '';
 
 /**
  * Helper function to render grid items with proper encoding
@@ -60,7 +55,7 @@ $render_grid_items_feature = function($items, $center_item) {
 <link rel="stylesheet" href="../assets/css/section-block_feature.css" />
 <link rel="stylesheet" href="../assets/css/components-performance_grid.css" />
 
-<section class="block-feature block-feature--<?php echo htmlspecialchars($layout); ?> <?php echo !empty($right_content) ? '' : 'no-right-content'; ?>">
+<section class="block-feature">
   <div class="block-feature__col block-feature__col--text">
     <?php if (!empty($tagline)): ?>
     <p class="tagline"><?php echo htmlspecialchars($tagline); ?></p>
@@ -90,12 +85,6 @@ $render_grid_items_feature = function($items, $center_item) {
       </a>
     </div>
   </div>
-
-  <?php if (!empty($right_content)): ?>
-  <div class="block-feature__col block-feature__col--media">
-    <?php echo $right_content; ?>
-  </div>
-  <?php endif; ?>
 </section>
 
 <script type='text/javascript' src="../assets/js/components-performance_grid.js"></script>

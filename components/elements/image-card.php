@@ -21,7 +21,10 @@ if (!isset($image_src) || !isset($image_alt)) {
 }
 
 $image_class = $image_class ?? '';
-$class_attr = $image_class ? ' class="' . htmlspecialchars($image_class, ENT_QUOTES, 'UTF-8') . '"' : '';
 ?>
 
-<img src="<?php echo htmlspecialchars($image_src, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($image_alt, ENT_QUOTES, 'UTF-8'); ?>"<?php echo $class_attr; ?> />
+<link rel="stylesheet" href="../assets/css/components-image_card.css" />
+
+<div class="image-card <?php echo htmlspecialchars($image_class, ENT_QUOTES, 'UTF-8'); ?>">
+  <img src="<?php echo htmlspecialchars($image_src, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($image_alt, ENT_QUOTES, 'UTF-8'); ?>" />
+</div>

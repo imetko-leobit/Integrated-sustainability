@@ -6,6 +6,7 @@
   <title>Advocacy</title>
   <?php include('../components/head/_head.php') ?>
   <link rel="stylesheet" href="../assets/css/admin.css">
+  <link rel="stylesheet" href="../assets/css/components-block_wrapper.css">
 </head>
 
 <body class="home">
@@ -46,7 +47,7 @@
         include('../components/sections/block-section-heading.php');
     ?>
 
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px;">
+    <div class="block-wrapper block-wrapper--grid">
       <?php
         $text_below = true;
         include('../components/sections/block-projects.php');
@@ -82,7 +83,7 @@
         include('../components/sections/block-section-heading.php');
     ?>
 
-    <div style="display: flex;">
+    <div class="block-wrapper block-wrapper--grid">
       <?php
         $tagline = 'academic Partnerships';
         $title = 'Bridging research with execution to advance infrastructure intelligence';
@@ -92,10 +93,6 @@
         $button = [
           'url' => '/services',
           'label' => 'Become a Partner'
-        ];
-        $center_item = [
-          'type' => 'image',
-          'content' => '../assets/img/directions.svg'
         ];
         $checkbox_list = [
           ['icon' => 'mark.svg', 'label' => 'Partner with academic institutions and research bodies to align emerging studies with real-world environmental and infrastructure challenges.'],
@@ -123,30 +120,34 @@
         include('../components/sections/block-section-heading.php');
     ?>
 
-    <?php
-      $tagline = 'academic Partnerships';
-      $title = 'Bridging research with execution to advance infrastructure intelligence';
-      $paragraphs = [
-        'We actively collaborate with universities, research councils, and innovation networks to transform applied research into operational results. These partnerships create opportunities for students, researchers, and faculty to test ideas where theory meets the field, while giving our clients access to emerging science, feasibility-grade analysis, and data-driven insights that inform project design and investment decisions.',
-      ];
-      $button = [
-        'url' => '/services',
-        'label' => 'Become a Partner'
-      ];
-      $center_item = [
-        'type' => 'image',
-        'content' => '../assets/img/directions.svg'
-      ];
-      $layout = 'image-right';
-      $checkbox_list = [
-        ['icon' => 'mark.svg', 'label' => 'Partner with academic institutions and research bodies to align emerging studies with real-world environmental and infrastructure challenges.'],
-        ['icon' => 'mark.svg', 'label' => 'Support graduate and PhD-level research connected to live projects - providing clients with feasibility-grade analysis, system optimization, and early-stage innovation scouting.'],
-        ['icon' => 'mark.svg', 'label' => 'Our experts actively contribute to academic committees, evaluate theses, and mentor student competition teams advancing applied sustainability innovation.'],
-        ['icon' => 'mark.svg', 'label' => 'We are often sought to help translate field performance into data that supports academic publication and informs regulatory and policy frameworks.'],
-      ];
+    <div class="block-wrapper block-wrapper--grid">
+      <?php
+        $image_src = "../assets/img/strengthen.png";
+        $image_alt = "picture representing strengthen capital planning";
+        include('../components/elements/image-card.php');
+      ?>
 
-      include('../components/sections/block-feature.php')
-    ?>
+      <?php
+        $tagline = 'COMMUNITY empowerment';
+        $title = 'Integrating social, cultural, and environmental value into project delivery';
+        $paragraphs = [
+          'Infrastructure succeeds when it strengthens the communities and ecosystems it serves. By basing our design in environmental science and aligning local priorities, we create enduring outcomes that extend beyond the site boundary. Our performance approach helps to:',
+        ];
+        $button = [
+          'url' => '/services',
+          'label' => 'Contact Us'
+        ];
+        $checkbox_list = [
+          ['icon' => 'mark.svg', 'label' => 'Engage early with municipalities, local industries, and community organizations to align infrastructure planning with regional development goals sensitive to cultural values and environmental priorities.'],
+          ['icon' => 'mark.svg', 'label' => 'Support graduate and PhD-level research connected to live projects - providing clients with feasibility-grade analysis, system optimization, and early-stage innovation scouting.'],
+          ['icon' => 'mark.svg', 'label' => 'Our experts actively contribute to academic committees, evaluate theses, and mentor student competition teams advancing applied sustainability innovation.'],
+          ['icon' => 'mark.svg', 'label' => 'We are often sought to help translate field performance into data that supports academic publication and informs regulatory and policy frameworks.'],
+          ['icon' => 'mark.svg', 'label' => 'Build enduring indigenous partnerships focused on procurement, training, and shared economic participation.'],
+        ];
+
+        include('../components/sections/block-feature.php')
+      ?>
+    </div>
 
     <?php
         $layout = 'default';
