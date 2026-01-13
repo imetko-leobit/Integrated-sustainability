@@ -32,20 +32,35 @@
         include('../components/sections/block-section-heading.php');
     ?>
 
+
+
     <?php
-      $approach_link_label = null;
+      unset($approach_tagline, $approach_heading_title, $approach_text_1, $approach_text_2);
+      unset($approach_button, $approach_button_url, $show_button, $reverse);
+      unset($image_src, $image_alt, $accordion_items, $approach_link_label);
+
+      $approach_heading_title = "discover a culture of connection, contribution and continuous growth";
+      $approach_text_1 = "";
+      $approach_text_2 = "";
+      $show_button = false;
       $accordion_items = [
         [
-            'title' => 'challenges we help technical teams solve',
+            'title' => 'Benefits & Programs at Integrated Sustainability',
+            'desc' => 'As an employee at Integrated Sustainability, you’ll have access to benefits and programs that support your health and well-being, encourage your professional growth and help you plan for the future, including:',
+            'initial_open' => true,
+        ],
+        [
+            'title' => 'A Culture of Connection, Contribution, and Continuous Growth',
             'desc' => 'Coordinating design, sizing, and equipment supply through a single partner results ties each decision to performance and results in greater cost and schedule certainty.',
             'initial_open' => false,
         ],
         [
-            'title' => 'WATER TREATMENT applications {FOR THE {INDUSTRY} SECTOR}',
+            'title' => 'dei statement of commitment',
             'desc' => 'Develop integrated water management plans to ensure compliance and operational reliability.',
             'initial_open' => false,
         ],
       ];
+      $reverse = true;
       include('../components/sections/block-approach-intro.php')
     ?>
 

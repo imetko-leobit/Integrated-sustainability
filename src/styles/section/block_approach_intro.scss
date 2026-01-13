@@ -7,8 +7,19 @@
     @media (max-width: 991px) {
         padding: 0 24px 80px;
     }
-    
-    
+
+    // Tagline styling (optional)
+    &__tagline {
+        margin-bottom: 16px;
+
+        span {
+            @include text-body-small;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--color-grey, #999);
+        }
+    }
+
     &__wrapper {
         display: grid;
         grid-template-columns: 7fr 5fr;
@@ -25,7 +36,27 @@
             gap: 32px;
         }
     }
-    
+
+    // Reverse layout modifier
+    &--reverse {
+        .block-approach-intro__wrapper {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .block-approach-intro__col {
+            &--text {
+                order: 2;
+                grid-column: 2;
+                padding: 0;
+            }
+
+            &--media {
+                order: 1;
+                grid-column: 1;
+            }
+        }
+    }
+
     &__col {
         &--text {
             grid-column: 1;
@@ -57,7 +88,7 @@
               overflow: hidden;
               z-index: -1;
             }
-      
+
           img {
             padding-right: 56px;
             padding-bottom: 56px;
@@ -88,7 +119,7 @@
             }
         }
     }
-    
+
     .text-content {
         margin-bottom: 2rem;
         display: flex;
@@ -116,9 +147,9 @@
             display: inline-flex;
             align-items: center;
             text-decoration: none;
-            color: white; 
+            color: white;
             font-size: 16px;
-            
+
             .icon-arrow-down {
                 background: white;
                 border: none;
@@ -131,7 +162,7 @@
                 justify-content: center;
                 cursor: pointer;
                 transition: background 0.3s ease;
-                
+
                 svg {
                     color: var(--color-black);
                     display: block;
@@ -141,7 +172,7 @@
                     }
                 }
             }
-            
+
             &:hover {
                 transform: translate(0, 3px);
             }
@@ -157,7 +188,7 @@
         color: white;
         transition: all 0.3s ease;
     }
-    
+
     .approach-person-card {
         width: 100%;
         height: 100%;
@@ -172,9 +203,9 @@
             gap: 16px;
             padding: 24px;
         }
-        
+
         &__image-container {
-            width: 180px; 
+            width: 180px;
             height: 180px;
             border-radius: 50%;
             overflow: hidden;
@@ -186,13 +217,13 @@
                 height: 80px;
                 margin-bottom: 0;
             }
-            
+
             .approach-person-card__image {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
                 border-radius: 50%;
-                
+
                 filter: grayscale(100%);
                 transition: filter 0.5s ease;
             }
@@ -237,7 +268,7 @@
             visibility: hidden;
             padding-top: 6px;
         }
-    
+
     }
 }
 
