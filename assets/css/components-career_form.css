@@ -1,0 +1,516 @@
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/styles/components/career_form.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************/
+/*images*/
+.career-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%; }
+  .career-form__section {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 24px;
+    padding: 40px;
+    border-radius: 8px; }
+    @media (max-width: 767px) {
+      .career-form__section {
+        padding: 24px;
+        gap: 20px; } }
+    .career-form__section--gradient {
+      background-image: url(../../assets/img/overlay.svg);
+      background-blend-mode: normal, overlay;
+      background-size: cover;
+      background-position: right top;
+      background-repeat: no-repeat; }
+  .career-form__section-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 8px; }
+  .career-form__section-title {
+    font-family: "PoppinsSBold", "Roboto", "Arial", sans-serif;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 36px;
+    font-weight: 600;
+    text-transform: lowercase;
+    margin: 0;
+    color: var(--color-white); }
+    @media (max-width: 991px) {
+      .career-form__section-title {
+        font-size: 20px;
+        line-height: 28px; } }
+  .career-form__section-description {
+    font-family: "Poppins", "Roboto", "Arial", sans-serif;
+    font-style: normal;
+    font-size: 15px;
+    line-height: 24px;
+    font-weight: 400;
+    margin: 0;
+    color: var(--color-grey-300); }
+    @media (max-width: 991px) {
+      .career-form__section-description {
+        font-size: 12px;
+        line-height: 20px; } }
+  .career-form__row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 16px;
+    width: 100%; }
+    @media (max-width: 767px) {
+      .career-form__row {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        gap: 16px; } }
+    .career-form__row--three {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px; }
+      @media (max-width: 991px) {
+        .career-form__row--three {
+          grid-template-columns: 1fr; } }
+    .career-form__row--two {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px; }
+      @media (max-width: 767px) {
+        .career-form__row--two {
+          grid-template-columns: 1fr; } }
+    .career-form__row--mixed {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      grid-template-rows: auto auto;
+      gap: 16px; }
+      @media (max-width: 991px) {
+        .career-form__row--mixed {
+          grid-template-columns: 1fr;
+          grid-template-rows: auto; } }
+      .career-form__row--mixed .career-form__field--small {
+        grid-column: 1;
+        grid-row: 1; }
+        @media (max-width: 991px) {
+          .career-form__row--mixed .career-form__field--small {
+            grid-column: 1; } }
+      .career-form__row--mixed .career-form__field--large {
+        grid-column: 2;
+        grid-row: 1; }
+        @media (max-width: 991px) {
+          .career-form__row--mixed .career-form__field--large {
+            grid-column: 1;
+            grid-row: 2; } }
+      .career-form__row--mixed .career-form__field--textarea {
+        grid-column: 1 / -1;
+        grid-row: 2; }
+        @media (max-width: 991px) {
+          .career-form__row--mixed .career-form__field--textarea {
+            grid-column: 1;
+            grid-row: 3; } }
+    .career-form__row--full {
+      width: 100%; }
+    .career-form__row--actions {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      gap: 24px;
+      margin-top: 8px; }
+  .career-form__field {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 8px;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1; }
+    .career-form__field--full {
+      width: 100%; }
+  .career-form__label {
+    font-family: "Poppins", "Roboto", "Arial", sans-serif;
+    font-style: normal;
+    font-size: 15px;
+    line-height: 24px;
+    font-weight: 400;
+    color: var(--color-grey-300);
+    margin: 0; }
+    @media (max-width: 991px) {
+      .career-form__label {
+        font-size: 12px;
+        line-height: 20px; } }
+  .career-form__input {
+    width: 100%;
+    height: 54px;
+    padding: 12px 20px;
+    font-family: "Poppins", "Roboto", "Arial", sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 24px;
+    background: var(--color-black);
+    outline: none;
+    color: var(--color-white, #fff);
+    border: 1px solid transparent;
+    background-image: linear-gradient(#040404, #040404), linear-gradient(90deg, rgba(187, 191, 199, 0.5) 0%, rgba(148, 152, 154, 0.5) 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    color: var(--color-white); }
+    @media (max-width: 991px) {
+      .career-form__input {
+        font-size: 14px;
+        line-height: 22px; } }
+    .career-form__input::-webkit-input-placeholder {
+      color: var(--color-grey-500); }
+    .career-form__input::-moz-placeholder {
+      color: var(--color-grey-500); }
+    .career-form__input:-ms-input-placeholder {
+      color: var(--color-grey-500); }
+    .career-form__input::-ms-input-placeholder {
+      color: var(--color-grey-500); }
+    .career-form__input::placeholder {
+      color: var(--color-grey-500); }
+    .career-form__input:focus {
+      border-color: var(--color-grey-400); }
+  .career-form__textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 12px 20px;
+    font-family: "Poppins", "Roboto", "Arial", sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 24px;
+    background: var(--color-black);
+    outline: none;
+    color: var(--color-white, #fff);
+    border: 1px solid transparent;
+    background-image: linear-gradient(#040404, #040404), linear-gradient(90deg, rgba(187, 191, 199, 0.5) 0%, rgba(148, 152, 154, 0.5) 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    color: var(--color-white);
+    resize: vertical; }
+    @media (max-width: 991px) {
+      .career-form__textarea {
+        font-size: 14px;
+        line-height: 22px; } }
+    .career-form__textarea::-webkit-input-placeholder {
+      color: var(--color-grey-500); }
+    .career-form__textarea::-moz-placeholder {
+      color: var(--color-grey-500); }
+    .career-form__textarea:-ms-input-placeholder {
+      color: var(--color-grey-500); }
+    .career-form__textarea::-ms-input-placeholder {
+      color: var(--color-grey-500); }
+    .career-form__textarea::placeholder {
+      color: var(--color-grey-500); }
+    .career-form__textarea:focus {
+      border-color: var(--color-grey-400); }
+  .career-form__file-upload {
+    position: relative;
+    width: 100%; }
+  .career-form__file-input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0; }
+  .career-form__file-label {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    width: 100%;
+    height: 54px;
+    padding: 12px 20px;
+    font-family: "Poppins", "Roboto", "Arial", sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 24px;
+    background: var(--color-black);
+    outline: none;
+    color: var(--color-white, #fff);
+    border: 1px solid transparent;
+    background-image: linear-gradient(#040404, #040404), linear-gradient(90deg, rgba(187, 191, 199, 0.5) 0%, rgba(148, 152, 154, 0.5) 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    color: var(--color-white);
+    cursor: pointer;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease; }
+    @media (max-width: 991px) {
+      .career-form__file-label {
+        font-size: 14px;
+        line-height: 22px; } }
+    .career-form__file-label:hover {
+      border-color: var(--color-grey-400); }
+  .career-form__file-text {
+    color: var(--color-grey-300); }
+  .career-form__file-name {
+    color: var(--color-grey-500);
+    font-style: italic; }
+  .career-form__buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 16px;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    width: 100%; }
+    @media (max-width: 767px) {
+      .career-form__buttons {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+        flex-direction: column-reverse;
+        gap: 12px; }
+        .career-form__buttons .btn {
+          width: 100%; } }
+  .career-form__cancel:hover {
+    text-decoration: underline; }
+  .career-form .choices {
+    margin-bottom: 0;
+    background-color: var(--color-black); }
+    .career-form .choices .choices__placeholder {
+      color: var(--color-grey-500);
+      opacity: 1; }
+    .career-form .choices .choices__inner {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      padding: 0px 16px 0px 20px;
+      min-width: 150px;
+      font-family: "Poppins", "Roboto", "Arial", sans-serif;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-style: normal;
+      font-size: 16px;
+      line-height: 24px;
+      height: 54px;
+      background: var(--color-black);
+      outline: none;
+      color: var(--color-white, #fff);
+      border: 1px solid transparent;
+      background-image: linear-gradient(#040404, #040404), linear-gradient(90deg, rgba(187, 191, 199, 0.5) 0%, rgba(148, 152, 154, 0.5) 100%);
+      background-origin: border-box;
+      background-clip: padding-box, border-box;
+      color: var(--color-white);
+      border-radius: 0px; }
+      @media (max-width: 991px) {
+        .career-form .choices .choices__inner {
+          font-size: 14px;
+          line-height: 22px; } }
+    .career-form .choices input::-webkit-input-placeholder {
+      font-family: "Poppins", "Roboto", "Arial", sans-serif;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-style: normal;
+      font-size: 16px;
+      line-height: 24px;
+      color: var(--color-grey-500); }
+      @media (max-width: 991px) {
+        .career-form .choices input::-webkit-input-placeholder {
+          font-size: 14px;
+          line-height: 22px; } }
+    .career-form .choices input::-moz-placeholder {
+      font-family: "Poppins", "Roboto", "Arial", sans-serif;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-style: normal;
+      font-size: 16px;
+      line-height: 24px;
+      color: var(--color-grey-500); }
+      @media (max-width: 991px) {
+        .career-form .choices input::-moz-placeholder {
+          font-size: 14px;
+          line-height: 22px; } }
+    .career-form .choices input:-ms-input-placeholder {
+      font-family: "Poppins", "Roboto", "Arial", sans-serif;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-style: normal;
+      font-size: 16px;
+      line-height: 24px;
+      color: var(--color-grey-500); }
+      @media (max-width: 991px) {
+        .career-form .choices input:-ms-input-placeholder {
+          font-size: 14px;
+          line-height: 22px; } }
+    .career-form .choices input::-ms-input-placeholder {
+      font-family: "Poppins", "Roboto", "Arial", sans-serif;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-style: normal;
+      font-size: 16px;
+      line-height: 24px;
+      color: var(--color-grey-500); }
+      @media (max-width: 991px) {
+        .career-form .choices input::-ms-input-placeholder {
+          font-size: 14px;
+          line-height: 22px; } }
+    .career-form .choices input::placeholder {
+      font-family: "Poppins", "Roboto", "Arial", sans-serif;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-style: normal;
+      font-size: 16px;
+      line-height: 24px;
+      color: var(--color-grey-500); }
+      @media (max-width: 991px) {
+        .career-form .choices input::placeholder {
+          font-size: 14px;
+          line-height: 22px; } }
+    .career-form .choices .choices__item.choices__placeholder.choices__item--selectable {
+      font-family: "Poppins", "Roboto", "Arial", sans-serif;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-style: normal;
+      font-size: 16px;
+      line-height: 24px; }
+      @media (max-width: 991px) {
+        .career-form .choices .choices__item.choices__placeholder.choices__item--selectable {
+          font-size: 14px;
+          line-height: 22px; } }
+    .career-form .choices .choices__list.choices__list--single {
+      padding-right: 32px; }
+      .career-form .choices .choices__list.choices__list--single .choices__item.choices__placeholder.choices__item--selectable {
+        font-family: "Poppins", "Roboto", "Arial", sans-serif;
+        font-weight: 400;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-style: normal;
+        font-size: 16px;
+        line-height: 24px; }
+        @media (max-width: 991px) {
+          .career-form .choices .choices__list.choices__list--single .choices__item.choices__placeholder.choices__item--selectable {
+            font-size: 14px;
+            line-height: 22px; } }
+    .career-form .choices .choices__list--dropdown {
+      border-top: none;
+      z-index: 10;
+      position: absolute;
+      margin-top: 4px;
+      top: 100%;
+      left: 0;
+      right: 0;
+      overflow-y: auto;
+      z-index: 100;
+      -webkit-box-shadow: 0 9px 28px 8px rgba(0, 0, 0, 0.05), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 9px 28px 8px rgba(0, 0, 0, 0.05), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12);
+      background: var(--color-grey-800);
+      padding: 0px 1px;
+      min-width: 200px;
+      max-height: 330px;
+      border: none; }
+    .career-form .choices .choices__list--dropdown .choices__item {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      border: 1px solid var(--color-grey-700);
+      padding: 11px 16px;
+      min-height: 56px;
+      background: var(--color-grey-900);
+      font-family: "Poppins", "Roboto", "Arial", sans-serif;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-style: normal;
+      font-size: 16px;
+      line-height: 24px;
+      color: var(--color-white); }
+      @media (max-width: 991px) {
+        .career-form .choices .choices__list--dropdown .choices__item {
+          font-size: 14px;
+          line-height: 22px; } }
+    .career-form .choices .choices__list--dropdown .choices__item.choices__item--selectable.is-highlighted {
+      background-color: var(--color-grey); }
+    .career-form .choices .choices__list--dropdown .choices__item.is-selected {
+      background-color: var(--color-grey-800); }
+    .career-form .choices .choices__input {
+      color: var(--color-white);
+      background-color: var(--color-black); }
+  .career-form .choices[data-type*=select-one] .choices__button {
+    background-color: var(--color-grey-200);
+    margin-right: 32px; }
+  .career-form .choices[data-type*=select-one]::after {
+    display: none; }
+  .career-form .choices[data-type*=select-one]::before {
+    content: "\2335";
+    height: 0;
+    width: 0;
+    border: none;
+    color: var(--color-grey-500);
+    font-size: 18px;
+    position: absolute;
+    right: 24px;
+    top: 8px;
+    pointer-events: none; }
+  .career-form .choices__list--dropdown .choices__item[data-value=""] {
+    display: none !important; }
+
+
+/*# sourceMappingURL=components-career_form.css.map*/

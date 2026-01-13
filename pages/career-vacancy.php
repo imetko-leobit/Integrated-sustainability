@@ -94,6 +94,94 @@
         include('../components/sections/block-vacancy-details.php');
     ?>
 
+    <?php include('../components/elements/divider.php'); ?>
+
+    <?php
+        // Application form section configuration
+        $application_card_title = "Submit Your Application";
+        $application_card_description = "Complete the form to apply for this position. We look forward to hearing from you.";
+        $application_card_button = null; // No button needed on this card
+
+        // Form section configuration
+        $form_section1_header = "Personal Information";
+        $form_section1_description = "Please provide your contact information";
+        $form_section1_field1_label = "First Name";
+        $form_section1_field2_label = "Last Name";
+        $form_section1_field3_label = "Email Address";
+
+        $form_section2_header = "Professional Background";
+        $form_section2_select1_label = "Years of Experience";
+        $form_section2_select1_options = [
+            '0-2' => '0-2 years',
+            '3-5' => '3-5 years',
+            '6-10' => '6-10 years',
+            '10+' => '10+ years'
+        ];
+        $form_section2_select2_label = "Area of Expertise";
+        $form_section2_select2_options = [
+            'environmental-science' => 'Environmental Science',
+            'engineering' => 'Engineering',
+            'project-management' => 'Project Management',
+            'consulting' => 'Consulting',
+            'other' => 'Other'
+        ];
+        $form_section2_textarea_label = "Tell us about your relevant experience";
+        $form_section2_input_label = "LinkedIn Profile URL";
+        $form_section2_select3_label = "How did you hear about us?";
+        $form_section2_select3_options = [
+            'linkedin' => 'LinkedIn',
+            'job-board' => 'Job Board',
+            'referral' => 'Employee Referral',
+            'website' => 'Company Website',
+            'other' => 'Other'
+        ];
+
+        $form_section3_header = "Additional Details";
+        $form_section3_description = "Help us understand your preferences and availability";
+        $form_section3_select1_label = "Preferred Start Date";
+        $form_section3_select1_options = [
+            'immediate' => 'Immediate',
+            '2-weeks' => '2 Weeks Notice',
+            '1-month' => '1 Month Notice',
+            'negotiable' => 'Negotiable'
+        ];
+        $form_section3_select2_label = "Work Authorization";
+        $form_section3_select2_options = [
+            'citizen' => 'Canadian Citizen',
+            'permanent-resident' => 'Permanent Resident',
+            'work-permit' => 'Valid Work Permit',
+            'require-sponsorship' => 'Require Sponsorship'
+        ];
+        $form_section3_select3_label = "Salary Expectation";
+        $form_section3_select3_options = [
+            'range1' => '$50,000 - $70,000',
+            'range2' => '$70,000 - $90,000',
+            'range3' => '$90,000 - $110,000',
+            'range4' => '$110,000+',
+            'negotiable' => 'Negotiable'
+        ];
+        $form_section3_select4_label = "Work Location Preference";
+        $form_section3_select4_options = [
+            'remote' => 'Remote',
+            'on-site' => 'On-site',
+            'hybrid' => 'Hybrid',
+            'flexible' => 'Flexible'
+        ];
+        $form_section3_select5_label = "Employment Type";
+        $form_section3_select5_options = [
+            'full-time' => 'Full-time',
+            'part-time' => 'Part-time',
+            'contract' => 'Contract',
+            'open' => 'Open to discuss'
+        ];
+
+        $form_file_upload_label = "Upload Resume / CV (PDF or Word)";
+        $form_cancel_button = "Clear Form";
+        $form_submit_button = "Submit Application";
+
+        include('../components/sections/block-career-application.php');
+    ?>
+
     <?php
         $layout = 'center';
         $title = 'Ready to make<br>an impact?';
