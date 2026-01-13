@@ -82,7 +82,7 @@
     ?>
 
     <?php
-        $layout = 'default';
+        $layout = 'center';
         $title = 'partner with <br> a unified team';
         $description = 'Achieve greater cost control and schedule certainty with accountable infrastructure designed for high-consequence operations.';
         $button_text = 'Book a Call';
