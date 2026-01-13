@@ -32,19 +32,19 @@ if (!isset($vacancy_details_blocks)) {
         <?php foreach ($vacancy_details_blocks as $block): ?>
           <div class="vacancy-details-block">
             <?php if (!empty($block['title'])): ?>
-              <h3 class="vacancy-details-block__title"><?php echo $block['title']; ?></h3>
+              <h3 class="vacancy-details-block__title"><?php echo htmlspecialchars($block['title'], ENT_QUOTES, 'UTF-8'); ?></h3>
             <?php endif; ?>
             
             <?php if (!empty($block['paragraphs'])): ?>
               <div class="vacancy-details-block__text">
                 <?php foreach ($block['paragraphs'] as $paragraph): ?>
-                  <p><?php echo $paragraph; ?></p>
+                  <p><?php echo htmlspecialchars($paragraph, ENT_QUOTES, 'UTF-8'); ?></p>
                 <?php endforeach; ?>
               </div>
             <?php endif; ?>
             
             <?php if (!empty($block['list_title'])): ?>
-              <h4 class="vacancy-details-block__list-title"><?php echo $block['list_title']; ?></h4>
+              <h4 class="vacancy-details-block__list-title"><?php echo htmlspecialchars($block['list_title'], ENT_QUOTES, 'UTF-8'); ?></h4>
             <?php endif; ?>
             
             <?php if (!empty($block['list_items'])): ?>
@@ -52,7 +52,7 @@ if (!isset($vacancy_details_blocks)) {
                 <?php foreach ($block['list_items'] as $item): ?>
                   <li class="vacancy-details-block__list-item">
                     <img src="../assets/img/mark.svg" alt="" class="vacancy-details-block__icon" />
-                    <span><?php echo $item; ?></span>
+                    <span><?php echo htmlspecialchars($item, ENT_QUOTES, 'UTF-8'); ?></span>
                   </li>
                 <?php endforeach; ?>
               </ul>
