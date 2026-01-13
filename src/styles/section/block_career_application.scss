@@ -1,0 +1,39 @@
+@import "../common/variable";
+@import "../common/mixins";
+
+.block-career-application {
+  padding: 80px 0 120px;
+
+  @media (max-width: 991px) {
+    padding: 40px 24px 60px;
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 355px 1fr;
+    gap: 56px;
+
+    @media (max-width: 991px) {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+  }
+
+  &__col {
+    &--sidebar {
+      position: relative;
+
+      @media (max-width: 991px) {
+        order: 2;
+      }
+    }
+
+    &--form {
+      width: 100%;
+
+      @media (max-width: 991px) {
+        order: 1;
+      }
+    }
+  }
+}
