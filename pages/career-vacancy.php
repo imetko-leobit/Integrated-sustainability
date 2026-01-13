@@ -15,7 +15,7 @@
 
   <main class="main">
     <?php
-      $hero_title = "Senior Environmental<br>Scientist";
+      $hero_title = "Administrative Assistant <br>– Saskatoon";
       $hero_img = "../assets/img/bg-careers.png";
       include('../components/sections/block-hero.php')
     ?>
@@ -95,13 +95,90 @@
     ?>
 
     <?php
-        $layout = 'center';
-        $title = 'Ready to make<br>an impact?';
-        $description = 'Join our team of passionate professionals dedicated to creating sustainable solutions for a better future.';
-        $button_text = 'Apply Now';
-        include('../components/sections/block-cta.php')
-    ?>
+        // Application form section configuration
+        $application_card_title = "technical issues?";
+        $application_card_description = "Please reach out to us via our contact us page if you have any issues submitting your application. ";
+        $application_card_button = "Contact Us";
 
+        // Form section configuration
+        $form_section1_header = "Want to work with us?";
+        $form_section1_description = "We’d love to hear from you—just fill out the form below to get started";
+        $form_section1_field1_label = "First Name";
+        $form_section1_field2_label = "Last Name";
+        $form_section1_field3_label = "Email Address";
+
+        $form_section2_header = "Professional Background";
+        $form_section2_select1_label = "Years of Experience";
+        $form_section2_select1_options = [
+            '0-2' => '0-2 years',
+            '3-5' => '3-5 years',
+            '6-10' => '6-10 years',
+            '10+' => '10+ years'
+        ];
+        $form_section2_select2_label = "Area of Expertise";
+        $form_section2_select2_options = [
+            'environmental-science' => 'Environmental Science',
+            'engineering' => 'Engineering',
+            'project-management' => 'Project Management',
+            'consulting' => 'Consulting',
+            'other' => 'Other'
+        ];
+        $form_section2_textarea_label = "Tell us about your relevant experience";
+        $form_section2_input_label = "LinkedIn Profile URL";
+        $form_section2_select3_label = "How did you hear about us?";
+        $form_section2_select3_options = [
+            'linkedin' => 'LinkedIn',
+            'job-board' => 'Job Board',
+            'referral' => 'Employee Referral',
+            'website' => 'Company Website',
+            'other' => 'Other'
+        ];
+
+        $form_section3_header = "Additional information";
+        $form_section3_description = "Integrated Sustainability is committed to being a diverse, equitable, and inclusive employer. The data collected below will provide information to evaluate diversity, equity, and inclusion in our recruitment strategies and will allow us to identify patterns and trends and address barriers that may impede an individual’s success in the talent acquisition processes. The information collected will be kept confidential and will not be used to exclude candidates from the talent acquisition process.";
+        $form_section3_select1_label = "Preferred Start Date";
+        $form_section3_select1_options = [
+            'immediate' => 'Immediate',
+            '2-weeks' => '2 Weeks Notice',
+            '1-month' => '1 Month Notice',
+            'negotiable' => 'Negotiable'
+        ];
+        $form_section3_select2_label = "Work Authorization";
+        $form_section3_select2_options = [
+            'citizen' => 'Canadian Citizen',
+            'permanent-resident' => 'Permanent Resident',
+            'work-permit' => 'Valid Work Permit',
+            'require-sponsorship' => 'Require Sponsorship'
+        ];
+        $form_section3_select3_label = "Salary Expectation";
+        $form_section3_select3_options = [
+            'range1' => '$50,000 - $70,000',
+            'range2' => '$70,000 - $90,000',
+            'range3' => '$90,000 - $110,000',
+            'range4' => '$110,000+',
+            'negotiable' => 'Negotiable'
+        ];
+        $form_section3_select4_label = "Work Location Preference";
+        $form_section3_select4_options = [
+            'remote' => 'Remote',
+            'on-site' => 'On-site',
+            'hybrid' => 'Hybrid',
+            'flexible' => 'Flexible'
+        ];
+        $form_section3_select5_label = "Employment Type";
+        $form_section3_select5_options = [
+            'full-time' => 'Full-time',
+            'part-time' => 'Part-time',
+            'contract' => 'Contract',
+            'open' => 'Open to discuss'
+        ];
+
+        $form_file_upload_label = "Upload Resume / CV (PDF or Word)";
+        $form_cancel_button = "Cancel";
+        $form_submit_button = "Submit";
+
+        include('../components/sections/block-career-application.php');
+    ?>
   </main>
 
   <?php include('../components/footer/_footer.php'); ?>
