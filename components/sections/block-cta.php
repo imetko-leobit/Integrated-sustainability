@@ -5,7 +5,11 @@ $description = $description ?? 'Achieve greater cost control and schedule certai
 $button_text = $button_text ?? 'Book a Call';
 
 // Support both $card_position (new) and $layout (backward compatibility)
+// Map 'default' to 'right' for backward compatibility
 $card_position = $card_position ?? $layout ?? 'right';
+if ($card_position === 'default') {
+    $card_position = 'right';
+}
 ?>
 
 <link rel="stylesheet" href="../assets/css/section-block_cta.css" />
