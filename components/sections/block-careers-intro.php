@@ -1,0 +1,67 @@
+<?php
+// Configuration variables - can be set before including this component
+// All have sensible defaults for backward compatibility
+
+// Section title (left column)
+if (!isset($careers_intro_title)) {
+    $careers_intro_title = "Join Our Team";
+}
+
+// Description text (right column)
+if (!isset($careers_intro_description)) {
+    $careers_intro_description = "We are committed to building a diverse and inclusive workplace where innovation thrives and sustainability drives everything we do.";
+}
+
+// Awards/logos array - each item should have 'src' and 'alt' properties
+// Example: ['src' => '../assets/img/award1.png', 'alt' => 'Award name']
+if (!isset($careers_intro_logos)) {
+    $careers_intro_logos = [
+        ['src' => '../assets/img/logoGoldcorp.png', 'alt' => 'Goldcorp'],
+        ['src' => '../assets/img/logoCunuma.png', 'alt' => 'Cunuma'],
+        ['src' => '../assets/img/logoSkeena.png', 'alt' => 'Skeena'],
+        ['src' => '../assets/img/logoOsisko.png', 'alt' => 'Osisko'],
+        ['src' => '../assets/img/logoTeck.png', 'alt' => 'Teck'],
+        ['src' => '../assets/img/logoGoldcorp.png', 'alt' => 'Goldcorp'],
+        ['src' => '../assets/img/logoCunuma.png', 'alt' => 'Cunuma'],
+        ['src' => '../assets/img/logoSkeena.png', 'alt' => 'Skeena'],
+    ];
+}
+?>
+
+<link rel="stylesheet" href="../assets/css/section-block_careers_intro.css" />
+
+<section class="block-careers-intro">
+  <div class="block-careers-intro__wrapper">
+    
+    <!-- Header and Description Row -->
+    <div class="block-careers-intro__content">
+      <div class="block-careers-intro__header">
+        <h2 class="title title--h3">
+          <?php echo $careers_intro_title; ?>
+        </h2>
+      </div>
+
+      <div class="block-careers-intro__description">
+        <div class="text-content text-content--large text-content--grey">
+          <p><?php echo $careers_intro_description; ?></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Awards/Logos Row -->
+    <?php if (!empty($careers_intro_logos)): ?>
+    <div class="block-careers-intro__logos">
+      <?php foreach ($careers_intro_logos as $logo): ?>
+        <div class="block-careers-intro__logo-item">
+          <img 
+            src="<?php echo $logo['src']; ?>" 
+            alt="<?php echo $logo['alt']; ?>" 
+            class="block-careers-intro__logo-img"
+          />
+        </div>
+      <?php endforeach; ?>
+    </div>
+    <?php endif; ?>
+
+  </div>
+</section>
