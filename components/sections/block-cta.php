@@ -3,12 +3,18 @@
 $title = $title ?? 'partner with <br> a unified team';
 $description = $description ?? 'Achieve greater cost control and schedule certainty with accountable infrastructure designed for high-consequence operations.';
 $button_text = $button_text ?? 'Book a Call';
+
+// Support both $card_position (new) and $layout (backward compatibility)
+// Map 'default' to 'right' for backward compatibility
+$card_position = $card_position ?? $layout ?? 'right';
+if ($card_position === 'default') {
+    $card_position = 'right';
+}
 ?>
 
 <link rel="stylesheet" href="../assets/css/section-block_cta.css" />
 
-<section ?
-  class="block-cta <?php echo $layout == "right" ? 'block-cta--right' : ($layout == "center" ? 'block-cta--center' : 'block-cta--default'); ?>">
+<section class="block-cta <?php echo $card_position == 'center' ? 'block-cta--center' : 'block-cta--right'; ?>">
 
   <div class="block-cta__background">
     <img class="block-cta__image" src='../assets/img/cta-bg.png' alt="<?php echo $title; ?>" />
