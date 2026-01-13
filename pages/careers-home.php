@@ -36,7 +36,7 @@
             ['src' => '../assets/img/logoCunuma.png', 'alt' => 'Cunuma'],
             ['src' => '../assets/img/logoSkeena.png', 'alt' => 'Skeena'],
         ];
-        include('../components/sections/block-careers-intro.php')
+        include('../components/sections/block-careers-intro.php');
     ?>
 
     <?php

@@ -37,13 +37,13 @@ if (!isset($careers_intro_logos)) {
     <div class="block-careers-intro__content">
       <div class="block-careers-intro__header">
         <h2 class="title title--h3">
-          <?php echo $careers_intro_title; ?>
+          <?php echo htmlspecialchars($careers_intro_title, ENT_QUOTES, 'UTF-8'); ?>
         </h2>
       </div>
 
       <div class="block-careers-intro__description">
         <div class="text-content text-content--large text-content--grey">
-          <p><?php echo $careers_intro_description; ?></p>
+          <p><?php echo htmlspecialchars($careers_intro_description, ENT_QUOTES, 'UTF-8'); ?></p>
         </div>
       </div>
     </div>
@@ -54,8 +54,8 @@ if (!isset($careers_intro_logos)) {
       <?php foreach ($careers_intro_logos as $logo): ?>
         <div class="block-careers-intro__logo-item">
           <img 
-            src="<?php echo $logo['src']; ?>" 
-            alt="<?php echo $logo['alt']; ?>" 
+            src="<?php echo htmlspecialchars($logo['src'], ENT_QUOTES, 'UTF-8'); ?>" 
+            alt="<?php echo htmlspecialchars($logo['alt'], ENT_QUOTES, 'UTF-8'); ?>" 
             class="block-careers-intro__logo-img"
           />
         </div>
