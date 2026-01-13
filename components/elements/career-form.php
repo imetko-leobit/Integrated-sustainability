@@ -319,8 +319,9 @@ document.addEventListener('DOMContentLoaded', function() {
   if (form) {
     form.addEventListener('submit', function(e) {
       e.preventDefault();
-      console.log('Form submitted');
-      // Add your form submission logic here
+      // Form submission logic should be implemented here
+      // For now, just prevent default submission
+      alert('Form submitted successfully! (This is a placeholder - implement actual submission logic)');
     });
   }
 

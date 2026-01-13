@@ -500,6 +500,7 @@
     display: none; }
   .career-form .choices[data-type*=select-one]::before {
     content: "\2335";
+    /* Down arrow unicode character &#9013; */
     height: 0;
     width: 0;
     border: none;
