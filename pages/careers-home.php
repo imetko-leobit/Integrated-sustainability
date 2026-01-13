@@ -23,6 +23,23 @@
     <?php include('../components/elements/divider.php'); ?>
 
     <?php
+        // Careers intro block with awards/logos
+        $careers_intro_title = "Working at Integrated Sustainability";
+        $careers_intro_description = "Recognized as one of Canada’s Top 100 Small & Medium Employers for 5 years in a row, we believe that the people who work here matter. Every opportunity we have to be a better employer is an opportunity to succeed. Having attracted a dynamic, multi-disciplined team of specialists, we believe that to be innovative, we must also be courageous – finding solutions and challenging conventional wisdom.";
+        $careers_intro_logos = [
+            ['src' => '../assets/img/careers-home-award.png', 'alt' => 'Goldcorp'],
+            ['src' => '../assets/img/careers-home-award.png', 'alt' => 'Cunuma'],
+            ['src' => '../assets/img/careers-home-award.png', 'alt' => 'Skeena'],
+            ['src' => '../assets/img/careers-home-award.png', 'alt' => 'Osisko'],
+            ['src' => '../assets/img/careers-home-award.png', 'alt' => 'Teck'],
+            ['src' => '../assets/img/careers-home-award.png', 'alt' => 'Goldcorp'],
+            ['src' => '../assets/img/careers-home-award.png', 'alt' => 'Cunuma'],
+            ['src' => '../assets/img/careers-home-award.png', 'alt' => 'Skeena'],
+        ];
+        include('../components/sections/block-careers-intro.php');
+    ?>
+
+    <?php
         $section_title = "Open Vacancies";
         include('../components/sections/block-resources-grid.php')
     ?>
