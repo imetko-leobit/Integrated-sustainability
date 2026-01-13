@@ -23,6 +23,23 @@
     <?php include('../components/elements/divider.php'); ?>
 
     <?php
+        // Careers intro block with awards/logos
+        $careers_intro_title = "Join Our Team";
+        $careers_intro_description = "We are committed to building a diverse and inclusive workplace where innovation thrives and sustainability drives everything we do.";
+        $careers_intro_logos = [
+            ['src' => '../assets/img/logoGoldcorp.png', 'alt' => 'Goldcorp'],
+            ['src' => '../assets/img/logoCunuma.png', 'alt' => 'Cunuma'],
+            ['src' => '../assets/img/logoSkeena.png', 'alt' => 'Skeena'],
+            ['src' => '../assets/img/logoOsisko.png', 'alt' => 'Osisko'],
+            ['src' => '../assets/img/logoTeck.png', 'alt' => 'Teck'],
+            ['src' => '../assets/img/logoGoldcorp.png', 'alt' => 'Goldcorp'],
+            ['src' => '../assets/img/logoCunuma.png', 'alt' => 'Cunuma'],
+            ['src' => '../assets/img/logoSkeena.png', 'alt' => 'Skeena'],
+        ];
+        include('../components/sections/block-careers-intro.php');
+    ?>
+
+    <?php
         $section_title = "Open Vacancies";
         include('../components/sections/block-resources-grid.php')
     ?>

@@ -1,0 +1,115 @@
+@import "../common/variable";
+@import "../common/mixins";
+
+.block-careers-intro {
+    padding: 80px 0 80px;
+
+    @media (max-width: 991px) {
+        padding: 40px 24px 40px;
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 60px;
+        width: 100%;
+
+        @media (max-width: 991px) {
+            gap: 40px;
+        }
+    }
+
+    // Header and Description Row
+    &__content {
+        display: flex;
+        flex-direction: row;
+        gap: 56px;
+        width: 100%;
+
+        @media (max-width: 991px) {
+            flex-direction: column;
+            gap: 24px;
+        }
+    }
+
+    &__header {
+        flex: 0 0 25%;
+        min-width: 0;
+
+        @media (max-width: 991px) {
+            flex: 1 1 auto;
+        }
+
+        .title--h3 {
+            @include text-h3;
+
+            @media (max-width: 991px) {
+                @include text-h5;
+            }
+        }
+    }
+
+    &__description {
+        flex: 0 0 calc(75% - 56px);
+        min-width: 0;
+
+        @media (max-width: 991px) {
+            flex: 1 1 auto;
+        }
+
+        .text-content {
+            p {
+                margin: 0;
+            }
+        }
+    }
+
+    // Awards/Logos Row
+    &__logos {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        gap: 32px;
+        align-items: center;
+        width: 100%;
+
+        @media (max-width: 1199px) {
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        @media (max-width: 767px) {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+    }
+
+    &__logo-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+        min-height: 80px;
+
+        @media (max-width: 991px) {
+            padding: 12px;
+            min-height: 60px;
+        }
+    }
+
+    &__logo-img {
+        width: 100%;
+        height: auto;
+        max-width: 120px;
+        object-fit: contain;
+        opacity: 0.7;
+        transition: opacity 0.3s ease;
+
+        @media (max-width: 991px) {
+            max-width: 100px;
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
