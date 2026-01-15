@@ -31,8 +31,4 @@ if (!isset($contact_info_image)) {
       </div>
     </div>
   </div>
-
-  <div class="contact-info__image-wrapper">
-    <img src="<?php echo htmlspecialchars($contact_info_image, ENT_QUOTES, 'UTF-8'); ?>" alt="Contact decoration" class="contact-info__image" />
-  </div>
 </div>

@@ -3,9 +3,41 @@
 
 .block-contact-form {
   padding: 0 0 180px;
+  position: relative;
+  overflow: visible;
 
-  @media (max-width: 991px) {
-    padding: 0 24px 80px;
+  // Left corner background pattern
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 1000px;
+    height: 500px;
+    background-image: url(../../assets/img/contact-us-bg-pattern.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: left top;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.3;
+    transform: translateX(-25%);
+
+    @media (max-width: 1199px) {
+      width: 500px;
+      height: 500px;
+    }
+
+    @media (max-width: 991px) {
+      width: 400px;
+      height: 400px;
+    }
+
+    @media (max-width: 767px) {
+      width: 300px;
+      height: 300px;
+      transform: translateX(-30%);
+    }
   }
 
   &__wrapper {
@@ -18,23 +50,19 @@
       grid-template-columns: 1fr 1fr;
       gap: 40px;
     }
-
     @media (max-width: 991px) {
       grid-template-columns: 1fr;
       gap: 40px;
     }
   }
-
   &__col {
     &--info {
       display: flex;
       align-items: flex-start;
-
       @media (max-width: 991px) {
         padding-top: 0;
       }
     }
-
     &--form {
       position: relative;
     }
@@ -48,16 +76,13 @@
     position: relative;
     margin-top: -175px;
     padding-top: 175px;
-
     @media (max-width: 1199px) {
       padding: 48px;
     }
-
     @media (max-width: 991px) {
       margin-top: 0;
       padding: 32px 24px;
     }
-
     @media (max-width: 767px) {
       padding: 24px 20px;
     }
