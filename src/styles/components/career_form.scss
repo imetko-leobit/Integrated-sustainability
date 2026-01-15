@@ -416,4 +416,29 @@
   .choices__list--dropdown .choices__item[data-value=""] {
     display: none !important;
   }
+
+  // FormAssembly specific styles
+  &--formassembly {
+    padding: 0;
+    background: none;
+
+    iframe {
+      display: block;
+      width: 100%;
+      min-height: 800px;
+      border: none;
+    }
+
+    @media (max-width: 991px) {
+      iframe {
+        min-height: 600px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      iframe {
+        min-height: 500px;
+      }
+    }
+  }
 }
