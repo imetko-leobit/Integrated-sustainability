@@ -416,4 +416,33 @@
   .choices__list--dropdown .choices__item[data-value=""] {
     display: none !important;
   }
+
+  // FormAssembly specific styles
+  &--formassembly {
+    padding: 0;
+    background: none;
+
+    iframe {
+      display: block;
+      width: 100%;
+      // Initial height before FormAssembly resize helper adjusts it dynamically
+      // Desktop: 800px provides good initial view for typical forms
+      min-height: 800px;
+      border: none;
+    }
+
+    @media (max-width: 991px) {
+      iframe {
+        // Tablet: 600px to account for narrower screens
+        min-height: 600px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      iframe {
+        // Mobile: 500px for compact initial view
+        min-height: 500px;
+      }
+    }
+  }
 }
