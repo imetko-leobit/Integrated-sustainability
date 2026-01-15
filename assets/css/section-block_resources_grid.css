@@ -1,0 +1,61 @@
+/*!*****************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/styles/section/block_resources_grid.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************/
+/*images*/
+.block-resources-grid {
+  padding: 80px 0; }
+  @media (max-width: 991px) {
+    .block-resources-grid {
+      padding: 60px 0; } }
+  .block-resources-grid__header {
+    margin-bottom: 48px; }
+    @media (max-width: 991px) {
+      .block-resources-grid__header {
+        margin-bottom: 32px; } }
+    .block-resources-grid__header .title--h2 {
+      font-family: "PoppinsSBold", "Roboto", "Arial", sans-serif;
+      font-style: normal;
+      font-size: 40px;
+      line-height: 52px;
+      font-weight: 600; }
+      @media (max-width: 991px) {
+        .block-resources-grid__header .title--h2 {
+          font-size: 28px;
+          line-height: 36px; } }
+  .block-resources-grid__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-bottom: 48px; }
+    @media (max-width: 991px) {
+      .block-resources-grid__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+        margin-bottom: 32px; } }
+    @media (max-width: 767px) {
+      .block-resources-grid__grid {
+        grid-template-columns: 1fr;
+        gap: 20px; } }
+  .block-resources-grid__item {
+    -webkit-transition: opacity 0.3s ease, -webkit-transform 0.3s ease;
+    transition: opacity 0.3s ease, -webkit-transform 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease, -webkit-transform 0.3s ease; }
+    .block-resources-grid__item.is-hidden {
+      display: none; }
+  .block-resources-grid__actions {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 32px 0; }
+    .block-resources-grid__actions .btn {
+      min-width: 200px; }
+
+
+/*# sourceMappingURL=section-block_resources_grid.css.map*/
