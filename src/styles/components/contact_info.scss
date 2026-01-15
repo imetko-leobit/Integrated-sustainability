@@ -1,0 +1,86 @@
+@import "../common/variable";
+@import "../common/mixins";
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 52px;
+  padding-right: 40px;
+  position: relative;
+
+  @media (max-width: 991px) {
+    padding-right: 0;
+    gap: 24px;
+  }
+
+  &__text {
+  }
+
+  &__description {
+    @include text-body-large;
+    color: var(--color-grey-200);
+    margin: 0;
+  }
+
+  &__phone-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+  }
+
+  &__phone-item {
+    display: flex;
+    gap: 16px;
+  }
+
+  &__phone {
+    @include text-h4;
+    color: var(--color-white);
+  }
+
+  &__chip {
+    border-radius: 32px;
+    padding: 8px 20px;
+    @include bg-image;
+    background-position: center;
+  }
+
+  &__badge {
+    @include text-body-base;
+    background: $primary-gradient;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &__image-wrapper {
+    position: relative;
+    margin-top: 40px;
+    width: 100%;
+    max-width: 400px;
+
+    @media (max-width: 991px) {
+      display: none;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      height: calc(100% - 40px);
+      width: calc(100% - 40px);
+      @include bg-image;
+      overflow: hidden;
+      z-index: -1;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    padding-right: 40px;
+    padding-bottom: 40px;
+  }
+}
