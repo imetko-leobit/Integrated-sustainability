@@ -101,10 +101,11 @@
         $application_card_button = "Contact Us";
 
         // FormAssembly configuration
-        // TODO: Replace with your actual FormAssembly form URL
-        $formassembly_form_url = "https://example.tfaforms.net/12345";
-        $formassembly_form_height = "800";
-        $formassembly_form_width = "100%";
+        // IMPORTANT: Replace with your actual FormAssembly form URL
+        // Get your form URL from FormAssembly: Publish > Embed in iframe
+        $formassembly_form_url = "REPLACE_WITH_YOUR_FORMASSEMBLY_URL";
+        $formassembly_form_height = "800";  // Initial height in pixels
+        $formassembly_form_width = "100%";  // Width (pixels or percentage)
 
         include('../components/sections/block-career-application.php');
     ?>
