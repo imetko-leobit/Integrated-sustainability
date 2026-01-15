@@ -31,11 +31,16 @@ $formassembly_domain = '';
 if ($formassembly_form_url !== 'REPLACE_WITH_YOUR_FORMASSEMBLY_URL') {
     $parsed_url = parse_url($formassembly_form_url);
     if ($parsed_url !== false && isset($parsed_url['scheme']) && isset($parsed_url['host'])) {
-        // Basic validation: Ensure it's a valid HTTPS URL from a FormAssembly domain
-        // FormAssembly uses *.tfaforms.net domains
-        if ($parsed_url['scheme'] === 'https' && 
-            (strpos($parsed_url['host'], 'tfaforms.net') !== false || 
-             strpos($parsed_url['host'], 'formassembly.com') !== false)) {
+        // Security: Only accept HTTPS URLs from known FormAssembly domains
+        // FormAssembly uses *.tfaforms.net and *.formassembly.com
+        $host = strtolower($parsed_url['host']);
+        $is_valid_domain = ($parsed_url['scheme'] === 'https') && 
+                          (str_ends_with($host, '.tfaforms.net') || 
+                           str_ends_with($host, '.formassembly.com') ||
+                           $host === 'tfaforms.net' || 
+                           $host === 'formassembly.com');
+        
+        if ($is_valid_domain) {
             $formassembly_domain = $parsed_url['scheme'] . '://' . $parsed_url['host'];
         }
     }
