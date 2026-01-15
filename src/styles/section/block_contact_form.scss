@@ -1,0 +1,65 @@
+@import "../common/variable";
+@import "../common/mixins";
+
+.block-contact-form {
+  padding: 0 0 180px;
+
+  @media (max-width: 991px) {
+    padding: 0 24px 80px;
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 56px;
+    position: relative;
+
+    @media (max-width: 1199px) {
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    @media (max-width: 991px) {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  &__col {
+    &--info {
+      display: flex;
+      align-items: flex-start;
+      padding-top: 100px;
+
+      @media (max-width: 991px) {
+        padding-top: 0;
+      }
+    }
+
+    &--form {
+      position: relative;
+    }
+  }
+
+  &__card {
+    width: 100%;
+    padding: 56px;
+    @include bg-image;
+    border-radius: 8px;
+    position: relative;
+    margin-top: -100px;
+
+    @media (max-width: 1199px) {
+      padding: 48px;
+    }
+
+    @media (max-width: 991px) {
+      margin-top: 0;
+      padding: 32px 24px;
+    }
+
+    @media (max-width: 767px) {
+      padding: 24px 20px;
+    }
+  }
+}

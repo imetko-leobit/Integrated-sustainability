@@ -397,6 +397,8 @@ h6 {
   height: 1px;
   background-image: linear-gradient(90deg, #81FEE5 0%, #818FFE 100%);
   opacity: 0.8; }
+  .divider-element {
+    position: relative; }
 
 .desktop {
   display: block; }
