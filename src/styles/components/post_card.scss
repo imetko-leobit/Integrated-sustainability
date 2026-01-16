@@ -6,19 +6,19 @@
   position: relative;
   height: 600px;
   transition: all 0.3s ease;
-  
+
   .post-card__image-wrapper {
     width: 100%;
     height: 100%;
     filter: grayscale(100%);
-  
+
     img {
       object-fit: cover;
       height: 100%;
       width: 100%;
     }
   }
-  
+
   .post-card__content {
     padding: 42px 42px 80px;
     position: absolute;
@@ -29,7 +29,7 @@
     backdrop-filter: blur(5px);
     height: 200px;
     transition: all 0.3s ease;
-  
+
     .post-card__description {
       @include text-body-small;
       -webkit-line-clamp: 5;
@@ -40,14 +40,14 @@
       transition: all 0.3s ease;
     }
   }
-  
+
   .post-card__link {
     display: block;
     text-decoration: none;
     color: #fff;
-    height: 100%; 
+    height: 100%;
   }
-  
+
   .post-card__title {
     @include text-h5;
     -webkit-line-clamp: 2;
@@ -99,7 +99,7 @@
       .post-card__title {
         -webkit-line-clamp: 3;
       }
-  
+
       .post-card__description {
         visibility: visible;
         opacity: 1;
@@ -152,7 +152,7 @@
     border-radius: 32px;
     padding: 8px 16px;
     text-transform: lowercase;
-    pointer-events: none; 
+    pointer-events: none;
 
     position: relative;
     margin-right: -40px;
@@ -188,7 +188,7 @@
         padding-right: 40px;
         @include text-h4;
       }
-  
+
       .post-card__description {
         -webkit-line-clamp: 6;
         @include text-body-base;
@@ -203,17 +203,17 @@
 
     &:hover {
       height: 450px;
-  
+
       .post-card__content {
         height: fit-content;
         background-color: rgba(04, 04, 04, 0.5);
         background: right 0% bottom 0% url(../../assets/img/card-bg.svg) no-repeat;
-  
+
         .post-card__title {
           padding-right: 0;
         }
       }
-  
+
       .post-card__arrow {
         bottom: 24px;
         left: 24px;
@@ -236,18 +236,19 @@
   position: relative;
   height: 470px;
   transition: all 0.3s ease;
-  
+
   .post-card__image-wrapper {
     width: 100%;
     height: 100%;
-  
+    @include bg-overlay(0.2);
+
     img {
       object-fit: cover;
       height: 100%;
       width: 100%;
     }
   }
-  
+
   .post-card__content {
     padding: 32px 32px 60px;
     position: absolute;
@@ -259,14 +260,14 @@
     height: 200px;
     transition: all 0.3s ease;
   }
-  
+
   .post-card__link {
     display: block;
     text-decoration: none;
     color: #fff;
-    height: 100%; 
+    height: 100%;
   }
-  
+
   .post-card__title {
     @include text-h5;
     -webkit-line-clamp: 2;
@@ -328,7 +329,7 @@
   @media (max-width: 991px) {
     height: fit-content;
   }
-  
+
   .post-card__link {
     display: block;
     text-decoration: none;
@@ -337,10 +338,10 @@
     justify-content: flex-end;
     align-items: flex-start;
     color: #fff;
-    height: 100%; 
+    height: 100%;
     padding: 32px;
 
-      
+
   .post-card__content {
     padding: 32px 0;
     transition: all 0.3s ease;
@@ -368,7 +369,7 @@
       }
     }
   }
-  
+
   .post-card__title {
     @include text-h5;
   }
@@ -378,7 +379,7 @@
     align-items: flex-end;
     justify-content: flex-start;
     height: 32px;
-    
+
     .post-card__card__action-text {
       visibility: hidden;
       width: 0;

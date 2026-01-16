@@ -592,8 +592,12 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, $opacity);
     pointer-events: none;
+
+    background:
+      // linear-gradient(rgba(0, 0, 0, $opacity), rgba(0, 0, 0, $opacity)),
+      url("../../assets/img/noise.svg") repeat;
+    background-size: cover;
   }
 }
 
