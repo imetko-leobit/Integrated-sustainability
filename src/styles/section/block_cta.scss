@@ -23,6 +23,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+    @include bg-overlay(0.1);
 
       .block-cta__image {
         object-fit: cover;
@@ -67,16 +68,16 @@
         padding: 48px;
         margin: 0;
     }
-    
+
     @media (max-width: 767px) {
         padding: 32px 24px;
     }
   }
-  
+
   &__card-content {
       color: white;
       text-align: center;
-      padding: 16px;  
+      padding: 16px;
   }
 
   .title {
@@ -115,7 +116,7 @@
         }
       }
   }
-  
+
   &--default {
       .block-cta__card-wrapper {
         display: grid;

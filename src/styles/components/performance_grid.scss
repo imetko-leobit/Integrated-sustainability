@@ -30,7 +30,7 @@
         align-items: center;
         justify-content: center;
         text-align: center;
-        
+
         border: 1px solid rgba(255, 255, 255, 0.15);
         background: rgba(4,4,4,0.2);
 
@@ -42,7 +42,7 @@
             z-index: 10;
             cursor: pointer;
         }
-        
+
         &--center {
             border: none;
             background: transparent;
@@ -72,16 +72,16 @@
     /* --- OVERLAY (Glow) --- */
     &__overlay {
         position: absolute;
-        inset: 0; 
+        inset: 0;
         pointer-events: none;
         user-select: none;
         z-index: 10;
-        
-        padding-left: inherit; 
+
+        padding-left: inherit;
 
         /* --- Mask (hide by default)  --- */
         opacity: var(--opacity, 0);
-        
+
         /* ---  Mask effect  --- */
         -webkit-mask: radial-gradient(
             20rem 20rem at var(--x) var(--y),
@@ -93,23 +93,24 @@
             #000 1%,
             transparent 50%
         );
-        
+
         transition: 400ms opacity ease;
         will-change: mask;
 
         /* --- Active item styles  --- */
         .performance-grid__item {
             border: 1px solid transparent;
-            
-            background-image: 
+            height: 136px;
+
+            background-image:
                 linear-gradient(
                     145deg,
                     rgba(4, 4, 4, 0.95) 0%,
                     rgba(75, 224, 195, 0.01) 95%,
-                    transparent 100% 
+                    transparent 100%
                 ),
                 $primary-gradient;
-            
+
             background-origin: border-box;
             background-clip: padding-box, border-box;
 
@@ -137,7 +138,7 @@
         }
     }
 
-        
+
     &__bg {
         position: absolute;
         inset: 0;
@@ -169,7 +170,7 @@
             width: 44px;
             height: 44px;
         }
-        
+
 
         img, svg {
             width: auto;
@@ -190,7 +191,7 @@
         line-height: 1.4;
         font-weight: 600;
         @include text-body-large;
-    
+
         background: $primary-gradient;
         background-clip: text;
         color: transparent;

@@ -38,7 +38,7 @@
   }
 
   &__media {
-    
+
     grid-column: 7 / -1;
 
     @media (max-width: 1199px) {
@@ -50,6 +50,7 @@
 
     .insights-card__image-wrapper {
       position: relative;
+      @include bg-overlay(0.1);
 
       &::before {
         content: '';
@@ -79,7 +80,7 @@
         bottom: 88px;
         left: 88px;
         padding-right: 56px;
-        
+
         .person-card {
           background: rgba(0, 0, 0, 0.8);
         }

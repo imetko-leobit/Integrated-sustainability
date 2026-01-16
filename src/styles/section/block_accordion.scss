@@ -67,6 +67,7 @@
 
     .accordion-card__image-wrapper {
       position: relative;
+      @include bg-overlay(0.1);
 
       &::before {
         content: '';
