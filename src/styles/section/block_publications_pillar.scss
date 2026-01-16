@@ -27,30 +27,31 @@
 
           .post-card__image-wrapper {
             filter: grayscale(0%);
+            @include bg-overlay(0.2);
           }
-      
+
           .post-card__content {
             height: fit-content;
             backdrop-filter: blur(4px);
             background: rgba(0, 0, 0, 0.5);
             padding: 24px 24px 60px;
-      
+
             .post-card__title {
               -webkit-line-clamp: 3;
               @include text-h5;
             }
-        
+
             .post-card__description {
               visibility: visible;
               opacity: 1;
               @include text-caption;
             }
-      
+
             &::after {
               display: none;
             }
           }
-      
+
           .post-card__arrow {
 
             bottom: 24px;
@@ -61,7 +62,7 @@
               margin-right: 14px;
               width: auto;
             }
-      
+
             .arrow-icon {
               padding: 4px;
               svg {

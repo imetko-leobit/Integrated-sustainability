@@ -41,6 +41,7 @@
     align-items: center;
     justify-content: center;
     margin: auto;
+    @include bg-overlay(0.1);
 
     @media (max-width: 1199px) {
       display: none;
@@ -57,7 +58,7 @@
   .title {
     color: white;
     margin-bottom: 42px;
-    
+
     &--h2 {
       @include text-h2;
     }
@@ -70,7 +71,7 @@
   }
 
   .btn {
-    margin-top: 48px;  
+    margin-top: 48px;
   }
 
 

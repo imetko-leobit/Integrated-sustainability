@@ -186,8 +186,14 @@
         @include bg-overlay(0.3);
       }
 
-      &:hover .pillar-carousel-card__image-bg {
+      &:hover {
+        .pillar-carousel-card__image-bg {
           filter: none;
+        }
+
+        .pillar-carousel-card__title {
+          color: white !important;
+        }
       }
 
       &__content-wrapper {

@@ -19,10 +19,10 @@
         display: flex;
         flex-direction: column;
         gap: 32px;
-        max-height: 100%; 
+        max-height: 100%;
       }
   }
-  
+
   /* --- Left side (List) --- */
   .category-navigation__nav-container {
       grid-column: span 4;
@@ -34,7 +34,7 @@
         width: 100%;
       }
   }
-  
+
   .heading {
       padding-bottom: 40px;
 
@@ -46,14 +46,14 @@
           }
       }
   }
-  
+
   .category-navigation__nav {
       list-style: none;
       padding: 0 0 32px;
       margin: 0;
       overflow-y: auto;
       flex-grow: 1;
-      -ms-overflow-style: none;  
+      -ms-overflow-style: none;
       scrollbar-width: none;
       @include text-body-base;
 
@@ -64,19 +64,19 @@
        height: 330px;
       }
   }
-  
+
   .category-navigation__nav::-webkit-scrollbar {
       display: none;
   }
-  
+
   .category-navigation__nav-item {
     .category-navigation__item-header {
       padding: 16px 40px;
       cursor: pointer;
       color: var(--color-grey-300);
-      border-left: 1px solid transparent; 
+      border-left: 1px solid transparent;
       border-image: $primary-gradient-5;
-      border-image-slice: 1; 
+      border-image-slice: 1;
       transition: all 0.3s ease;
       font-size: 16px;
 
@@ -91,7 +91,7 @@
         margin: 0;
         overflow-y: auto;
         flex-grow: 1;
-        -ms-overflow-style: none;  
+        -ms-overflow-style: none;
         scrollbar-width: none;
         @include text-body-base;
 
@@ -100,14 +100,14 @@
         }
       }
   }
-  
+
   .category-navigation__nav-item:hover,
   .category-navigation__subitem:hover {
     &>.category-navigation__item-header {
       color: white;
     }
   }
-  
+
   .category-navigation__nav-item.active,
   .category-navigation__subitem.active {
     &>.category-navigation__item-header {
@@ -120,10 +120,10 @@
   .category-navigation__nav-item.active {
     .category-navigation__sublist {
       display: block;
-    } 
+    }
 
   }
-  
+
   /* --- Right side (Content) --- */
   .category-navigation__content {
       grid-column: span 8;
@@ -177,8 +177,9 @@
         .card-category-navigation__image-wrapper {
             width: 100%;
             height: 100%;
+          @include bg-overlay(0.1);
         }
-          
+
           .card-category-navigation__image-wrapper img {
               width: 100%;
               height: 100%;
@@ -186,11 +187,11 @@
               object-fit: cover;
               transition: filter 0.5s ease, opacity 0.2s ease;
           }
-          
+
           &:hover .card-category-navigation__image-wrapper img {
-            filter: grayscale(100%); 
+            filter: grayscale(100%);
           }
-          
+
           .card-category-navigation__overlay {
               position: absolute;
               bottom: 0;
@@ -201,8 +202,8 @@
               display: flex;
               flex-direction: column;
               justify-content: flex-start;
-              background-color: rgba(4, 4, 4, 0.5); 
-              backdrop-filter: blur(5px); 
+              background-color: rgba(4, 4, 4, 0.5);
+              backdrop-filter: blur(5px);
               -webkit-backdrop-filter: blur(5px);
 
               @media (max-width: 1199px) {
@@ -213,7 +214,7 @@
                 padding: 24px;
             }
           }
-          
+
           .card-category-navigation__title {
             margin-bottom: 15px;
             display: flex;
@@ -229,12 +230,12 @@
           .card-category-navigation__title--h4 {
               @include text-h4;
           }
-          
+
           .card-category-navigation__info {
               position: relative;
 
           }
-          
+
           .card-category-navigation__desc {
             @include text-body-base;
             padding-right: 50px;
@@ -243,7 +244,7 @@
                 padding-right: 0;
             }
           }
-          
+
           .card-category-navigation__arrow-icon {
             text-decoration: none;
             color: white;
@@ -266,7 +267,7 @@
             }
           }
       }
-      
+
       .category-navigation__note {
         @include text-body-small;
         text-align: right;
@@ -280,5 +281,5 @@
               text-decoration: underline;
           }
       }
-  } 
+  }
 }

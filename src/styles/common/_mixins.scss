@@ -595,25 +595,26 @@
     pointer-events: none;
 
     background:
-      // linear-gradient(rgba(0, 0, 0, $opacity), rgba(0, 0, 0, $opacity)),
-      url("../../assets/img/noise.svg") repeat;
+      linear-gradient(rgba(0, 0, 0, $opacity), rgba(0, 0, 0, $opacity)),
+      url("../../assets/img/noise-without-overlay.png") repeat;
     background-size: cover;
   }
 }
 
 @mixin item-marked {
   position: relative;
-  padding-left: 32px;
-  @include text-body-base;
+  padding-left: 60px;
+  min-height: 33px;
   color: white;
+  @include text-body-large;
 
   &::before {
     content: "";
     position: absolute;
     left: 0;
-    top: 4px;
-    width: 18px;
-    height: 18px;
+    top: 2px;
+    width: 30px;
+    height: 30px;
     background-image: url("../../assets/img/mark.svg");
     background-size: contain;
     background-repeat: no-repeat;
