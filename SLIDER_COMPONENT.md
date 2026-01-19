@@ -13,6 +13,36 @@ The slider block (`block-slider.php`) has been updated to be fully reusable acro
 - ✅ Backward compatible with existing implementations
 - ✅ Configuration via PHP arrays
 
+## Quick Start
+
+### Full-Width Slider (3 items per row)
+
+```php
+<?php
+$slider_items = [
+    ['title' => 'Item 1', 'desc' => 'Description', 'image' => 'img.jpg', 'link' => '#', 'active' => true],
+    ['title' => 'Item 2', 'desc' => 'Description', 'image' => 'img.jpg', 'link' => '#', 'active' => false],
+    ['title' => 'Item 3', 'desc' => 'Description', 'image' => 'img.jpg', 'link' => '#', 'active' => false],
+];
+$hide_description = true;
+include('../components/sections/block-slider.php');
+?>
+```
+
+### With Description Panel
+
+```php
+<?php
+$slider_items = [...]; // Your items array
+$pillar_number = "PERFORMANCE PILLAR #1";
+$pillar_title = "Your Section Title";
+$pillar_text_1 = "First paragraph";
+$pillar_text_2 = "Second paragraph";
+$hide_description = false;
+include('../components/sections/block-slider.php');
+?>
+```
+
 ## Usage
 
 ### Basic Usage (Full-Width Mode)
