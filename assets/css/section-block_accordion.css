@@ -62,7 +62,15 @@
             -o-object-fit: cover;
             object-fit: cover; } }
     .block-accordion__media .accordion-card__image-wrapper {
+      position: relative;
       position: relative; }
+      .block-accordion__media .accordion-card__image-wrapper::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../../assets/img/noise-without-overlay.png") repeat;
+        background-size: cover; }
       .block-accordion__media .accordion-card__image-wrapper::before {
         content: '';
         position: absolute;

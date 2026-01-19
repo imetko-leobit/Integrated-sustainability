@@ -18,7 +18,15 @@
     opacity: 0;
     -webkit-transition: opacity 0.5s ease;
     transition: opacity 0.5s ease;
-    z-index: 1; }
+    z-index: 1;
+    position: relative; }
+    .info-card-wrapper .info-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../../assets/img/noise-without-overlay.png") repeat;
+      background-size: cover; }
     .info-card-wrapper .info-card.active {
       opacity: 1;
       z-index: 2; }
