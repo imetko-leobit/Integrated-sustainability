@@ -72,13 +72,13 @@
     }
 
     .pillar-carousel-card {
-      // 37.33px accounts for total gap (56px * 2 gaps) divided by 3 cards
+      // 37.33px: Total gap space is 112px (56px * 2 gaps), divided by 3 cards = 37.33px per card
       flex: 0 0 calc(33.333% - 37.33px);
       width: calc(33.333% - 37.33px);
       max-width: calc(33.333% - 37.33px);
 
       @media (max-width: 1199px) {
-        // 20px accounts for gap (40px) distributed between 2 cards
+        // 20px: Total gap space is 40px (1 gap), divided by 2 cards = 20px per card
         flex: 0 0 calc(50% - 20px);
         width: calc(50% - 20px);
         max-width: calc(50% - 20px);
