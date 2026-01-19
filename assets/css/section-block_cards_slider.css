@@ -11,7 +11,15 @@
   .post-card .post-card__image-wrapper {
     width: 100%;
     height: 100%;
-    filter: grayscale(100%); }
+    filter: grayscale(100%);
+    position: relative; }
+    .post-card .post-card__image-wrapper::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../../assets/img/noise-without-overlay.png") repeat;
+      background-size: cover; }
     .post-card .post-card__image-wrapper img {
       object-fit: cover;
       height: 100%;
@@ -29,7 +37,7 @@
     .post-card .post-card__content .post-card__description {
       font-family: "Poppins", "Roboto", "Arial", sans-serif;
       font-style: normal;
-      font-size: 15px;
+      font-size: 14px;
       line-height: 24px;
       font-weight: 400;
       -webkit-line-clamp: 5;
@@ -228,7 +236,15 @@
   transition: all 0.3s ease; }
   .post-card--simple .post-card__image-wrapper {
     width: 100%;
-    height: 100%; }
+    height: 100%;
+    position: relative; }
+    .post-card--simple .post-card__image-wrapper::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../../assets/img/noise-without-overlay.png") repeat;
+      background-size: cover; }
     .post-card--simple .post-card__image-wrapper img {
       object-fit: cover;
       height: 100%;
@@ -240,7 +256,7 @@
     left: 0;
     right: 0;
     backdrop-filter: blur(16px);
-    background: rgba(13, 13, 13, 0.9);
+    background: rgba(13, 13, 13, 0.8);
     height: 200px;
     transition: all 0.3s ease; }
   .post-card--simple .post-card__link {
@@ -339,7 +355,7 @@
       display: none;
       font-family: "Poppins", "Roboto", "Arial", sans-serif;
       font-style: normal;
-      font-size: 15px;
+      font-size: 14px;
       line-height: 24px;
       font-weight: 400;
       color: var(--color-gray-200); }
@@ -383,7 +399,7 @@
       transition: all 0.3s ease;
       font-family: "Poppins", "Roboto", "Arial", sans-serif;
       font-style: normal;
-      font-size: 15px;
+      font-size: 14px;
       line-height: 24px;
       font-weight: 400;
       transition: all 0.3s ease; }

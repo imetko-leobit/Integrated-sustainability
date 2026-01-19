@@ -23,6 +23,8 @@
     @media (max-width: 1199px) {
       .block-slider::after {
         display: none; } }
+  .block-slider--full-width::after {
+    display: none; }
   .block-slider__wrapper {
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -39,6 +41,9 @@
         -ms-flex-direction: column;
         flex-direction: column;
         gap: 16px; } }
+    .block-slider__wrapper--full-width {
+      display: block;
+      grid-template-columns: 1fr; }
   .block-slider__description {
     background-color: var(--color-black);
     z-index: 1;
@@ -98,6 +103,13 @@
         position: relative;
         height: 400px;
         margin: 0; } }
+    .block-slider--full-width .block-slider__col--carousel {
+      position: relative;
+      margin-left: 0;
+      height: 600px; }
+      @media (max-width: 1199px) {
+        .block-slider--full-width .block-slider__col--carousel {
+          height: 400px; } }
   .block-slider__col--carusel::-webkit-scrollbar {
     display: none; }
   .block-slider .pillar-carousel {
@@ -146,7 +158,30 @@
     transition: all 0.5s ease;
     padding: 20px 0;
     position: relative;
-    max-width: 18%; }
+    max-width: 18%;
+    /* Full width mode: 3 items per row on desktop */ }
+    .block-slider--full-width .block-slider .pillar-carousel-card {
+      -webkit-box-flex: 0;
+      -ms-flex: 0 0 calc(33.333% - 40px);
+      flex: 0 0 calc(33.333% - 40px);
+      width: calc(33.333% - 40px);
+      max-width: calc(33.333% - 40px);
+      /* Tablet: 2 items per row */
+      /* Mobile: 1 item per row */ }
+      @media (max-width: 1199px) and (min-width: 768px) {
+        .block-slider--full-width .block-slider .pillar-carousel-card {
+          -webkit-box-flex: 0;
+          -ms-flex: 0 0 calc(50% - 30px);
+          flex: 0 0 calc(50% - 30px);
+          width: calc(50% - 30px);
+          max-width: calc(50% - 30px); } }
+      @media (max-width: 767px) {
+        .block-slider--full-width .block-slider .pillar-carousel-card {
+          -webkit-box-flex: 0;
+          -ms-flex: 0 0 calc(100% - 24px);
+          flex: 0 0 calc(100% - 24px);
+          width: calc(100% - 24px);
+          max-width: 100%; } }
     @media (max-width: 1199px) {
       .block-slider .pillar-carousel-card {
         -webkit-box-flex: 0;
@@ -165,13 +200,22 @@
         padding: 0; } }
     .block-slider .pillar-carousel-card.is-active {
       padding: 0;
-      max-width: 22.45%; }
+      max-width: 22.45%;
+      /* Full width mode active state */ }
       .block-slider .pillar-carousel-card.is-active .pillar-carousel-card__image-bg {
         -webkit-filter: grayscale(0%);
         filter: grayscale(0%); }
       @media (max-width: 1199px) {
         .block-slider .pillar-carousel-card.is-active {
           max-width: 100%; } }
+      .block-slider--full-width .block-slider .pillar-carousel-card.is-active {
+        max-width: calc(33.333% - 40px); }
+        @media (max-width: 1199px) and (min-width: 768px) {
+          .block-slider--full-width .block-slider .pillar-carousel-card.is-active {
+            max-width: calc(50% - 30px); } }
+        @media (max-width: 767px) {
+          .block-slider--full-width .block-slider .pillar-carousel-card.is-active {
+            max-width: 100%; } }
     .block-slider .pillar-carousel-card__image-container {
       width: 100%;
       height: 100%;
@@ -182,10 +226,20 @@
       background-size: cover;
       background-position: center;
       -webkit-filter: grayscale(100%);
-      filter: grayscale(100%); }
+      filter: grayscale(100%);
+      position: relative; }
+      .block-slider .pillar-carousel-card__image-bg::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../../assets/img/noise-without-overlay.png") repeat;
+        background-size: cover; }
     .block-slider .pillar-carousel-card:hover .pillar-carousel-card__image-bg {
       -webkit-filter: none;
       filter: none; }
+    .block-slider .pillar-carousel-card:hover .pillar-carousel-card__title {
+      color: white !important; }
     .block-slider .pillar-carousel-card__content-wrapper {
       position: absolute;
       bottom: 0px;
@@ -247,7 +301,7 @@
     .block-slider .pillar-carousel-card__desc {
       font-family: "Poppins", "Roboto", "Arial", sans-serif;
       font-style: normal;
-      font-size: 15px;
+      font-size: 14px;
       line-height: 24px;
       font-weight: 400;
       margin-bottom: 24px;
