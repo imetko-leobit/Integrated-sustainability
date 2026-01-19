@@ -65,7 +65,15 @@
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
-    margin: auto; }
+    margin: auto;
+    position: relative; }
+    .block-media__col--img::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../../assets/img/noise-without-overlay.png") repeat;
+      background-size: cover; }
     @media (max-width: 1199px) {
       .block-media__col--img {
         display: none; } }

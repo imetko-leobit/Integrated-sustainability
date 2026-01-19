@@ -47,7 +47,7 @@
     -webkit-box-align: start;
     -ms-flex-align: start;
     align-items: flex-start;
-    gap: 22px; }
+    gap: 26px; }
     @media (max-width: 991px) {
       .details-content ul {
         gap: 12px; } }
@@ -67,26 +67,26 @@
       align-items: flex-start;
       gap: 22px;
       position: relative;
-      padding-left: 32px;
-      font-family: "Poppins", "Roboto", "Arial", sans-serif;
-      font-weight: 400;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+      padding-left: 60px;
+      min-height: 33px;
+      color: white;
+      font-family: "PoppinsLight", "Roboto", "Arial", sans-serif;
+      font-weight: 300;
+      -webkit-font-smoothing: subpixel-antialiased;
       font-style: normal;
-      font-size: 16px;
-      line-height: 24px;
-      color: white; }
+      font-size: 18px;
+      line-height: 28px; }
       @media (max-width: 991px) {
         .details-content ul li {
-          font-size: 14px;
-          line-height: 22px; } }
+          font-size: 16px;
+          line-height: 24px; } }
       .details-content ul li::before {
         content: "";
         position: absolute;
         left: 0;
-        top: 4px;
-        width: 18px;
-        height: 18px;
+        top: 2px;
+        width: 30px;
+        height: 30px;
         background-image: url("../../assets/img/mark.svg");
         background-size: contain;
         background-repeat: no-repeat; }

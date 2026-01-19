@@ -16,7 +16,15 @@
   -webkit-box-align: start;
   -ms-flex-align: start;
   align-items: flex-start;
+  position: relative;
   position: relative; }
+  .info-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../../assets/img/noise-without-overlay.png") repeat;
+    background-size: cover; }
   .info-card .info-card__image {
     width: 100%;
     height: auto; }

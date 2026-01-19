@@ -26,17 +26,30 @@
     }
   }
 
+  // Full width mode when description is hidden
+  &--full-width {
+    &::after {
+      display: none;
+    }
+  }
+
   &__wrapper {
     display: grid;
     grid-template-columns: 1fr 2fr;
-      position: relative;
+    position: relative;
 
-      @media (max-width: 1199px) {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        gap: 16px;
-      }
+    @media (max-width: 1199px) {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    // Full width wrapper when description is hidden
+    &--full-width {
+      display: block;
+      grid-template-columns: 1fr;
+    }
   }
 
   &__description {
@@ -104,6 +117,16 @@
       margin: 0;
     }
 
+    // Full width mode when description is hidden
+    .block-slider--full-width & {
+      position: relative;
+      margin-left: 0;
+      height: 600px;
+
+      @media (max-width: 1199px) {
+        height: 400px;
+      }
+    }
   }
 
   &__col--carusel::-webkit-scrollbar {
@@ -145,6 +168,27 @@
       position: relative;
       max-width: 18%;
 
+      /* Full width mode: 3 items per row on desktop */
+      .block-slider--full-width & {
+        flex: 0 0 calc(33.333% - 40px);
+        width: calc(33.333% - 40px);
+        max-width: calc(33.333% - 40px);
+        
+        /* Tablet: 2 items per row */
+        @media (max-width: 1199px) and (min-width: 768px) {
+          flex: 0 0 calc(50% - 30px);
+          width: calc(50% - 30px);
+          max-width: calc(50% - 30px);
+        }
+
+        /* Mobile: 1 item per row */
+        @media (max-width: 767px) {
+          flex: 0 0 calc(100% - 24px);
+          width: calc(100% - 24px);
+          max-width: 100%;
+        }
+      }
+
       @media (max-width: 1199px) {
         flex: 0 0 350px;
         width: 350px;
@@ -168,6 +212,19 @@
 
         @media (max-width: 1199px) {
           max-width: 100%;
+        }
+
+        /* Full width mode active state */
+        .block-slider--full-width & {
+          max-width: calc(33.333% - 40px);
+
+          @media (max-width: 1199px) and (min-width: 768px) {
+            max-width: calc(50% - 30px);
+          }
+
+          @media (max-width: 767px) {
+            max-width: 100%;
+          }
         }
       }
 

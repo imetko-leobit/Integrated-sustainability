@@ -9,6 +9,21 @@
   @media (max-width: 991px) {
     .block-approach-intro {
       padding: 0 24px 80px; } }
+  .block-approach-intro__tagline {
+    margin-bottom: 16px; }
+    .block-approach-intro__tagline span {
+      font-family: "Poppins", "Roboto", "Arial", sans-serif;
+      font-style: normal;
+      font-size: 14px;
+      line-height: 24px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--color-grey, #999); }
+      @media (max-width: 991px) {
+        .block-approach-intro__tagline span {
+          font-size: 12px;
+          line-height: 20px; } }
   .block-approach-intro__wrapper {
     display: grid;
     grid-template-columns: 7fr 5fr;
@@ -24,6 +39,24 @@
       .block-approach-intro__wrapper {
         grid-template-columns: 1fr;
         gap: 32px; } }
+  .block-approach-intro--reverse .block-approach-intro__wrapper {
+    grid-template-columns: 1fr 1fr; }
+    @media (max-width: 991px) {
+      .block-approach-intro--reverse .block-approach-intro__wrapper {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex; } }
+  .block-approach-intro--reverse .block-approach-intro__col--text {
+    -webkit-box-ordinal-group: 3;
+    -ms-flex-order: 2;
+    order: 2;
+    grid-column: 2;
+    padding: 0; }
+  .block-approach-intro--reverse .block-approach-intro__col--media {
+    -webkit-box-ordinal-group: 2;
+    -ms-flex-order: 1;
+    order: 1;
+    grid-column: 1; }
   .block-approach-intro__col--text {
     grid-column: 1;
     padding-right: 80px; }
@@ -41,10 +74,15 @@
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
+    position: relative;
     position: relative; }
-    @media (max-width: 991px) {
-      .block-approach-intro__col--media {
-        display: none; } }
+    .block-approach-intro__col--media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../../assets/img/noise-without-overlay.png") repeat;
+      background-size: cover; }
     .block-approach-intro__col--media::before {
       content: '';
       position: absolute;
@@ -113,7 +151,7 @@
     font-weight: 300;
     -webkit-font-smoothing: subpixel-antialiased;
     font-style: normal;
-    font-size: 17px;
+    font-size: 18px;
     line-height: 28px;
     margin-top: 40px;
     display: -webkit-inline-box;
@@ -245,7 +283,7 @@
       .block-approach-intro .approach-person-card .approach-person-card__info .approach-person-card__credentials {
         font-family: "Poppins", "Roboto", "Arial", sans-serif;
         font-style: normal;
-        font-size: 15px;
+        font-size: 14px;
         line-height: 24px;
         font-weight: 400;
         margin-bottom: 16px; }
@@ -259,7 +297,7 @@
       .block-approach-intro .approach-person-card .approach-person-card__info .approach-person-card__title {
         font-family: "Poppins", "Roboto", "Arial", sans-serif;
         font-style: normal;
-        font-size: 15px;
+        font-size: 14px;
         line-height: 24px;
         font-weight: 400;
         font-size: 16px; }
@@ -272,6 +310,9 @@
     filter: grayscale(0%); }
   .block-approach-intro .accordion {
     padding: 0 20px 56px; }
+    @media (max-width: 991px) {
+      .block-approach-intro .accordion {
+        padding: 0 0 56px; } }
     .block-approach-intro .accordion .accordion-item__divider {
       visibility: hidden;
       padding-top: 6px; }
