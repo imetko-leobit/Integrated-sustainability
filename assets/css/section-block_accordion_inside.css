@@ -9,6 +9,7 @@
     .block-accordion-inside {
       padding: 0 24px 80px; } }
   .block-accordion-inside .block-accordion__wrapper {
+    position: relative;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     -ms-flex-wrap: wrap;
@@ -17,6 +18,13 @@
     position: relative;
     height: 100%;
     width: 100%; }
+    .block-accordion-inside .block-accordion__wrapper::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../../assets/img/noise-without-overlay.png") repeat;
+      background-size: cover; }
     @media (max-width: 991px) {
       .block-accordion-inside .block-accordion__wrapper {
         display: -webkit-box;

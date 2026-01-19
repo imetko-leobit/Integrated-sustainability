@@ -1,0 +1,364 @@
+@import "../common/variable";
+@import "../common/mixins";
+
+.block-form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+}
+
+// Form row container - uses flexbox for wrapping fields
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  width: 100%;
+}
+
+// Base form field
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  
+  // Full width by default
+  &--full {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+  
+  // Half width on desktop, full on mobile
+  &--half {
+    flex: 1 1 calc(50% - 12px);
+    min-width: 280px;
+    
+    @media (max-width: 767px) {
+      flex: 1 1 100%;
+      width: 100%;
+    }
+  }
+  
+  // Third width on desktop, full on mobile
+  &--third {
+    flex: 1 1 calc(33.333% - 16px);
+    min-width: 200px;
+    
+    @media (max-width: 991px) {
+      flex: 1 1 calc(50% - 12px);
+    }
+    
+    @media (max-width: 767px) {
+      flex: 1 1 100%;
+      width: 100%;
+    }
+  }
+}
+
+// Form label
+.form-label {
+  @include text-body-small;
+  color: var(--color-grey-300);
+  margin: 0;
+}
+
+// Text input, email, url, tel, number
+.form-input {
+  width: 100%;
+  height: 54px;
+  padding: 12px 20px;
+  @include text-body-base;
+  background: var(--color-black);
+  outline: none;
+  @include input-border;
+  color: var(--color-white);
+  transition: all 0.3s ease;
+
+  &::placeholder {
+    color: var(--color-grey-500);
+  }
+
+  &:focus {
+    border-color: var(--color-grey-400);
+  }
+}
+
+// Textarea
+.form-textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 12px 20px;
+  @include text-body-base;
+  background: var(--color-black);
+  outline: none;
+  @include input-border;
+  color: var(--color-white);
+  resize: vertical;
+  transition: all 0.3s ease;
+
+  &::placeholder {
+    color: var(--color-grey-500);
+  }
+
+  &:focus {
+    border-color: var(--color-grey-400);
+  }
+}
+
+// Select element (native)
+.form-select {
+  width: 100%;
+  height: 54px;
+  padding: 12px 20px;
+  @include text-body-base;
+  background: var(--color-black);
+  outline: none;
+  @include input-border;
+  color: var(--color-white);
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:focus {
+    border-color: var(--color-grey-400);
+  }
+  
+  option {
+    background: var(--color-grey-900);
+    color: var(--color-white);
+  }
+}
+
+// Checkbox
+.form-checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.form-checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: var(--color-primary, #f9a361);
+}
+
+.form-checkbox-label {
+  @include text-body-base;
+  color: var(--color-white);
+  cursor: pointer;
+  margin: 0;
+}
+
+// Radio buttons
+.form-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-radio-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.form-radio {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: var(--color-primary, #f9a361);
+}
+
+.form-radio-label {
+  @include text-body-base;
+  color: var(--color-white);
+  cursor: pointer;
+  margin: 0;
+}
+
+// File upload
+.form-file-upload {
+  position: relative;
+  width: 100%;
+}
+
+.form-file-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.form-file-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 54px;
+  padding: 12px 20px;
+  @include text-body-base;
+  background: var(--color-black);
+  outline: none;
+  @include input-border;
+  color: var(--color-white);
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: var(--color-grey-400);
+  }
+}
+
+.form-file-text {
+  color: var(--color-grey-300);
+}
+
+.form-file-name {
+  color: var(--color-grey-500);
+  font-style: italic;
+}
+
+// Form buttons
+.form-buttons {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: 8px;
+
+  @media (max-width: 767px) {
+    flex-direction: column-reverse;
+    gap: 12px;
+
+    .btn {
+      width: 100%;
+    }
+  }
+}
+
+.form-cancel {
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.form-submit {
+  min-width: 160px;
+}
+
+// Choices.js integration (for enhanced selects)
+.block-form {
+  .choices {
+    margin-bottom: 0;
+    background-color: var(--color-black);
+
+    .choices__placeholder {
+      color: var(--color-grey-500);
+      opacity: 1;
+    }
+
+    .choices__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      user-select: none;
+      padding: 0px 16px 0px 20px;
+      min-width: 150px;
+      @include text-body-base;
+      height: 54px;
+      background: var(--color-black);
+      outline: none;
+      @include input-border;
+      color: var(--color-white);
+      border-radius: 0px;
+    }
+
+    input::placeholder {
+      @include text-body-base;
+      color: var(--color-grey-500);
+    }
+
+    .choices__item.choices__placeholder.choices__item--selectable {
+      @include text-body-base;
+    }
+
+    .choices__list.choices__list--single {
+      padding-right: 32px;
+      .choices__item.choices__placeholder.choices__item--selectable {
+        @include text-body-base;
+      }
+    }
+
+    .choices__list--dropdown {
+      border-top: none;
+      z-index: 10;
+      position: absolute;
+      margin-top: 4px;
+      top: 100%;
+      left: 0;
+      right: 0;
+      overflow-y: auto;
+      z-index: 100;
+      box-shadow: 0 9px 28px 8px rgba(0, 0, 0, 0.05), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12);
+      background: var(--color-grey-800);
+      padding: 0px 1px;
+      min-width: 200px;
+      max-height: 330px;
+      border: none;
+    }
+
+    .choices__list--dropdown .choices__item {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+      border: 1px solid var(--color-grey-700);
+      padding: 11px 16px;
+      min-height: 56px;
+      background: var(--color-grey-900);
+      @include text-body-base;
+      color: var(--color-white);
+    }
+
+    .choices__list--dropdown .choices__item.choices__item--selectable.is-highlighted {
+      background-color: var(--color-grey);
+    }
+
+    .choices__list--dropdown .choices__item.is-selected {
+      background-color: var(--color-grey-800);
+    }
+
+    .choices__input {
+      color: var(--color-white);
+      background-color: var(--color-black);
+    }
+  }
+
+  .choices[data-type*=select-one] .choices__button {
+    background-color: var(--color-grey-200);
+    margin-right: 32px;
+  }
+
+  .choices[data-type*=select-one]::after {
+    display: none;
+  }
+
+  .choices[data-type*=select-one]::before {
+    content: "\2335"; /* Down arrow unicode character &#9013; */
+    height: 0;
+    width: 0;
+    border: none;
+    color: var(--color-grey-500);
+    font-size: 18px;
+    position: absolute;
+    right: 24px;
+    top: 8px;
+    pointer-events: none;
+  }
+
+  .choices__list--dropdown .choices__item[data-value=""] {
+    display: none !important;
+  }
+}

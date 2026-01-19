@@ -193,7 +193,15 @@
           height: 400px; } }
       .block-category-navigation .category-navigation__content .block-card-category-navigation .card-category-navigation__image-wrapper {
         width: 100%;
-        height: 100%; }
+        height: 100%;
+        position: relative; }
+        .block-category-navigation .category-navigation__content .block-card-category-navigation .card-category-navigation__image-wrapper::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../../assets/img/noise-without-overlay.png") repeat;
+          background-size: cover; }
       .block-category-navigation .category-navigation__content .block-card-category-navigation .card-category-navigation__image-wrapper img {
         width: 100%;
         height: 100%;
@@ -310,7 +318,7 @@
     .block-category-navigation .category-navigation__content .category-navigation__note {
       font-family: "Poppins", "Roboto", "Arial", sans-serif;
       font-style: normal;
-      font-size: 15px;
+      font-size: 14px;
       line-height: 24px;
       font-weight: 400;
       text-align: right;

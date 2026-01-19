@@ -43,6 +43,37 @@
       @media (max-width: 991px) {
         .block-projects .block-projects__wrapper::before {
           display: none; } }
+    .block-projects .block-projects__wrapper--text-below {
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: auto auto;
+      gap: 0; }
+      .block-projects .block-projects__wrapper--text-below::before {
+        content: none; }
+      .block-projects .block-projects__wrapper--text-below .block-projects__media {
+        grid-column: span 12;
+        grid-row: 1;
+        padding: 0; }
+      .block-projects .block-projects__wrapper--text-below .block-projects__description {
+        grid-column: span 12;
+        grid-row: 2;
+        padding: 56px; }
+        .block-projects .block-projects__wrapper--text-below .block-projects__description::before {
+          content: '';
+          position: absolute;
+          bottom: 0px;
+          right: 0px;
+          height: 100%;
+          width: 100%;
+          background-image: url(../../assets/img/overlay.svg);
+          background-blend-mode: normal, overlay;
+          background-size: cover;
+          background-position: right top;
+          background-repeat: no-repeat;
+          overflow: hidden;
+          z-index: -1; }
+          @media (max-width: 991px) {
+            .block-projects .block-projects__wrapper--text-below .block-projects__description::before {
+              display: none; } }
   .block-projects .block-projects__media {
     grid-column: span 8;
     height: 100%;
@@ -97,13 +128,22 @@
       .block-projects .title--h4 {
         font-size: 20px;
         line-height: 28px; } }
-  .block-projects .block-projects__slide-image img {
-    width: 100%;
-    height: auto;
-    max-height: 600px;
-    display: block;
-    -o-object-fit: cover;
-    object-fit: cover; }
+  .block-projects .block-projects__slide-image {
+    position: relative; }
+    .block-projects .block-projects__slide-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../../assets/img/noise-without-overlay.png") repeat;
+      background-size: cover; }
+    .block-projects .block-projects__slide-image img {
+      width: 100%;
+      height: auto;
+      max-height: 600px;
+      display: block;
+      -o-object-fit: cover;
+      object-fit: cover; }
   .block-projects .js-projects-text-slider {
     overflow: visible; }
   .block-projects .projects-navigation {
