@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Parameters
   const slideDuration = 5000;      // Time each slide is active (5 seconds)
   const animationDuration = 500;   // CSS transition time (0.5s)
-  const slideMargin = 40;          // Gap distance from SCSS (40px)
+  const slideMargin = 56;          // Gap distance from SCSS (56px for desktop)
   
   let autoRotateInterval;
   let isTransitioning = false;
