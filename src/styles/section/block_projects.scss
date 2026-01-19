@@ -5,9 +5,10 @@
   position: relative;
   padding: 0 0 32px;
   height: 100%;
+  min-width: 0;
 
   @media (max-width: 991px) {
-    padding: 0 24px 48px;
+    padding: 0 0 48px;
   }
 
   .block-projects__wrapper {
@@ -112,7 +113,8 @@
     padding-right: 70px;
 
     @media (max-width: 991px) {
-      padding: 0;
+      padding: 1.5rem 0 !important;
+      height: auto;
     }
   }
 
