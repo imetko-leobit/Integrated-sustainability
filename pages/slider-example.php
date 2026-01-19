@@ -29,6 +29,8 @@
 
     <?php
     // Example 1: Full-width slider with 3 items per row
+    // Note: External image URLs are used for demonstration purposes only
+    // In production, use local image assets
     $slider_items = [
         [
             'title' => 'Water Treatment',
@@ -85,6 +87,8 @@
 
     <?php
     // Example 2: Slider with description panel (default behavior)
+    // Note: External image URLs are used for demonstration purposes only
+    // In production, use local image assets
     $pillar_number = "PERFORMANCE PILLAR #1";
     $pillar_title = "Sustainable Infrastructure Solutions";
     $pillar_text_1 = "We deliver comprehensive sustainability solutions across your project lifecycle.";
