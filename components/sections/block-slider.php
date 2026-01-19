@@ -1,4 +1,9 @@
 <?php
+// Default parameter: show description unless explicitly hidden
+if (!isset($hide_description)) {
+    $hide_description = false;
+}
+
 $pillar_title = "de-risk capital project delivery";
 $pillar_text_1 = "Permitting, environmental, and stakeholder impacts are often major risks to a project's schedule and long-term success.";
 $pillar_text_2 = "We account for environmental compliance, technology readiness, life-cycle growth, and stakeholder engagement to reduce permit timelines and de-risk your project.";
@@ -46,9 +51,10 @@ $total_slides = count($pillar_items);
 
 <link rel="stylesheet" href="../assets/css/section-block_slider.css" />
 
-<section class="block-slider" id="pillar1">
+<section class="block-slider <?php echo $hide_description ? 'block-slider--no-description' : ''; ?>" id="pillar1">
   <div class="block-slider__wrapper">
 
+    <?php if (!$hide_description): ?>
     <div class="block-slider__description block-slider__col--text">
 
       <?php if (!empty($pillar_number)): ?>
@@ -77,6 +83,7 @@ $total_slides = count($pillar_items);
         </button>
       </div>
     </div>
+    <?php endif; ?>
 
     <div class="block-slider__media block-slider__col--carousel">
       <div class="pillar-carousel js-pillar-carousel" data-total-slides="<?php echo $total_slides; ?>">

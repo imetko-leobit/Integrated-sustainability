@@ -34,7 +34,15 @@
     flex-direction: column;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
-    justify-content: center; }
+    justify-content: center;
+    position: relative; }
+    .block-cta__background::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../../assets/img/noise-without-overlay.png") repeat;
+      background-size: cover; }
     .block-cta__background .block-cta__image {
       -o-object-fit: cover;
       object-fit: cover;
@@ -113,7 +121,7 @@
     font-weight: 300;
     -webkit-font-smoothing: subpixel-antialiased;
     font-style: normal;
-    font-size: 17px;
+    font-size: 18px;
     line-height: 28px;
     padding-bottom: 70px; }
     @media (max-width: 991px) {
