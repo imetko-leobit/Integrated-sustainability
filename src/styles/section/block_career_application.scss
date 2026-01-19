@@ -11,6 +11,11 @@
   .vacancy-card__content {
     background: none;
     @include input-border;
+
+    @media (max-width: 991px) {
+      min-height: 0;
+      padding: 2rem;
+    }
   }
 
   &__wrapper {
