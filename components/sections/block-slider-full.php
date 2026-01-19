@@ -46,7 +46,7 @@ $total_slides = count($pillar_items);
 
 <link rel="stylesheet" href="../assets/css/section-block_slider.css" />
 
-<section class="block-slider" id="pillar1">
+<section class="block-slider block-slider--full" id="pillar1">
   <div class="block-slider__wrapper">
 
     <div class="block-slider__description block-slider__col--text" style="display: none;">
