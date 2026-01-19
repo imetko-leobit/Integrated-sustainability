@@ -6367,20 +6367,6 @@
           flex: 0 0 250px;
           width: 250px;
           max-width: 100%; } }
-      .acf-block-preview .block-slider--no-description .pillar-carousel-card.is-active {
-        flex: 0 0 calc(33.333% - 37.33px);
-        width: calc(33.333% - 37.33px);
-        max-width: calc(33.333% - 37.33px); }
-        @media (max-width: 1199px) {
-          .acf-block-preview .block-slider--no-description .pillar-carousel-card.is-active {
-            flex: 0 0 calc(50% - 20px);
-            width: calc(50% - 20px);
-            max-width: calc(50% - 20px); } }
-        @media (max-width: 767px) {
-          .acf-block-preview .block-slider--no-description .pillar-carousel-card.is-active {
-            flex: 0 0 250px;
-            width: 250px;
-            max-width: 100%; } }
     .acf-block-preview .block-slider__description {
       background-color: var(--color-black);
       z-index: 1;
