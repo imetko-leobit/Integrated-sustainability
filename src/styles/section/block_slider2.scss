@@ -1,7 +1,7 @@
 @import "../common/variable";
 @import "../common/mixins";
 
-.block-slider {
+.slider2 {
   position: relative;
 
   @media (max-width: 991px) {
@@ -85,19 +85,17 @@
 
   }
 
-  &__col--carusel::-webkit-scrollbar {
+  &__col--carousel::-webkit-scrollbar {
     display: none;
   }
 
   .pillar-carousel {
       display: flex;
       gap: 56px;
-      width: max-content;
+      width: 100%;
       transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       height: 100%;
       padding: 0;
-      width: 100%;
-      gap: 56px;
       touch-action: pan-y;
 
       @media (max-width: 1199px) {
@@ -111,8 +109,9 @@
   }
 
   .pillar-carousel-card {
-      flex: 0 0 30%;
-      width: 30%;
+      /* Desktop: 3 cards visible - calculate width based on 3 cards + 2 gaps */
+      flex: 0 0 calc((100% - (56px * 2)) / 3);
+      width: calc((100% - (56px * 2)) / 3);
       min-width: 200px;
       height: 100%;
       min-height: 300px;
@@ -122,32 +121,28 @@
       transition: all 0.5s ease;
       padding: 20px 0;
       position: relative;
-      max-width: 18%;
 
+      /* Tablet: 2 cards visible */
       @media (max-width: 1199px) {
-        flex: 0 0 350px;
-        width: 350px;
+        flex: 0 0 calc((100% - 40px) / 2);
+        width: calc((100% - 40px) / 2);
         max-width: 100%;
         padding: 0;
       }
 
+      /* Mobile: 1 card visible */
       @media (max-width: 767px) {
-        flex: 0 0 250px;
-        width: 250px;
+        flex: 0 0 100%;
+        width: 100%;
         max-width: 100%;
         padding: 0;
       }
 
       &.is-active {
         padding: 0;
-        max-width: 22.45%;
           .pillar-carousel-card__image-bg {
               filter: grayscale(0%);
           }
-
-        @media (max-width: 1199px) {
-          max-width: 100%;
-        }
       }
 
       &__image-container {

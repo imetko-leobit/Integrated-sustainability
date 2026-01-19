@@ -1,0 +1,43 @@
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/styles/components/image_card.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************/
+/*images*/
+.image-card {
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  position: relative; }
+  @media (max-width: 991px) {
+    .image-card {
+      display: none; } }
+  .image-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    height: calc(100% - 56px);
+    width: calc(100% - 56px);
+    background-image: url(../../assets/img/overlay.svg);
+    background-blend-mode: normal, overlay;
+    background-size: cover;
+    background-position: right top;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    z-index: -1; }
+  .image-card img {
+    padding-right: 56px;
+    padding-bottom: 56px;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: contain;
+    object-fit: contain;
+    display: block; }
+
+
+/*# sourceMappingURL=components-image_card.css.map*/

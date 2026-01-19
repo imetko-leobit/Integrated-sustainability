@@ -101,7 +101,7 @@
     .block-author .block-author__wrapper .author__description {
       font-family: "Poppins", "Roboto", "Arial", sans-serif;
       font-style: normal;
-      font-size: 15px;
+      font-size: 14px;
       line-height: 24px;
       font-weight: 400;
       color: var(--color-grey-200);
@@ -135,7 +135,7 @@
         font-weight: 300;
         -webkit-font-smoothing: subpixel-antialiased;
         font-style: normal;
-        font-size: 17px;
+        font-size: 18px;
         line-height: 28px; }
         @media (max-width: 991px) {
           .block-author .block-author__wrapper .link--large {

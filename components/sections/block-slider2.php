@@ -46,10 +46,10 @@ $total_slides = count($pillar_items);
 
 <link rel="stylesheet" href="../assets/css/section-block_slider2.css" />
 
-<section class="block-slider" id="pillar1">
-  <div class="block-slider__wrapper">
+<section class="slider2" id="pillar1">
+  <div class="slider2__wrapper">
 
-    <div class="block-slider__description block-slider__col--text" style="display: none;">
+    <div class="slider2__description slider2__col--text" style="display: none;">
       <div class="pillar-navigation">
         <button class="btn btn--arrow btn-prev js-pillar-prev" aria-label="Previous Slide">
           <svg viewBox="0 0 27 15">
@@ -64,7 +64,7 @@ $total_slides = count($pillar_items);
       </div>
     </div>
 
-    <div class="block-slider__media block-slider__col--carousel">
+    <div class="slider2__media slider2__col--carousel">
       <div class="pillar-carousel js-pillar-carousel" data-total-slides="<?php echo $total_slides; ?>">
 
         <?php foreach ($pillar_items as $index => $item): ?>
@@ -107,4 +107,4 @@ $total_slides = count($pillar_items);
   </div>
 </section>
 
-<script type='text/javascript' src="../assets/js/section-block_slider.js"></script>
+<script type='text/javascript' src="../assets/js/section-block_slider2.js"></script>

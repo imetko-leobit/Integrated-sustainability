@@ -5,7 +5,7 @@
 .block-section-heading {
   position: relative;
   padding: 80px 0 60px;
-  margin-bottom: 60px; }
+  margin-bottom: 80px; }
   .block-section-heading::before {
     content: '';
     position: absolute;
@@ -23,8 +23,7 @@
   .block-section-heading--center {
     text-align: center; }
   .block-section-heading .title {
-    text-align: left;
-    padding-right: 120px; }
+    text-align: left; }
     @media (max-width: 991px) {
       .block-section-heading .title {
         padding-right: 0; } }
@@ -62,28 +61,29 @@
     display: flex;
     -webkit-box-pack: end;
     -ms-flex-pack: end;
-    justify-content: flex-end; }
+    justify-content: flex-end;
+    gap: 32px;
+    padding: 0; }
     .block-section-heading .person-card .person-card__info {
-      padding: 12px 32px;
       text-align: right; }
       .block-section-heading .person-card .person-card__info .card__name {
-        font-size: 19px;
-        font-weight: 600; }
+        font-family: "PoppinsMedium", "Roboto", "Arial", sans-serif;
+        font-style: normal;
+        font-size: 20px;
+        line-height: 30px;
+        font-weight: 500; }
         @media (max-width: 991px) {
           .block-section-heading .person-card .person-card__info .card__name {
-            font-family: "PoppinsMedium", "Roboto", "Arial", sans-serif;
-            font-style: normal;
-            font-size: 14px;
-            line-height: 20px;
-            font-weight: 500;
-            margin-bottom: 0; } }
+            font-size: 18px;
+            line-height: 26px; } }
       .block-section-heading .person-card .person-card__info .card__credentials {
         font-family: "Poppins", "Roboto", "Arial", sans-serif;
         font-style: normal;
-        font-size: 15px;
+        font-size: 14px;
         line-height: 24px;
         font-weight: 400;
-        margin-bottom: 12px; }
+        margin-bottom: 12px;
+        line-height: 18px; }
         @media (max-width: 991px) {
           .block-section-heading .person-card .person-card__info .card__credentials {
             font-size: 12px;
@@ -92,16 +92,32 @@
           .block-section-heading .person-card .person-card__info .card__credentials {
             margin-bottom: 12px; } }
       .block-section-heading .person-card .person-card__info .card__date {
+        font-family: "Poppins", "Roboto", "Arial", sans-serif;
+        font-style: normal;
+        font-size: 14px;
+        line-height: 24px;
+        font-weight: 400;
         color: var(--color-grey-300);
         font-family: "PoppinsLight", "Roboto", "Arial", sans-serif;
+        font-weight: 300;
+        line-height: 18px; }
+        @media (max-width: 991px) {
+          .block-section-heading .person-card .person-card__info .card__date {
+            font-size: 12px;
+            line-height: 20px; } }
+      .block-section-heading .person-card .person-card__info .card__title {
+        font-family: "Poppins", "Roboto", "Arial", sans-serif;
         font-style: normal;
-        font-size: 16px;
-        line-height: 34px;
-        font-weight: 300; }
+        font-size: 14px;
+        line-height: 24px;
+        font-weight: 400; }
+        @media (max-width: 991px) {
+          .block-section-heading .person-card .person-card__info .card__title {
+            font-size: 12px;
+            line-height: 20px; } }
     .block-section-heading .person-card__image-container {
-      width: 130px;
-      height: 130px;
-      min-width: 130px;
+      width: 152px;
+      height: 152px;
       border-radius: 50%;
       overflow: hidden; }
       .block-section-heading .person-card__image-container .person-card__image {
