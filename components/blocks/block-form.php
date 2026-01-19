@@ -226,7 +226,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Form submission
     form.addEventListener('submit', function(e) {
       e.preventDefault();
-      // Form submission logic should be implemented here
+      // TODO: Implement actual form submission logic here (e.g., AJAX call to backend)
+      // For now, showing a simple alert as placeholder
       alert('Thank you for your submission! We will get back to you soon.');
       form.reset();
     });
