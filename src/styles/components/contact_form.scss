@@ -81,5 +81,9 @@
 
   &__submit {
     min-width: 160px;
+
+    @media (max-width: 991px) {
+      width: 100%;
+    }
   }
 }

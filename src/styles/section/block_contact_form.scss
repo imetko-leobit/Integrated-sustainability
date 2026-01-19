@@ -6,6 +6,10 @@
   position: relative;
   overflow: visible;
 
+  @media (max-width: 991px) {
+    padding-bottom: 3rem;
+  }
+
   // Left corner background pattern
   &::before {
     content: "";
@@ -46,16 +50,17 @@
     gap: 56px;
     position: relative;
 
-    @media (max-width: 1199px) {
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-    }
     @media (max-width: 991px) {
       grid-template-columns: 1fr;
-      gap: 40px;
+      gap: 3rem;
     }
   }
+
   &__col {
+    @media (max-width: 991px) {
+      padding: 0 1.5rem;
+    }
+
     &--info {
       display: flex;
       align-items: flex-start;

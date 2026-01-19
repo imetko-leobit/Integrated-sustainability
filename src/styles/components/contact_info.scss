@@ -29,8 +29,13 @@
   }
 
   &__phone-item {
+    align-items: center;
     display: flex;
     gap: 16px;
+
+    @media (max-width: 991px) {
+      justify-content: space-between;
+    }
   }
 
   &__phone {
