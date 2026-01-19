@@ -182,10 +182,20 @@
       background-size: cover;
       background-position: center;
       -webkit-filter: grayscale(100%);
-      filter: grayscale(100%); }
+      filter: grayscale(100%);
+      position: relative; }
+      .block-slider .pillar-carousel-card__image-bg::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../../assets/img/noise-without-overlay.png") repeat;
+        background-size: cover; }
     .block-slider .pillar-carousel-card:hover .pillar-carousel-card__image-bg {
       -webkit-filter: none;
       filter: none; }
+    .block-slider .pillar-carousel-card:hover .pillar-carousel-card__title {
+      color: white !important; }
     .block-slider .pillar-carousel-card__content-wrapper {
       position: absolute;
       bottom: 0px;
@@ -247,7 +257,7 @@
     .block-slider .pillar-carousel-card__desc {
       font-family: "Poppins", "Roboto", "Arial", sans-serif;
       font-style: normal;
-      font-size: 15px;
+      font-size: 14px;
       line-height: 24px;
       font-weight: 400;
       margin-bottom: 24px;

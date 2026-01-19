@@ -35,7 +35,142 @@ if (!isset($application_card_button)) {
         include('../components/elements/divider.php');
       ?>
 
-      <?php include('../components/elements/career-form.php'); ?>
+      <?php
+        // Configure career application form using the new reusable block-form component
+        $form_config = [
+          // Section 1: Personal Information
+          [
+            'type' => 'text',
+            'label' => $form_section1_field1_label,
+            'name' => 'first_name',
+            'placeholder' => $form_section1_field1_label,
+            'required' => true,
+            'size' => 'half'
+          ],
+          [
+            'type' => 'text',
+            'label' => $form_section1_field2_label,
+            'name' => 'last_name',
+            'placeholder' => $form_section1_field2_label,
+            'required' => true,
+            'size' => 'half'
+          ],
+          [
+            'type' => 'email',
+            'label' => $form_section1_field3_label,
+            'name' => 'email',
+            'placeholder' => $form_section1_field3_label,
+            'required' => true,
+            'size' => 'half'
+          ],
+          // Section 2: Professional Background
+          [
+            'type' => 'select',
+            'label' => $form_section2_select1_label,
+            'name' => 'experience_level',
+            'placeholder' => $form_section2_select1_label,
+            'options' => $form_section2_select1_options,
+            'required' => true,
+            'size' => 'half'
+          ],
+          [
+            'type' => 'select',
+            'label' => $form_section2_select2_label,
+            'name' => 'expertise',
+            'placeholder' => $form_section2_select2_label,
+            'options' => $form_section2_select2_options,
+            'required' => true,
+            'size' => 'half'
+          ],
+          [
+            'type' => 'textarea',
+            'label' => $form_section2_textarea_label,
+            'name' => 'experience',
+            'placeholder' => $form_section2_textarea_label,
+            'rows' => 4,
+            'required' => true,
+            'size' => 'full'
+          ],
+          [
+            'type' => 'url',
+            'label' => $form_section2_input_label,
+            'name' => 'linkedin',
+            'placeholder' => $form_section2_input_label,
+            'required' => false,
+            'size' => 'half'
+          ],
+          [
+            'type' => 'select',
+            'label' => $form_section2_select3_label,
+            'name' => 'hear_about_us',
+            'placeholder' => $form_section2_select3_label,
+            'options' => $form_section2_select3_options,
+            'required' => true,
+            'size' => 'half'
+          ],
+          [
+            'type' => 'file',
+            'label' => $form_file_upload_label,
+            'name' => 'resume',
+            'accept' => '.pdf,.doc,.docx',
+            'required' => true,
+            'size' => 'full'
+          ],
+          // Section 3: Additional Information
+          [
+            'type' => 'select',
+            'label' => $form_section3_select1_label,
+            'name' => 'start_date',
+            'placeholder' => $form_section3_select1_label,
+            'options' => $form_section3_select1_options,
+            'required' => true,
+            'size' => 'half'
+          ],
+          [
+            'type' => 'select',
+            'label' => $form_section3_select2_label,
+            'name' => 'work_authorization',
+            'placeholder' => $form_section3_select2_label,
+            'options' => $form_section3_select2_options,
+            'required' => true,
+            'size' => 'half'
+          ],
+          [
+            'type' => 'select',
+            'label' => $form_section3_select3_label,
+            'name' => 'salary_expectation',
+            'placeholder' => $form_section3_select3_label,
+            'options' => $form_section3_select3_options,
+            'required' => true,
+            'size' => 'half'
+          ],
+          [
+            'type' => 'select',
+            'label' => $form_section3_select4_label,
+            'name' => 'location_preference',
+            'placeholder' => $form_section3_select4_label,
+            'options' => $form_section3_select4_options,
+            'required' => true,
+            'size' => 'half'
+          ],
+          [
+            'type' => 'select',
+            'label' => $form_section3_select5_label,
+            'name' => 'availability',
+            'placeholder' => $form_section3_select5_label,
+            'options' => $form_section3_select5_options,
+            'required' => true,
+            'size' => 'full'
+          ]
+        ];
+        
+        $form_id = 'careerApplicationForm';
+        $form_class = 'career-application-form';
+        $submit_text = $form_submit_button;
+        $cancel_text = $form_cancel_button;
+        $enable_choices = true;
+        include('../components/blocks/block-form.php');
+      ?>
     </div>
 
   </div>

@@ -102,7 +102,7 @@
     min-width: 150px;
     font-family: "Poppins", "Roboto", "Arial", sans-serif;
     font-style: normal;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 24px;
     font-weight: 400;
     height: 54px;
@@ -149,7 +149,7 @@
       min-width: 150px;
       font-family: "Poppins", "Roboto", "Arial", sans-serif;
       font-style: normal;
-      font-size: 15px;
+      font-size: 14px;
       line-height: 24px;
       font-weight: 400;
       height: 54px;
@@ -244,7 +244,7 @@
       .block-filter-form .filter-form .choices .choices__list.choices__list--single .choices__item.choices__placeholder.choices__item--selectable {
         font-family: "Poppins", "Roboto", "Arial", sans-serif;
         font-style: normal;
-        font-size: 15px;
+        font-size: 14px;
         line-height: 24px;
         font-weight: 400; }
         @media (max-width: 991px) {
@@ -295,7 +295,7 @@
       background: var(--color-grey-900);
       font-family: "Poppins", "Roboto", "Arial", sans-serif;
       font-style: normal;
-      font-size: 15px;
+      font-size: 14px;
       line-height: 24px;
       font-weight: 400;
       color: white; }
