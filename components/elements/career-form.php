@@ -135,37 +135,50 @@ if (!isset($form_submit_button)) {
       <h3 class="career-form__section-title career-form__section-main-title"><?php echo htmlspecialchars($form_section1_header, ENT_QUOTES, 'UTF-8'); ?></h3>
       <p class="career-form__section-description"><?php echo htmlspecialchars($form_section1_description, ENT_QUOTES, 'UTF-8'); ?></p>
     </div>
-    <div class="career-form__row career-form__row--two">
-      <div class="career-form__field">
-        <label class="career-form__label"><?php echo htmlspecialchars($form_section1_field1_label, ENT_QUOTES, 'UTF-8'); ?></label>
-        <input type="text" name="first_name" class="career-form__input" placeholder="<?php echo htmlspecialchars($form_section1_field1_label, ENT_QUOTES, 'UTF-8'); ?>" required>
-      </div>
-      <div class="career-form__field">
-        <label class="career-form__label"><?php echo htmlspecialchars($form_section1_field2_label, ENT_QUOTES, 'UTF-8'); ?></label>
-        <input type="text" name="last_name" class="career-form__input" placeholder="<?php echo htmlspecialchars($form_section1_field2_label, ENT_QUOTES, 'UTF-8'); ?>" required>
-      </div>
-      <div class="career-form__field">
-        <label class="career-form__label"><?php echo htmlspecialchars($form_section1_field3_label, ENT_QUOTES, 'UTF-8'); ?></label>
-        <input type="email" name="email" class="career-form__input" placeholder="<?php echo htmlspecialchars($form_section1_field3_label, ENT_QUOTES, 'UTF-8'); ?>" required>
-      </div><div class="career-form__field">
-        <label class="career-form__label"><?php echo htmlspecialchars($form_section1_field1_label, ENT_QUOTES, 'UTF-8'); ?></label>
-        <input type="text" name="first_name" class="career-form__input" placeholder="<?php echo htmlspecialchars($form_section1_field1_label, ENT_QUOTES, 'UTF-8'); ?>" required>
-      </div>
-      <div class="career-form__field">
-        <label class="career-form__label"><?php echo htmlspecialchars($form_section1_field2_label, ENT_QUOTES, 'UTF-8'); ?></label>
-        <input type="text" name="last_name" class="career-form__input" placeholder="<?php echo htmlspecialchars($form_section1_field2_label, ENT_QUOTES, 'UTF-8'); ?>" required>
-      </div>
-      <div class="career-form__field">
-        <label class="career-form__label"><?php echo htmlspecialchars($form_section1_field3_label, ENT_QUOTES, 'UTF-8'); ?></label>
-        <input type="email" name="email" class="career-form__input" placeholder="<?php echo htmlspecialchars($form_section1_field3_label, ENT_QUOTES, 'UTF-8'); ?>" required>
-      </div>
-    </div>
-  </div>
 
-  <?php
-    $bottom_spacing = '0';
-    include('../components/elements/divider.php');
-  ?>
+    <div class="career-form__row career-form__row--two">
+      <?php
+        $form_config = [
+          // Section 1: Personal Information
+          [
+            'type' => 'text',
+            'label' => $form_section1_field1_label,
+            'name' => 'first_name',
+            'placeholder' => $form_section1_field1_label,
+            'required' => true,
+            'size' => 'half'
+          ],
+          [
+            'type' => 'text',
+            'label' => $form_section1_field2_label,
+            'name' => 'last_name',
+            'placeholder' => $form_section1_field2_label,
+            'required' => true,
+            'size' => 'half'
+          ],
+          [
+            'type' => 'email',
+            'label' => $form_section1_field3_label,
+            'name' => 'email',
+            'placeholder' => $form_section1_field3_label,
+            'required' => true,
+            'size' => 'half'
+          ],
+        ];
+
+        $form_id = 'careerApplicationForm';
+        $form_class = 'career-application-form';
+        $submit_text = $form_submit_button;
+        $cancel_text = $form_cancel_button;
+        $enable_choices = true;
+        include('../components/sections/block-form.php');
+      ?>
+    </div>
+
+    <?php
+      $bottom_spacing = '0';
+      include('../components/elements/divider.php');
+    ?>
 
   <!-- Section 2: Professional Background -->
   <div class="career-form__section">
@@ -173,62 +186,67 @@ if (!isset($form_submit_button)) {
       <h3 class="career-form__section-title"><?php echo htmlspecialchars($form_section2_header, ENT_QUOTES, 'UTF-8'); ?></h3>
     </div>
 
-    <!-- Row 1: 2 selects and 1 textarea -->
-    <div class="career-form__row career-form__row--two">
-      <div class="career-form__field career-form__field--small">
-        <label class="career-form__label"><?php echo htmlspecialchars($form_section2_select1_label, ENT_QUOTES, 'UTF-8'); ?></label>
-        <select name="experience_level" class="career-form__select regular-select" required>
-          <option value="" disabled selected><?php echo htmlspecialchars($form_section2_select1_label, ENT_QUOTES, 'UTF-8'); ?></option>
-          <?php foreach ($form_section2_select1_options as $value => $label): ?>
-            <option value="<?php echo htmlspecialchars($value, ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlspecialchars($label, ENT_QUOTES, 'UTF-8'); ?></option>
-          <?php endforeach; ?>
-        </select>
-      </div>
-      <div class="career-form__field career-form__field--large">
-        <label class="career-form__label"><?php echo htmlspecialchars($form_section2_select2_label, ENT_QUOTES, 'UTF-8'); ?></label>
-        <select name="expertise" class="career-form__select regular-select" required>
-          <option value="" disabled selected><?php echo htmlspecialchars($form_section2_select2_label, ENT_QUOTES, 'UTF-8'); ?></option>
-          <?php foreach ($form_section2_select2_options as $value => $label): ?>
-            <option value="<?php echo htmlspecialchars($value, ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlspecialchars($label, ENT_QUOTES, 'UTF-8'); ?></option>
-          <?php endforeach; ?>
-        </select>
-      </div>
-    </div>
+    <div class="career-form__row">
+      <?php
+        $form_config = [
+          [
+            'type' => 'select',
+            'label' => $form_section2_select1_label,
+            'name' => 'experience_level',
+            'options' => $form_section2_select1_options,
+            'required' => true,
+            'size' => 'half'
+          ],
+          [
+            'type' => 'select',
+            'label' => $form_section2_select2_label,
+            'name' => 'expertise',
+            'options' => $form_section2_select2_options,
+            'required' => true,
+            'size' => 'half'
+          ],
+          [
+            'type' => 'textarea',
+            'label' => $form_section2_textarea_label,
+            'name' => 'experience',
+            'placeholder' => $form_section2_textarea_label,
+            'required' => true,
+            'rows' => 4,
+            'size' => 'full'
+          ],
+          [
+            'type' => 'url',
+            'label' => $form_section2_input_label,
+            'name' => 'linkedin',
+            'placeholder' => $form_section2_input_label,
+            'required' => false,
+            'size' => 'half'
+          ],
+          [
+            'type' => 'select',
+            'label' => $form_section2_select3_label,
+            'name' => 'hear_about_us',
+            'options' => $form_section2_select3_options,
+            'required' => true,
+            'size' => 'half'
+          ],
+          [
+            'type' => 'file',
+            'label' => $form_file_upload_label,
+            'name' => 'resume',
+            'accept' => '.pdf,.doc,.docx',
+            'required' => true,
+            'size' => 'full'
+          ]
+        ];
 
-    <div class="career-form__field career-form__field--textarea">
-      <label class="career-form__label"><?php echo htmlspecialchars($form_section2_textarea_label, ENT_QUOTES, 'UTF-8'); ?></label>
-      <textarea name="experience" class="career-form__textarea" rows="4" placeholder="<?php echo htmlspecialchars($form_section2_textarea_label, ENT_QUOTES, 'UTF-8'); ?>" required></textarea>
-    </div>
-
-    <!-- Row 2: 1 input and 1 select -->
-    <div class="career-form__row career-form__row--two">
-      <div class="career-form__field">
-        <label class="career-form__label"><?php echo htmlspecialchars($form_section2_input_label, ENT_QUOTES, 'UTF-8'); ?></label>
-        <input type="url" name="linkedin" class="career-form__input" placeholder="<?php echo htmlspecialchars($form_section2_input_label, ENT_QUOTES, 'UTF-8'); ?>">
-      </div>
-      <div class="career-form__field">
-        <label class="career-form__label"><?php echo htmlspecialchars($form_section2_select3_label, ENT_QUOTES, 'UTF-8'); ?></label>
-        <select name="hear_about_us" class="career-form__select regular-select" required>
-          <option value="" disabled selected><?php echo htmlspecialchars($form_section2_select3_label, ENT_QUOTES, 'UTF-8'); ?></option>
-          <?php foreach ($form_section2_select3_options as $value => $label): ?>
-            <option value="<?php echo htmlspecialchars($value, ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlspecialchars($label, ENT_QUOTES, 'UTF-8'); ?></option>
-          <?php endforeach; ?>
-        </select>
-      </div>
-    </div>
-
-    <!-- File Upload Section -->
-    <div class="career-form__row career-form__row--full">
-      <div class="career-form__field">
-        <label class="career-form__label"><?php echo htmlspecialchars($form_file_upload_label, ENT_QUOTES, 'UTF-8'); ?></label>
-        <div class="career-form__file-upload">
-          <input type="file" name="resume" id="resumeUpload" class="career-form__file-input" accept=".pdf,.doc,.docx" required>
-          <label for="resumeUpload" class="career-form__file-label">
-            <span class="career-form__file-text">Choose File</span>
-            <span class="career-form__file-name">No file chosen</span>
-          </label>
-        </div>
-      </div>
+        $form_id = 'careerApplicationForm';
+        $form_class = 'career-application-form';
+        $submit_text = $form_submit_button;
+        $cancel_text = $form_cancel_button;
+        $enable_choices = true;
+        include('../components/sections/block-form.php');
+      ?>
     </div>
   </div>
 
@@ -244,61 +262,58 @@ if (!isset($form_submit_button)) {
       <p class="career-form__section-description"><?php echo htmlspecialchars($form_section3_description, ENT_QUOTES, 'UTF-8'); ?></p>
     </div>
 
-    <!-- Row 1: 2 selects -->
-    <div class="career-form__row career-form__row--two">
-      <div class="career-form__field">
-        <label class="career-form__label"><?php echo htmlspecialchars($form_section3_select1_label, ENT_QUOTES, 'UTF-8'); ?></label>
-        <select name="start_date" class="career-form__select regular-select" required>
-          <option value="" disabled selected><?php echo htmlspecialchars($form_section3_select1_label, ENT_QUOTES, 'UTF-8'); ?></option>
-          <?php foreach ($form_section3_select1_options as $value => $label): ?>
-            <option value="<?php echo htmlspecialchars($value, ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlspecialchars($label, ENT_QUOTES, 'UTF-8'); ?></option>
-          <?php endforeach; ?>
-        </select>
-      </div>
-      <div class="career-form__field">
-        <label class="career-form__label"><?php echo htmlspecialchars($form_section3_select2_label, ENT_QUOTES, 'UTF-8'); ?></label>
-        <select name="work_authorization" class="career-form__select regular-select" required>
-          <option value="" disabled selected><?php echo htmlspecialchars($form_section3_select2_label, ENT_QUOTES, 'UTF-8'); ?></option>
-          <?php foreach ($form_section3_select2_options as $value => $label): ?>
-            <option value="<?php echo htmlspecialchars($value, ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlspecialchars($label, ENT_QUOTES, 'UTF-8'); ?></option>
-          <?php endforeach; ?>
-        </select>
-      </div>
-    </div>
+    <div class="career-form__row">
+      <?php
+        $form_config = [
+          [
+            'type' => 'select',
+            'label' => $form_section3_select1_label,
+            'name' => 'start_date',
+            'options' => $form_section3_select1_options,
+            'required' => true,
+            'size' => 'half'
+          ],
+          [
+            'type' => 'select',
+            'label' => $form_section3_select2_label,
+            'name' => 'work_authorization',
+            'options' => $form_section3_select2_options,
+            'required' => true,
+            'size' => 'half'
+          ],
+          [
+            'type' => 'select',
+            'label' => $form_section3_select3_label,
+            'name' => 'salary_expectation',
+            'options' => $form_section3_select3_options,
+            'required' => true,
+            'size' => 'half'
+          ],
+          [
+            'type' => 'select',
+            'label' => $form_section3_select4_label,
+            'name' => 'location_preference',
+            'options' => $form_section3_select4_options,
+            'required' => true,
+            'size' => 'half'
+          ],
+          [
+            'type' => 'select',
+            'label' => $form_section3_select5_label,
+            'name' => 'availability',
+            'options' => $form_section3_select5_options,
+            'required' => true,
+            'size' => 'full'
+          ]
+        ];
 
-    <!-- Row 2: 2 selects -->
-    <div class="career-form__row career-form__row--two">
-      <div class="career-form__field">
-        <label class="career-form__label"><?php echo htmlspecialchars($form_section3_select3_label, ENT_QUOTES, 'UTF-8'); ?></label>
-        <select name="salary_expectation" class="career-form__select regular-select" required>
-          <option value="" disabled selected><?php echo htmlspecialchars($form_section3_select3_label, ENT_QUOTES, 'UTF-8'); ?></option>
-          <?php foreach ($form_section3_select3_options as $value => $label): ?>
-            <option value="<?php echo htmlspecialchars($value, ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlspecialchars($label, ENT_QUOTES, 'UTF-8'); ?></option>
-          <?php endforeach; ?>
-        </select>
-      </div>
-      <div class="career-form__field">
-        <label class="career-form__label"><?php echo htmlspecialchars($form_section3_select4_label, ENT_QUOTES, 'UTF-8'); ?></label>
-        <select name="location_preference" class="career-form__select regular-select" required>
-          <option value="" disabled selected><?php echo htmlspecialchars($form_section3_select4_label, ENT_QUOTES, 'UTF-8'); ?></option>
-          <?php foreach ($form_section3_select4_options as $value => $label): ?>
-            <option value="<?php echo htmlspecialchars($value, ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlspecialchars($label, ENT_QUOTES, 'UTF-8'); ?></option>
-          <?php endforeach; ?>
-        </select>
-      </div>
-    </div>
-
-    <!-- Row 3: 1 select full width + buttons -->
-    <div class="career-form__row career-form__row--actions">
-      <div class="career-form__field career-form__field--full">
-        <label class="career-form__label"><?php echo htmlspecialchars($form_section3_select5_label, ENT_QUOTES, 'UTF-8'); ?></label>
-        <select name="availability" class="career-form__select regular-select" required>
-          <option value="" disabled selected><?php echo htmlspecialchars($form_section3_select5_label, ENT_QUOTES, 'UTF-8'); ?></option>
-          <?php foreach ($form_section3_select5_options as $value => $label): ?>
-            <option value="<?php echo htmlspecialchars($value, ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlspecialchars($label, ENT_QUOTES, 'UTF-8'); ?></option>
-          <?php endforeach; ?>
-        </select>
-      </div>
+        $form_id = 'careerApplicationForm';
+        $form_class = 'career-application-form';
+        $submit_text = $form_submit_button;
+        $cancel_text = $form_cancel_button;
+        $enable_choices = true;
+        include('../components/sections/block-form.php');
+      ?>
     </div>
   </div>
 
