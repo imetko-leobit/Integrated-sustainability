@@ -99,21 +99,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const form = document.getElementById('contactForm');
 
   if (form) {
-    // File upload functionality
-    const fileInputs = form.querySelectorAll('.form-file-input');
-    fileInputs.forEach(function(fileInput) {
-      const fileNameDisplay = fileInput.parentElement.querySelector('.form-file-name');
-      if (fileNameDisplay) {
-        fileInput.addEventListener('change', function(e) {
-          if (e.target.files.length > 0) {
-            fileNameDisplay.textContent = e.target.files[0].name;
-          } else {
-            fileNameDisplay.textContent = 'No file chosen';
-          }
-        });
-      }
-    });
-
     // Form submission
     form.addEventListener('submit', function(e) {
       e.preventDefault();
