@@ -31,6 +31,7 @@
             grid-template-columns: 6fr 6fr;
             gap: 32px;
         }
+
         @media (max-width: 991px) {
             grid-template-columns: 1fr;
             gap: 32px;
@@ -41,6 +42,10 @@
     &--reverse {
         .block-approach-intro__wrapper {
             grid-template-columns: 1fr 1fr;
+
+            @media (max-width: 991px) {
+                display: flex;
+            }
         }
 
         .block-approach-intro__col {
@@ -73,10 +78,6 @@
             height: fit-content;
             position: relative;
             @include bg-overlay(0.1);
-
-            @media (max-width: 991px) {
-                display: none;
-            }
 
             &::before {
               content: '';
@@ -265,6 +266,11 @@
 
     .accordion {
         padding: 0 20px 56px;
+
+        @media (max-width: 991px) {
+            padding: 0 0 56px;
+        }
+
         .accordion-item__divider {
             visibility: hidden;
             padding-top: 6px;
