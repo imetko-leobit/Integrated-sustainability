@@ -136,7 +136,7 @@ if (!isset($form_submit_button)) {
       <p class="career-form__section-description"><?php echo htmlspecialchars($form_section1_description, ENT_QUOTES, 'UTF-8'); ?></p>
     </div>
 
-    <div class="career-form__row career-form__row--two">
+    <div class="career-form__row">
       <?php
         $form_config = [
           // Section 1: Personal Information
@@ -164,21 +164,43 @@ if (!isset($form_submit_button)) {
             'required' => true,
             'size' => 'half'
           ],
+          [
+            'type' => 'url',
+            'label' => 'LinkedIn Profile',
+            'name' => 'linkedin_profile',
+            'placeholder' => 'LinkedIn Profile',
+            'required' => true,
+            'size' => 'half'
+          ],
+          [
+            'type' => 'tel',
+            'label' => 'Mobile Phone',
+            'name' => 'mobile_phone',
+            'placeholder' => 'Mobile Phone',
+            'required' => true,
+            'size' => 'half'
+          ],
+          [
+            'type' => 'tel',
+            'label' => 'Home Phone',
+            'name' => 'home_phone',
+            'placeholder' => 'Home Phone',
+            'required' => true,
+            'size' => 'half'
+          ],
         ];
 
         $form_id = 'careerApplicationForm';
-        $form_class = 'career-application-form';
-        $submit_text = $form_submit_button;
-        $cancel_text = $form_cancel_button;
         $enable_choices = true;
         include('../components/sections/block-form.php');
       ?>
     </div>
+  </div>
 
-    <?php
-      $bottom_spacing = '0';
-      include('../components/elements/divider.php');
-    ?>
+  <?php
+    $bottom_spacing = '0';
+    include('../components/elements/divider.php');
+  ?>
 
   <!-- Section 2: Professional Background -->
   <div class="career-form__section">
@@ -241,9 +263,6 @@ if (!isset($form_submit_button)) {
         ];
 
         $form_id = 'careerApplicationForm';
-        $form_class = 'career-application-form';
-        $submit_text = $form_submit_button;
-        $cancel_text = $form_cancel_button;
         $enable_choices = true;
         include('../components/sections/block-form.php');
       ?>
@@ -308,9 +327,6 @@ if (!isset($form_submit_button)) {
         ];
 
         $form_id = 'careerApplicationForm';
-        $form_class = 'career-application-form';
-        $submit_text = $form_submit_button;
-        $cancel_text = $form_cancel_button;
         $enable_choices = true;
         include('../components/sections/block-form.php');
       ?>
