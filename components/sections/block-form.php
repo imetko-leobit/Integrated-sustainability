@@ -1,16 +1,20 @@
 <?php
 /**
- * Universal Reusable Form Component
+ * Universal Reusable Form Content Component
  *
  * A config-driven form component that dynamically renders form fields
  * based on the provided configuration array.
+ * 
+ * NOTE: This component only renders form content elements (inputs, selects, textareas, etc.)
+ * The parent component is responsible for providing:
+ * - The <form> wrapper tag with appropriate class and id
+ * - Submit/Cancel buttons
+ * - CSS stylesheets
+ * - JavaScript functionality (Choices.js, file uploads, form submission, etc.)
  *
  * @param array $form_config - Array of field configurations
- * @param string $form_id - Unique form identifier (optional)
- * @param string $form_class - Additional CSS classes (optional)
- * @param string $submit_text - Submit button text (default: 'Submit')
- * @param string $cancel_text - Cancel button text (optional, if set shows cancel button)
- * @param bool $enable_choices - Enable Choices.js for select elements (default: false)
+ * @param string $form_id - Unique form identifier (optional, used for generating unique IDs)
+ * @param bool $enable_choices - Enable Choices.js class for select elements (default: false)
  */
 
 // Set defaults
@@ -20,26 +24,11 @@ if (!isset($form_config) || !is_array($form_config)) {
 if (!isset($form_id)) {
     $form_id = 'form-' . uniqid();
 }
-if (!isset($form_class)) {
-    $form_class = '';
-}
-if (!isset($submit_text)) {
-    $submit_text = 'Submit';
-}
 if (!isset($enable_choices)) {
     $enable_choices = false;
 }
-
-// Load Choices.js if needed
-if ($enable_choices) {
-    echo '<link href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" rel="stylesheet" />';
-    echo '<link rel="stylesheet" href="../assets/css/components-custom_select.css" />';
-}
 ?>
 
-<link rel="stylesheet" href="../assets/css/section-block_form.css" />
-
-<form class="block-form <?php echo htmlspecialchars($form_class, ENT_QUOTES, 'UTF-8'); ?>" id="<?php echo htmlspecialchars($form_id, ENT_QUOTES, 'UTF-8'); ?>">
   <div class="form-row">
     <?php foreach ($form_config as $field): ?>
       <?php
@@ -161,76 +150,3 @@ if ($enable_choices) {
       </div>
     <?php endforeach; ?>
   </div>
-
-  <div class="form-buttons">
-    <?php if (isset($cancel_text) && $cancel_text): ?>
-      <button type="button" class="btn btn--text form-cancel"><?php echo htmlspecialchars($cancel_text, ENT_QUOTES, 'UTF-8'); ?></button>
-    <?php endif; ?>
-    <button type="submit" class="btn btn--gradient form-submit"><?php echo htmlspecialchars($submit_text, ENT_QUOTES, 'UTF-8'); ?></button>
-  </div>
-</form>
-
-<?php if ($enable_choices): ?>
-<script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Initialize Choices.js for all select elements with the choices-select class
-  const selectElements = document.querySelectorAll('#<?php echo htmlspecialchars($form_id, ENT_QUOTES, 'UTF-8'); ?> .choices-select');
-  selectElements.forEach(function(selectElement) {
-    new Choices(selectElement, {
-      removeItemButton: false,
-      placeholder: true,
-      itemSelectText: '',
-      searchEnabled: false,
-    });
-  });
-});
-</script>
-<?php endif; ?>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const form = document.getElementById('<?php echo htmlspecialchars($form_id, ENT_QUOTES, 'UTF-8'); ?>');
-
-  if (form) {
-    // File upload functionality
-    const fileInputs = form.querySelectorAll('.form-file-input');
-    fileInputs.forEach(function(fileInput) {
-      const fileNameDisplay = fileInput.parentElement.querySelector('.form-file-name');
-      if (fileNameDisplay) {
-        fileInput.addEventListener('change', function(e) {
-          if (e.target.files.length > 0) {
-            fileNameDisplay.textContent = e.target.files[0].name;
-          } else {
-            fileNameDisplay.textContent = 'No file chosen';
-          }
-        });
-      }
-    });
-
-    // Cancel button functionality
-    const cancelBtn = form.querySelector('.form-cancel');
-    if (cancelBtn) {
-      cancelBtn.addEventListener('click', function() {
-        form.reset();
-        // Reset file upload displays
-        fileInputs.forEach(function(fileInput) {
-          const fileNameDisplay = fileInput.parentElement.querySelector('.form-file-name');
-          if (fileNameDisplay) {
-            fileNameDisplay.textContent = 'No file chosen';
-          }
-        });
-      });
-    }
-
-    // Form submission
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      // TODO: Implement actual form submission logic here (e.g., AJAX call to backend)
-      // For now, showing a simple alert as placeholder
-      alert('Thank you for your submission! We will get back to you soon.');
-      form.reset();
-    });
-  }
-});
-</script>

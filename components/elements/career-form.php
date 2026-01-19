@@ -167,9 +167,6 @@ if (!isset($form_submit_button)) {
         ];
 
         $form_id = 'careerApplicationForm';
-        $form_class = 'career-application-form';
-        $submit_text = $form_submit_button;
-        $cancel_text = $form_cancel_button;
         $enable_choices = true;
         include('../components/sections/block-form.php');
       ?>
@@ -241,9 +238,6 @@ if (!isset($form_submit_button)) {
         ];
 
         $form_id = 'careerApplicationForm';
-        $form_class = 'career-application-form';
-        $submit_text = $form_submit_button;
-        $cancel_text = $form_cancel_button;
         $enable_choices = true;
         include('../components/sections/block-form.php');
       ?>
@@ -308,9 +302,6 @@ if (!isset($form_submit_button)) {
         ];
 
         $form_id = 'careerApplicationForm';
-        $form_class = 'career-application-form';
-        $submit_text = $form_submit_button;
-        $cancel_text = $form_cancel_button;
         $enable_choices = true;
         include('../components/sections/block-form.php');
       ?>
