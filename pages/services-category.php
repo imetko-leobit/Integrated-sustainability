@@ -9,23 +9,23 @@
 </head>
 
 <body class="home">
-  <?php 
+  <?php
       $subheader = [
         ['title' => 'Services', 'url' => '/services'],
         ['title' => 'Laboratory Services', 'url' => '/services/laboratory-services']
     ];
-  include('../components/header/_header.php'); 
+  include('../components/header/_header.php');
   ?>
 
   <main class="main">
-    <?php 
+    <?php
       $hero_title = "laboratory testing & <br> modelling services";
       $hero_button_name = "Select a Service";
       $hero_link_name = "Explore our Approach";
       $hero_img = "../assets/img/bg-sevices.png";
-      include('../components/sections/block-hero.php') 
+      include('../components/sections/block-hero.php')
     ?>
-    <?php 
+    <?php
 			$section_title = "a defensible performance path from concept testing to commercial deployment";
 			$custom_icon = null;
 			$link_url = null;
@@ -33,9 +33,9 @@
 			$person_degree = 'P.Eng., C.Eng. MIEI, M.Sc., BE ';
 			$person_date = 'August 10th, 2025';
 			$person_photo = "../assets/img/approach-intro-image.avif";
-			include('../components/sections/block-section-heading.php'); 
+			include('../components/sections/block-section-heading.php');
 	?>
-    <?php 
+    <?php
     $approach_button = 'Meet The Team';
     $accordion_items = [
       [
@@ -49,31 +49,32 @@
           'initial_open' => false,
       ],
     ];
-    include('../components/sections/block-approach-intro.php') 
+    include('../components/sections/block-approach-intro.php')
     ?>
 
     <?php
-        include('../components/sections/block-cards-simple-slider.php'); 
+        include('../components/sections/block-cards-simple-slider.php');
     ?>
 
 
-    <?php 
+    <?php
 			$section_title = "similar lifecycle services you may be interested in";
       $link_url = "#";
       $link_direction = "down";
       $link_text = "";
       $custom_icon = "../assets/img/linkIconArrowDown.svg";
-			include('../components/sections/block-section-heading.php'); 
+			include('../components/sections/block-section-heading.php');
 	?>
-    <?php include('../components/sections/block-slider.php') ?>
 
-    <?php 
+    <?php include('../components/sections/block-slider-test.php')?>
+
+    <?php
         $section_title = "Expert commentary on the future<br>of sustainable infrastructure planning";
         $link_url = "#";
         $link_direction = "down";
         $link_text = "";
         $custom_icon = "../assets/img/linkIconArrowDown.svg";
-        include('../components/sections/block-section-heading.php'); 
+        include('../components/sections/block-section-heading.php');
     ?>
     <?php
 
@@ -117,43 +118,43 @@
       'id' => 5,
     ],
 ];
-        include('../components/sections/block-project-cards.php'); 
+        include('../components/sections/block-project-cards.php');
     ?>
 
-    <?php 
+    <?php
         $section_title = "explore our latest projects";
         $link_url = "/portfolio";
         $link_text = "Explore our <br> Profile Portfolio";
         $link_direction = "right";
         $custom_icon = "../assets/img/linkIconArrowRight.svg";
-        include('../components/sections/block-section-heading.php'); 
+        include('../components/sections/block-section-heading.php');
     ?>
     <?php include('../components/sections/block-projects.php') ?>
     <?php include('../components/sections/block-logo-slider.php') ?>
 
-    <?php 
+    <?php
         $section_title = "frequently asked questions";
         $link_url = "/contact-us";
         $custom_icon = "../assets/img/iconQuestion.svg";
         $link_text = "Ready to go deeper?<br>Discuss with our specialists";
-        include('../components/sections/block-section-heading.php'); 
+        include('../components/sections/block-section-heading.php');
     ?>
 
     <?php include('../components/sections/block-accordion-inside.php') ?>
 
-    <?php 
+    <?php
         $section_title = "How we deliver reliable water performance <br>across your asset lifecycle";
         $custom_icon = "../assets/img/linkIconCircles.svg";
-        include('../components/sections/block-section-heading.php'); 
+        include('../components/sections/block-section-heading.php');
     ?>
     <?php include('../components/sections/block-reduce-fragmentation.php') ?>
 
-    <?php 
+    <?php
         $layout = 'right';
         $title = 'partner with <br> a unified team';
         $description = 'Achieve greater cost control and schedule certainty with accountable infrastructure designed for high-consequence operations.';
         $button_text = 'Book a Call';
-        include('../components/sections/block-cta.php') 
+        include('../components/sections/block-cta.php')
     ?>
 
   </main>
