@@ -1,37 +1,103 @@
 .main {
-    width: 100%;
-    position: relative;
-  
-    // --- LAYOUT LOGIC ---
-    // Apply constraints to all direct children of .main, EXCEPT:
-    // 1. .alignleft / .alignright (floating elements)
-    // 2. .alignfull (blocks intended to be full width)
-    // 3. .block-hero (hero sections are always full width)
-    
-    & > :where(:not(.alignleft):not(.alignright):not(.alignfull):not(.block-hero)) {
-      max-width: var(--wp--style--global--content-size-large);
-      margin-left: auto !important;
-      margin-right: auto !important;
-  
-      // Add side padding to prevent content from sticking to edges on mobile
-      padding-left: 20px;
-      padding-right: 20px;
-  
-      // Optional: Reset padding for larger screens
-      @include min-laptop {
-         padding-left: 0;
-         padding-right: 0;
-      }
+  width: 100%;
+  position: relative;
 
+  // --- LAYOUT LOGIC ---
+  // Apply constraints to all direct children of .main, EXCEPT:
+  // 1. .alignleft / .alignright (floating elements)
+  // 2. .alignfull (blocks intended to be full width)
+  // 3. .block-hero (hero sections are always full width)
+
+  &
+    > :where(
+      :not(.alignleft):not(.alignright):not(.alignfull):not(.block-hero)
+    ) {
+    max-width: var(--wp--style--global--content-size-large);
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+    // Add side padding to prevent content from sticking to edges on mobile
+    padding-left: 20px;
+    padding-right: 20px;
+
+    // Optional: Reset padding for larger screens
+    @include min-laptop {
+      padding-left: 0;
+      padding-right: 0;
     }
-    @media (max-width: 1599px) {
-      & > :where(:not(.alignleft):not(.alignright):not(.alignfull):not(.block-hero)) {
-        max-width: var(--wp--style--global--content-size-medium);
-      }
+  }
+  @media (max-width: 1599px) {
+    &
+      > :where(
+        :not(.alignleft):not(.alignright):not(.alignfull):not(.block-hero)
+      ) {
+      max-width: var(--wp--style--global--content-size-medium);
     }
-    @media (max-width: 1199px) {
-      & > :where(:not(.alignleft):not(.alignright):not(.alignfull):not(.block-hero)) {
-        max-width: var(--wp--style--global--content-size-small);
+  }
+  @media (max-width: 1199px) {
+    &
+      > :where(
+        :not(.alignleft):not(.alignright):not(.alignfull):not(.block-hero)
+      ) {
+      max-width: var(--wp--style--global--content-size-small);
+    }
+  }
+  h2:not([class]) {
+    &:not(:last-child) {
+      margin-bottom: 60px;
+
+      @media (max-width: 991px) {
+        margin-bottom: 40px;
       }
     }
   }
+  ul:not([class]) {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 22px;
+    margin: 0;
+
+    &:not(:last-child) {
+      margin-bottom: 22px;
+    }
+
+    @media (max-width: 1199px) {
+      gap: 12px;
+    }
+
+    li {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 22px;
+      @include item-marked;
+
+      @media (max-width: 1199px) {
+        gap: 12px;
+      }
+    }
+  }
+
+  ol:not([class]) {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 22px;
+    margin-left: 20px;
+
+    a {
+      @include text-link;
+      color: var(--color-grey-200);
+      text-decoration: underline;
+      word-break: break-word;
+    }
+
+    @media (max-width: 1199px) {
+      gap: 12px;
+    }
+  }
+}

@@ -1,5 +1,7 @@
 @import "../common/variable";
 @import "../common/mixins";
+@import "../components/gradient_link.scss";
+@import "../components/person_card.scss";
 
 .block-insights {
   padding: 0 0 180px;
@@ -10,17 +12,17 @@
   }
 
   &__wrapper {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      position: relative;
-      height: 100%;
-      gap: 56px;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    position: relative;
+    height: 100%;
+    gap: 56px;
 
-      @media (max-width: 1199px) {
-        grid-template-columns: 1fr;
-        grid-template-areas: 'center';
-        gap: 24px;
-      }
+    @media (max-width: 1199px) {
+      grid-template-columns: 1fr;
+      grid-template-areas: "center";
+      gap: 24px;
+    }
   }
 
   &__description {
@@ -30,15 +32,14 @@
       grid-area: center;
     }
 
-      &--text {
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-      }
+    &--text {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
   }
 
   &__media {
-
     grid-column: 7 / -1;
 
     @media (max-width: 1199px) {
@@ -53,7 +54,7 @@
       @include bg-overlay(0.1);
 
       &::before {
-        content: '';
+        content: "";
         position: absolute;
         bottom: -56px;
         left: -56px;
@@ -92,58 +93,58 @@
           padding-right: 0;
         }
       }
-
     }
-
   }
 
   .heading {
     .title {
-          padding-bottom: 50px;
+      padding-bottom: 50px;
 
-          @media (max-width: 991px) {
-            padding-bottom: 30px;
-          }
+      @media (max-width: 991px) {
+        padding-bottom: 30px;
       }
+    }
     .title--h2 {
-          @include text-h2;
+      @include text-h2;
 
-          @media (max-width: 991px) {
-            @include text-h5;
-          }
+      @media (max-width: 991px) {
+        @include text-h5;
       }
+    }
   }
 
   .text-content {
-      p {
-          margin-bottom: 16px;
-      }
+    p {
+      margin-bottom: 16px;
+    }
   }
 
   &__action {
     margin-top: 32px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 30px;
+    a {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 30px;
+
+      &:hover {
+        img,
+        svg {
+          transform: translate(3px, 0);
+        }
+      }
+    }
 
     .icon--active {
-
       img {
         width: 44px;
         height: 44px;
       }
     }
 
-    .icon--active:hover {
-      img {
-        transform: translate(3px, 0);
-      }
-    }
-
     .action-text {
-      @include text-body-large
+      @include text-body-large;
+      max-width: 230px;
     }
   }
-
 }

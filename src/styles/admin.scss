@@ -57,7 +57,10 @@
   @import "./section/block_accordion_scroll";
   @import "./section/block_accordion_inside";
   @import "./section/block_media_grid";
-  @import "./section/block_form";
+
+  a {
+    pointer-events: none;
+  }
 }
 
 .wp-block {
@@ -105,6 +108,9 @@
   .block-editor-inserter__toggle.components-button.has-icon {
   color: #000;
   background: #f9a361;
+}
+.wp-block.acf-block-component:not(.acf-block-preview):before {
+  color: #000;
 }
 .empty-block {
   font-size: 14px;
