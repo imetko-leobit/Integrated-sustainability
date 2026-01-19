@@ -1,0 +1,120 @@
+/*!******************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/styles/section/block_vacancy_details.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************/
+/*images*/
+.block-vacancy-details {
+  padding: 80px 0 120px; }
+  @media (max-width: 991px) {
+    .block-vacancy-details {
+      padding: 40px 24px 60px; } }
+  .block-vacancy-details__wrapper {
+    display: grid;
+    grid-template-columns: 355px 1fr;
+    gap: 56px; }
+    @media (max-width: 991px) {
+      .block-vacancy-details__wrapper {
+        grid-template-columns: 1fr;
+        gap: 32px; } }
+  .block-vacancy-details__col--sidebar {
+    position: relative; }
+    @media (max-width: 991px) {
+      .block-vacancy-details__col--sidebar {
+        -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+        order: 2; } }
+  .block-vacancy-details__col--content {
+    max-width: 900px; }
+    @media (max-width: 991px) {
+      .block-vacancy-details__col--content {
+        -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+        order: 1;
+        max-width: 100%; } }
+
+.vacancy-details-block {
+  margin-bottom: 84px; }
+  @media (max-width: 991px) {
+    .vacancy-details-block {
+      margin-bottom: 32px; } }
+  .vacancy-details-block:last-child {
+    margin-bottom: 0; }
+  .vacancy-details-block__title, .vacancy-details-block__list-title {
+    font-family: "PoppinsSBold", "Roboto", "Arial", sans-serif;
+    font-style: normal;
+    font-size: 32px;
+    line-height: 44px;
+    font-weight: 600;
+    text-transform: lowercase;
+    margin-bottom: 24px; }
+    @media (max-width: 991px) {
+      .vacancy-details-block__title, .vacancy-details-block__list-title {
+        font-size: 24px;
+        line-height: 32px; } }
+  .vacancy-details-block__text {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 84px; }
+    .vacancy-details-block__text p {
+      font-family: "Poppins", "Roboto", "Arial", sans-serif;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-style: normal;
+      font-size: 16px;
+      line-height: 24px;
+      margin: 0; }
+      @media (max-width: 991px) {
+        .vacancy-details-block__text p {
+          font-size: 14px;
+          line-height: 22px; } }
+  .vacancy-details-block__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 16px; }
+  .vacancy-details-block__list-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    gap: 12px;
+    font-family: "Poppins", "Roboto", "Arial", sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 24px; }
+    @media (max-width: 991px) {
+      .vacancy-details-block__list-item {
+        font-size: 14px;
+        line-height: 22px; } }
+    .vacancy-details-block__list-item span {
+      -webkit-box-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      line-height: 1.6; }
+  .vacancy-details-block__icon {
+    width: 22px;
+    height: 22px;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    margin-top: 2px; }
+
+
+/*# sourceMappingURL=section-block_vacancy_details.css.map*/

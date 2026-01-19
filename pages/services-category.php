@@ -65,7 +65,10 @@
       $custom_icon = "../assets/img/linkIconArrowDown.svg";
 			include('../components/sections/block-section-heading.php'); 
 	?>
-    <?php include('../components/sections/block-slider.php') ?>
+    <?php 
+    $hide_description = true;
+    include('../components/sections/block-slider.php'); 
+    ?>
 
     <?php 
         $section_title = "Expert commentary on the future<br>of sustainable infrastructure planning";
