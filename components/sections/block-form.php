@@ -4,7 +4,7 @@
  *
  * A config-driven form component that dynamically renders form fields
  * based on the provided configuration array.
- * 
+ *
  * NOTE: This component only renders form content elements (inputs, selects, textareas, etc.)
  * The parent component is responsible for providing:
  * - The <form> wrapper tag with appropriate class and id
@@ -28,6 +28,8 @@ if (!isset($enable_choices)) {
     $enable_choices = false;
 }
 ?>
+
+<link rel="stylesheet" href="../assets/css/section-block_form.css" />
 
   <div class="form-row">
     <?php foreach ($form_config as $field): ?>
