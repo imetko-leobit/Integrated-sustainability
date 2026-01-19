@@ -66,7 +66,7 @@
 			include('../components/sections/block-section-heading.php');
 	?>
 
-    <?php include('../components/sections/block-slider-test.php')?>
+    <?php include('../components/sections/block-slider-full.php')?>
 
     <?php
         $section_title = "Expert commentary on the future<br>of sustainable infrastructure planning";

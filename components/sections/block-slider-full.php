@@ -44,7 +44,7 @@ $pillar_items = [
 $total_slides = count($pillar_items);
 ?>
 
-<link rel="stylesheet" href="../assets/css/section-block_slider2.css" />
+<link rel="stylesheet" href="../assets/css/section-block_slider.css" />
 
 <section class="block-slider" id="pillar1">
   <div class="block-slider__wrapper">
@@ -64,7 +64,7 @@ $total_slides = count($pillar_items);
       </div>
     </div>
 
-    <div class="block-slider__media block-slider__col--carousel">
+    <div class="block-slider__media block-slider__col--carousel block-slider__col--carousel--full">
       <div class="pillar-carousel js-pillar-carousel" data-total-slides="<?php echo $total_slides; ?>">
 
         <?php foreach ($pillar_items as $index => $item): ?>

@@ -83,6 +83,26 @@
       margin: 0;
     }
 
+    &--full {
+      overflow: hidden;
+
+      .pillar-carousel .pillar-carousel-card {
+        width: 100%;
+        max-width: 33.333%;
+        min-height: 600px;
+        padding: 0;
+
+        &.is-active {
+          width: 100%;
+          max-width: 33.333%;
+        }
+
+        &__content-wrapper {
+          max-height: 200px;
+          margin: 0;
+        }
+      }
+    }
   }
 
   &__col--carusel::-webkit-scrollbar {
