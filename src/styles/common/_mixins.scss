@@ -606,7 +606,7 @@
   padding-left: 60px;
   min-height: 33px;
   color: white;
-  @include text-body-large;
+  @include text-body-base;
 
   &::before {
     content: "";

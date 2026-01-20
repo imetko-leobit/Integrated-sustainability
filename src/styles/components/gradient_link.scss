@@ -13,7 +13,7 @@
   width: fit-content;
 
   &--large {
-    @include text-body-large;
+    @include text-body-base;
   }
 
   a {
@@ -49,7 +49,7 @@
     -webkit-text-fill-color: white;
     background: none;
 
-    .arrow-icon {      
+    .arrow-icon {
         transform: translate(3px, -3px);
         svg {
           .icon-arrow {

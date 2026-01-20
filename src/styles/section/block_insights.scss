@@ -143,7 +143,7 @@
     }
 
     .action-text {
-      @include text-body-large;
+      @include text-body-base;
       max-width: 230px;
     }
   }

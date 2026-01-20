@@ -191,7 +191,7 @@
         font-size: 16px;
         line-height: 1.4;
         font-weight: 600;
-        @include text-body-large;
+        @include text-body-base;
 
         background: $primary-gradient;
         background-clip: text;

@@ -86,7 +86,7 @@
   &__description {
       max-width: 1100px;
       padding: 24px;
-      @include text-body-large;
+      @include text-body-base;
   }
 
   &__actions {

@@ -85,7 +85,7 @@ $modifier_class = $reverse ? ' block-approach-intro--reverse' : '';
         </h3>
       </div>
 
-      <div class="text-content text-content--large text-content--grey">
+      <div class="text-content text-content text-content--grey">
         <p><?php echo $approach_text_1; ?></p>
         <?php if ($approach_text_2): ?>
         <p><?php echo $approach_text_2; ?></p>

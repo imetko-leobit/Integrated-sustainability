@@ -47,7 +47,7 @@ $accordion_items = [
         <h2 class="title title--h2"><?php echo $pillar_title; ?></h2>
       </div>
       <?php if ( $pillar_text_1) : ?>
-      <div class="text-content text-content--large text-content--grey">
+      <div class="text-content text-content text-content--grey">
         <p><?php echo $pillar_text_1; ?></p>
       </div>
       <?php endif ?>
@@ -58,12 +58,12 @@ $accordion_items = [
         </div>
       </div>
       <?php if ( $pillar_text_2) : ?>
-      <div class="text-content text-content--large text-content--grey text-content--additional">
+      <div class="text-content text-content text-content--grey text-content--additional">
         <p><?php echo $pillar_text_2; ?></p>
       </div>
       <?php endif ?>
 
-      <?php 
+      <?php
         include('../components/elements/accordion.php')
       ?>
     </div>

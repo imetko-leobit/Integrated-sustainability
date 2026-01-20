@@ -11,7 +11,7 @@
         discover how unified environmental science and operational expertise delivers sustainable business performance
       </h3>
     </div>
-    <div class="text-content text-content--large text-content--grey">
+    <div class="text-content text-content text-content--grey">
       <p>Asset performance drifts within fragmented service delivery. Our integrated delivery approach connects on-site
         realities to design, equipment supply, and operations to create predictable facility behaviour.</p>
       <p>This continuity strengthens accountability and stabilizes operations, helping you advance a coherent

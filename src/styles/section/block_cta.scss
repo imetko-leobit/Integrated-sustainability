@@ -92,7 +92,7 @@
   }
 
   &__description {
-      @include text-body-large;
+      @include text-body-base;
       padding-bottom: 70px;
 
       @media (max-width: 991px) {

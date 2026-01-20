@@ -10,13 +10,13 @@
   @media (max-width: 991px) {
     grid-template-columns: 1fr;
   }
-  
+
   .link-card {
     width: 100%;
     height: 210px;
-  
+
     @include bg-image;
-  
+
     .card__content {
       height: 100%;
       width: 100%;
@@ -24,19 +24,19 @@
       flex-direction: column;
       justify-content: space-between;
       padding: 40px;
-  
+
       .js-ellipsis-title,
       .js-ellipsis-text {
-        -webkit-line-clamp: 4; 
+        -webkit-line-clamp: 4;
         @include overflow-dots
       }
-  
+
       .card__title {
-        @include text-body-large;
+        @include text-body-base;
         color: white;
         text-transform: lowercase;
       }
-  
+
       & .arrow-icon {
         width: 24px;
         height: 24px;
@@ -53,7 +53,7 @@
         }
       }
     }
-  
+
     &:hover {
       .card__content {
         .arrow-icon {

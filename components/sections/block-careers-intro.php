@@ -42,7 +42,7 @@ if (!isset($careers_intro_logos)) {
       </div>
 
       <div class="block-careers-intro__description">
-        <div class="text-content text-content--large text-content--grey">
+        <div class="text-content text-content text-content--grey">
           <p><?php echo htmlspecialchars($careers_intro_description, ENT_QUOTES, 'UTF-8'); ?></p>
         </div>
       </div>
