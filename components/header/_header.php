@@ -1,7 +1,7 @@
 <link href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" rel="stylesheet" />
 <link rel="stylesheet" href="../assets/css/components-main_menu.css" />
 
-<?php 
+<?php
  $menu_data = [
     [
         "id" => "level-0-1",
@@ -38,16 +38,16 @@
             ["title" => "food & beverage", "url" => "/industries/food-beverage", "id" => "level-0-4-6",],
             ["title" => "hydrogen production", "url" => "/industries/hydrogen", "id" => "level-0-4-7",],
             [
-							"title" => "medical technologies", 
-							"url" => "/industries/medical", 
+							"title" => "medical technologies",
+							"url" => "/industries/medical",
 							"id" => "level-0-4-8",
 							"submenu" => [
                     [
-                        "title" => "lifecycle services", 
+                        "title" => "lifecycle services",
                         "url" => "#",
                         "id" => "level-0-4-8-1",
                     ],
-										["title" => "define", "url" => "/services/define", "id" => "level-0-4-8-2", 
+										["title" => "define", "url" => "/services/define", "id" => "level-0-4-8-2",
 											"submenu" => [
 													["title" => "project development", "url" => "/services/define/project-dev"],
 													["title" => "water resources", "url" => "/services/define/water"],
@@ -68,7 +68,7 @@
             [
                 "title" => "mining, metals and minerals",
                 "url" => "/industries/mining",
-                "id" => "level-0-4-9",  
+                "id" => "level-0-4-9",
             ],
             ["title" => "municipal", "url" => "/industries/municipal", "id" => "level-0-4-10",],
             ["title" => "oil and gas", "url" => "/industries/oil-gas", "id" => "level-0-4-11",],
@@ -203,6 +203,7 @@ window.phpMenuData = <?php echo json_encode($menu_data); ?>;
 <script type=' text/javascript' src="../assets/js/components-header_controller.js"></script>
 <script type='text/javascript' src="../assets/js/components-menu_controller.js"></script>
 <script type='text/javascript' src="../assets/js/components-search.js"></script>
+<script type='text/javascript' src="../assets/js/components-breadcrumb_observer.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {

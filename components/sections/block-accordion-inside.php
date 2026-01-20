@@ -40,7 +40,7 @@ $accordion_items = [
     </div>
 
     <div class="block-accordion__content">
-      <h2 class="title title--h4"><?php echo $title; ?></h2>
+      <h4 class="title"><?php echo $title; ?></h4>
       <p class="description"><?php echo $description; ?></p>
 
       <div class="gradient-link gradient-link--large">
@@ -55,7 +55,7 @@ $accordion_items = [
         </a>
       </div>
 
-      <?php 
+      <?php
         include('../components/elements/accordion.php')
       ?>
     </div>
