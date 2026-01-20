@@ -2,12 +2,130 @@
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/styles/section/block_section_heading.scss ***!
   \******************************************************************************************************************************************************************************************************************************************/
 /*images*/
+/*images*/
+.person-card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 42px;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 36px; }
+  @media (max-width: 991px) {
+    .person-card {
+      gap: 16px;
+      padding: 24px;
+      width: 100%;
+      height: fit-content;
+      justify-content: flex-start; } }
+  @media (max-width: 767px) {
+    .person-card {
+      gap: 16px;
+      padding: 24px;
+      width: 100%; } }
+  .person-card .person-card__content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 42px;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center; }
+    @media (max-width: 991px) {
+      .person-card .person-card__content {
+        gap: 16px; } }
+    @media (max-width: 767px) {
+      .person-card .person-card__content {
+        gap: 16px; } }
+  .person-card__image-container {
+    width: 125px;
+    height: 125px;
+    min-width: 125px;
+    border-radius: 50%;
+    overflow: hidden; }
+    .person-card__image-container .person-card__image {
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%);
+      transition: filter 0.5s ease; }
+    @media (max-width: 1199px) {
+      .person-card__image-container {
+        width: 80px;
+        height: 80px;
+        min-width: 80px; } }
+  .person-card .person-card__info {
+    text-align: left; }
+    .person-card .person-card__info .card__name {
+      font-size: 20px;
+      font-weight: 600;
+      border: none;
+      padding: 0;
+      margin: 0; }
+      @media (max-width: 991px) {
+        .person-card .person-card__info .card__name {
+          font-family: "PoppinsMedium", "Roboto", "Arial", sans-serif;
+          font-style: normal;
+          font-size: 14px;
+          line-height: 20px;
+          font-weight: 500; } }
+    .person-card .person-card__info .card__credentials {
+      font-family: "Poppins", "Roboto", "Arial", sans-serif;
+      font-style: normal;
+      font-size: 14px;
+      line-height: 24px;
+      font-weight: 400;
+      margin-bottom: 16px; }
+      @media (max-width: 991px) {
+        .person-card .person-card__info .card__credentials {
+          font-size: 12px;
+          line-height: 20px; } }
+      @media (max-width: 991px) {
+        .person-card .person-card__info .card__credentials {
+          margin-bottom: 12px; } }
+    .person-card .person-card__info .card__title {
+      font-family: "Poppins", "Roboto", "Arial", sans-serif;
+      font-style: normal;
+      font-size: 14px;
+      line-height: 24px;
+      font-weight: 400;
+      font-size: 16px; }
+      @media (max-width: 991px) {
+        .person-card .person-card__info .card__title {
+          font-size: 12px;
+          line-height: 20px; } }
+    .person-card .person-card__info .person-card__description {
+      font-family: "PoppinsMedium", "Roboto", "Arial", sans-serif;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 30px;
+      font-weight: 500;
+      padding-bottom: 16px; }
+      @media (max-width: 991px) {
+        .person-card .person-card__info .person-card__description {
+          font-size: 18px;
+          line-height: 26px; } }
+    .person-card .person-card__info .arrow-icon {
+      width: 32px;
+      height: 32px;
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease; }
+  .person-card:hover .person-card__image {
+    filter: none; }
+  .person-card:hover .arrow-icon {
+    transform: translate(3px, -3px); }
+
 .block-section-heading {
   position: relative;
   padding: 80px 0 60px;
-  margin-bottom: 60px; }
+  margin-bottom: 80px; }
   .block-section-heading::before {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0px;
     left: 0px;
@@ -23,8 +141,7 @@
   .block-section-heading--center {
     text-align: center; }
   .block-section-heading .title {
-    text-align: left;
-    padding-right: 120px; }
+    text-align: left; }
     @media (max-width: 991px) {
       .block-section-heading .title {
         padding-right: 0; } }
@@ -62,25 +179,30 @@
     display: flex;
     -webkit-box-pack: end;
     -ms-flex-pack: end;
-    justify-content: flex-end; }
+    justify-content: flex-end;
+    gap: 32px;
+    padding: 0; }
+    .block-section-heading .person-card--reverse {
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+      flex-direction: row-reverse; }
     .block-section-heading .person-card .person-card__info {
-      padding: 12px 32px;
       text-align: right; }
       .block-section-heading .person-card .person-card__info .card__name {
-        font-size: 19px;
-        font-weight: 600; }
+        font-family: "PoppinsMedium", "Roboto", "Arial", sans-serif;
+        font-style: normal;
+        font-size: 20px;
+        line-height: 30px;
+        font-weight: 500; }
         @media (max-width: 991px) {
           .block-section-heading .person-card .person-card__info .card__name {
-            font-family: "PoppinsMedium", "Roboto", "Arial", sans-serif;
-            font-style: normal;
-            font-size: 14px;
-            line-height: 20px;
-            font-weight: 500;
-            margin-bottom: 0; } }
+            font-size: 18px;
+            line-height: 26px; } }
       .block-section-heading .person-card .person-card__info .card__credentials {
         font-family: "Poppins", "Roboto", "Arial", sans-serif;
         font-style: normal;
-        font-size: 15px;
+        font-size: 14px;
         line-height: 24px;
         font-weight: 400;
         margin-bottom: 12px; }
@@ -92,16 +214,32 @@
           .block-section-heading .person-card .person-card__info .card__credentials {
             margin-bottom: 12px; } }
       .block-section-heading .person-card .person-card__info .card__date {
+        font-family: "Poppins", "Roboto", "Arial", sans-serif;
+        font-style: normal;
+        font-size: 14px;
+        line-height: 24px;
+        font-weight: 400;
         color: var(--color-grey-300);
         font-family: "PoppinsLight", "Roboto", "Arial", sans-serif;
+        font-weight: 300;
+        line-height: 18px; }
+        @media (max-width: 991px) {
+          .block-section-heading .person-card .person-card__info .card__date {
+            font-size: 12px;
+            line-height: 20px; } }
+      .block-section-heading .person-card .person-card__info .card__title {
+        font-family: "Poppins", "Roboto", "Arial", sans-serif;
         font-style: normal;
-        font-size: 16px;
-        line-height: 34px;
-        font-weight: 300; }
+        font-size: 14px;
+        line-height: 24px;
+        font-weight: 400; }
+        @media (max-width: 991px) {
+          .block-section-heading .person-card .person-card__info .card__title {
+            font-size: 12px;
+            line-height: 20px; } }
     .block-section-heading .person-card__image-container {
-      width: 130px;
-      height: 130px;
-      min-width: 130px;
+      width: 152px;
+      height: 152px;
       border-radius: 50%;
       overflow: hidden; }
       .block-section-heading .person-card__image-container .person-card__image {

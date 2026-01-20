@@ -203,6 +203,7 @@ window.phpMenuData = <?php echo json_encode($menu_data); ?>;
 <script type=' text/javascript' src="../assets/js/components-header_controller.js"></script>
 <script type='text/javascript' src="../assets/js/components-menu_controller.js"></script>
 <script type='text/javascript' src="../assets/js/components-search.js"></script>
+<script type='text/javascript' src="../assets/js/components-breadcrumb_observer.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
