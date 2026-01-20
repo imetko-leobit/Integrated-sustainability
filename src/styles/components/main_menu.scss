@@ -81,6 +81,7 @@
     height: 100%;
     @include bg-image;
     position: relative;
+    background-image: url(../../assets/img/bg-header.png);
 
     .header-top {
       display: flex;
@@ -106,7 +107,6 @@
     }
 
     .logo {
-      width: 250px;
       position: absolute;
       top: 0;
       left: 0;
@@ -120,6 +120,22 @@
       @media (max-width: 991px) {
         position: relative;
         margin-left: 0;
+      }
+
+      .logo--main {
+        width: 250px;
+
+        @media (max-width: 991px) {
+          width: 150px;
+        }
+      }
+
+      .logo--secondary {
+        width: 300px;
+
+        @media (max-width: 991px) {
+          width: 200px;
+        }
       }
     }
 
@@ -428,10 +444,6 @@
         height: 80px;
         flex-direction: row-reverse;
         padding: 0 24px;
-      }
-
-      .logo {
-        width: 150px;
       }
 
       .header__actions--desktop {
