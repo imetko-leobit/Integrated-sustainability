@@ -16,6 +16,11 @@
   section:not(.block-hero) {
     margin-left: 72px !important;
     margin-right: 72px !important;
+
+    @media (min-width: 1700px) {
+      margin-right: auto !important;
+      margin-left: auto !important;
+    }
   }
 
   h2 {
@@ -64,5 +69,9 @@
 
   .block-logo-slider {
     padding-left: 0 !important;
+  }
+
+  .block-cta {
+    width: calc(100% - 144px);
   }
 }
