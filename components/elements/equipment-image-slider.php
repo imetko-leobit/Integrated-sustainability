@@ -29,12 +29,12 @@
     <div class="equipment-image-slider__navigation">
       <button class="btn btn--arrow js-equipment-prev" aria-label="Previous Image">
         <svg viewBox="0 0 27 15">
-          <use xlink:href="#arrow-right"></use>
+          <use xlink:href="#arrow-left"></use>
         </svg>
       </button>
       <button class="btn btn--arrow btn-next js-equipment-next" aria-label="Next Image">
         <svg viewBox="0 0 27 15">
-          <use xlink:href="#arrow-left"></use>
+          <use xlink:href="#arrow-right"></use>
         </svg>
       </button>
     </div>
