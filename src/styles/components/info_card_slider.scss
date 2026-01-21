@@ -11,6 +11,7 @@
   height: 690px;
 
   .info-card {
+    @include bg-overlay(0.1);
       position: absolute;
       top: 0;
       left: 0;
@@ -19,7 +20,6 @@
       opacity: 0;
       transition: opacity 0.5s ease;
       z-index: 1;
-    @include bg-overlay(0.1);
 
       &.active {
           opacity: 1;
