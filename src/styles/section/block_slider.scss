@@ -40,6 +40,7 @@
     display: grid;
     grid-template-columns: 1fr 2fr;
     position: relative;
+    min-height: 560px;
 
     @media (max-width: 1199px) {
       display: flex;
@@ -106,6 +107,7 @@
     height: 100%;
     z-index: 0;
     scrollbar-width: none;
+    max-height: 560px;
 
     @media (max-width: 1199px) {
       position: relative;
@@ -229,6 +231,9 @@
     }
 
     &__content-wrapper {
+        display: flex;
+        flex-direction: column;
+
         position: absolute;
         bottom: 0px;
         left: 0;
@@ -288,6 +293,7 @@
       color: var(--color-grey-300);
       opacity: 0;
       transition: opacity 0.3s ease;
+      min-height: 0;
     }
 
     &__image-container {
@@ -364,6 +370,12 @@
       opacity: 0;
       transition: opacity 0.3s ease;
 
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
       @media (max-width: 1199px) {
         opacity: 1;
       }
@@ -374,12 +386,10 @@
     }
 
     &__link {
-      position: absolute;
-      bottom: 48px;
-      left: 30px;
       text-decoration: none;
       color: white;
       cursor: pointer;
+      margin-top: auto;
 
       @media (max-width: 1199px) {
         bottom: 20px;
@@ -389,7 +399,7 @@
       .pillar-carousel-card__link-text__wrapper {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
         flex-direction: row;
         gap: 10px;
       }
