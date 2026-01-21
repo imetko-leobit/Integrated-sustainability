@@ -1,4 +1,5 @@
 <!-- Equipment Image Slider Component -->
+<link rel="stylesheet" href="../assets/libs/swiper/swiper.min.css">
 <link rel="stylesheet" href="../assets/css/components-equipment_image_slider.css" />
 
 <div class="equipment-image-slider">
@@ -40,4 +41,5 @@
   </div>
 </div>
 
+<script src="../assets/libs/swiper/swiper.min.js"></script>
 <script type='text/javascript' src="../assets/js/components-equipment_image_slider.js"></script>
