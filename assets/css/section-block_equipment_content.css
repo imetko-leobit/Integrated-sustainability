@@ -1,0 +1,58 @@
+/*!********************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/styles/section/block_equipment_content.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************/
+/*images*/
+.block-equipment-content {
+  width: 100%;
+  padding: 80px 0; }
+  @media (max-width: 767px) {
+    .block-equipment-content {
+      padding: 40px 0; } }
+  .block-equipment-content__wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 900px 1fr;
+    gap: 64px; }
+    @media (max-width: 1600px) {
+      .block-equipment-content__wrapper {
+        max-width: 1200px;
+        grid-template-columns: 700px 1fr;
+        gap: 48px; } }
+    @media (max-width: 1199px) {
+      .block-equipment-content__wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px; } }
+  .block-equipment-content .equipment-content__left {
+    width: 100%; }
+  .block-equipment-content .equipment-content__right {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 32px; }
+    @media (max-width: 1199px) {
+      .block-equipment-content .equipment-content__right {
+        max-width: 600px; } }
+  .block-equipment-content .equipment-content__metadata {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 24px; }
+  .block-equipment-content .equipment-content__card {
+    position: sticky;
+    top: 100px; }
+    @media (max-width: 1199px) {
+      .block-equipment-content .equipment-content__card {
+        position: static; } }
+
+
+/*# sourceMappingURL=section-block_equipment_content.css.map*/

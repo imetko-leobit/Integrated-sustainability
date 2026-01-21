@@ -1,0 +1,129 @@
+/*!****************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/styles/section/block_careers_intro.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************/
+/*images*/
+.block-careers-intro {
+  padding: 80px 0 80px; }
+  @media (max-width: 991px) {
+    .block-careers-intro {
+      padding: 40px 24px 40px; } }
+  .block-careers-intro__wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 48px;
+    width: 100%; }
+    @media (max-width: 991px) {
+      .block-careers-intro__wrapper {
+        gap: 40px; } }
+  .block-careers-intro__content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    gap: 56px;
+    width: 100%; }
+    @media (max-width: 991px) {
+      .block-careers-intro__content {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        gap: 24px; } }
+  .block-careers-intro__header {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    min-width: 0; }
+    @media (max-width: 991px) {
+      .block-careers-intro__header {
+        -webkit-box-flex: 1;
+        -ms-flex: 1 1 auto;
+        flex: 1 1 auto; } }
+    .block-careers-intro__header .title--h3 {
+      font-family: "PoppinsSBold", "Roboto", "Arial", sans-serif;
+      font-style: normal;
+      font-size: 32px;
+      line-height: 44px;
+      font-weight: 600; }
+      @media (max-width: 991px) {
+        .block-careers-intro__header .title--h3 {
+          font-size: 24px;
+          line-height: 32px; } }
+      @media (max-width: 991px) {
+        .block-careers-intro__header .title--h3 {
+          font-family: "PoppinsMedium", "Roboto", "Arial", sans-serif;
+          font-style: normal;
+          font-size: 20px;
+          line-height: 30px;
+          font-weight: 500; } }
+  @media (max-width: 991px) and (max-width: 991px) {
+    .block-careers-intro__header .title--h3 {
+      font-size: 18px;
+      line-height: 26px; } }
+  .block-careers-intro__description {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 calc(75% - 56px);
+    flex: 0 0 calc(75% - 56px);
+    min-width: 0; }
+    @media (max-width: 991px) {
+      .block-careers-intro__description {
+        -webkit-box-flex: 1;
+        -ms-flex: 1 1 auto;
+        flex: 1 1 auto; } }
+    .block-careers-intro__description .text-content p {
+      margin: 0; }
+  .block-careers-intro__logos {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 32px;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%; }
+    @media (max-width: 1199px) {
+      .block-careers-intro__logos {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px; } }
+    @media (max-width: 767px) {
+      .block-careers-intro__logos {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px; } }
+  .block-careers-intro__logo-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 200px; }
+    @media (max-width: 991px) {
+      .block-careers-intro__logo-item {
+        min-height: 60px; } }
+  .block-careers-intro__logo-img {
+    width: 100%;
+    height: auto;
+    max-width: 120px;
+    -o-object-fit: contain;
+    object-fit: contain;
+    opacity: 0.7;
+    -webkit-transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease; }
+    @media (max-width: 991px) {
+      .block-careers-intro__logo-img {
+        max-width: 100px; } }
+    .block-careers-intro__logo-img:hover {
+      opacity: 1; }
+
+
+/*# sourceMappingURL=section-block_careers_intro.css.map*/
