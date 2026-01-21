@@ -1,0 +1,217 @@
+// Filtered Grid Block Styles
+// Reusable component with filters on left and grid on right
+
+.block-filtered-grid {
+  width: 100%;
+  padding: 4rem 2rem;
+
+  &__container {
+    max-width: 1576px;
+    margin: 0 auto;
+    display: flex;
+    gap: 5.08%; /* 80px / 1576px = ~5.08% */
+    align-items: flex-start;
+
+    @media (max-width: 1024px) {
+      flex-direction: column;
+      gap: 2rem;
+    }
+  }
+
+  /* Left Column - Filters */
+  &__filters {
+    flex: 0 0 25.89%; /* 408px / 1576px = ~25.89% */
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    @media (max-width: 1024px) {
+      flex: 1 1 100%;
+      width: 100%;
+      order: 1; /* Display filters first on mobile */
+    }
+  }
+
+  &__filter-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__section-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0;
+    color: #1a1a1a;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  &__filter-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  &__filter-item {
+    width: 100%;
+  }
+
+  &__select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    background-color: #ffffff;
+    color: #1a1a1a;
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+
+    &:hover {
+      border-color: #9ca3af;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+  }
+
+  /* Filter Chips */
+  &__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    min-height: 2rem;
+  }
+
+  &__chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background-color: #e5e7eb;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    color: #1a1a1a;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: #d1d5db;
+    }
+  }
+
+  &__chip-label {
+    font-weight: 500;
+  }
+
+  &__chip-remove {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    color: #6b7280;
+    transition: color 0.2s ease;
+    font-size: 1.25rem;
+    line-height: 1;
+
+    &:hover {
+      color: #1a1a1a;
+    }
+
+    &:focus {
+      outline: 2px solid #3b82f6;
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+  }
+
+  /* Right Column - Results */
+  &__results {
+    flex: 1 1 69.03%; /* Remaining space (~69%) */
+    
+    @media (max-width: 1024px) {
+      flex: 1 1 100%;
+      width: 100%;
+      order: 2; /* Display results second on mobile */
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+
+    @media (max-width: 1440px) {
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr; /* Single column on mobile */
+      gap: 1.5rem;
+    }
+  }
+
+  &__grid-item {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+
+    &.is-hidden {
+      display: none;
+    }
+
+    &.is-filtering {
+      opacity: 0.5;
+      transform: scale(0.95);
+    }
+  }
+
+  /* No results message */
+  &__no-results {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #6b7280;
+
+    p {
+      font-size: 1.125rem;
+      margin: 0;
+    }
+  }
+}
+
+/* Animation for filter changes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.block-filtered-grid__grid-item {
+  animation: fadeIn 0.3s ease;
+}
