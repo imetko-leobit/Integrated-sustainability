@@ -23,8 +23,14 @@
     var sortSelect = gridBlock.querySelector('.js-sort-select');
     var chipsContainer = gridBlock.querySelector('.js-filter-chips');
     var gridContainer = gridBlock.querySelector('.js-filtered-grid');
-    var gridItems = gridContainer.querySelectorAll('.block-filtered-grid__grid-item');
     var noResultsEl = gridBlock.querySelector('.js-no-results');
+
+    // Check if required elements exist
+    if (!gridContainer) {
+      console.warn('Filtered grid container not found');
+      return;
+    }
+    var gridItems = gridContainer.querySelectorAll('.block-filtered-grid__grid-item');
 
     // Store active filters
     var activeFilters = {};
@@ -77,7 +83,9 @@
       if (!chipsContainer) return;
 
       // Clear existing chips
-      chipsContainer.innerHTML = '';
+      while (chipsContainer.firstChild) {
+        chipsContainer.removeChild(chipsContainer.firstChild);
+      }
 
       // Add chip for each active filter
       Object.keys(activeFilters).forEach(function (filterName) {

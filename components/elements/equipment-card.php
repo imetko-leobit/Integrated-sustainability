@@ -17,8 +17,14 @@
  */
 
 // Validate required parameters
-if (!isset($item_title) || !isset($item_image)) {
-    trigger_error('equipment-card.php requires $item_title and $item_image parameters', E_USER_WARNING);
+if (!isset($item_title) && !isset($item_image)) {
+    trigger_error('equipment-card.php requires both $item_title and $item_image parameters', E_USER_WARNING);
+    return;
+} elseif (!isset($item_title)) {
+    trigger_error('equipment-card.php requires $item_title parameter', E_USER_WARNING);
+    return;
+} elseif (!isset($item_image)) {
+    trigger_error('equipment-card.php requires $item_image parameter', E_USER_WARNING);
     return;
 }
 

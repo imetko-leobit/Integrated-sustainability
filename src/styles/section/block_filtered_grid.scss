@@ -185,6 +185,10 @@
       opacity: 0.5;
       transform: scale(0.95);
     }
+    
+    &.is-animated {
+      animation: fadeIn 0.3s ease;
+    }
   }
 
   /* No results message */
@@ -210,8 +214,4 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.block-filtered-grid__grid-item {
-  animation: fadeIn 0.3s ease;
 }

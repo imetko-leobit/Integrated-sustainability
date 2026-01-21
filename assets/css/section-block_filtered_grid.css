@@ -204,6 +204,9 @@
       -webkit-transform: scale(0.95);
       -ms-transform: scale(0.95);
       transform: scale(0.95); }
+    .block-filtered-grid__grid-item.is-animated {
+      -webkit-animation: fadeIn 0.3s ease;
+      animation: fadeIn 0.3s ease; }
   .block-filtered-grid__no-results {
     text-align: center;
     padding: 4rem 2rem;
@@ -232,10 +235,6 @@
     opacity: 1;
     -webkit-transform: translateY(0);
     transform: translateY(0); } }
-
-.block-filtered-grid__grid-item {
-  -webkit-animation: fadeIn 0.3s ease;
-  animation: fadeIn 0.3s ease; }
 
 
 /*# sourceMappingURL=section-block_filtered_grid.css.map*/
