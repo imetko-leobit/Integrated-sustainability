@@ -32,7 +32,6 @@
     transition: all 0.3s ease;
 
     .post-card__description {
-      @include text-body-small;
       -webkit-line-clamp: 5;
       @include overflow-dots;
       margin-top: 12px;
@@ -362,7 +361,6 @@
 
     .post-card__desc {
       display: none;
-      @include text-body-small;
       color: var(--color-gray-200);
 
       @media (max-width: 991px) {
@@ -385,7 +383,6 @@
       visibility: hidden;
       width: 0;
       @include gradient-text;
-      @include text-body-small;
       transition: all 0.3s ease;
     }
 

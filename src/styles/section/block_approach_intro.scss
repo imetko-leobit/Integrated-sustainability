@@ -13,7 +13,6 @@
         margin-bottom: 16px;
 
         span {
-            @include text-body-small;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             color: var(--color-grey, #999);
@@ -246,7 +245,6 @@
 
             }
             .approach-person-card__credentials {
-                @include text-body-small;
                 margin-bottom: 16px;
 
                 @media (max-width: 991px) {
@@ -254,7 +252,6 @@
                 }
             }
             .approach-person-card__title {
-                @include text-body-small;
                 font-size: 16px;
             }
         }

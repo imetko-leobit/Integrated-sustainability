@@ -172,7 +172,6 @@
 
     a {
       transition: opacity 0.3s ease;
-      @include text-body-small;
 
       @media (max-width: 767px) {
         @include text-caption;

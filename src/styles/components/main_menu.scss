@@ -33,7 +33,6 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      @include text-body-small;
 
       height: 100%;
 
@@ -52,7 +51,6 @@
     }
 
     .subheader-item {
-      @include text-body-small;
       color: var(--color-grey-400);
 
       &--current {
@@ -376,7 +374,6 @@
 
       a {
         text-decoration: none;
-        @include text-body-small;
 
         &:hover {
           color: $primary-gradient;
@@ -708,7 +705,6 @@
     .choices__inner {
       height: 44px;
       padding: 8px 16px;
-      @include text-body-small;
       background: transparent;
       border: none;
       outline: none;

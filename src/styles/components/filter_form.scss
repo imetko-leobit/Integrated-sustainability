@@ -14,7 +14,7 @@
     .form-item {
       flex-shrink: 0;
       flex-grow: 1;
-    
+
       &:nth-child(1) {
         flex-basis: 100%;
         margin-bottom: 16px;
@@ -25,10 +25,10 @@
       }
 
       &:nth-child(2){
-        flex-basis: calc(22% - 16px); 
+        flex-basis: calc(22% - 16px);
 
         @media (max-width: 1499px) {
-          flex-basis: calc(30% - 16px); 
+          flex-basis: calc(30% - 16px);
         }
       }
 
@@ -38,17 +38,17 @@
         flex-basis: calc(14% - 16px);
 
         @media (max-width: 1499px) {
-          flex-basis: calc(30% - 16px); 
+          flex-basis: calc(30% - 16px);
         }
       }
 
       &:nth-child(6) {
-        flex-basis: calc(24% - 16px); 
+        flex-basis: calc(24% - 16px);
         padding-left: 16px;
         border-left: 1px solid var(--color-grey);
 
         @media (max-width: 1499px) {
-          flex-basis: calc(50% - 16px); 
+          flex-basis: calc(50% - 16px);
         }
 
         @media (max-width: 767px) {
@@ -81,7 +81,6 @@
       user-select: none;
       padding: 0px 16px 0px 20px;
       min-width: 150px;
-      @include text-body-small;
       height: 54px;
       background: none;
       outline: none;
@@ -111,7 +110,6 @@
         user-select: none;
         padding: 0px 16px 0px 20px;
         min-width: 150px;
-        @include text-body-small;
         height: 54px;
         background: none;
         outline: none;
@@ -131,9 +129,6 @@
 
       .choices__list.choices__list--single {
         padding-right: 32px;
-        .choices__item.choices__placeholder.choices__item--selectable {
-          @include text-body-small;
-        }
       }
       .choices__list--multiple {
         height: 32px;
@@ -175,7 +170,6 @@
         padding: 11px 16px;
         min-height: 56px;
         background: var(--color-grey-900);
-        @include text-body-small;
         color: white;
       }
 
@@ -226,13 +220,13 @@
 
   .publications {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 56px;
     margin-top: 20px;
 
     @media (max-width: 767px) {
       grid-template-columns: minmax(330px, 1fr);
-      gap: 20px; 
+      gap: 20px;
     }
   }
 
@@ -244,7 +238,7 @@
 
     .btn {
       background-color: transparent;
-      border: 1px solid var(--color-grey-600); 
+      border: 1px solid var(--color-grey-600);
       color: white;
 
       &:hover {
@@ -294,7 +288,7 @@
     }
 
     &.is-open .optional {
-      display: block; 
+      display: block;
     }
 
 

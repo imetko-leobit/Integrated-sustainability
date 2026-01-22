@@ -51,7 +51,6 @@
   }
 
   &__section-description {
-    @include text-body-small;
     margin: 0;
     color: var(--color-grey-300);
   }
@@ -170,7 +169,6 @@
 
 
   &__label {
-    @include text-body-small;
     color: var(--color-grey-300);
     margin: 0;
   }

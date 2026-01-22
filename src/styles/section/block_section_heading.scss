@@ -80,7 +80,6 @@
       }
 
       .card__credentials {
-        @include text-body-small;
         margin-bottom: 12px;
 
         @media (max-width: 991px) {
@@ -89,15 +88,10 @@
       }
 
       .card__date {
-        @include text-body-small;
         color: var(--color-grey-300);
         font-family: $font-light;
         font-weight: $w-light;
         line-height: 18px;
-      }
-
-      .card__title {
-        @include text-body-small;
       }
     }
 
