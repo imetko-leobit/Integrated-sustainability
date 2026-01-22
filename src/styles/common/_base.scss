@@ -70,7 +70,7 @@ img {
 
   @include text-button;
 
-  padding: 12px 40px;
+  padding: 18px 60px;
   border-radius: 100px;
 
   // --- Button gradient ---
@@ -158,6 +158,10 @@ img {
   &--arrow {
     @include button-arrow
   }
+}
+
+.btn--small {
+  padding: 12px 50px;
 }
 
 .link--text {

@@ -144,7 +144,7 @@ window.phpMenuData = <?php echo json_encode($menu_data); ?>;
               aria-label="Search site content">
           </form>
         </div>
-        <button class="btn btn--gradient">Contact Us</button>
+        <button class="btn btn--small btn--gradient">Contact Us</button>
       </div>
     </div>
     <nav id="main-menu" class="main-menu" aria-label="Main Navigation">
