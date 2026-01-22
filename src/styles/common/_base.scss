@@ -207,6 +207,11 @@ h6 {
   @include text-h6;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-grey-100);
+  text-transform: lowercase;
+}
+
 .heading-navigation {
   display: flex;
   justify-content: space-between;
