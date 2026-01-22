@@ -7,7 +7,7 @@
         Modular and configurable treatment packages available now
       </h3>
     </div>
-    <div class="text-content text-content text-content--grey">
+    <div class="text-content text-content--grey">
       <p>Many operators prefer treatment systems that can be deployed quickly, relocated as conditions change, or
         integrated into existing infrastructure without major civil works. Our treatment packages are engineered for
         mobility, predictable integration, and defined operating envelopes.</p>

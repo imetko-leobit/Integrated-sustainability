@@ -65,7 +65,7 @@ $render_grid_items_feature = function($items, $center_item) {
         <?php echo htmlspecialchars($title); ?>
       </h3>
     </div>
-    <div class="text-content text-content text-content--grey">
+    <div class="text-content text-content--grey">
       <?php foreach ($paragraphs as $paragraph): ?>
       <p><?php echo htmlspecialchars($paragraph); ?></p>
       <?php endforeach; ?>

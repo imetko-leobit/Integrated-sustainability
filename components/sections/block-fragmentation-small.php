@@ -11,7 +11,7 @@
         creating the optimum conditions for high-performance infrastructure
       </h3>
     </div>
-    <div class="text-content text-content text-content--grey">
+    <div class="text-content text-content--grey">
       <p>To us, advocacy is a structured process of collaboration built on evidence and a shared purpose. It aligns
         technical innovation, academic insight, and local expertise to establish the consensus that turns ambition into
         responsible assets - for all stakeholders.</p>

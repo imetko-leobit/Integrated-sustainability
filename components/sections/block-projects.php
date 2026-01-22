@@ -77,7 +77,7 @@ $wrapper_class = 'block-projects__wrapper' . ($text_below ? ' block-projects__wr
             <div class="heading">
               <h4 class="title title--h4"><?php echo $project['title']; ?></h4>
             </div>
-            <div class="text-content text-content--grey">
+            <div class="text-content--grey">
               <p><?php echo $project['desc']; ?></p>
             </div>
           </div>
