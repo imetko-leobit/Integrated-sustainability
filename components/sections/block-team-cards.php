@@ -6,42 +6,42 @@ $team_members = [
         'name' => 'John Smith',
         'additional_info' => 'Ph.D., P.Eng.',
         'position' => 'Senior Water Engineer',
-        'photo' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop',
+        'photo' => 'https://via.placeholder.com/216x280/1a1a1a/81FEE5?text=JS',
         'row' => 1
     ],
     [
         'name' => 'Sarah Johnson',
         'additional_info' => 'M.Sc., Environmental Sciences',
         'position' => 'Environmental Consultant',
-        'photo' => 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=500&fit=crop',
+        'photo' => 'https://via.placeholder.com/216x280/1a1a1a/818FFE?text=SJ',
         'row' => 1
     ],
     [
         'name' => 'Michael Chen',
         'additional_info' => 'B.Eng., Civil Engineering',
         'position' => 'Project Manager',
-        'photo' => 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=500&fit=crop',
+        'photo' => 'https://via.placeholder.com/216x280/1a1a1a/81FEE5?text=MC',
         'row' => 1
     ],
     [
         'name' => 'Emily Davis',
         'additional_info' => 'Ph.D., Hydrogeology',
         'position' => 'Lead Hydrogeologist',
-        'photo' => 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=500&fit=crop',
+        'photo' => 'https://via.placeholder.com/216x280/1a1a1a/818FFE?text=ED',
         'row' => 1
     ],
     [
         'name' => 'David Wilson',
         'additional_info' => 'M.Eng., Water Resources',
         'position' => 'Water Resources Specialist',
-        'photo' => 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop',
+        'photo' => 'https://via.placeholder.com/216x280/1a1a1a/81FEE5?text=DW',
         'row' => 1
     ],
     [
         'name' => 'Lisa Anderson',
         'additional_info' => 'B.Sc., Chemistry',
         'position' => 'Water Quality Analyst',
-        'photo' => 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&h=500&fit=crop',
+        'photo' => 'https://via.placeholder.com/216x280/1a1a1a/818FFE?text=LA',
         'row' => 1
     ],
     // Row 2
@@ -49,42 +49,42 @@ $team_members = [
         'name' => 'Robert Taylor',
         'additional_info' => 'P.Eng., Mechanical',
         'position' => 'Infrastructure Engineer',
-        'photo' => 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=400&h=500&fit=crop',
+        'photo' => 'https://via.placeholder.com/216x280/1a1a1a/81FEE5?text=RT',
         'row' => 2
     ],
     [
         'name' => 'Jennifer Martinez',
         'additional_info' => 'M.Sc., Environmental Management',
         'position' => 'Sustainability Coordinator',
-        'photo' => 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=500&fit=crop',
+        'photo' => 'https://via.placeholder.com/216x280/1a1a1a/818FFE?text=JM',
         'row' => 2
     ],
     [
         'name' => 'James Brown',
         'additional_info' => 'B.Eng., Process Engineering',
         'position' => 'Process Engineer',
-        'photo' => 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=500&fit=crop',
+        'photo' => 'https://via.placeholder.com/216x280/1a1a1a/81FEE5?text=JB',
         'row' => 2
     ],
     [
         'name' => 'Amanda White',
         'additional_info' => 'Ph.D., Environmental Engineering',
         'position' => 'Research Director',
-        'photo' => 'https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=400&h=500&fit=crop',
+        'photo' => 'https://via.placeholder.com/216x280/1a1a1a/818FFE?text=AW',
         'row' => 2
     ],
     [
         'name' => 'Daniel Garcia',
         'additional_info' => 'M.Eng., Geotechnical',
         'position' => 'Geotechnical Engineer',
-        'photo' => 'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=400&h=500&fit=crop',
+        'photo' => 'https://via.placeholder.com/216x280/1a1a1a/81FEE5?text=DG',
         'row' => 2
     ],
     [
         'name' => 'Sophia Lee',
         'additional_info' => 'B.Sc., Data Science',
         'position' => 'Data Analyst',
-        'photo' => 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&h=500&fit=crop',
+        'photo' => 'https://via.placeholder.com/216x280/1a1a1a/818FFE?text=SL',
         'row' => 2
     ],
     // Row 3
@@ -92,42 +92,42 @@ $team_members = [
         'name' => 'Christopher Moore',
         'additional_info' => 'P.Eng., Electrical',
         'position' => 'Controls Engineer',
-        'photo' => 'https://images.unsplash.com/photo-1507591064344-4c6ce005b128?w=400&h=500&fit=crop',
+        'photo' => 'https://via.placeholder.com/216x280/1a1a1a/81FEE5?text=CM',
         'row' => 3
     ],
     [
         'name' => 'Rachel Thompson',
         'additional_info' => 'M.Sc., Ecology',
         'position' => 'Environmental Scientist',
-        'photo' => 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=500&fit=crop',
+        'photo' => 'https://via.placeholder.com/216x280/1a1a1a/818FFE?text=RT',
         'row' => 3
     ],
     [
         'name' => 'Kevin Jackson',
         'additional_info' => 'B.Eng., Mining',
         'position' => 'Mining Engineer',
-        'photo' => 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=500&fit=crop',
+        'photo' => 'https://via.placeholder.com/216x280/1a1a1a/81FEE5?text=KJ',
         'row' => 3
     ],
     [
         'name' => 'Nicole Harris',
         'additional_info' => 'Ph.D., Biotechnology',
         'position' => 'Biotech Specialist',
-        'photo' => 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=500&fit=crop',
+        'photo' => 'https://via.placeholder.com/216x280/1a1a1a/818FFE?text=NH',
         'row' => 3
     ],
     [
         'name' => 'Matthew Clark',
         'additional_info' => 'M.Eng., Structural',
         'position' => 'Structural Engineer',
-        'photo' => 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=500&fit=crop',
+        'photo' => 'https://via.placeholder.com/216x280/1a1a1a/81FEE5?text=MC',
         'row' => 3
     ],
     [
         'name' => 'Olivia Lewis',
         'additional_info' => 'B.Sc., Environmental Policy',
         'position' => 'Policy Advisor',
-        'photo' => 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&h=500&fit=crop',
+        'photo' => 'https://via.placeholder.com/216x280/1a1a1a/818FFE?text=OL',
         'row' => 3
     ],
 ];
