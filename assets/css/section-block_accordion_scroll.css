@@ -60,7 +60,15 @@
         width: 100%;
         height: auto; } }
     .block-accordion-scroll__media .accordion-card__image-wrapper {
+      position: relative;
       position: relative; }
+      .block-accordion-scroll__media .accordion-card__image-wrapper::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../../assets/img/noise-without-overlay.png") repeat;
+        background-size: cover; }
       .block-accordion-scroll__media .accordion-card__image-wrapper::before {
         content: '';
         position: absolute;
@@ -83,7 +91,8 @@
       height: 100%;
       -o-object-fit: contain;
       object-fit: contain;
-      display: block; }
+      display: block;
+      margin-bottom: 56px; }
 
 
 /*# sourceMappingURL=section-block_accordion_scroll.css.map*/
