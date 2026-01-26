@@ -6,7 +6,12 @@ document.addEventListener('DOMContentLoaded', function () {
   // Initialize Swiper sliders for mobile
   var sliders = document.querySelectorAll('[class*="js-team-slider-"]');
   sliders.forEach(function (slider) {
-    var rowNum = slider.classList[1].split('-').pop();
+    var _Array$from$find;
+    // Extract row number from class name more safely
+    var rowNum = (_Array$from$find = Array.from(slider.classList).find(function (cls) {
+      return cls.startsWith('js-team-slider-');
+    })) === null || _Array$from$find === void 0 ? void 0 : _Array$from$find.split('-').pop();
+    if (!rowNum) return;
     new Swiper(slider, {
       slidesPerView: 'auto',
       spaceBetween: 16,
@@ -37,23 +42,24 @@ document.addEventListener('DOMContentLoaded', function () {
   if (loadMoreBtn) {
     var rows = document.querySelectorAll('.block-team-cards__row');
     var visibleRows = 1;
+
+    // Helper function to manage Load More button visibility
+    var updateLoadMoreButtonVisibility = function updateLoadMoreButtonVisibility() {
+      if (visibleRows >= rows.length) {
+        loadMoreBtn.style.display = 'none';
+      }
+    };
     loadMoreBtn.addEventListener('click', function () {
       // Show next row
       if (visibleRows < rows.length) {
         rows[visibleRows].classList.remove('is-hidden');
         visibleRows++;
       }
-
-      // Hide button when all rows are visible
-      if (visibleRows >= rows.length) {
-        loadMoreBtn.style.display = 'none';
-      }
+      updateLoadMoreButtonVisibility();
     });
 
-    // Hide button initially if all rows are visible
-    if (visibleRows >= rows.length) {
-      loadMoreBtn.style.display = 'none';
-    }
+    // Initialize button visibility
+    updateLoadMoreButtonVisibility();
   }
 });
 /******/ })()
