@@ -12,7 +12,15 @@
     width: 100%;
     height: 100%;
     -webkit-filter: grayscale(100%);
-    filter: grayscale(100%); }
+    filter: grayscale(100%);
+    position: relative; }
+    .post-card .post-card__image-wrapper::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../../assets/img/noise-without-overlay.png") repeat;
+      background-size: cover; }
     .post-card .post-card__image-wrapper img {
       -o-object-fit: cover;
       object-fit: cover;
@@ -33,7 +41,7 @@
     .post-card .post-card__content .post-card__description {
       font-family: "Poppins", "Roboto", "Arial", sans-serif;
       font-style: normal;
-      font-size: 15px;
+      font-size: 14px;
       line-height: 24px;
       font-weight: 400;
       -webkit-line-clamp: 5;
@@ -88,7 +96,7 @@
       -moz-osx-font-smoothing: grayscale;
       font-style: normal;
       font-size: 16px;
-      line-height: 24px;
+      line-height: 29px;
       background: linear-gradient(90deg, #81FEE5 0%, #818FFE 100%);
       background-clip: text;
       color: transparent;
@@ -180,7 +188,7 @@
       -moz-osx-font-smoothing: grayscale;
       font-style: normal;
       font-size: 16px;
-      line-height: 24px;
+      line-height: 29px;
       background: linear-gradient(90deg, #81FEE5 0%, #818FFE 100%);
       background-clip: text;
       -webkit-background-clip: text;
@@ -223,7 +231,7 @@
           -moz-osx-font-smoothing: grayscale;
           font-style: normal;
           font-size: 16px;
-          line-height: 24px; } }
+          line-height: 29px; } }
       @media (max-width: 767px) and (max-width: 991px) {
         .post-card .post-card__content .post-card__description {
           font-size: 14px;
@@ -260,7 +268,15 @@
   transition: all 0.3s ease; }
   .post-card--simple .post-card__image-wrapper {
     width: 100%;
-    height: 100%; }
+    height: 100%;
+    position: relative; }
+    .post-card--simple .post-card__image-wrapper::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../../assets/img/noise-without-overlay.png") repeat;
+      background-size: cover; }
     .post-card--simple .post-card__image-wrapper img {
       -o-object-fit: cover;
       object-fit: cover;
@@ -274,7 +290,7 @@
     right: 0;
     -webkit-backdrop-filter: blur(16px);
     backdrop-filter: blur(16px);
-    background: rgba(13, 13, 13, 0.9);
+    background: rgba(13, 13, 13, 0.8);
     height: 200px;
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease; }
@@ -410,7 +426,7 @@
       display: none;
       font-family: "Poppins", "Roboto", "Arial", sans-serif;
       font-style: normal;
-      font-size: 15px;
+      font-size: 14px;
       line-height: 24px;
       font-weight: 400;
       color: var(--color-gray-200); }
@@ -451,7 +467,7 @@
       -moz-osx-font-smoothing: grayscale;
       font-style: normal;
       font-size: 16px;
-      line-height: 24px;
+      line-height: 29px;
       background: linear-gradient(90deg, #81FEE5 0%, #818FFE 100%);
       background-clip: text;
       color: transparent;
@@ -460,7 +476,7 @@
       transition: all 0.3s ease;
       font-family: "Poppins", "Roboto", "Arial", sans-serif;
       font-style: normal;
-      font-size: 15px;
+      font-size: 14px;
       line-height: 24px;
       font-weight: 400;
       -webkit-transition: all 0.3s ease;

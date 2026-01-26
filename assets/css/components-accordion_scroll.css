@@ -122,11 +122,11 @@
       line-height: 26px; } }
     @media (max-width: 991px) {
       .accordion-scroll .title {
-        font-family: "PoppinsLight", "Roboto", "Arial", sans-serif;
+        font-family: "Poppins", "Roboto", "Arial", sans-serif;
         font-style: normal;
         font-size: 14px;
         line-height: 28px;
-        font-weight: 300;
+        font-weight: 400;
         padding-top: 0px;
         padding-right: 64px; } }
   @media (max-width: 991px) and (max-width: 991px) {
@@ -143,7 +143,7 @@
     color: var(--color-gray-200);
     font-family: "Poppins", "Roboto", "Arial", sans-serif;
     font-style: normal;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 24px;
     font-weight: 400; }
     @media (max-width: 991px) {
@@ -189,15 +189,16 @@
       align-items: flex-start;
       gap: 22px;
       position: relative;
-      padding-left: 32px;
+      padding-left: 60px;
+      min-height: 33px;
+      color: white;
       font-family: "Poppins", "Roboto", "Arial", sans-serif;
       font-weight: 400;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       font-style: normal;
       font-size: 16px;
-      line-height: 24px;
-      color: white; }
+      line-height: 29px; }
       @media (max-width: 991px) {
         .accordion-scroll .desc-box ul li {
           font-size: 14px;
@@ -206,9 +207,9 @@
         content: "";
         position: absolute;
         left: 0;
-        top: 4px;
-        width: 18px;
-        height: 18px;
+        top: 2px;
+        width: 30px;
+        height: 30px;
         background-image: url("../../assets/img/mark.svg");
         background-size: contain;
         background-repeat: no-repeat; }
