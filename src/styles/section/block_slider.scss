@@ -2,7 +2,7 @@
 @import "../common/mixins";
 
 .block-slider {
-  padding: 0px 0 180px;
+  padding: 0 0 220px;
   position: relative;
 
   @media (max-width: 991px) {
@@ -240,9 +240,9 @@
         height: calc(50% - 20px);
         width: 100%;
         padding: 30px;
-        background: $card-dark-gradient;
         margin-bottom: 20px;
         cursor: pointer;
+        @include bg-image;
 
         &:hover {
 
@@ -320,7 +320,6 @@
       height: calc(50% - 20px);
       width: 100%;
       padding: 30px;
-      background: $card-dark-gradient;
       margin-bottom: 20px;
 
       &:is(a):hover {

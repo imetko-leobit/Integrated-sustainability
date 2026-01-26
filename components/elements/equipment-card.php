@@ -37,7 +37,7 @@ $item_url = $item_url ?? '#';
   <div class="equipment-card__image">
     <img src="<?php echo htmlspecialchars($item_image, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($item_title, ENT_QUOTES, 'UTF-8'); ?>" loading="lazy" />
     <div class="equipment-card__overlay">
-      <h3 class="equipment-card__title"><?php echo htmlspecialchars($item_title, ENT_QUOTES, 'UTF-8'); ?></h3>
+      <p class="equipment-card__title"><?php echo htmlspecialchars($item_title, ENT_QUOTES, 'UTF-8'); ?></p>
     </div>
   </div>
 </a>

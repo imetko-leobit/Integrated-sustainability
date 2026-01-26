@@ -5,7 +5,7 @@
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 56px;
-  padding: 0 0 130px;
+  padding: 0 0 140px;
 
   @media (max-width: 991px) {
     display: flex;

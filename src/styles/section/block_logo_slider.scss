@@ -1,5 +1,5 @@
 .block-logo-slider {
-  padding: 48px 0 130px;
+  padding: 48px 0 140px;
   background-color: #040404;
   color: white;
   width: 100%;
@@ -14,39 +14,39 @@
   .swiper-container {
     overflow: hidden;
   }
-  
+
   .swiper-wrapper {
     display: flex;
     align-items: center;
   }
-  
+
   .swiper-slide {
     display: flex;
     align-items: center;
     overflow: hidden;
-  
+
     @media (max-width: 1199px) {
       padding-left: 0;
       overflow: auto;
     }
   }
-  
+
   .logo-carousel__item {
     width: auto;
-    
-    
+
+
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  
+
   .logo-carousel__img {
     height: auto;
     width: auto;
     min-width: 156px;
     opacity: 0.6;
     transition: opacity 0.3s ease;
-    
+
     &:hover {
         opacity: 1;
     }
