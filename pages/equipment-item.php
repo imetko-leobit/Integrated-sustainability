@@ -27,6 +27,18 @@
     ?>
 
     <?php
+        $table_title = 'Equipment Specifications';
+        $table_headers = ['Feature', 'Specification', 'Value', 'Unit', 'Notes'];
+        $table_rows = [
+          ['Capacity', 'Flow Rate', '1000', 'L/hr', 'Maximum capacity'],
+          ['Power', 'Electrical', '5', 'kW', '3-phase power'],
+          ['Dimensions', 'Overall', '2.0 x 1.5 x 1.8', 'm', 'L x W x H'],
+          ['Weight', 'Operating', '850', 'kg', 'Including water'],
+        ];
+        include('../components/elements/table.php')
+    ?>
+
+    <?php
         $slider_imgs = [
           '../assets/img/strengthen.png',
           '../assets/img/sidebar.jpg',
