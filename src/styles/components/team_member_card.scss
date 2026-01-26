@@ -1,0 +1,110 @@
+@import "../common/variable";
+@import "../common/mixins";
+
+.team-member-card {
+  width: 100%;
+  max-width: 216px;
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  gap: 24px;
+
+  @media (max-width: 767px) {
+    max-width: 280px;
+  }
+
+  &__image-container {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    flex-shrink: 0;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+
+    @media (max-width: 767px) {
+      filter: grayscale(0%);
+      height: 360px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  &__action-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    padding: 0;
+    z-index: 2;
+
+    &:hover {
+      transform: scale(1.1);
+      background: $primary-gradient;
+    }
+
+    svg {
+      height: 12px;
+    }
+  }
+
+  &__arrow {
+    width: 20px;
+    height: 20px;
+    color: var(--color-black);
+    transition: color 0.3s ease;
+
+    .team-member-card__action-btn:hover & {
+      color: var(--color-black);
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  &__name {
+    font-size: 20px;
+    font-weight: $w-semibold;
+    color: white;
+    margin: 0;
+    line-height: 1.3;
+    text-transform: capitalize;
+  }
+
+  &__additional-info {
+    @include text-body-base;
+    margin-bottom: 12px;
+  }
+
+  &__position {
+    @include text-body-base;
+    color: var(--color-grey-400);
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+
+    .team-member-card__image-container {
+      filter: grayscale(0%);
+    }
+  }
+}

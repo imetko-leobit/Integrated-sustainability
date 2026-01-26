@@ -1,0 +1,139 @@
+@import "../common/variable";
+@import "../common/mixins";
+
+.block-team-cards {
+  width: 100%;
+  max-width: 1560px;
+  margin: 0 auto;
+  padding: 0 0 140px;
+
+  @media (max-width: 991px) {
+    padding: 60px 40px;
+  }
+
+  @media (max-width: 767px) {
+    padding: 40px 20px;
+  }
+
+  &__row {
+    margin-bottom: 80px;
+    transition: opacity 0.3s ease;
+
+    &.is-hidden {
+      display: none;
+    }
+
+    @media (max-width: 991px) {
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 767px) {
+      margin-bottom: 32px;
+    }
+  }
+
+  &__mobile-header {
+    display: none;
+
+    @media (max-width: 767px) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__row-title {
+    font-size: 24px;
+    font-weight: $w-semibold;
+    color: white;
+    margin: 0;
+
+    @media (max-width: 767px) {
+      font-size: 20px;
+    }
+  }
+
+  &__mobile-nav {
+    display: flex;
+    gap: 12px;
+
+    .btn {
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      border-radius: 50%;
+      border: 2px solid var(--color-grey-400);
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+
+      svg {
+        width: 16px;
+        height: 16px;
+        color: white;
+      }
+
+      &:hover {
+        border-color: var(--color-primary-green);
+        background: rgba(129, 254, 229, 0.1);
+      }
+
+      &:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 56px;
+
+    @media (max-width: 991px) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+
+  &__card {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__slider {
+    display: none;
+
+    @media (max-width: 767px) {
+      display: block;
+    }
+
+    .swiper-slide {
+      width: auto;
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+
+    @media (max-width: 767px) {
+      display: none;
+    }
+
+    .btn {
+      min-width: 200px;
+    }
+  }
+}
