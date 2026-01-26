@@ -24,6 +24,10 @@
       }
   }
 
+  &__col--text {
+    padding-bottom: 0;
+  }
+
   &__col--media {
       @media (max-width: 1199px) {
           display: none;
