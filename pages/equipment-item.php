@@ -64,7 +64,6 @@
           ],
         ];
 
-        $sidebar_img = '../assets/img/cta-bg.png';
         $sidebar_title = 'request equipment quote';
         $sidebar_description = 'Get detailed specifications and pricing for this equipment. Our team will respond within 1 business day.';
         $sidebar_button_name = 'Request Quote';

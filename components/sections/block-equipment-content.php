@@ -32,7 +32,7 @@
   }
 
   if (!isset($sidebar_img)) {
-    $sidebar_img = '../assets/img/cta-bg.png';
+    $sidebar_img='../assets/img/sidebar.jpg';
   }
 
   if (!isset($sidebar_title)) {
@@ -55,6 +55,18 @@
 <section class="block-equipment-content">
   <div class="block-equipment-content__wrapper">
     <div class="equipment-content__left">
+      <?php
+          $table_title = 'Equipment Specifications';
+          $table_headers = ['Feature', 'Specification', 'Value', 'Unit', 'Notes'];
+          $table_rows = [
+            ['Capacity', 'Flow Rate', '1000', 'L/hr', 'Maximum capacity'],
+            ['Power', 'Electrical', '5', 'kW', '3-phase power'],
+            ['Dimensions', 'Overall', '2.0 x 1.5 x 1.8', 'm', 'L x W x H'],
+            ['Weight', 'Operating', '850', 'kg', 'Including water'],
+          ];
+          include('../components/elements/table.php')
+      ?>
+
       <?php include('../components/elements/equipment-image-slider.php') ?>
     </div>
 
