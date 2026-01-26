@@ -21,14 +21,14 @@
 <link rel="stylesheet" href="../assets/css/components-table.css" />
 
 <div class="table-component">
-  <h3 class="table-component__title"><?php echo $table_title; ?></h3>
+  <h3 class="table-component__title"><?php echo htmlspecialchars($table_title); ?></h3>
   <div class="table-component__divider"></div>
   <div class="table-component__wrapper">
     <table class="table-component__table">
       <thead class="table__header">
         <tr>
           <?php foreach ($table_headers as $header) : ?>
-            <th><?php echo $header; ?></th>
+            <th><?php echo htmlspecialchars($header); ?></th>
           <?php endforeach; ?>
         </tr>
       </thead>
@@ -36,7 +36,7 @@
         <?php foreach ($table_rows as $row) : ?>
           <tr>
             <?php foreach ($row as $cell) : ?>
-              <td><?php echo $cell; ?></td>
+              <td><?php echo htmlspecialchars($cell); ?></td>
             <?php endforeach; ?>
           </tr>
         <?php endforeach; ?>
