@@ -28,10 +28,14 @@ $slides = [
     <?php foreach ($slides as $index => $slide): ?>
     <div class="info-card <?php echo $index === 0 ? 'active' : ''; ?>">
       <img src="<?php echo $slide['img']; ?>" alt="Slide Image" class="info-card__image">
+
       <div class="info-card__content">
-        <h3 class="title"><?php echo $slide['title']; ?></h3>
-        <p class="text-content"><?php echo $slide['desc']; ?></p>
-        <button class="btn btn--gradient"><?php echo $slide['btn']; ?></button>
+        <div class="info-card__content-top"></div>
+        <div class="info-card__content-bottom">
+          <h3 class="title"><?php echo $slide['title']; ?></h3>
+          <p class="text-content"><?php echo $slide['desc']; ?></p>
+          <button class="btn btn--gradient"><?php echo $slide['btn']; ?></button>
+        </div>
       </div>
     </div>
     <?php endforeach; ?>

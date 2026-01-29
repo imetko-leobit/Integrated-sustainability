@@ -10,6 +10,9 @@
   position: relative;
   min-height: 400px;
 
+  position: sticky;
+  top: 130px;
+
   @media (max-width: 991px) {
     width: 100%;
     min-height: auto;
