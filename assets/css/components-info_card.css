@@ -18,8 +18,16 @@
   align-items: flex-start;
   position: relative; }
   .info-card .info-card__image {
+    position: relative;
     width: 100%;
     height: auto; }
+    .info-card .info-card__image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../../assets/img/noise-without-overlay.png") repeat;
+      background-size: cover; }
   .info-card .info-card__content {
     position: absolute;
     bottom: 0;
