@@ -11,7 +11,6 @@
   height: 690px;
 
   .info-card {
-    @include bg-overlay(0.1);
       position: absolute;
       top: 0;
       left: 0;
@@ -31,6 +30,18 @@
           height: 100%;
           object-fit: cover;
           filter: brightness(0.7);
+          position: relative;
+          
+          &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background:
+              linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+              url("../../assets/img/noise-without-overlay.png") repeat;
+            background-size: cover;
+          }
       }
 
       .info-card__content {
@@ -39,8 +50,8 @@
         width: 100%;
           padding: 56px;
           @include bg-image;
-          text-align: center;
-          align-items: center;
+          display: flex;
+          flex-direction: column;
           gap: 32px;
 
           .title {
@@ -60,6 +71,7 @@
 
           .btn {
             margin-top: 48px;
+            align-self: flex-start;
           }
       }
   }
@@ -81,9 +93,9 @@
       .progress-fill {
           height: 100%;
           background: $primary-gradient;
-          width: 33.33%; /* change dynamically with js */
+          width: 0%;
           opacity: 1;
-          transition: width 0.3s ease;
+          transition: none;
       }
   }
 
