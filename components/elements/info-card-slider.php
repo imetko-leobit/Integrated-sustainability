@@ -41,6 +41,7 @@ $slides = [
     <?php endforeach; ?>
   </div>
 
+  <?php if(count($slides) > 1): // Покажемо controls лише якщо більше 1 слайду ?>
   <div class="slider-controls">
     <div class="progress-bar">
       <div class="progress-fill"></div>
@@ -51,6 +52,7 @@ $slides = [
       <?php endforeach; ?>
     </div>
   </div>
+  <?php endif; ?>
 </div>
 
 <script>
@@ -58,7 +60,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const slides = document.querySelectorAll('.info-card');
   const dots = document.querySelectorAll('.dot');
   const progressFill = document.querySelector('.progress-fill');
-  const container = document.querySelector('.info-slider-container');
   let currentIndex = 0;
   let isPaused = false;
   let animationFrameId = null;
@@ -67,12 +68,11 @@ document.addEventListener('DOMContentLoaded', function() {
   const slideDuration = 7500; // 50% longer than original 5000ms
 
   function updateSlider(index) {
-    // Update active slide
     slides.forEach(slide => slide.classList.remove('active'));
-    dots.forEach(dot => dot.classList.remove('active'));
+    if(dots.length > 0) dots.forEach(dot => dot.classList.remove('active'));
 
     slides[index].classList.add('active');
-   dots[index].classList.add('active');
+    if(dots.length > 0) dots[index].classList.add('active');
   }
 
   function animateProgress() {
@@ -82,24 +82,20 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     const currentTime = Date.now();
-    if (!startTime) {
-      startTime = currentTime;
-    }
+    if (!startTime) startTime = currentTime;
 
     const elapsed = currentTime - startTime + pausedTime;
     const progress = Math.min((elapsed / slideDuration) * 100, 100);
 
-    progressFill.style.width = `${progress}%`;
+    if(progressFill) progressFill.style.width = `${progress}%`;
 
     if (progress >= 100) {
-      // Move to next slide
       currentIndex = (currentIndex + 1) % slides.length;
       updateSlider(currentIndex);
 
-      // Reset timer for next slide
       startTime = null;
       pausedTime = 0;
-      progressFill.style.width = '0%';
+      if(progressFill) progressFill.style.width = '0%';
     }
 
     animationFrameId = requestAnimationFrame(animateProgress);
@@ -127,50 +123,36 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-      currentIndex = index;
-      updateSlider(currentIndex);
+  if(dots.length > 0){
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        currentIndex = index;
+        updateSlider(currentIndex);
+        startTime = null;
+        pausedTime = 0;
+        if(progressFill) progressFill.style.width = '0%';
+        isPaused = false;
+        animateProgress();
+      });
 
-      // Reset timer when manually selecting slide
-      startTime = null;
-      pausedTime = 0;
-      progressFill.style.width = '0%';
-
-      // Cancel current animation
-      if (animationFrameId) {
-        cancelAnimationFrame(animationFrameId);
-      }
-
-      // Restart animation
-      isPaused = false;
-      animateProgress();
+      dot.addEventListener('mouseenter', pauseAnimation);
+      dot.addEventListener('mouseleave', resumeAnimation);
     });
+  }
 
-    // Pause on dot hover (three-dot menu)
-    dot.addEventListener('mouseenter', pauseAnimation);
-    dot.addEventListener('mouseleave', resumeAnimation);
-  });
-
-  // Pause on card hover
   slides.forEach(slide => {
     slide.addEventListener('mouseenter', pauseAnimation);
     slide.addEventListener('mouseleave', resumeAnimation);
   });
 
-  // Cleanup on page unload
   window.addEventListener('beforeunload', cleanup);
 
-  // Cleanup when navigating away (for SPAs)
   if (typeof document.hidden !== 'undefined') {
     document.addEventListener('visibilitychange', function() {
-      if (document.hidden) {
-        cleanup();
-      }
+      if (document.hidden) cleanup();
     });
   }
 
-  // Start the animation
   animateProgress();
 });
 </script>
