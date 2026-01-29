@@ -3,7 +3,7 @@
   \********************************************************************************************************************************************************************************************************************************/
 /*images*/
 .block-media {
-  margin: 80px 0;
+  margin: 100px 0;
   width: 100%;
   height: auto;
   background-image: url(../../assets/img/overlay.svg);
@@ -65,7 +65,15 @@
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
-    margin: auto; }
+    margin: auto;
+    position: relative; }
+    .block-media__col--img::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../../assets/img/noise-without-overlay.png") repeat;
+      background-size: cover; }
     @media (max-width: 1199px) {
       .block-media__col--img {
         display: none; } }
@@ -95,7 +103,7 @@
     -moz-osx-font-smoothing: grayscale;
     font-style: normal;
     font-size: 16px;
-    line-height: 24px;
+    line-height: 29px;
     color: var(--color-grey-200); }
     @media (max-width: 991px) {
       .block-media .text-content p {
