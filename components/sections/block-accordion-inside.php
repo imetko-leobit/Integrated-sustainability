@@ -40,24 +40,26 @@ $accordion_items = [
     </div>
 
     <div class="block-accordion__content">
-      <h4 class="title"><?php echo $title; ?></h4>
-      <p class="description"><?php echo $description; ?></p>
+      <div class="block-accordion__content-inner">
+        <h4 class="title"><?php echo $title; ?></h4>
+        <p class="description"><?php echo $description; ?></p>
 
-      <div class="gradient-link gradient-link--large">
-        <a href="/wp-content/themes/integrate/frontend/pages/insights.php" aria-label="Discuss with our team">
-          <p class="gradient-link__text">Discuss with our team </p>
-          <span class="arrow-icon">
-            <svg id="arrow-top-right-gradient" viewBox="0 0 24 24">
-              <path class="icon-arrow" fill="currentColor"
-                d="M22.32 21.729 22.5 0C17.059.053 6.212.128.771.18L.725 2.901c4.897-.049 11.394-.088 17.111-.14L0 20.595 1.903 22.5 19.74 4.664l-.154 17.098 2.734-.03v-.003Z" />
-            </svg>
-          </span>
-        </a>
+        <div class="gradient-link gradient-link--large">
+          <a href="/wp-content/themes/integrate/frontend/pages/insights.php" aria-label="Discuss with our team">
+            <p class="gradient-link__text">Discuss with our team </p>
+            <span class="arrow-icon">
+              <svg id="arrow-top-right-gradient" viewBox="0 0 24 24">
+                <path class="icon-arrow" fill="currentColor"
+                  d="M22.32 21.729 22.5 0C17.059.053 6.212.128.771.18L.725 2.901c4.897-.049 11.394-.088 17.111-.14L0 20.595 1.903 22.5 19.74 4.664l-.154 17.098 2.734-.03v-.003Z" />
+              </svg>
+            </span>
+          </a>
+        </div>
+
+        <?php
+          include('../components/elements/accordion.php')
+        ?>
       </div>
-
-      <?php
-        include('../components/elements/accordion.php')
-      ?>
     </div>
   </div>
 </section>
