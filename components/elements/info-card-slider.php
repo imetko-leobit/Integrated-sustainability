@@ -58,7 +58,13 @@ document.addEventListener('DOMContentLoaded', function() {
   const slides = document.querySelectorAll('.info-card');
   const dots = document.querySelectorAll('.dot');
   const progressFill = document.querySelector('.progress-fill');
+  const container = document.querySelector('.info-slider-container');
   let currentIndex = 0;
+  let isPaused = false;
+  let animationFrameId = null;
+  let startTime = null;
+  let pausedTime = 0;
+  const slideDuration = 7500; // 50% longer than original 5000ms
 
   function updateSlider(index) {
     // Update active slide
@@ -66,24 +72,105 @@ document.addEventListener('DOMContentLoaded', function() {
     dots.forEach(dot => dot.classList.remove('active'));
 
     slides[index].classList.add('active');
-    dots[index].classList.add('active');
+   dots[index].classList.add('active');
+  }
 
-    // Update progress-bar (33.3% every slide)
-    const progressWidth = ((index + 1) / slides.length) * 100;
-    progressFill.style.width = `${progressWidth}%`;
+  function animateProgress() {
+    if (isPaused) {
+      animationFrameId = requestAnimationFrame(animateProgress);
+      return;
+    }
+
+    const currentTime = Date.now();
+    if (!startTime) {
+      startTime = currentTime;
+    }
+
+    const elapsed = currentTime - startTime + pausedTime;
+    const progress = Math.min((elapsed / slideDuration) * 100, 100);
+
+    progressFill.style.width = `${progress}%`;
+
+    if (progress >= 100) {
+      // Move to next slide
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateSlider(currentIndex);
+
+      // Reset timer for next slide
+      startTime = null;
+      pausedTime = 0;
+      progressFill.style.width = '0%';
+    }
+
+    animationFrameId = requestAnimationFrame(animateProgress);
+  }
+
+  function pauseAnimation() {
+    if (!isPaused && startTime) {
+      pausedTime = Date.now() - startTime + pausedTime;
+      startTime = null;
+      isPaused = true;
+    }
+  }
+
+  function resumeAnimation() {
+    if (isPaused) {
+      isPaused = false;
+      startTime = null;
+    }
+  }
+
+  function cleanup() {
+    if (animationFrameId) {
+      cancelAnimationFrame(animationFrameId);
+      animationFrameId = null;
+    }
   }
 
   dots.forEach((dot, index) => {
     dot.addEventListener('click', () => {
       currentIndex = index;
       updateSlider(currentIndex);
+
+      // Reset timer when manually selecting slide
+      startTime = null;
+      pausedTime = 0;
+      progressFill.style.width = '0%';
+
+      // Cancel current animation
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
+
+      // Restart animation
+      isPaused = false;
+      animateProgress();
     });
+
+    // Pause on dot hover (three-dot menu)
+    dot.addEventListener('mouseenter', pauseAnimation);
+    dot.addEventListener('mouseleave', resumeAnimation);
   });
 
-  // Optional
-  setInterval(() => {
-    currentIndex = (currentIndex + 1) % slides.length;
-    updateSlider(currentIndex);
-  }, 5000);
+  // Pause on card hover
+  slides.forEach(slide => {
+    slide.addEventListener('mouseenter', pauseAnimation);
+    slide.addEventListener('mouseleave', resumeAnimation);
+  });
+
+  // Cleanup on page unload
+  window.addEventListener('beforeunload', cleanup);
+
+  // Cleanup when navigating away (for SPAs)
+  if (typeof document.hidden !== 'undefined') {
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden) {
+        cleanup();
+      }
+    });
+  }
+
+  // Start the animation
+  animateProgress();
 });
 </script>
