@@ -7,9 +7,9 @@
   justify-content: flex-start;
   align-items: flex-start;
   position: relative;
-  @include bg-overlay(0.2);
 
   .info-card__image {
+    @include bg-overlay(0.2);
     width: 100%;
     height: auto;
   }

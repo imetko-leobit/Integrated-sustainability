@@ -40,18 +40,19 @@
         display: -webkit-box;
         -webkit-box-orient: vertical; }
       .link-cards .link-card .card__content .card__title {
-        font-family: "PoppinsLight", "Roboto", "Arial", sans-serif;
-        font-weight: 300;
-        -webkit-font-smoothing: subpixel-antialiased;
+        font-family: "Poppins", "Roboto", "Arial", sans-serif;
+        font-weight: 400;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
         font-style: normal;
-        font-size: 17px;
-        line-height: 28px;
+        font-size: 16px;
+        line-height: 29px;
         color: white;
         text-transform: lowercase; }
         @media (max-width: 991px) {
           .link-cards .link-card .card__content .card__title {
-            font-size: 16px;
-            line-height: 24px; } }
+            font-size: 14px;
+            line-height: 22px; } }
       .link-cards .link-card .card__content .arrow-icon {
         width: 24px;
         height: 24px;

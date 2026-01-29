@@ -28,7 +28,15 @@
         min-width: 70vw; }
         .block-publications-pillar .publications .post-card .post-card__image-wrapper {
           -webkit-filter: grayscale(0%);
-          filter: grayscale(0%); }
+          filter: grayscale(0%);
+          position: relative; }
+          .block-publications-pillar .publications .post-card .post-card__image-wrapper::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../../assets/img/noise-without-overlay.png") repeat;
+            background-size: cover; }
         .block-publications-pillar .publications .post-card .post-card__content {
           height: -webkit-fit-content;
           height: -moz-fit-content;
