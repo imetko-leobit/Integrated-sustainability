@@ -11,6 +11,12 @@ class PostsFilter {
     this.container = document.querySelector(".publications");
     this.loader = document.querySelector(".loader");
     this.postType = this.form.dataset.postType;
+    this.searchResultsTitle = document.querySelector(
+      ".js-search-results-title",
+    );
+    this.filterFormWrapper = document.querySelector(".block-filter-form");
+    this.btnOpen = document.querySelector(".filter-button--open");
+    this.btnClose = document.querySelector(".filter-button--close");
 
     this.excludedIds = [];
     this.currentPage = 1;
@@ -18,11 +24,20 @@ class PostsFilter {
     this.isLoading = false;
     this.filterTimeout = null;
     this.hasFilters = false;
+    this.totalResults = 0;
+    this.searchQuery = "";
+    this.choicesInstances = [];
 
     this.init();
   }
 
   init() {
+    // Initialize Choices.js for selects
+    this.initializeChoices();
+
+    // Initialize filter open/close buttons
+    this.initializeFilterButtons();
+
     // Listen to all form inputs
     const inputs = this.form.querySelectorAll("input, select");
     inputs.forEach((input) => {
@@ -34,8 +49,88 @@ class PostsFilter {
       }
     });
 
-    // Load initial posts
+    // Load initial posts (title will be updated in handleSuccess)
     this.loadPosts(true);
+  }
+
+  /**
+   * Initialize Choices.js for all select elements
+   */
+  initializeChoices() {
+    if (typeof Choices === "undefined") {
+      console.warn("Choices.js is not loaded");
+      return;
+    }
+
+    // Initialize regular selects
+    const regularSelects = this.form.querySelectorAll(".regular-select");
+    regularSelects.forEach((selectElement) => {
+      const choicesInstance = new Choices(selectElement, {
+        removeItemButton: true,
+        placeholder: true,
+        maxItemCount: 5,
+        itemSelectText: "",
+        searchEnabled: false,
+      });
+      this.choicesInstances.push(choicesInstance);
+    });
+
+    // Initialize clearable selects
+    const filterSort = this.form.querySelectorAll(".regular-select-clearable");
+    filterSort.forEach((selectElement) => {
+      const choicesInstance = new Choices(selectElement, {
+        removeItemButton: true,
+        shouldSort: false,
+        placeholder: true,
+        placeholderValue: null,
+        searchPlaceholderValue: null,
+        maxItemCount: 5,
+        itemSelectText: "",
+        searchEnabled: false,
+        allowHTML: true,
+      });
+      this.choicesInstances.push(choicesInstance);
+    });
+  }
+
+  /**
+   * Initialize filter open/close buttons
+   */
+  initializeFilterButtons() {
+    if (this.btnOpen && this.filterFormWrapper) {
+      this.btnOpen.addEventListener("click", (e) => {
+        e.preventDefault();
+        this.filterFormWrapper.classList.add("is-open");
+      });
+    }
+
+    if (this.btnClose && this.filterFormWrapper) {
+      this.btnClose.addEventListener("click", (e) => {
+        e.preventDefault();
+        this.filterFormWrapper.classList.remove("is-open");
+      });
+    }
+  }
+
+  /**
+   * Update search results title
+   */
+  updateSearchResultsTitle() {
+    if (!this.searchResultsTitle) return;
+
+    const searchInput = this.form.querySelector('input[name="s"]');
+    const searchQuery = searchInput?.value?.trim() || "";
+
+    if (searchQuery) {
+      const titleText =
+        this.searchResultsTitle.dataset.titleText || "search results for";
+      const resultsText = `${this.totalResults} ${titleText} "${searchQuery}"`;
+      this.searchResultsTitle.textContent = resultsText;
+      this.searchResultsTitle.style.display = "block";
+    } else {
+      this.searchResultsTitle.textContent = "";
+      this.searchResultsTitle.style.display = "none";
+    }
   }
 
   handleFilterChange() {
@@ -53,6 +148,7 @@ class PostsFilter {
     this.excludedIds = [];
     this.currentPage = 1;
     this.hasMore = true;
+    this.totalResults = 0;
 
     // Clear container
     if (this.container) {
@@ -62,7 +158,7 @@ class PostsFilter {
     // Check if any filters are active
     this.hasFilters = this.checkIfFiltersActive();
 
-    // Load filtered posts
+    // Load filtered posts - title will be updated in handleSuccess
     this.loadPosts(true);
   }
 
@@ -70,22 +166,24 @@ class PostsFilter {
     const formData = new FormData(this.form);
 
     // Check search
-    if (formData.get("s")?.trim()) return true;
+    const searchValue = formData.get("s");
+    if (searchValue && searchValue.trim()) return true;
 
     // Check taxonomies
     const taxonomies = [
       "locations",
-      "industries",
+      "industry",
       "project_services",
       "project_tags",
     ];
     for (const tax of taxonomies) {
-      const values = formData.getAll(`${tax}[]`).filter((v) => v);
+      const values = formData.getAll(`${tax}[]`).filter((v) => v && v.trim());
       if (values.length > 0) return true;
     }
 
-    // Check sort
-    if (formData.get("rank")) return true;
+    // Check sort (ensure it's not empty string)
+    const rankValue = formData.get("rank");
+    if (rankValue && rankValue.trim()) return true;
 
     return false;
   }
@@ -130,8 +228,8 @@ class PostsFilter {
     const locations = formData.getAll("locations[]").filter((v) => v);
     locations.forEach((val) => params.append("locations[]", val));
 
-    const industries = formData.getAll("industries[]").filter((v) => v);
-    industries.forEach((val) => params.append("industries[]", val));
+    const industries = formData.getAll("industry[]").filter((v) => v);
+    industries.forEach((val) => params.append("industry[]", val));
 
     const services = formData.getAll("project_services[]").filter((v) => v);
     services.forEach((val) => params.append("project_services[]", val));
@@ -176,6 +274,20 @@ class PostsFilter {
 
     // Update pagination state
     this.hasMore = data.has_more || false;
+
+    // Update total results count only on first page load (initial filter application)
+    if (this.currentPage === 1) {
+      if (typeof data.total_results !== "undefined") {
+        this.totalResults = data.total_results;
+      } else if (data.post_ids && data.post_ids.length > 0) {
+        // If server doesn't return total_results, count from post_ids on first page
+        this.totalResults = data.post_ids.length;
+      }
+      console.log("Total results:", this.totalResults, "Data:", data);
+    }
+
+    // Update search results title
+    this.updateSearchResultsTitle();
 
     // Increment page for next load
     if (this.hasMore) {
