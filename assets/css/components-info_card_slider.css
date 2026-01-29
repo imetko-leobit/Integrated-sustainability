@@ -28,7 +28,16 @@
       -o-object-fit: cover;
       object-fit: cover;
       -webkit-filter: brightness(0.7);
-      filter: brightness(0.7); }
+      filter: brightness(0.7);
+      position: relative; }
+      .info-card-wrapper .info-card .info-card__image::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.1)), to(rgba(0, 0, 0, 0.1))), url("../../assets/img/noise-without-overlay.png") repeat;
+        background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../../assets/img/noise-without-overlay.png") repeat;
+        background-size: cover; }
     .info-card-wrapper .info-card .info-card__content {
       position: absolute;
       bottom: 0;
@@ -39,15 +48,18 @@
       background-size: cover;
       background-position: right top;
       background-repeat: no-repeat;
-      text-align: center;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      align-items: center;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
       gap: 32px; }
       .info-card-wrapper .info-card .info-card__content .title {
         font-weight: 300;
         font-size: 25px;
-        font-family: "PoppinsLight", "Roboto", "Arial", sans-serif;
+        font-family: "Poppins", "Roboto", "Arial", sans-serif;
         line-height: 144%;
         margin-bottom: 32px;
         text-align: left; }
@@ -57,7 +69,9 @@
       .info-card-wrapper .info-card .info-card__content .text-content {
         text-align: left; }
       .info-card-wrapper .info-card .info-card__content .btn {
-        margin-top: 48px; }
+        margin-top: 48px;
+        -ms-flex-item-align: start;
+        align-self: flex-start; }
 
 .slider-controls {
   padding: 0 0 12px;
@@ -80,11 +94,10 @@
     .slider-controls .progress-bar .progress-fill {
       height: 100%;
       background: linear-gradient(90deg, #81FEE5 0%, #818FFE 100%);
-      width: 33.33%;
-      /* change dynamically with js */
+      width: 0%;
       opacity: 1;
-      -webkit-transition: width 0.3s ease;
-      transition: width 0.3s ease; }
+      -webkit-transition: none;
+      transition: none; }
   .slider-controls .dots {
     display: -webkit-box;
     display: -ms-flexbox;
