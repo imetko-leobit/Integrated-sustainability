@@ -116,6 +116,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
+  function cleanup() {
+    if (animationFrameId) {
+      cancelAnimationFrame(animationFrameId);
+      animationFrameId = null;
+    }
+  }
+
   // Dot click handlers
   dots.forEach((dot, index) => {
     dot.addEventListener('click', () => {
@@ -147,6 +154,18 @@ document.addEventListener('DOMContentLoaded', function() {
     slide.addEventListener('mouseenter', pauseAnimation);
     slide.addEventListener('mouseleave', resumeAnimation);
   });
+
+  // Cleanup on page unload
+  window.addEventListener('beforeunload', cleanup);
+  
+  // Cleanup when navigating away (for SPAs)
+  if (typeof document.hidden !== 'undefined') {
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden) {
+        cleanup();
+      }
+    });
+  }
 
   // Start the animation
   animateProgress();
