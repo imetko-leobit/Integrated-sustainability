@@ -11,6 +11,15 @@
     display: none;
   }
 
+  &-container {
+    @include bg-overlay(0.1);
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-right: 56px;
+    margin-bottom: 56px;
+  }
+
   &::before {
     content: '';
     position: absolute;
@@ -24,8 +33,6 @@
   }
 
   img {
-    padding-right: 56px;
-    padding-bottom: 56px;
     width: 100%;
     height: 100%;
     object-fit: contain;

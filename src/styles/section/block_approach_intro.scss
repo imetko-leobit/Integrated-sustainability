@@ -75,33 +75,6 @@
             align-items: flex-start;
             display: flex;
             height: fit-content;
-            position: relative;
-            @include bg-overlay(0.1);
-
-            &::before {
-              content: '';
-              position: absolute;
-              bottom: 0px;
-              right: 0px;
-              height: calc(100% - 56px);
-              width: calc(100% - 56px);
-              @include bg-image;
-              overflow: hidden;
-              z-index: -1;
-            }
-
-          img {
-            padding-right: 56px;
-            padding-bottom: 56px;
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            display: block;
-          }
-
-            @media (max-width: 991px) {
-                grid-column: 1;
-            }
         }
     }
 

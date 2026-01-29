@@ -26,5 +26,7 @@ $image_class = $image_class ?? '';
 <link rel="stylesheet" href="../assets/css/components-image_card.css" />
 
 <div class="image-card <?php echo htmlspecialchars($image_class, ENT_QUOTES, 'UTF-8'); ?>">
-  <img src="<?php echo htmlspecialchars($image_src, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($image_alt, ENT_QUOTES, 'UTF-8'); ?>" />
+  <div class="image-card-container">
+    <img src="<?php echo htmlspecialchars($image_src, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($image_alt, ENT_QUOTES, 'UTF-8'); ?>" />
+  </div>
 </div>

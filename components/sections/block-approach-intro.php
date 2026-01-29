@@ -121,7 +121,8 @@ $modifier_class = $reverse ? ' block-approach-intro--reverse' : '';
 
     <?php if ($image_src): ?>
     <div class="block-approach-intro__col block-approach-intro__col--media">
-      <img src="<?php echo $image_src; ?>" alt="<?php echo $image_alt; ?>" />
+      <?php include('../components/elements/image-card.php')?>
+      <!-- <img src="<?php echo $image_src; ?>" alt="<?php echo $image_alt; ?>" /> -->
       <!-- Person card template - can be enabled by setting appropriate variables
       <a href="<?php echo $approach_link; ?>" class="approach-media-link" aria-label="Learn more from <?php echo $person_name; ?>">
                 <div class="approach-person-card">
