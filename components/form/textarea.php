@@ -14,6 +14,7 @@
  * @param string $hint - Hint text - default: ''
  * @param string $errorMessage - Error message - default: ''
  * @param bool $error - Has error state - default: false
+ * @param string $fieldWrapperClass - Additional CSS classes for the field wrapper - default: ''
  */
 
 // Set defaults
@@ -26,11 +27,15 @@ $required = $required ?? false;
 $hint = $hint ?? '';
 $errorMessage = $errorMessage ?? '';
 $error = $error ?? false;
+$fieldWrapperClass = $fieldWrapperClass ?? '';
 
 // Build class names
 $fieldClass = 'form-field form-textarea';
 if ($error) {
     $fieldClass .= ' is-error';
+}
+if ($fieldWrapperClass) {
+    $fieldClass .= ' ' . $fieldWrapperClass;
 }
 ?>
 

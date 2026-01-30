@@ -46,109 +46,95 @@ if (!isset($enable_choices)) {
         $accept = $field['accept'] ?? '.pdf,.doc,.docx';
         $value = $field['value'] ?? '';
 
-        // Determine field class based on size
-        $field_class = 'form-field';
+        // Determine field wrapper class based on size
+        $field_wrapper_class = '';
         if ($size === 'half') {
-            $field_class .= ' form-field--half';
+            $field_wrapper_class = 'form-field--half';
         } elseif ($size === 'third') {
-            $field_class .= ' form-field--third';
+            $field_wrapper_class = 'form-field--third';
         } else {
-            $field_class .= ' form-field--full';
+            $field_wrapper_class = 'form-field--full';
         }
 
         // Add additional classes if specified
         if (isset($field['class'])) {
-            $field_class .= ' ' . $field['class'];
+            $field_wrapper_class .= ' ' . $field['class'];
         }
+
+        // Generate unique field ID
+        $field_id = $name . '_' . $form_id;
       ?>
 
-      <div class="<?php echo htmlspecialchars($field_class, ENT_QUOTES, 'UTF-8'); ?>">
-        <?php if ($label): ?>
-          <label class="form-label"><?php echo htmlspecialchars($label, ENT_QUOTES, 'UTF-8'); ?></label>
-        <?php endif; ?>
+      <?php if ($type === 'text' || $type === 'email' || $type === 'url' || $type === 'tel' || $type === 'number'): ?>
+        <?php
+          $id = $field_id;
+          $fieldWrapperClass = $field_wrapper_class;
+          include('../components/form/input.php');
+        ?>
 
-        <?php if ($type === 'text' || $type === 'email' || $type === 'url' || $type === 'tel' || $type === 'number'): ?>
-          <input
-            type="<?php echo htmlspecialchars($type, ENT_QUOTES, 'UTF-8'); ?>"
-            name="<?php echo htmlspecialchars($name, ENT_QUOTES, 'UTF-8'); ?>"
-            class="form-input"
-            placeholder="<?php echo htmlspecialchars($placeholder, ENT_QUOTES, 'UTF-8'); ?>"
-            value="<?php echo htmlspecialchars($value, ENT_QUOTES, 'UTF-8'); ?>"
-            <?php echo $required ? 'required' : ''; ?>
-          >
+      <?php elseif ($type === 'textarea'): ?>
+        <?php
+          $id = $field_id;
+          $fieldWrapperClass = $field_wrapper_class;
+          include('../components/form/textarea.php');
+        ?>
 
-        <?php elseif ($type === 'textarea'): ?>
-          <textarea
-            name="<?php echo htmlspecialchars($name, ENT_QUOTES, 'UTF-8'); ?>"
-            class="form-textarea"
-            rows="<?php echo intval($rows); ?>"
-            placeholder="<?php echo htmlspecialchars($placeholder, ENT_QUOTES, 'UTF-8'); ?>"
-            <?php echo $required ? 'required' : ''; ?>
-          ><?php echo htmlspecialchars($value, ENT_QUOTES, 'UTF-8'); ?></textarea>
+      <?php elseif ($type === 'select'): ?>
+        <?php
+          $id = $field_id;
+          // Convert associative array to expected format
+          $select_options = [];
+          foreach ($options as $opt_value => $opt_label) {
+              $select_options[] = [
+                  'value' => $opt_value,
+                  'label' => $opt_label
+              ];
+          }
+          $options = $select_options;
+          $fieldWrapperClass = $field_wrapper_class;
+          include('../components/form/select.php');
+        ?>
 
-        <?php elseif ($type === 'select'): ?>
-          <select
-            name="<?php echo htmlspecialchars($name, ENT_QUOTES, 'UTF-8'); ?>"
-            class="form-select <?php echo $enable_choices ? 'choices-select' : ''; ?>"
-            <?php echo $required ? 'required' : ''; ?>
-          >
-            <option value="" disabled selected><?php echo htmlspecialchars($placeholder, ENT_QUOTES, 'UTF-8'); ?></option>
-            <?php foreach ($options as $opt_value => $opt_label): ?>
-              <option value="<?php echo htmlspecialchars($opt_value, ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlspecialchars($opt_label, ENT_QUOTES, 'UTF-8'); ?></option>
-            <?php endforeach; ?>
-          </select>
+      <?php elseif ($type === 'radio'): ?>
+        <?php
+          // Convert associative array to expected format
+          $radio_options = [];
+          foreach ($options as $opt_value => $opt_label) {
+              $radio_options[] = [
+                  'value' => $opt_value,
+                  'label' => $opt_label
+              ];
+          }
+          $options = $radio_options;
+          $fieldWrapperClass = $field_wrapper_class;
+          include('../components/form/radio-group.php');
+        ?>
 
-        <?php elseif ($type === 'checkbox'): ?>
+      <?php elseif ($type === 'file' || $type === 'upload'): ?>
+        <?php
+          $id = $field_id;
+          $filename = 'No file chosen';
+          $fieldWrapperClass = $field_wrapper_class;
+          include('../components/form/file-upload.php');
+        ?>
+
+      <?php elseif ($type === 'checkbox'): ?>
+        <div class="form-field form-checkbox <?php echo htmlspecialchars($field_wrapper_class, ENT_QUOTES, 'UTF-8'); ?>">
           <div class="form-checkbox-wrapper">
             <input
               type="checkbox"
               name="<?php echo htmlspecialchars($name, ENT_QUOTES, 'UTF-8'); ?>"
-              id="<?php echo htmlspecialchars($name . '_' . $form_id, ENT_QUOTES, 'UTF-8'); ?>"
-              class="form-checkbox"
+              id="<?php echo htmlspecialchars($field_id, ENT_QUOTES, 'UTF-8'); ?>"
+              class="form-checkbox-input"
               value="1"
               <?php echo $required ? 'required' : ''; ?>
             >
-            <label for="<?php echo htmlspecialchars($name . '_' . $form_id, ENT_QUOTES, 'UTF-8'); ?>" class="form-checkbox-label">
+            <label for="<?php echo htmlspecialchars($field_id, ENT_QUOTES, 'UTF-8'); ?>" class="form-checkbox-label">
               <?php echo htmlspecialchars($placeholder, ENT_QUOTES, 'UTF-8'); ?>
             </label>
           </div>
+        </div>
 
-        <?php elseif ($type === 'radio'): ?>
-          <div class="form-radio-group">
-            <?php foreach ($options as $opt_value => $opt_label): ?>
-              <div class="form-radio-wrapper">
-                <input
-                  type="radio"
-                  name="<?php echo htmlspecialchars($name, ENT_QUOTES, 'UTF-8'); ?>"
-                  id="<?php echo htmlspecialchars($name . '_' . $opt_value . '_' . $form_id, ENT_QUOTES, 'UTF-8'); ?>"
-                  class="form-radio"
-                  value="<?php echo htmlspecialchars($opt_value, ENT_QUOTES, 'UTF-8'); ?>"
-                  <?php echo $required ? 'required' : ''; ?>
-                >
-                <label for="<?php echo htmlspecialchars($name . '_' . $opt_value . '_' . $form_id, ENT_QUOTES, 'UTF-8'); ?>" class="form-radio-label">
-                  <?php echo htmlspecialchars($opt_label, ENT_QUOTES, 'UTF-8'); ?>
-                </label>
-              </div>
-            <?php endforeach; ?>
-          </div>
-
-        <?php elseif ($type === 'file' || $type === 'upload'): ?>
-          <div class="form-file-upload">
-            <input
-              type="file"
-              name="<?php echo htmlspecialchars($name, ENT_QUOTES, 'UTF-8'); ?>"
-              id="<?php echo htmlspecialchars($name . '_' . $form_id, ENT_QUOTES, 'UTF-8'); ?>"
-              class="form-file-input"
-              accept="<?php echo htmlspecialchars($accept, ENT_QUOTES, 'UTF-8'); ?>"
-              <?php echo $required ? 'required' : ''; ?>
-            >
-            <label for="<?php echo htmlspecialchars($name . '_' . $form_id, ENT_QUOTES, 'UTF-8'); ?>" class="form-file-label">
-              <span class="form-file-text">Choose File</span>
-              <span class="form-file-name">No file chosen</span>
-            </label>
-          </div>
-
-        <?php endif; ?>
-      </div>
+      <?php endif; ?>
     <?php endforeach; ?>
   </div>
