@@ -14,6 +14,7 @@
  * @param string $hint - Hint text - default: ''
  * @param string $errorMessage - Error message - default: ''
  * @param bool $error - Has error state - default: false
+ * @param string $fieldWrapperClass - Additional CSS classes for the field wrapper - default: ''
  */
 
 // Set defaults
@@ -26,20 +27,26 @@ $required = $required ?? false;
 $hint = $hint ?? '';
 $errorMessage = $errorMessage ?? '';
 $error = $error ?? false;
+$fieldWrapperClass = $fieldWrapperClass ?? '';
 
 // Build class names
-$fieldClass = 'form-field form-textarea';
+$fieldClass = 'form-field';
 if ($error) {
     $fieldClass .= ' is-error';
+}
+if ($fieldWrapperClass) {
+    $fieldClass .= ' ' . $fieldWrapperClass;
 }
 ?>
 
 <div class="<?php echo htmlspecialchars($fieldClass, ENT_QUOTES, 'UTF-8'); ?>">
   <label for="<?php echo htmlspecialchars($id, ENT_QUOTES, 'UTF-8'); ?>" class="form-label">
-    <?php echo htmlspecialchars($label, ENT_QUOTES, 'UTF-8'); ?><?php echo $required ? '*' : ''; ?>
+    <?php echo htmlspecialchars($label, ENT_QUOTES, 'UTF-8'); ?>
+    <span class="form-required"><?php echo $required ? '*' : ''; ?></span>
   </label>
 
   <textarea
+    class="form-textarea"
     id="<?php echo htmlspecialchars($id, ENT_QUOTES, 'UTF-8'); ?>"
     name="<?php echo htmlspecialchars($name, ENT_QUOTES, 'UTF-8'); ?>"
     placeholder="<?php echo htmlspecialchars($placeholder, ENT_QUOTES, 'UTF-8'); ?>"

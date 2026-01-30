@@ -12,6 +12,7 @@
  * @param string $filename - Displayed filename - default: 'No file chosen'
  * @param string $errorMessage - Error message - default: ''
  * @param bool $error - Has error state - default: false
+ * @param string $fieldWrapperClass - Additional CSS classes for the field wrapper - default: ''
  */
 
 // Set defaults
@@ -22,17 +23,23 @@ $required = $required ?? false;
 $filename = $filename ?? 'No file chosen';
 $errorMessage = $errorMessage ?? '';
 $error = $error ?? false;
+$fieldWrapperClass = $fieldWrapperClass ?? '';
 
 // Build class names
 $fieldClass = 'form-field form-file';
 if ($error) {
     $fieldClass .= ' is-error';
 }
+if ($fieldWrapperClass) {
+    $fieldClass .= ' ' . $fieldWrapperClass;
+}
 ?>
+
 
 <div class="<?php echo htmlspecialchars($fieldClass, ENT_QUOTES, 'UTF-8'); ?>">
   <label for="<?php echo htmlspecialchars($id, ENT_QUOTES, 'UTF-8'); ?>" class="form-label">
-    <?php echo htmlspecialchars($label, ENT_QUOTES, 'UTF-8'); ?><?php echo $required ? '*' : ''; ?>
+    <?php echo htmlspecialchars($label, ENT_QUOTES, 'UTF-8'); ?>
+    <span class="form-required"><?php echo $required ? '*' : ''; ?></span>
   </label>
 
   <input id="<?php echo htmlspecialchars($id, ENT_QUOTES, 'UTF-8'); ?>" name="<?php echo htmlspecialchars($name, ENT_QUOTES, 'UTF-8'); ?>" type="file" hidden />

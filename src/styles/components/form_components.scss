@@ -21,7 +21,7 @@
 .form-field {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
   width: 100%;
 
   // Error state
@@ -43,8 +43,13 @@
 // -----------------------------------------------------------------------------
 .form-label {
   @include text-body-base;
-  color: var(--color-grey-300);
+  color: var(--color-grey-100);
+  font-weight: $w-semibold;
   margin: 0;
+}
+
+.form-required {
+  color: var(--color-red);
 }
 
 // -----------------------------------------------------------------------------
