@@ -69,14 +69,14 @@ if (!isset($enable_choices)) {
         <?php
           $id = $field_id;
           $fieldWrapperClass = $field_wrapper_class;
-          include('../components/form/input.php');
+          include(__DIR__ . '/../form/input.php');
         ?>
 
       <?php elseif ($type === 'textarea'): ?>
         <?php
           $id = $field_id;
           $fieldWrapperClass = $field_wrapper_class;
-          include('../components/form/textarea.php');
+          include(__DIR__ . '/../form/textarea.php');
         ?>
 
       <?php elseif ($type === 'select'): ?>
@@ -92,7 +92,7 @@ if (!isset($enable_choices)) {
           }
           $options = $select_options;
           $fieldWrapperClass = $field_wrapper_class;
-          include('../components/form/select.php');
+          include(__DIR__ . '/../form/select.php');
         ?>
 
       <?php elseif ($type === 'radio'): ?>
@@ -107,7 +107,7 @@ if (!isset($enable_choices)) {
           }
           $options = $radio_options;
           $fieldWrapperClass = $field_wrapper_class;
-          include('../components/form/radio-group.php');
+          include(__DIR__ . '/../form/radio-group.php');
         ?>
 
       <?php elseif ($type === 'file' || $type === 'upload'): ?>
@@ -115,7 +115,7 @@ if (!isset($enable_choices)) {
           $id = $field_id;
           $filename = 'No file chosen';
           $fieldWrapperClass = $field_wrapper_class;
-          include('../components/form/file-upload.php');
+          include(__DIR__ . '/../form/file-upload.php');
         ?>
 
       <?php elseif ($type === 'checkbox'): ?>
