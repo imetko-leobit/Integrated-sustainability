@@ -1,25 +1,42 @@
-<link rel="stylesheet" href="../assets/css/components-contact_form.css" />
+<link rel="stylesheet" href="../assets/css/section-block_form.css" />
 
-<form class="contact-form" id="contactForm">
-  <div class="contact-form__fields">
-    <div class="contact-form__field">
-      <label class="contact-form__label">Name</label>
-      <input type="text" name="name" class="contact-form__input" placeholder="Your name" required>
-    </div>
-
-    <div class="contact-form__field">
-      <label class="contact-form__label">Email</label>
-      <input type="email" name="email" class="contact-form__input" placeholder="your.email@example.com" required>
-    </div>
-
-    <div class="contact-form__field contact-form__field--textarea">
-      <label class="contact-form__label">Message</label>
-      <textarea name="message" class="contact-form__textarea" rows="6" placeholder="Tell us how we can help..." required></textarea>
-    </div>
-  </div>
-
-  <div class="contact-form__buttons">
-    <button type="submit" class="btn btn--gradient contact-form__submit">Submit</button>
+<form class="block-form" id="contactForm">
+  <?php
+    // Configure the contact form using the reusable block-form component
+    $form_config = [
+      [
+        'type' => 'text',
+        'label' => 'Name',
+        'name' => 'name',
+        'placeholder' => 'Your name',
+        'required' => true,
+        'size' => 'full'
+      ],
+      [
+        'type' => 'email',
+        'label' => 'Email',
+        'name' => 'email',
+        'placeholder' => 'your.email@example.com',
+        'required' => true,
+        'size' => 'full'
+      ],
+      [
+        'type' => 'textarea',
+        'label' => 'Message',
+        'name' => 'message',
+        'placeholder' => 'Tell us how we can help...',
+        'rows' => 6,
+        'required' => true,
+        'size' => 'full'
+      ]
+    ];
+    $form_id = 'contactForm';
+    $enable_choices = false;
+    include('../components/sections/block-form.php');
+  ?>
+  
+  <div class="form-buttons">
+    <button type="submit" class="btn btn--gradient form-submit">Submit</button>
   </div>
 </form>
 
