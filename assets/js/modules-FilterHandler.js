@@ -65,18 +65,31 @@ var PostsFilter = /*#__PURE__*/function () {
     this.container = document.querySelector(".publications");
     this.loader = document.querySelector(".loader");
     this.postType = this.form.dataset.postType;
+    this.searchResultsTitle = document.querySelector(".js-search-results-title");
+    this.filterFormWrapper = document.querySelector(".block-filter-form");
+    this.btnOpen = document.querySelector(".filter-button--open");
+    this.btnClose = document.querySelector(".filter-button--close");
     this.excludedIds = [];
     this.currentPage = 1;
     this.hasMore = true;
     this.isLoading = false;
     this.filterTimeout = null;
     this.hasFilters = false;
+    this.totalResults = 0;
+    this.searchQuery = "";
+    this.choicesInstances = [];
     this.init();
   }
   return _createClass(PostsFilter, [{
     key: "init",
     value: function init() {
       var _this = this;
+      // Initialize Choices.js for selects
+      this.initializeChoices();
+
+      // Initialize filter open/close buttons
+      this.initializeFilterButtons();
+
       // Listen to all form inputs
       var inputs = this.form.querySelectorAll("input, select");
       inputs.forEach(function (input) {
@@ -92,19 +105,104 @@ var PostsFilter = /*#__PURE__*/function () {
         }
       });
 
-      // Load initial posts
+      // Load initial posts (title will be updated in handleSuccess)
       this.loadPosts(true);
+    }
+
+    /**
+     * Initialize Choices.js for all select elements
+     */
+  }, {
+    key: "initializeChoices",
+    value: function initializeChoices() {
+      var _this2 = this;
+      if (typeof Choices === "undefined") {
+        console.warn("Choices.js is not loaded");
+        return;
+      }
+
+      // Initialize regular selects
+      var regularSelects = this.form.querySelectorAll(".regular-select");
+      regularSelects.forEach(function (selectElement) {
+        var choicesInstance = new Choices(selectElement, {
+          removeItemButton: true,
+          placeholder: true,
+          maxItemCount: 5,
+          itemSelectText: "",
+          searchEnabled: false
+        });
+        _this2.choicesInstances.push(choicesInstance);
+      });
+
+      // Initialize clearable selects
+      var filterSort = this.form.querySelectorAll(".regular-select-clearable");
+      filterSort.forEach(function (selectElement) {
+        var choicesInstance = new Choices(selectElement, {
+          removeItemButton: true,
+          shouldSort: false,
+          placeholder: true,
+          placeholderValue: null,
+          searchPlaceholderValue: null,
+          maxItemCount: 5,
+          itemSelectText: "",
+          searchEnabled: false,
+          allowHTML: true
+        });
+        _this2.choicesInstances.push(choicesInstance);
+      });
+    }
+
+    /**
+     * Initialize filter open/close buttons
+     */
+  }, {
+    key: "initializeFilterButtons",
+    value: function initializeFilterButtons() {
+      var _this3 = this;
+      if (this.btnOpen && this.filterFormWrapper) {
+        this.btnOpen.addEventListener("click", function (e) {
+          e.preventDefault();
+          _this3.filterFormWrapper.classList.add("is-open");
+        });
+      }
+      if (this.btnClose && this.filterFormWrapper) {
+        this.btnClose.addEventListener("click", function (e) {
+          e.preventDefault();
+          _this3.filterFormWrapper.classList.remove("is-open");
+        });
+      }
+    }
+
+    /**
+     * Update search results title
+     */
+  }, {
+    key: "updateSearchResultsTitle",
+    value: function updateSearchResultsTitle() {
+      var _searchInput$value;
+      if (!this.searchResultsTitle) return;
+      var searchInput = this.form.querySelector('input[name="s"]');
+      var searchQuery = (searchInput === null || searchInput === void 0 || (_searchInput$value = searchInput.value) === null || _searchInput$value === void 0 ? void 0 : _searchInput$value.trim()) || "";
+      if (searchQuery) {
+        var titleText = this.searchResultsTitle.dataset.titleText || "search results for";
+        var resultsText = "".concat(this.totalResults, " ").concat(titleText, " \"").concat(searchQuery, "\"");
+        this.searchResultsTitle.textContent = resultsText;
+        this.searchResultsTitle.style.display = "block";
+      } else {
+        this.searchResultsTitle.textContent = "";
+        this.searchResultsTitle.style.display = "none";
+      }
     }
   }, {
     key: "handleFilterChange",
     value: function handleFilterChange() {
-      var _this2 = this;
+      var _this4 = this;
       // Clear previous timeout
       clearTimeout(this.filterTimeout);
 
       // Set new timeout (2 seconds debounce)
       this.filterTimeout = setTimeout(function () {
-        _this2.applyFilters();
+        _this4.applyFilters();
       }, 2000);
     }
   }, {
@@ -114,6 +212,7 @@ var PostsFilter = /*#__PURE__*/function () {
       this.excludedIds = [];
       this.currentPage = 1;
       this.hasMore = true;
+      this.totalResults = 0;
 
       // Clear container
       if (this.container) {
@@ -123,30 +222,31 @@ var PostsFilter = /*#__PURE__*/function () {
       // Check if any filters are active
       this.hasFilters = this.checkIfFiltersActive();
 
-      // Load filtered posts
+      // Load filtered posts - title will be updated in handleSuccess
       this.loadPosts(true);
     }
   }, {
     key: "checkIfFiltersActive",
     value: function checkIfFiltersActive() {
-      var _formData$get;
       var formData = new FormData(this.form);
 
       // Check search
-      if ((_formData$get = formData.get("s")) !== null && _formData$get !== void 0 && _formData$get.trim()) return true;
+      var searchValue = formData.get("s");
+      if (searchValue && searchValue.trim()) return true;
 
       // Check taxonomies
-      var taxonomies = ["locations", "industries", "project_services", "project_tags"];
+      var taxonomies = ["locations", "industry", "project_services", "project_tags"];
       for (var _i = 0, _taxonomies = taxonomies; _i < _taxonomies.length; _i++) {
         var tax = _taxonomies[_i];
         var values = formData.getAll("".concat(tax, "[]")).filter(function (v) {
-          return v;
+          return v && v.trim();
         });
         if (values.length > 0) return true;
       }
 
-      // Check sort
-      if (formData.get("rank")) return true;
+      // Check sort (ensure it's not empty string)
+      var rankValue = formData.get("rank");
+      if (rankValue && rankValue.trim()) return true;
       return false;
     }
   }, {
@@ -154,7 +254,7 @@ var PostsFilter = /*#__PURE__*/function () {
     value: function loadPosts() {
       var _window$filterPostsDa,
         _window$filterPostsDa2,
-        _this3 = this;
+        _this5 = this;
       var isInitial = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
       if (this.isLoading || !this.hasMore) return;
       this.isLoading = true;
@@ -196,11 +296,11 @@ var PostsFilter = /*#__PURE__*/function () {
       locations.forEach(function (val) {
         return params.append("locations[]", val);
       });
-      var industries = formData.getAll("industries[]").filter(function (v) {
+      var industries = formData.getAll("industry[]").filter(function (v) {
         return v;
       });
       industries.forEach(function (val) {
-        return params.append("industries[]", val);
+        return params.append("industry[]", val);
       });
       var services = formData.getAll("project_services[]").filter(function (v) {
         return v;
@@ -224,7 +324,7 @@ var PostsFilter = /*#__PURE__*/function () {
         return response.json();
       }).then(function (result) {
         if (result.success) {
-          _this3.handleSuccess(result.data);
+          _this5.handleSuccess(result.data);
         } else {
           var _result$data;
           console.error("Filter error:", (_result$data = result.data) === null || _result$data === void 0 ? void 0 : _result$data.message);
@@ -232,8 +332,8 @@ var PostsFilter = /*#__PURE__*/function () {
       })["catch"](function (error) {
         console.error("AJAX error:", error);
       })["finally"](function () {
-        _this3.isLoading = false;
-        _this3.hideLoader();
+        _this5.isLoading = false;
+        _this5.hideLoader();
       });
     }
   }, {
@@ -252,6 +352,20 @@ var PostsFilter = /*#__PURE__*/function () {
 
       // Update pagination state
       this.hasMore = data.has_more || false;
+
+      // Update total results count only on first page load (initial filter application)
+      if (this.currentPage === 1) {
+        if (typeof data.total_results !== "undefined") {
+          this.totalResults = data.total_results;
+        } else if (data.post_ids && data.post_ids.length > 0) {
+          // If server doesn't return total_results, count from post_ids on first page
+          this.totalResults = data.post_ids.length;
+        }
+        console.log("Total results:", this.totalResults, "Data:", data);
+      }
+
+      // Update search results title
+      this.updateSearchResultsTitle();
 
       // Increment page for next load
       if (this.hasMore) {

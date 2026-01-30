@@ -1,0 +1,362 @@
+@import "../common/variable";
+@import "../common/mixins";
+
+/**
+ * Unified Form Component Styles
+ * 
+ * This SCSS module provides styling for all reusable form components:
+ * - FormInput (text, email, phone, number, url, tel)
+ * - FormSelect
+ * - FormTextarea
+ * - FormRadioGroup
+ * - FormFileUpload
+ * - FormActions
+ * - FormRow (layout)
+ * - FormSection (layout)
+ */
+
+// -----------------------------------------------------------------------------
+// Base Form Field Container
+// -----------------------------------------------------------------------------
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+
+  // Error state
+  &.is-error {
+    .form-input,
+    .form-select select,
+    .form-textarea textarea {
+      border-color: var(--color-red, rgba(229, 57, 53, 0.2));
+    }
+
+    .form-error {
+      display: block;
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Form Label
+// -----------------------------------------------------------------------------
+.form-label {
+  @include text-body-base;
+  color: var(--color-grey-300);
+  margin: 0;
+}
+
+// -----------------------------------------------------------------------------
+// Form Hint Text
+// -----------------------------------------------------------------------------
+.form-hint {
+  @include text-body-base;
+  color: var(--color-grey-500);
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+// -----------------------------------------------------------------------------
+// Form Error Message
+// -----------------------------------------------------------------------------
+.form-error {
+  @include text-body-base;
+  color: var(--color-red, rgba(229, 57, 53, 1));
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+  display: none; /* Hidden by default, shown when .is-error is present */
+}
+
+// -----------------------------------------------------------------------------
+// FormInput Component (Text, Email, Phone, Number, URL, Tel)
+// -----------------------------------------------------------------------------
+.form-input {
+  input {
+    width: 100%;
+    height: 54px;
+    padding: 12px 20px;
+    @include text-body-base;
+    background: var(--color-black);
+    outline: none;
+    @include input-border;
+    color: var(--color-white);
+    transition: all 0.3s ease;
+
+    &::placeholder {
+      color: var(--color-grey-500);
+    }
+
+    &:focus {
+      border-color: var(--color-grey-400);
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// FormSelect Component
+// -----------------------------------------------------------------------------
+.form-select {
+  position: relative;
+
+  select {
+    width: 100%;
+    height: 54px;
+    padding: 12px 20px;
+    padding-right: 48px;
+    @include text-body-base;
+    background: var(--color-black);
+    outline: none;
+    @include input-border;
+    color: var(--color-white);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    &:focus {
+      border-color: var(--color-grey-400);
+    }
+
+    option {
+      background: var(--color-grey-900);
+      color: var(--color-white);
+    }
+  }
+
+  /* Custom select arrow */
+  &::after {
+    content: "▼"; /* Downward arrow */
+    position: absolute;
+    right: 20px;
+    top: calc(50% + 12px); /* Adjust for label height */
+    transform: translateY(-50%);
+    color: var(--color-grey-500);
+    font-size: 12px;
+    pointer-events: none;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// FormTextarea Component
+// -----------------------------------------------------------------------------
+.form-textarea {
+  textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 12px 20px;
+    @include text-body-base;
+    background: var(--color-black);
+    outline: none;
+    @include input-border;
+    color: var(--color-white);
+    resize: none; /* Disable resize as per requirements */
+    transition: all 0.3s ease;
+
+    &::placeholder {
+      color: var(--color-grey-500);
+    }
+
+    &:focus {
+      border-color: var(--color-grey-400);
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// FormRadioGroup Component
+// -----------------------------------------------------------------------------
+.form-radio-group {
+  .form-radio-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .form-radio-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+
+    input[type="radio"] {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      accent-color: var(--color-primary-green, #81FEE5);
+    }
+
+    span {
+      @include text-body-base;
+      color: var(--color-white);
+      margin: 0;
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// FormFileUpload Component
+// -----------------------------------------------------------------------------
+.form-file {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  input[type="file"] {
+    display: none;
+  }
+
+  .file-upload-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 54px;
+    padding: 12px 24px;
+    @include text-body-base;
+    background: var(--color-grey-800);
+    border: 1px solid var(--color-grey-700);
+    color: var(--color-white);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    width: auto;
+
+    &:hover {
+      background: var(--color-grey-700);
+      border-color: var(--color-grey-600);
+    }
+
+    &:focus {
+      outline: 2px solid var(--color-grey-400);
+      outline-offset: 2px;
+    }
+  }
+
+  .file-name {
+    @include text-body-base;
+    color: var(--color-grey-500);
+    font-style: italic;
+    margin: 0;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// FormActions Component (Submit/Cancel Buttons)
+// -----------------------------------------------------------------------------
+.form-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: 24px;
+
+  @media (max-width: 767px) {
+    flex-direction: column-reverse;
+    gap: 12px;
+
+    .btn {
+      width: 100%;
+    }
+  }
+
+  .btn-secondary {
+    background: transparent;
+    border: 1px solid var(--color-grey-700);
+    color: var(--color-white);
+    padding: 12px 24px;
+    height: 54px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    @include text-body-base;
+
+    &:hover {
+      background: var(--color-grey-900);
+      border-color: var(--color-grey-600);
+    }
+
+    &:focus {
+      outline: 2px solid var(--color-grey-400);
+      outline-offset: 2px;
+    }
+  }
+
+  .btn-primary {
+    background: $primary-gradient;
+    border: none;
+    color: var(--color-black);
+    padding: 12px 32px;
+    height: 54px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    @include text-body-base;
+    font-weight: $w-semibold;
+    min-width: 160px;
+
+    &:hover {
+      opacity: 0.9;
+    }
+
+    &:focus {
+      outline: 2px solid var(--color-primary-green);
+      outline-offset: 2px;
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// FormRow Component (Layout)
+// -----------------------------------------------------------------------------
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  width: 100%;
+
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+  }
+
+  // Support for full-width fields within grid
+  .form-field--full {
+    grid-column: 1 / -1;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// FormSection Component (Layout)
+// -----------------------------------------------------------------------------
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+
+  .form-section-title {
+    font-family: $font-semibold;
+    font-weight: $w-semibold;
+    font-size: 24px;
+    line-height: 1.3;
+    color: var(--color-white);
+    margin: 0;
+
+    @media (max-width: 991px) {
+      font-size: 20px;
+    }
+  }
+
+  .form-section-divider {
+    width: 100%;
+    height: 1px;
+    background: $grey-gradient-50;
+  }
+
+  .form-section-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+}
