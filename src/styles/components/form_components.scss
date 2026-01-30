@@ -67,7 +67,7 @@
   margin: 0;
   font-size: 14px;
   line-height: 1.4;
-  display: none; // Hidden by default, shown when .is-error is present
+  display: none; /* Hidden by default, shown when .is-error is present */
 }
 
 // -----------------------------------------------------------------------------
@@ -127,9 +127,9 @@
     }
   }
 
-  // Custom select arrow
+  /* Custom select arrow */
   &::after {
-    content: "\2335"; // Down arrow unicode &#9013;
+    content: "\2335"; /* Down arrow unicode &#9013; */
     position: absolute;
     right: 20px;
     top: 50%;
@@ -137,7 +137,7 @@
     color: var(--color-grey-500);
     font-size: 18px;
     pointer-events: none;
-    margin-top: 4px; // Adjust for label height
+    margin-top: 4px; /* Adjust for label height */
   }
 }
 
@@ -154,7 +154,7 @@
     outline: none;
     @include input-border;
     color: var(--color-white);
-    resize: none; // Disable resize as per requirements
+    resize: none; /* Disable resize as per requirements */
     transition: all 0.3s ease;
 
     &::placeholder {

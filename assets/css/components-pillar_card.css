@@ -75,11 +75,11 @@
           line-height: 28px; } }
       @media (max-width: 991px) {
         .pillar-card .pillar-card__content .pillar-card__desc {
-          font-family: "PoppinsLight", "Roboto", "Arial", sans-serif;
+          font-family: "Poppins", "Roboto", "Arial", sans-serif;
           font-style: normal;
           font-size: 14px;
           line-height: 28px;
-          font-weight: 300; } }
+          font-weight: 400; } }
   @media (max-width: 991px) and (max-width: 991px) {
     .pillar-card .pillar-card__content .pillar-card__desc {
       font-family: "PoppinsSBold", "Roboto", "Arial", sans-serif;
@@ -106,7 +106,7 @@
         -moz-osx-font-smoothing: grayscale;
         font-style: normal;
         font-size: 16px;
-        line-height: 24px;
+        line-height: 29px;
         background: linear-gradient(90deg, #81FEE5 0%, #818FFE 100%);
         background-clip: text;
         color: transparent;
@@ -115,8 +115,8 @@
         transition: all 0.3s ease;
         -webkit-transition: all 0.3s ease;
         transition: all 0.3s ease;
-        font-family: "PoppinsLight", "Roboto", "Arial", sans-serif;
-        font-weight: 300;
+        font-family: "Poppins", "Roboto", "Arial", sans-serif;
+        font-weight: 400;
         font-size: 21px;
         line-height: 133%;
         text-transform: lowercase; }
