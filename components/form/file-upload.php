@@ -12,6 +12,7 @@
  * @param string $filename - Displayed filename - default: 'No file chosen'
  * @param string $errorMessage - Error message - default: ''
  * @param bool $error - Has error state - default: false
+ * @param string $fieldWrapperClass - Additional CSS classes for the field wrapper - default: ''
  */
 
 // Set defaults
@@ -22,11 +23,15 @@ $required = $required ?? false;
 $filename = $filename ?? 'No file chosen';
 $errorMessage = $errorMessage ?? '';
 $error = $error ?? false;
+$fieldWrapperClass = $fieldWrapperClass ?? '';
 
 // Build class names
 $fieldClass = 'form-field form-file';
 if ($error) {
     $fieldClass .= ' is-error';
+}
+if ($fieldWrapperClass) {
+    $fieldClass .= ' ' . $fieldWrapperClass;
 }
 ?>
 

@@ -11,6 +11,7 @@
  * @param bool $required - Is field required - default: false
  * @param string $errorMessage - Error message - default: ''
  * @param bool $error - Has error state - default: false
+ * @param string $fieldWrapperClass - Additional CSS classes for the field wrapper - default: ''
  */
 
 // Set defaults
@@ -20,11 +21,15 @@ $options = $options ?? [];
 $required = $required ?? false;
 $errorMessage = $errorMessage ?? '';
 $error = $error ?? false;
+$fieldWrapperClass = $fieldWrapperClass ?? '';
 
 // Build class names
 $fieldClass = 'form-field form-radio-group';
 if ($error) {
     $fieldClass .= ' is-error';
+}
+if ($fieldWrapperClass) {
+    $fieldClass .= ' ' . $fieldWrapperClass;
 }
 ?>
 
