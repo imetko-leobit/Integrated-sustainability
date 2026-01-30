@@ -334,7 +334,7 @@ if (!isset($form_submit_button)) {
   </div>
 
   <div class="career-form__buttons">
-    <button type="button" class="btn btn--text career-form__cancel"><?php echo htmlspecialchars($form_cancel_button, ENT_QUOTES, 'UTF-8'); ?></button>
+    <button type="button" class="btn btn--outline career-form__cancel"><?php echo htmlspecialchars($form_cancel_button, ENT_QUOTES, 'UTF-8'); ?></button>
     <button type="submit" class="btn btn--gradient career-form__submit"><?php echo htmlspecialchars($form_submit_button, ENT_QUOTES, 'UTF-8'); ?></button>
   </div>
 </form>

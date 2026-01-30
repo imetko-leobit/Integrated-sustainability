@@ -94,6 +94,16 @@ img {
   //   }
   // }
 
+  &--outline {
+    border: 2px solid var(--color-grey-600);
+    background-color: transparent;
+    color: var(--color-grey-100);
+  }
+
+  &--small {
+    padding: 12px 50px;
+  }
+
   &--gradient {
     position: relative;
     display: inline-flex;
@@ -158,10 +168,6 @@ img {
   &--arrow {
     @include button-arrow;
   }
-}
-
-.btn--small {
-  padding: 12px 50px;
 }
 
 .link--text {
