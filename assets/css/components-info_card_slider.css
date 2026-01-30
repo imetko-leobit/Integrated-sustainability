@@ -33,21 +33,38 @@
       position: absolute;
       bottom: 0;
       width: 100%;
-      padding: 56px;
-      background-image: url(../../assets/img/overlay.svg);
-      background-blend-mode: normal, overlay;
-      background-size: cover;
-      background-position: right top;
-      background-repeat: no-repeat;
-      text-align: center;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      align-items: center;
-      gap: 32px; }
+      height: 100%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column; }
+      .info-card-wrapper .info-card .info-card__content-top {
+        height: 100%;
+        min-height: 0;
+        position: relative; }
+        .info-card-wrapper .info-card .info-card__content-top::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../../assets/img/noise-without-overlay.png") repeat;
+          background-size: cover; }
+      .info-card-wrapper .info-card .info-card__content-bottom {
+        height: 100%;
+        padding: 56px;
+        text-align: left;
+        background-image: url(../../assets/img/overlay.svg);
+        background-blend-mode: normal, overlay;
+        background-size: cover;
+        background-position: right top;
+        background-repeat: no-repeat; }
       .info-card-wrapper .info-card .info-card__content .title {
         font-weight: 300;
         font-size: 25px;
-        font-family: "PoppinsLight", "Roboto", "Arial", sans-serif;
+        font-family: "Poppins", "Roboto", "Arial", sans-serif;
         line-height: 144%;
         margin-bottom: 32px;
         text-align: left; }
