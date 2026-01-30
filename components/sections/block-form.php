@@ -82,30 +82,30 @@ if (!isset($enable_choices)) {
       <?php elseif ($type === 'select'): ?>
         <?php
           $id = $field_id;
-          // Convert associative array to expected format
-          $select_options = [];
+          // Convert associative array to expected format for component
+          $component_options = [];
           foreach ($options as $opt_value => $opt_label) {
-              $select_options[] = [
+              $component_options[] = [
                   'value' => $opt_value,
                   'label' => $opt_label
               ];
           }
-          $options = $select_options;
+          $options = $component_options;
           $fieldWrapperClass = $field_wrapper_class;
           include(__DIR__ . '/../form/select.php');
         ?>
 
       <?php elseif ($type === 'radio'): ?>
         <?php
-          // Convert associative array to expected format
-          $radio_options = [];
+          // Convert associative array to expected format for component
+          $component_options = [];
           foreach ($options as $opt_value => $opt_label) {
-              $radio_options[] = [
+              $component_options[] = [
                   'value' => $opt_value,
                   'label' => $opt_label
               ];
           }
-          $options = $radio_options;
+          $options = $component_options;
           $fieldWrapperClass = $field_wrapper_class;
           include(__DIR__ . '/../form/radio-group.php');
         ?>
