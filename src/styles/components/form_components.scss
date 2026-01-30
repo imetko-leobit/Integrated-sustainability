@@ -129,15 +129,14 @@
 
   /* Custom select arrow */
   &::after {
-    content: "\2335"; /* Down arrow unicode &#9013; */
+    content: "▼"; /* Downward arrow */
     position: absolute;
     right: 20px;
-    top: 50%;
+    top: calc(50% + 12px); /* Adjust for label height */
     transform: translateY(-50%);
     color: var(--color-grey-500);
-    font-size: 18px;
+    font-size: 12px;
     pointer-events: none;
-    margin-top: 4px; /* Adjust for label height */
   }
 }
 

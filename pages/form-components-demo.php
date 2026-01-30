@@ -44,43 +44,41 @@
         <div class="component-demo">
             <h3>FormInput Component</h3>
             <?php 
-                include('../components/form/form-input.php'); 
-                // Using @ to suppress warnings about already defined variables
-                @include('../components/form/form-input.php', [
-                    'id' => 'firstName',
-                    'name' => 'first_name',
-                    'label' => 'First Name',
-                    'type' => 'text',
-                    'placeholder' => 'Enter your first name',
-                    'required' => true,
-                    'hint' => 'This is a helpful hint for the user'
-                ]);
+                $id = 'firstName';
+                $name = 'first_name';
+                $label = 'First Name';
+                $type = 'text';
+                $placeholder = 'Enter your first name';
+                $required = true;
+                $hint = 'This is a helpful hint for the user';
+                include('../components/form/form-input.php');
             ?>
             
             <div style="margin-top: 24px;">
                 <?php 
-                    @include('../components/form/form-input.php', [
-                        'id' => 'email',
-                        'name' => 'email',
-                        'label' => 'Email Address',
-                        'type' => 'email',
-                        'placeholder' => 'you@example.com',
-                        'required' => true
-                    ]);
+                    $id = 'email';
+                    $name = 'email';
+                    $label = 'Email Address';
+                    $type = 'email';
+                    $placeholder = 'you@example.com';
+                    $required = true;
+                    $hint = '';
+                    include('../components/form/form-input.php');
                 ?>
             </div>
 
             <div style="margin-top: 24px;">
                 <?php 
-                    @include('../components/form/form-input.php', [
-                        'id' => 'phone',
-                        'name' => 'phone',
-                        'label' => 'Phone Number',
-                        'type' => 'tel',
-                        'placeholder' => '+1 (555) 123-4567',
-                        'error' => true,
-                        'errorMessage' => 'Please enter a valid phone number'
-                    ]);
+                    $id = 'phone';
+                    $name = 'phone';
+                    $label = 'Phone Number';
+                    $type = 'tel';
+                    $placeholder = '+1 (555) 123-4567';
+                    $required = false;
+                    $error = true;
+                    $errorMessage = 'Please enter a valid phone number';
+                    $hint = '';
+                    include('../components/form/form-input.php');
                 ?>
             </div>
         </div>
