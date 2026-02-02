@@ -1,0 +1,42 @@
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/styles/section/block_cta_text.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************/
+/*images*/
+.block-cta-text {
+  padding-bottom: 180px; }
+  @media only screen and (max-width: 991px) {
+    .block-cta-text {
+      padding-bottom: 72px; } }
+  .block-cta-text__content {
+    position: relative;
+    border-bottom: 0.5px solid #d9d9d9;
+    border-top: 0.5px solid #d9d9d9;
+    padding: 48px 56px; }
+    @media only screen and (max-width: 991px) {
+      .block-cta-text__content {
+        padding: 32px 24px; } }
+  .block-cta-text__link {
+    color: #fff;
+    display: block;
+    padding-right: 40px; }
+    .block-cta-text__link:hover .arrow-icon {
+      -webkit-transform: translate(5px, -5px);
+      -ms-transform: translate(5px, -5px);
+      transform: translate(5px, -5px); }
+  .block-cta-text .arrow-icon {
+    width: 24px;
+    height: 24px;
+    top: 48px;
+    right: 56px;
+    position: absolute;
+    -webkit-transition: -webkit-transform 0.3s ease;
+    transition: -webkit-transform 0.3s ease;
+    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, -webkit-transform 0.3s ease; }
+    @media only screen and (max-width: 991px) {
+      .block-cta-text .arrow-icon {
+        top: 16px;
+        right: 16px; } }
+
+
+/*# sourceMappingURL=section-block_cta_text.css.map*/
