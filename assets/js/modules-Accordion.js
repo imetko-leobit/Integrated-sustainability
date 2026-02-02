@@ -48,6 +48,10 @@ function initAccordion() {
       e.preventDefault();
       var item = trigger.closest('.accordion-item');
       var content = item.querySelector('.accordion-item__content');
+      var container = item.closest('.js-accordion-container');
+
+      // Check if this accordion should have "one-open-at-a-time" behavior
+      var isExclusive = container && container.classList.contains('js-accordion-exclusive');
       if (item.classList.contains('is-open')) {
         content.style.maxHeight = null;
         setTimeout(function () {
@@ -55,6 +59,22 @@ function initAccordion() {
         }, 300);
         item.classList.remove('is-open');
       } else {
+        // If exclusive mode, close all other items in the same container
+        if (isExclusive) {
+          var allItems = container.querySelectorAll('.accordion-item');
+          allItems.forEach(function (otherItem) {
+            if (otherItem !== item && otherItem.classList.contains('is-open')) {
+              var otherContent = otherItem.querySelector('.accordion-item__content');
+              otherContent.style.maxHeight = null;
+              setTimeout(function () {
+                if (!otherItem.classList.contains('is-open')) {
+                  otherContent.style.display = 'none';
+                }
+              }, 300);
+              otherItem.classList.remove('is-open');
+            }
+          });
+        }
         content.style.display = 'block';
         setTimeout(function () {
           content.style.maxHeight = content.scrollHeight + 'px';

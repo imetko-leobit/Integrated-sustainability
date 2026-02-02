@@ -8,7 +8,7 @@ $accordion_items = [
     [
         'title' => 'Can multiple treatment scenarios be evaluated in a single testing program?',
         'desc' => 'Coordinating design, sizing, and equipment supply through a single partner results ties each decision to performance and results in greater cost and schedule certainty.',
-        'initial_open' => false,
+        'initial_open' => true,
     ],
     [
         'title' => 'Do you offer on-site or remote laboratory support?',

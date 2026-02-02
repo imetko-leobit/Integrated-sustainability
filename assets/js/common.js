@@ -1,6 +1,47 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/scripts/components/breadcrumb_observer.js":
+/*!*******************************************************!*\
+  !*** ./src/scripts/components/breadcrumb_observer.js ***!
+  \*******************************************************/
+/***/ (() => {
+
+document.addEventListener('DOMContentLoaded', function () {
+  var breadcrumbs = document.querySelector('.header-subheader');
+  var heroSection = document.querySelector('.block-hero');
+
+  // Only initialize if both breadcrumbs and hero section exist
+  if (!breadcrumbs || !heroSection) {
+    return;
+  }
+
+  // Create an Intersection Observer to watch the hero section
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        // Hero is visible - show breadcrumbs
+        breadcrumbs.classList.remove('breadcrumbs--hidden');
+      } else {
+        // Hero is not visible - hide breadcrumbs
+        breadcrumbs.classList.add('breadcrumbs--hidden');
+      }
+    });
+  }, {
+    // Trigger when any part of the hero section is visible
+    threshold: 0,
+    // Use viewport as root
+    root: null,
+    // No margin
+    rootMargin: '0px'
+  });
+
+  // Start observing the hero section
+  observer.observe(heroSection);
+});
+
+/***/ }),
+
 /***/ "./src/scripts/components/header_controller.js":
 /*!*****************************************************!*\
   !*** ./src/scripts/components/header_controller.js ***!
@@ -80,6 +121,10 @@ function initAccordion() {
       e.preventDefault();
       var item = trigger.closest('.accordion-item');
       var content = item.querySelector('.accordion-item__content');
+      var container = item.closest('.js-accordion-container');
+
+      // Check if this accordion should have "one-open-at-a-time" behavior
+      var isExclusive = container && container.classList.contains('js-accordion-exclusive');
       if (item.classList.contains('is-open')) {
         content.style.maxHeight = null;
         setTimeout(function () {
@@ -87,6 +132,22 @@ function initAccordion() {
         }, 300);
         item.classList.remove('is-open');
       } else {
+        // If exclusive mode, close all other items in the same container
+        if (isExclusive) {
+          var allItems = container.querySelectorAll('.accordion-item');
+          allItems.forEach(function (otherItem) {
+            if (otherItem !== item && otherItem.classList.contains('is-open')) {
+              var otherContent = otherItem.querySelector('.accordion-item__content');
+              otherContent.style.maxHeight = null;
+              setTimeout(function () {
+                if (!otherItem.classList.contains('is-open')) {
+                  otherContent.style.display = 'none';
+                }
+              }, 300);
+              otherItem.classList.remove('is-open');
+            }
+          });
+        }
         content.style.display = 'block';
         setTimeout(function () {
           content.style.maxHeight = content.scrollHeight + 'px';
@@ -188,11 +249,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_header_controller__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_components_header_controller__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_search__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/search */ "./src/scripts/components/search.js");
 /* harmony import */ var _components_search__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_components_search__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _components_breadcrumb_observer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/breadcrumb_observer */ "./src/scripts/components/breadcrumb_observer.js");
+/* harmony import */ var _components_breadcrumb_observer__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_components_breadcrumb_observer__WEBPACK_IMPORTED_MODULE_3__);
 
 
 // import './components/menu_controller';
 
-document.addEventListener('DOMContentLoaded', function () {
+
+document.addEventListener("DOMContentLoaded", function () {
   (0,_modules_Accordion__WEBPACK_IMPORTED_MODULE_0__["default"])();
 });
 })();
