@@ -13,9 +13,13 @@
 
 .publications {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(0, 482px));
   gap: 56px;
   margin-top: 20px; }
+  @media (max-width: 1600px) {
+    .publications {
+      grid-template-columns: 1fr 1fr;
+      gap: 40px; } }
   @media (max-width: 767px) {
     .publications {
       grid-template-columns: minmax(330px, 1fr);

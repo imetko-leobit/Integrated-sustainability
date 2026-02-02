@@ -71,7 +71,7 @@
     -moz-osx-font-smoothing: grayscale;
     font-style: normal;
     font-size: 16px;
-    line-height: 24px;
+    line-height: 29px;
     background: none;
     outline: none;
     color: var(--color-white, #fff);
@@ -100,11 +100,6 @@
     user-select: none;
     padding: 0px 16px 0px 20px;
     min-width: 150px;
-    font-family: "Poppins", "Roboto", "Arial", sans-serif;
-    font-style: normal;
-    font-size: 15px;
-    line-height: 24px;
-    font-weight: 400;
     height: 54px;
     background: none;
     outline: none;
@@ -114,10 +109,6 @@
     background-origin: border-box;
     background-clip: padding-box, border-box;
     color: white; }
-    @media (max-width: 991px) {
-      .block-filter-form .filter-form .select-label {
-        font-size: 12px;
-        line-height: 20px; } }
   .block-filter-form .filter-form .choices {
     -webkit-box-flex: 1;
     -ms-flex-positive: 1;
@@ -147,11 +138,6 @@
       user-select: none;
       padding: 0px 16px 0px 20px;
       min-width: 150px;
-      font-family: "Poppins", "Roboto", "Arial", sans-serif;
-      font-style: normal;
-      font-size: 15px;
-      line-height: 24px;
-      font-weight: 400;
       height: 54px;
       background: none;
       outline: none;
@@ -163,10 +149,6 @@
       color: white;
       border-radius: 0px;
       height: 54px; }
-      @media (max-width: 991px) {
-        .block-filter-form .filter-form .choices .choices__inner {
-          font-size: 12px;
-          line-height: 20px; } }
     .block-filter-form .filter-form .choices input::-webkit-input-placeholder {
       font-family: "Poppins", "Roboto", "Arial", sans-serif;
       font-weight: 400;
@@ -174,7 +156,7 @@
       -moz-osx-font-smoothing: grayscale;
       font-style: normal;
       font-size: 16px;
-      line-height: 24px; }
+      line-height: 29px; }
       @media (max-width: 991px) {
         .block-filter-form .filter-form .choices input::-webkit-input-placeholder {
           font-size: 14px;
@@ -186,7 +168,7 @@
       -moz-osx-font-smoothing: grayscale;
       font-style: normal;
       font-size: 16px;
-      line-height: 24px; }
+      line-height: 29px; }
       @media (max-width: 991px) {
         .block-filter-form .filter-form .choices input::-moz-placeholder {
           font-size: 14px;
@@ -198,7 +180,7 @@
       -moz-osx-font-smoothing: grayscale;
       font-style: normal;
       font-size: 16px;
-      line-height: 24px; }
+      line-height: 29px; }
       @media (max-width: 991px) {
         .block-filter-form .filter-form .choices input:-ms-input-placeholder {
           font-size: 14px;
@@ -210,7 +192,7 @@
       -moz-osx-font-smoothing: grayscale;
       font-style: normal;
       font-size: 16px;
-      line-height: 24px; }
+      line-height: 29px; }
       @media (max-width: 991px) {
         .block-filter-form .filter-form .choices input::-ms-input-placeholder {
           font-size: 14px;
@@ -222,7 +204,7 @@
       -moz-osx-font-smoothing: grayscale;
       font-style: normal;
       font-size: 16px;
-      line-height: 24px; }
+      line-height: 29px; }
       @media (max-width: 991px) {
         .block-filter-form .filter-form .choices input::placeholder {
           font-size: 14px;
@@ -234,23 +216,13 @@
       -moz-osx-font-smoothing: grayscale;
       font-style: normal;
       font-size: 16px;
-      line-height: 24px; }
+      line-height: 29px; }
       @media (max-width: 991px) {
         .block-filter-form .filter-form .choices .choices__item.choices__placeholder.choices__item--selectable {
           font-size: 14px;
           line-height: 22px; } }
     .block-filter-form .filter-form .choices .choices__list.choices__list--single {
       padding-right: 32px; }
-      .block-filter-form .filter-form .choices .choices__list.choices__list--single .choices__item.choices__placeholder.choices__item--selectable {
-        font-family: "Poppins", "Roboto", "Arial", sans-serif;
-        font-style: normal;
-        font-size: 15px;
-        line-height: 24px;
-        font-weight: 400; }
-        @media (max-width: 991px) {
-          .block-filter-form .filter-form .choices .choices__list.choices__list--single .choices__item.choices__placeholder.choices__item--selectable {
-            font-size: 12px;
-            line-height: 20px; } }
     .block-filter-form .filter-form .choices .choices__list--multiple {
       height: 32px;
       margin-bottom: 5px; }
@@ -293,16 +265,7 @@
       padding: 11px 16px;
       min-height: 56px;
       background: var(--color-grey-900);
-      font-family: "Poppins", "Roboto", "Arial", sans-serif;
-      font-style: normal;
-      font-size: 15px;
-      line-height: 24px;
-      font-weight: 400;
       color: white; }
-      @media (max-width: 991px) {
-        .block-filter-form .filter-form .choices .choices__list--dropdown .choices__item {
-          font-size: 12px;
-          line-height: 20px; } }
     .block-filter-form .filter-form .choices .choices__list--dropdown .choices__item.choices__item--selectable.is-highlighted {
       background-color: var(--color-grey); }
     .block-filter-form .filter-form .choices .choices__list--dropdown .choices__item.is-selected {

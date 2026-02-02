@@ -9,7 +9,7 @@
   -moz-osx-font-smoothing: grayscale;
   font-style: normal;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 29px;
   background: linear-gradient(90deg, #81FEE5 0%, #818FFE 100%);
   background-clip: text;
   color: transparent;
@@ -28,16 +28,17 @@
       font-size: 14px;
       line-height: 22px; } }
   .gradient-link--large {
-    font-family: "PoppinsLight", "Roboto", "Arial", sans-serif;
-    font-weight: 300;
-    -webkit-font-smoothing: subpixel-antialiased;
+    font-family: "Poppins", "Roboto", "Arial", sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     font-style: normal;
-    font-size: 17px;
-    line-height: 28px; }
+    font-size: 16px;
+    line-height: 29px; }
     @media (max-width: 991px) {
       .gradient-link--large {
-        font-size: 16px;
-        line-height: 24px; } }
+        font-size: 14px;
+        line-height: 22px; } }
   .gradient-link a {
     display: -webkit-box;
     display: -ms-flexbox;

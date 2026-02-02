@@ -22,7 +22,7 @@
       .details-content-links h3 {
         font-size: 28px;
         line-height: 36px; } }
-  .details-content-links h4 {
+  .details-content-links h4:not(.accordion-item__title) {
     font-family: "PoppinsSBold", "Roboto", "Arial", sans-serif;
     font-style: normal;
     font-size: 32px;
@@ -32,26 +32,27 @@
     margin-bottom: 48px;
     border-bottom: 1px solid var(--color-grey-500); }
     @media (max-width: 991px) {
-      .details-content-links h4 {
+      .details-content-links h4:not(.accordion-item__title) {
         font-size: 24px;
         line-height: 32px; } }
     @media (max-width: 1199px) {
-      .details-content-links h4 {
+      .details-content-links h4:not(.accordion-item__title) {
         padding: 36px 0 24px;
         margin-bottom: 24px; } }
   .details-content-links p {
-    font-family: "PoppinsLight", "Roboto", "Arial", sans-serif;
-    font-weight: 300;
-    -webkit-font-smoothing: subpixel-antialiased;
+    font-family: "Poppins", "Roboto", "Arial", sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     font-style: normal;
-    font-size: 17px;
-    line-height: 28px;
+    font-size: 16px;
+    line-height: 29px;
     color: var(--color-grey-200);
     margin-bottom: 36px; }
     @media (max-width: 991px) {
       .details-content-links p {
-        font-size: 16px;
-        line-height: 24px; } }
+        font-size: 14px;
+        line-height: 22px; } }
     @media (max-width: 1199px) {
       .details-content-links p {
         margin-bottom: 16px; } }
@@ -90,15 +91,16 @@
       align-items: flex-start;
       gap: 22px;
       position: relative;
-      padding-left: 32px;
+      padding-left: 60px;
+      min-height: 33px;
+      color: white;
       font-family: "Poppins", "Roboto", "Arial", sans-serif;
       font-weight: 400;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       font-style: normal;
       font-size: 16px;
-      line-height: 24px;
-      color: white; }
+      line-height: 29px; }
       @media (max-width: 991px) {
         .details-content-links ul li {
           font-size: 14px;
@@ -107,9 +109,9 @@
         content: "";
         position: absolute;
         left: 0;
-        top: 4px;
-        width: 18px;
-        height: 18px;
+        top: 2px;
+        width: 30px;
+        height: 30px;
         background-image: url("../../assets/img/mark.svg");
         background-size: contain;
         background-repeat: no-repeat; }

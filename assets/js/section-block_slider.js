@@ -142,6 +142,25 @@ document.addEventListener('DOMContentLoaded', function () {
     // Stop auto-rotation and reset all timebars
     clearInterval(autoRotateInterval);
     resetAllTimebars();
+
+    // Pre-emptively update active state to trigger width animation simultaneously
+    var currentActive = carouselWrapper.querySelector('.pillar-carousel-card.is-active');
+    var nextActive;
+    if (direction === 'next') {
+      nextActive = currentActive ? currentActive.nextElementSibling : null;
+      if (!nextActive) {
+        nextActive = carouselWrapper.querySelector('.pillar-carousel-card:first-child');
+      }
+    } else {
+      nextActive = currentActive ? currentActive.previousElementSibling : null;
+      if (!nextActive) {
+        nextActive = carouselWrapper.querySelector('.pillar-carousel-card:last-child');
+      }
+    }
+
+    // Apply active class to next card before starting transition
+    if (currentActive) currentActive.classList.remove('is-active');
+    if (nextActive) nextActive.classList.add('is-active');
     var slideWidth = allSlides[0].offsetWidth;
     var translateValue = direction === 'next' ? -(slideWidth + slideMargin) : slideWidth + slideMargin;
     carouselWrapper.style.transition = "transform ".concat(animationDuration / 1000, "s cubic-bezier(0.25, 0.46, 0.45, 0.94)");

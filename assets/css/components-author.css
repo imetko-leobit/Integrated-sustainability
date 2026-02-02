@@ -3,7 +3,7 @@
   \******************************************************************************************************************************************************************************************************************************/
 /*images*/
 .block-author {
-  padding: 60px 0 120px; }
+  padding: 60px 0 140px; }
   .block-author .title {
     margin-top: 60px;
     margin-bottom: 56px; }
@@ -99,17 +99,8 @@
         background-color: #1E1E1E;
         border-radius: 10px; }
     .block-author .block-author__wrapper .author__description {
-      font-family: "Poppins", "Roboto", "Arial", sans-serif;
-      font-style: normal;
-      font-size: 15px;
-      line-height: 24px;
-      font-weight: 400;
       color: var(--color-grey-200);
       margin: 0; }
-      @media (max-width: 991px) {
-        .block-author .block-author__wrapper .author__description {
-          font-size: 12px;
-          line-height: 20px; } }
     .block-author .block-author__wrapper .link {
       font-family: "Poppins", "Roboto", "Arial", sans-serif;
       font-weight: 400;
@@ -117,7 +108,7 @@
       -moz-osx-font-smoothing: grayscale;
       font-style: normal;
       font-size: 16px;
-      line-height: 24px;
+      line-height: 29px;
       color: white;
       -webkit-transition: color 0.3s ease;
       transition: color 0.3s ease;
@@ -131,16 +122,17 @@
           font-size: 14px;
           line-height: 22px; } }
       .block-author .block-author__wrapper .link--large {
-        font-family: "PoppinsLight", "Roboto", "Arial", sans-serif;
-        font-weight: 300;
-        -webkit-font-smoothing: subpixel-antialiased;
+        font-family: "Poppins", "Roboto", "Arial", sans-serif;
+        font-weight: 400;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
         font-style: normal;
-        font-size: 17px;
-        line-height: 28px; }
+        font-size: 16px;
+        line-height: 29px; }
         @media (max-width: 991px) {
           .block-author .block-author__wrapper .link--large {
-            font-size: 16px;
-            line-height: 24px; } }
+            font-size: 14px;
+            line-height: 22px; } }
       .block-author .block-author__wrapper .link a {
         display: -webkit-box;
         display: -ms-flexbox;
