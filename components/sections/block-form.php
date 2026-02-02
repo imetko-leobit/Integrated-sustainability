@@ -30,7 +30,14 @@ if (!isset($enable_choices)) {
 ?>
 
 <link rel="stylesheet" href="../assets/css/section-block_form.css" />
-<link rel="stylesheet" href="../assets/css/components-form_components.css" />
+<link rel="stylesheet" href="../assets/css/components-form_common.css" />
+<link rel="stylesheet" href="../assets/css/components-input.css" />
+<link rel="stylesheet" href="../assets/css/components-select.css" />
+<link rel="stylesheet" href="../assets/css/components-textarea.css" />
+<link rel="stylesheet" href="../assets/css/components-radio.css" />
+<link rel="stylesheet" href="../assets/css/components-checkbox.css" />
+<link rel="stylesheet" href="../assets/css/components-file_upload.css" />
+<link rel="stylesheet" href="../assets/css/components-form_layout.css" />
 
 <div class="form-row">
   <?php foreach ($form_config as $field): ?>

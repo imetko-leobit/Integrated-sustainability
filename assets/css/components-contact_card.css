@@ -32,7 +32,7 @@
     -moz-osx-font-smoothing: grayscale;
     font-style: normal;
     font-size: 16px;
-    line-height: 24px;
+    line-height: 29px;
     color: var(--color-grey-200);
     margin-bottom: 32px; }
     @media (max-width: 991px) {
@@ -46,7 +46,7 @@
     -moz-osx-font-smoothing: grayscale;
     font-style: normal;
     font-size: 16px;
-    line-height: 24px;
+    line-height: 29px;
     color: var(--color-grey-200);
     margin-bottom: 32px; }
     @media (max-width: 991px) {
@@ -60,7 +60,7 @@
       -moz-osx-font-smoothing: grayscale;
       font-style: normal;
       font-size: 16px;
-      line-height: 24px;
+      line-height: 29px;
       color: var(--color-grey-200);
       -webkit-transition: all 0.3s ease;
       transition: all 0.3s ease; }
@@ -113,7 +113,7 @@
         -moz-osx-font-smoothing: grayscale;
         font-style: normal;
         font-size: 16px;
-        line-height: 24px;
+        line-height: 29px;
         background: linear-gradient(90deg, #81FEE5 0%, #818FFE 100%);
         background-clip: text;
         -webkit-background-clip: text;
@@ -130,7 +130,7 @@
   -moz-osx-font-smoothing: grayscale;
   font-style: normal;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 29px;
   color: var(--color-grey-200);
   margin-bottom: 32px; }
   @media (max-width: 991px) {
@@ -145,7 +145,7 @@
   -moz-osx-font-smoothing: grayscale;
   font-style: normal;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 29px;
   color: var(--color-grey-200);
   margin-bottom: 32px; }
   @media (max-width: 991px) {
@@ -159,7 +159,7 @@
     -moz-osx-font-smoothing: grayscale;
     font-style: normal;
     font-size: 16px;
-    line-height: 24px;
+    line-height: 29px;
     color: var(--color-grey-200);
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease; }

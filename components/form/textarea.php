@@ -17,6 +17,16 @@
  * @param string $fieldWrapperClass - Additional CSS classes for the field wrapper - default: ''
  */
 
+// Include component styles
+if (!defined('FORM_COMMON_CSS_LOADED')) {
+  echo '<link rel="stylesheet" href="../assets/css/components-form_common.css" />';
+  define('FORM_COMMON_CSS_LOADED', true);
+}
+if (!defined('TEXTAREA_CSS_LOADED')) {
+  echo '<link rel="stylesheet" href="../assets/css/components-textarea.css" />';
+  define('TEXTAREA_CSS_LOADED', true);
+}
+
 // Set defaults
 $id = $id ?? '';
 $name = $name ?? '';

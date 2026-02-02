@@ -1,0 +1,39 @@
+@import "../common/variable";
+@import "../common/mixins";
+
+/**
+ * FormRadioGroup Component Styles
+ *
+ * Styling for radio button groups
+ */
+
+// -----------------------------------------------------------------------------
+// FormRadioGroup Component
+// -----------------------------------------------------------------------------
+.form-radio-group {
+  .form-radio-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .form-radio-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+
+    input[type="radio"] {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      accent-color: var(--color-primary-green, #81FEE5);
+    }
+
+    span {
+      @include text-body-base;
+      color: var(--color-white);
+      margin: 0;
+    }
+  }
+}

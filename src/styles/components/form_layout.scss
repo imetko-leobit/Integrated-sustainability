@@ -1,0 +1,64 @@
+@import "../common/variable";
+@import "../common/mixins";
+
+/**
+ * Form Layout Component Styles
+ *
+ * Styling for form layout components:
+ * - FormRow (grid layout)
+ * - FormSection (content sections with titles and dividers)
+ */
+
+// -----------------------------------------------------------------------------
+// FormRow Component (Layout)
+// -----------------------------------------------------------------------------
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  width: 100%;
+
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+  }
+
+  // Support for full-width fields within grid
+  .form-field--full {
+    grid-column: 1 / -1;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// FormSection Component (Layout)
+// -----------------------------------------------------------------------------
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+
+  .form-section-title {
+    font-family: $font-semibold;
+    font-weight: $w-semibold;
+    font-size: 24px;
+    line-height: 1.3;
+    color: var(--color-white);
+    margin: 0;
+
+    @media (max-width: 991px) {
+      font-size: 20px;
+    }
+  }
+
+  .form-section-divider {
+    width: 100%;
+    height: 1px;
+    background: $grey-gradient-50;
+  }
+
+  .form-section-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+}

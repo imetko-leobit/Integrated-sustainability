@@ -20,6 +20,16 @@
  * @param array $dataAttributes - Additional data attributes for the select element - default: []
  */
 
+// Include component styles
+if (!defined('FORM_COMMON_CSS_LOADED')) {
+  echo '<link rel="stylesheet" href="../assets/css/components-form_common.css" />';
+  define('FORM_COMMON_CSS_LOADED', true);
+}
+if (!defined('SELECT_CSS_LOADED')) {
+  echo '<link rel="stylesheet" href="../assets/css/components-select.css" />';
+  define('SELECT_CSS_LOADED', true);
+}
+
 // Set defaults
 $id = $id ?? '';
 $name = $name ?? '';
