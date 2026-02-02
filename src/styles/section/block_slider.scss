@@ -9,23 +9,6 @@
     padding: 0 16px 80px;
   }
 
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: 0px;
-    left: 30%;
-    height: 100%;
-    width: calc(100vw - 30%);
-    background: linear-gradient(90deg, rgba(4, 4, 4, 0) 0%, rgb(4, 4, 4) 100%);
-    overflow: hidden;
-    z-index: 1;
-    pointer-events: none;
-
-    @media (max-width: 1199px) {
-      display: none;
-    }
-  }
-
   &--full {
     &::after {
       display: none;
@@ -115,11 +98,32 @@
       margin: 0;
     }
 
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(90deg, rgba(4, 4, 4, 0) 40%, rgb(4, 4, 4) 75%, rgb(4, 4, 4) 100%);
+      overflow: hidden;
+      z-index: 1;
+      pointer-events: none;
+
+      @media (max-width: 1199px) {
+        display: none;
+      }
+    }
+
     &--full {
       position: relative;
       overflow: hidden;
       margin: 0;
       width: calc(100% + 48px);
+
+      &::after {
+        content: none;
+      }
 
       .pillar-carousel .pillar-carousel-card {
         width: 100%;

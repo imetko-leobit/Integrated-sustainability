@@ -59,7 +59,6 @@
   @include text-body-base;
   color: var(--color-grey-500);
   margin: 0;
-  font-size: 14px;
   line-height: 1.4;
 }
 
@@ -70,7 +69,6 @@
   @include text-body-base;
   color: var(--color-red, rgba(229, 57, 53, 1));
   margin: 0;
-  font-size: 14px;
   line-height: 1.4;
   display: none; /* Hidden by default, shown when .is-error is present */
 }
