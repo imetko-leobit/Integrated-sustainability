@@ -55,20 +55,25 @@ if (!isset($sort_options)) {
         <div class="block-filtered-grid__filter-inputs">
           <?php foreach ($filter_config as $filter) : ?>
           <div class="block-filtered-grid__filter-item">
-            <select
-              name="<?php echo htmlspecialchars($filter['name'], ENT_QUOTES, 'UTF-8'); ?>"
-              class="block-filtered-grid__select js-filter-select"
-              data-filter-name="<?php echo htmlspecialchars($filter['name'], ENT_QUOTES, 'UTF-8'); ?>"
-            >
-              <option value=""><?php echo htmlspecialchars($filter['label'], ENT_QUOTES, 'UTF-8'); ?></option>
-              <?php if (isset($filter['options']) && is_array($filter['options'])) : ?>
-                <?php foreach ($filter['options'] as $option) : ?>
-                <option value="<?php echo htmlspecialchars($option['value'], ENT_QUOTES, 'UTF-8'); ?>">
-                  <?php echo htmlspecialchars($option['label'], ENT_QUOTES, 'UTF-8'); ?>
-                </option>
-                <?php endforeach; ?>
-              <?php endif; ?>
-            </select>
+            <?php
+              // Prepare props for custom select component
+              $id = 'filter-' . $filter['name'];
+              $name = $filter['name'];
+              $label = $filter['label'];
+              $options = isset($filter['options']) && is_array($filter['options']) ? $filter['options'] : [];
+              $placeholder = $filter['label'];
+              $value = '';
+              $required = false;
+              $hint = '';
+              $errorMessage = '';
+              $error = false;
+              $fieldWrapperClass = '';
+              $selectClass = 'js-filter-select';
+              $dataAttributes = ['filter-name' => $filter['name']];
+              
+              // Include the custom select component
+              include(__DIR__ . '/../form/select.php');
+            ?>
           </div>
           <?php endforeach; ?>
         </div>
@@ -79,17 +84,25 @@ if (!isset($sort_options)) {
         <h5 class="block-filtered-grid__section-title">Sort By:</h5>
 
         <div class="block-filtered-grid__filter-item">
-          <select
-            name="sort"
-            class="block-filtered-grid__select js-sort-select"
-          >
-            <option value="">Default</option>
-            <?php foreach ($sort_options as $option) : ?>
-            <option value="<?php echo htmlspecialchars($option['value'], ENT_QUOTES, 'UTF-8'); ?>">
-              <?php echo htmlspecialchars($option['label'], ENT_QUOTES, 'UTF-8'); ?>
-            </option>
-            <?php endforeach; ?>
-          </select>
+          <?php
+            // Prepare props for custom select component
+            $id = 'sort-select';
+            $name = 'sort';
+            $label = 'Sort Order';
+            $options = $sort_options;
+            $placeholder = 'Default';
+            $value = '';
+            $required = false;
+            $hint = '';
+            $errorMessage = '';
+            $error = false;
+            $fieldWrapperClass = '';
+            $selectClass = 'js-sort-select';
+            $dataAttributes = [];
+            
+            // Include the custom select component
+            include(__DIR__ . '/../form/select.php');
+          ?>
         </div>
       </div>
 

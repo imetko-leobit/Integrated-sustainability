@@ -33,21 +33,38 @@
       position: absolute;
       bottom: 0;
       width: 100%;
-      padding: 56px;
-      background-image: url(../../assets/img/overlay.svg);
-      background-blend-mode: normal, overlay;
-      background-size: cover;
-      background-position: right top;
-      background-repeat: no-repeat;
-      text-align: center;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      align-items: center;
-      gap: 32px; }
+      height: 100%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column; }
+      .info-card-wrapper .info-card .info-card__content-top {
+        height: 100%;
+        min-height: 0;
+        position: relative; }
+        .info-card-wrapper .info-card .info-card__content-top::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.3'/%3E%3C/svg%3E");
+          background-size: cover; }
+      .info-card-wrapper .info-card .info-card__content-bottom {
+        height: 100%;
+        padding: 56px;
+        text-align: left;
+        background-image: url(../../assets/img/overlay.svg);
+        background-blend-mode: normal, overlay;
+        background-size: cover;
+        background-position: right top;
+        background-repeat: no-repeat; }
       .info-card-wrapper .info-card .info-card__content .title {
         font-weight: 300;
         font-size: 25px;
-        font-family: "PoppinsLight", "Roboto", "Arial", sans-serif;
+        font-family: "Poppins", "Roboto", "Arial", sans-serif;
         line-height: 144%;
         margin-bottom: 32px;
         text-align: left; }

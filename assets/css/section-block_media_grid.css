@@ -6,7 +6,7 @@
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 56px;
-  padding: 0 0 130px; }
+  padding: 0 0 140px; }
   @media (max-width: 991px) {
     .block-media-grid {
       display: -webkit-box;
@@ -88,21 +88,20 @@
     .block-media-grid .media-card__content .title {
       margin-bottom: 40px; }
     .block-media-grid .media-card__content p {
-      font-family: "Poppins", "Roboto", "Arial", sans-serif;
-      font-style: normal;
-      font-size: 15px;
-      line-height: 24px;
-      font-weight: 400;
       margin-bottom: 16px; }
-      @media (max-width: 991px) {
-        .block-media-grid .media-card__content p {
-          font-size: 12px;
-          line-height: 20px; } }
   .block-media-grid .media-card__image-wrapper {
     height: 100%;
     -o-object-fit: cover;
     object-fit: cover;
+    position: relative;
     position: relative; }
+    .block-media-grid .media-card__image-wrapper::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.3'/%3E%3C/svg%3E");
+      background-size: cover; }
     .block-media-grid .media-card__image-wrapper img {
       height: 100%;
       width: 100%;
@@ -278,7 +277,7 @@
           -moz-osx-font-smoothing: grayscale;
           font-style: normal;
           font-size: 16px;
-          line-height: 24px; } }
+          line-height: 29px; } }
       @media (max-width: 991px) and (max-width: 991px) {
         .block-media-grid article.media-card .media-card__content p {
           font-size: 14px;

@@ -16,6 +16,8 @@
  * @param string $errorMessage - Error message - default: ''
  * @param bool $error - Has error state - default: false
  * @param string $fieldWrapperClass - Additional CSS classes for the field wrapper - default: ''
+ * @param string $selectClass - Additional CSS classes for the select element - default: ''
+ * @param array $dataAttributes - Additional data attributes for the select element - default: []
  */
 
 // Set defaults
@@ -30,6 +32,8 @@ $hint = $hint ?? '';
 $errorMessage = $errorMessage ?? '';
 $error = $error ?? false;
 $fieldWrapperClass = $fieldWrapperClass ?? '';
+$selectClass = $selectClass ?? '';
+$dataAttributes = $dataAttributes ?? [];
 
 // Build class names
 $fieldClass = 'form-field';
@@ -38,6 +42,11 @@ if ($error) {
 }
 if ($fieldWrapperClass) {
     $fieldClass .= ' ' . $fieldWrapperClass;
+}
+
+$selectClassFinal = 'form-select';
+if ($selectClass) {
+    $selectClassFinal .= ' ' . $selectClass;
 }
 ?>
 
@@ -48,10 +57,14 @@ if ($fieldWrapperClass) {
   </label>
 
   <select
-    class="form-select"
+    class="<?php echo htmlspecialchars($selectClassFinal, ENT_QUOTES, 'UTF-8'); ?>"
     id="<?php echo htmlspecialchars($id, ENT_QUOTES, 'UTF-8'); ?>"
     name="<?php echo htmlspecialchars($name, ENT_QUOTES, 'UTF-8'); ?>"
-    <?php echo $required ? 'required' : ''; ?>>
+    <?php echo $required ? 'required' : ''; ?>
+    <?php foreach ($dataAttributes as $attrName => $attrValue): ?>
+      data-<?php echo htmlspecialchars($attrName, ENT_QUOTES, 'UTF-8'); ?>="<?php echo htmlspecialchars($attrValue, ENT_QUOTES, 'UTF-8'); ?>"
+    <?php endforeach; ?>
+  >
     <option value="" disabled selected><?php echo htmlspecialchars($placeholder, ENT_QUOTES, 'UTF-8'); ?></option>
 
     <?php foreach ($options as $option): ?>
