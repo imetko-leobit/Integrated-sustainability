@@ -43,6 +43,15 @@
         "half-right";
       grid-template-rows: min-content 1fr;
     }
+
+    .person-card {
+      padding: 0;
+      height: max-content;
+
+      .person-card__content {
+        gap: 20px;
+      }
+    }
   }
 
   .block-project-cards__grid--small {
@@ -94,6 +103,7 @@
 
     .card__content {
       padding: 40px;
+      gap: 56px;
       @include bg-image;
 
       @media (max-width: 1599px) {
