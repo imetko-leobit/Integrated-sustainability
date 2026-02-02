@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="../assets/css/components-accordion.css" />
 <link rel="stylesheet" href="../assets/css/components-gradient_link.css" />
 
-<div class="accordion js-accordion-container js-accordion-exclusive">
+<div class="accordion js-accordion-container<?php echo isset($accordion_exclusive) && $accordion_exclusive ? ' js-accordion-exclusive' : ''; ?>">
   <?php foreach ($accordion_items as $index => $item): 
                     $is_open = $item['initial_open'] ? 'is-open' : '';
                     $is_open_display = $item['initial_open'] ? 'style="display: block;"' : 'style="display: none;"';

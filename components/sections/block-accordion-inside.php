@@ -4,6 +4,8 @@ $description = "Sample volumes vary based on the type of analysis, but most chem
 
 $bg_image = '../assets/img/grass.png';
 
+$accordion_exclusive = true;
+
 $accordion_items = [
     [
         'title' => 'Can multiple treatment scenarios be evaluated in a single testing program?',
