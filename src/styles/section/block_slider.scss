@@ -217,7 +217,7 @@
       background-size: cover;
       background-position: center;
       filter: grayscale(100%);
-      @include bg-overlay(0.3);
+      @include bg-overlay();
     }
 
     &:hover {

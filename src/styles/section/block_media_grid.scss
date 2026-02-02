@@ -79,7 +79,7 @@
     height: 100%;
     object-fit: cover;
     position: relative;
-    @include bg-overlay(0.2);
+    @include bg-overlay();
 
     img {
       height: 100%;

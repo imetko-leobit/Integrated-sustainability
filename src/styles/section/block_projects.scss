@@ -131,7 +131,7 @@
   }
 
   .block-projects__slide-image {
-    @include bg-overlay(0.1);
+    @include bg-overlay();
 
     img {
       width: 100%;

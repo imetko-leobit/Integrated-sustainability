@@ -43,7 +43,7 @@
           &-top {
             height: 100%;
             min-height: 0;
-            @include bg-overlay(0.1);
+            @include bg-overlay();
           }
 
           &-bottom {

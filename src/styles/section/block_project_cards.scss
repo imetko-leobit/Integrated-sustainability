@@ -201,7 +201,7 @@
   }
 
   .card__image-wrapper {
-    @include bg-overlay(0.2);
+    @include bg-overlay();
   }
 
   .card__container .card__content,

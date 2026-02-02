@@ -27,7 +27,7 @@
 
           .post-card__image-wrapper {
             filter: grayscale(0%);
-            @include bg-overlay(0.2);
+            @include bg-overlay();
           }
 
           .post-card__content {

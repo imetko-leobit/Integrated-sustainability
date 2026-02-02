@@ -41,7 +41,7 @@
     align-items: center;
     justify-content: center;
     margin: auto;
-    @include bg-overlay(0.1);
+    @include bg-overlay();
 
     @media (max-width: 1199px) {
       display: none;

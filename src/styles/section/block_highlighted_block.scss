@@ -53,7 +53,7 @@
   }
 
   &__image {
-    @include bg-overlay(0.2);
+    @include bg-overlay();
 
     align-self: start;
 

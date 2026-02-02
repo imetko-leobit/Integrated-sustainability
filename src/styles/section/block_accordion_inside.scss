@@ -11,7 +11,7 @@
   }
 
   .block-accordion__wrapper {
-    @include bg-overlay(0.2);
+    @include bg-overlay();
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     flex-wrap: wrap;
