@@ -41,6 +41,8 @@ if (!isset($sort_options)) {
 ?>
 
 <link rel="stylesheet" href="../assets/css/section-block_filtered_grid.css" />
+<link rel="stylesheet" href="../assets/css/components-form_components.css" />
+<link rel="stylesheet" href="../assets/css/section-block_form.css" />
 
 <section class="block-filtered-grid">
   <div class="block-filtered-grid__container">
