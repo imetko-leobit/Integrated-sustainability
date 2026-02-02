@@ -1,0 +1,72 @@
+@import "../common/variable";
+@import "../common/mixins";
+
+/**
+ * FormActions Component Styles
+ *
+ * Styling for form submit/cancel buttons
+ */
+
+// -----------------------------------------------------------------------------
+// FormActions Component (Submit/Cancel Buttons)
+// -----------------------------------------------------------------------------
+.form-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: 24px;
+
+  @media (max-width: 767px) {
+    flex-direction: column-reverse;
+    gap: 12px;
+
+    .btn {
+      width: 100%;
+    }
+  }
+
+  .btn-secondary {
+    background: transparent;
+    border: 1px solid var(--color-grey-700);
+    color: var(--color-white);
+    padding: 12px 24px;
+    height: 54px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    @include text-body-base;
+
+    &:hover {
+      background: var(--color-grey-900);
+      border-color: var(--color-grey-600);
+    }
+
+    &:focus {
+      outline: 2px solid var(--color-grey-400);
+      outline-offset: 2px;
+    }
+  }
+
+  .btn-primary {
+    background: $primary-gradient;
+    border: none;
+    color: var(--color-black);
+    padding: 12px 32px;
+    height: 54px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    @include text-body-base;
+    font-weight: $w-semibold;
+    min-width: 160px;
+
+    &:hover {
+      opacity: 0.9;
+    }
+
+    &:focus {
+      outline: 2px solid var(--color-primary-green);
+      outline-offset: 2px;
+    }
+  }
+}

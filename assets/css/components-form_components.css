@@ -1,0 +1,507 @@
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/styles/components/form_components.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************/
+@charset "UTF-8";
+/**
+ * Unified Form Component Styles
+ *
+ * This SCSS module provides styling for all reusable form components.
+ * The styles have been refactored into individual component files for better modularity.
+ * This file imports all component styles to maintain backward compatibility.
+ *
+ * Individual component files:
+ * - form-common.scss - Common form field styles (labels, hints, errors, etc.)
+ * - input.scss - FormInput (text, email, phone, number, url, tel)
+ * - select.scss - FormSelect
+ * - textarea.scss - FormTextarea
+ * - radio.scss - FormRadioGroup
+ * - checkbox.scss - Checkbox fields
+ * - file-upload.scss - FormFileUpload
+ * - form-actions.scss - FormActions (submit/cancel buttons)
+ * - form-layout.scss - FormRow and FormSection layouts
+ */
+/*images*/
+/**
+ * Common Form Styles
+ *
+ * Shared styles used across all form components:
+ * - Base form field container
+ * - Form labels
+ * - Hint text
+ * - Error messages
+ * - Required indicator
+ */
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%; }
+  .form-field.is-error .form-input,
+  .form-field.is-error .form-select select,
+  .form-field.is-error .form-textarea textarea {
+    border-color: var(--color-red, rgba(229, 57, 53, 0.2)); }
+  .form-field.is-error .form-error {
+    display: block; }
+
+.form-label {
+  font-family: "Poppins", "Roboto", "Arial", sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 29px;
+  color: var(--color-grey-100);
+  font-weight: 600;
+  margin: 0; }
+  @media (max-width: 991px) {
+    .form-label {
+      font-size: 14px;
+      line-height: 22px; } }
+
+.form-required {
+  color: var(--color-red); }
+
+.form-hint {
+  font-family: "Poppins", "Roboto", "Arial", sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 29px;
+  color: var(--color-grey-500);
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4; }
+  @media (max-width: 991px) {
+    .form-hint {
+      font-size: 14px;
+      line-height: 22px; } }
+
+.form-error {
+  font-family: "Poppins", "Roboto", "Arial", sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 29px;
+  color: var(--color-red, #e53935);
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+  display: none;
+  /* Hidden by default, shown when .is-error is present */ }
+  @media (max-width: 991px) {
+    .form-error {
+      font-size: 14px;
+      line-height: 22px; } }
+
+/*images*/
+/**
+ * FormInput Component Styles
+ *
+ * Styling for text input fields including:
+ * - text, email, phone, number, url, tel input types
+ */
+.form-input input {
+  width: 100%;
+  height: 54px;
+  padding: 12px 20px;
+  font-family: "Poppins", "Roboto", "Arial", sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 29px;
+  background: var(--color-black);
+  outline: none;
+  color: var(--color-white, #fff);
+  border: 1px solid transparent;
+  background-image: linear-gradient(#040404, #040404), linear-gradient(90deg, rgba(187, 191, 199, 0.5) 0%, rgba(148, 152, 154, 0.5) 100%);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  color: var(--color-white);
+  transition: all 0.3s ease; }
+  @media (max-width: 991px) {
+    .form-input input {
+      font-size: 14px;
+      line-height: 22px; } }
+  .form-input input::placeholder {
+    color: var(--color-grey-500); }
+  .form-input input:focus {
+    border-color: var(--color-grey-400); }
+
+/*images*/
+/**
+ * FormSelect Component Styles
+ *
+ * Styling for dropdown/select fields with custom arrow
+ */
+.form-select {
+  position: relative;
+  /* Custom select arrow */ }
+  .form-select select {
+    width: 100%;
+    height: 54px;
+    padding: 12px 20px;
+    padding-right: 48px;
+    font-family: "Poppins", "Roboto", "Arial", sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 29px;
+    background: var(--color-black);
+    outline: none;
+    color: var(--color-white, #fff);
+    border: 1px solid transparent;
+    background-image: linear-gradient(#040404, #040404), linear-gradient(90deg, rgba(187, 191, 199, 0.5) 0%, rgba(148, 152, 154, 0.5) 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    color: var(--color-white);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none; }
+    @media (max-width: 991px) {
+      .form-select select {
+        font-size: 14px;
+        line-height: 22px; } }
+    .form-select select:focus {
+      border-color: var(--color-grey-400); }
+    .form-select select option {
+      background: var(--color-grey-900);
+      color: var(--color-white); }
+  .form-select::after {
+    content: "▼";
+    /* Downward arrow */
+    position: absolute;
+    right: 20px;
+    top: calc(50% + 12px);
+    /* Adjust for label height */
+    transform: translateY(-50%);
+    color: var(--color-grey-500);
+    font-size: 12px;
+    pointer-events: none; }
+
+/*images*/
+/**
+ * FormTextarea Component Styles
+ *
+ * Styling for multi-line text input fields
+ */
+.form-textarea textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 12px 20px;
+  font-family: "Poppins", "Roboto", "Arial", sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 29px;
+  background: var(--color-black);
+  outline: none;
+  color: var(--color-white, #fff);
+  border: 1px solid transparent;
+  background-image: linear-gradient(#040404, #040404), linear-gradient(90deg, rgba(187, 191, 199, 0.5) 0%, rgba(148, 152, 154, 0.5) 100%);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  color: var(--color-white);
+  resize: none;
+  /* Disable resize as per requirements */
+  transition: all 0.3s ease; }
+  @media (max-width: 991px) {
+    .form-textarea textarea {
+      font-size: 14px;
+      line-height: 22px; } }
+  .form-textarea textarea::placeholder {
+    color: var(--color-grey-500); }
+  .form-textarea textarea:focus {
+    border-color: var(--color-grey-400); }
+
+/*images*/
+/**
+ * FormRadioGroup Component Styles
+ *
+ * Styling for radio button groups
+ */
+.form-radio-group .form-radio-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; }
+
+.form-radio-group .form-radio-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer; }
+  .form-radio-group .form-radio-item input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--color-primary-green, #81FEE5); }
+  .form-radio-group .form-radio-item span {
+    font-family: "Poppins", "Roboto", "Arial", sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 29px;
+    color: var(--color-white);
+    margin: 0; }
+    @media (max-width: 991px) {
+      .form-radio-group .form-radio-item span {
+        font-size: 14px;
+        line-height: 22px; } }
+
+/*images*/
+/**
+ * Checkbox Component Styles
+ *
+ * Styling for checkbox fields
+ */
+.form-checkbox .form-checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer; }
+  .form-checkbox .form-checkbox-wrapper .form-checkbox-input {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--color-primary-green, #81FEE5); }
+  .form-checkbox .form-checkbox-wrapper .form-checkbox-label {
+    font-family: "Poppins", "Roboto", "Arial", sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 29px;
+    color: var(--color-white);
+    margin: 0;
+    cursor: pointer; }
+    @media (max-width: 991px) {
+      .form-checkbox .form-checkbox-wrapper .form-checkbox-label {
+        font-size: 14px;
+        line-height: 22px; } }
+
+/*images*/
+/**
+ * FormFileUpload Component Styles
+ *
+ * Styling for drag-and-drop file upload component
+ */
+.form-file {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; }
+  .form-file input[type="file"] {
+    display: none; }
+  .form-file .file-upload {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    font-family: "Poppins", "Roboto", "Arial", sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 29px;
+    background: var(--color-black);
+    border: 1px solid var(--color-grey-400);
+    color: var(--color-white);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    width: auto;
+    border-style: dashed;
+    gap: 0.5rem; }
+    @media (max-width: 991px) {
+      .form-file .file-upload {
+        font-size: 14px;
+        line-height: 22px; } }
+    .form-file .file-upload-info {
+      display: flex;
+      align-items: center;
+      color: var(--color-grey-400);
+      gap: 8px; }
+      .form-file .file-upload-info:last-of-type {
+        margin-top: 0.5rem; }
+    .form-file .file-upload-drag {
+      color: var(--color-grey-100);
+      margin-right: 4px;
+      font-family: "PoppinsMedium", "Roboto", "Arial", sans-serif;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 30px;
+      font-weight: 500; }
+      @media (max-width: 991px) {
+        .form-file .file-upload-drag {
+          font-size: 18px;
+          line-height: 26px; } }
+    .form-file .file-upload-browse {
+      display: flex;
+      gap: 8px;
+      background: linear-gradient(90deg, #81FEE5 0%, #818FFE 100%);
+      margin-left: 4px;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-family: "PoppinsMedium", "Roboto", "Arial", sans-serif;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 30px;
+      font-weight: 500; }
+      @media (max-width: 991px) {
+        .form-file .file-upload-browse {
+          font-size: 18px;
+          line-height: 26px; } }
+    .form-file .file-upload-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--color-primary-violet);
+      border-radius: 50%; }
+  .form-file .file-name {
+    font-family: "Poppins", "Roboto", "Arial", sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 29px;
+    color: var(--color-grey-500);
+    font-style: italic;
+    margin: 0;
+    display: none; }
+    @media (max-width: 991px) {
+      .form-file .file-name {
+        font-size: 14px;
+        line-height: 22px; } }
+
+/*images*/
+/**
+ * FormActions Component Styles
+ *
+ * Styling for form submit/cancel buttons
+ */
+.form-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: 24px; }
+  @media (max-width: 767px) {
+    .form-actions {
+      flex-direction: column-reverse;
+      gap: 12px; }
+      .form-actions .btn {
+        width: 100%; } }
+  .form-actions .btn-secondary {
+    background: transparent;
+    border: 1px solid var(--color-grey-700);
+    color: var(--color-white);
+    padding: 12px 24px;
+    height: 54px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: "Poppins", "Roboto", "Arial", sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 29px; }
+    @media (max-width: 991px) {
+      .form-actions .btn-secondary {
+        font-size: 14px;
+        line-height: 22px; } }
+    .form-actions .btn-secondary:hover {
+      background: var(--color-grey-900);
+      border-color: var(--color-grey-600); }
+    .form-actions .btn-secondary:focus {
+      outline: 2px solid var(--color-grey-400);
+      outline-offset: 2px; }
+  .form-actions .btn-primary {
+    background: linear-gradient(90deg, #81FEE5 0%, #818FFE 100%);
+    border: none;
+    color: var(--color-black);
+    padding: 12px 32px;
+    height: 54px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: "Poppins", "Roboto", "Arial", sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 29px;
+    font-weight: 600;
+    min-width: 160px; }
+    @media (max-width: 991px) {
+      .form-actions .btn-primary {
+        font-size: 14px;
+        line-height: 22px; } }
+    .form-actions .btn-primary:hover {
+      opacity: 0.9; }
+    .form-actions .btn-primary:focus {
+      outline: 2px solid var(--color-primary-green);
+      outline-offset: 2px; }
+
+/*images*/
+/**
+ * Form Layout Component Styles
+ *
+ * Styling for form layout components:
+ * - FormRow (grid layout)
+ * - FormSection (content sections with titles and dividers)
+ */
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  width: 100%; }
+  @media (max-width: 767px) {
+    .form-row {
+      grid-template-columns: 1fr; } }
+  .form-row .form-field--full {
+    grid-column: 1 / -1; }
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%; }
+  .form-section .form-section-title {
+    font-family: "PoppinsSBold", "Roboto", "Arial", sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.3;
+    color: var(--color-white);
+    margin: 0; }
+    @media (max-width: 991px) {
+      .form-section .form-section-title {
+        font-size: 20px; } }
+  .form-section .form-section-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(187, 191, 199, 0.5) 0%, rgba(148, 152, 154, 0.5) 100%); }
+  .form-section .form-section-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px; }
+
+
+/*# sourceMappingURL=components-form_components.css.map*/

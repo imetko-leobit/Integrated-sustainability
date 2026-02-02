@@ -1,0 +1,41 @@
+/*!********************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/styles/components/checkbox.scss ***!
+  \********************************************************************************************************************************************************************************************************************************/
+/*images*/
+/**
+ * Checkbox Component Styles
+ *
+ * Styling for checkbox fields
+ */
+.form-checkbox .form-checkbox-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer; }
+  .form-checkbox .form-checkbox-wrapper .form-checkbox-input {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--color-primary-green, #81FEE5); }
+  .form-checkbox .form-checkbox-wrapper .form-checkbox-label {
+    font-family: "Poppins", "Roboto", "Arial", sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 29px;
+    color: var(--color-white);
+    margin: 0;
+    cursor: pointer; }
+    @media (max-width: 991px) {
+      .form-checkbox .form-checkbox-wrapper .form-checkbox-label {
+        font-size: 14px;
+        line-height: 22px; } }
+
+
+/*# sourceMappingURL=components-checkbox.css.map*/

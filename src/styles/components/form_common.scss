@@ -1,0 +1,73 @@
+@import "../common/variable";
+@import "../common/mixins";
+
+/**
+ * Common Form Styles
+ *
+ * Shared styles used across all form components:
+ * - Base form field container
+ * - Form labels
+ * - Hint text
+ * - Error messages
+ * - Required indicator
+ */
+
+// -----------------------------------------------------------------------------
+// Base Form Field Container
+// -----------------------------------------------------------------------------
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+
+  // Error state
+  &.is-error {
+    .form-input,
+    .form-select select,
+    .form-textarea textarea {
+      border-color: var(--color-red, rgba(229, 57, 53, 0.2));
+    }
+
+    .form-error {
+      display: block;
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Form Label
+// -----------------------------------------------------------------------------
+.form-label {
+  @include text-body-base;
+  color: var(--color-grey-100);
+  font-weight: $w-semibold;
+  margin: 0;
+}
+
+.form-required {
+  color: var(--color-red);
+}
+
+// -----------------------------------------------------------------------------
+// Form Hint Text
+// -----------------------------------------------------------------------------
+.form-hint {
+  @include text-body-base;
+  color: var(--color-grey-500);
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+// -----------------------------------------------------------------------------
+// Form Error Message
+// -----------------------------------------------------------------------------
+.form-error {
+  @include text-body-base;
+  color: var(--color-red, rgba(229, 57, 53, 1));
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+  display: none; /* Hidden by default, shown when .is-error is present */
+}

@@ -14,6 +14,16 @@
  * @param string $fieldWrapperClass - Additional CSS classes for the field wrapper - default: ''
  */
 
+// Include component styles
+if (!defined('FORM_COMMON_CSS_LOADED')) {
+  echo '<link rel="stylesheet" href="../assets/css/components-form_common.css" />';
+  define('FORM_COMMON_CSS_LOADED', true);
+}
+if (!defined('RADIO_CSS_LOADED')) {
+  echo '<link rel="stylesheet" href="../assets/css/components-radio.css" />';
+  define('RADIO_CSS_LOADED', true);
+}
+
 // Set defaults
 $name = $name ?? '';
 $label = $label ?? '';

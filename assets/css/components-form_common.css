@@ -1,0 +1,88 @@
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/styles/components/form_common.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************/
+/*images*/
+/**
+ * Common Form Styles
+ *
+ * Shared styles used across all form components:
+ * - Base form field container
+ * - Form labels
+ * - Hint text
+ * - Error messages
+ * - Required indicator
+ */
+.form-field {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%; }
+  .form-field.is-error .form-input,
+  .form-field.is-error .form-select select,
+  .form-field.is-error .form-textarea textarea {
+    border-color: var(--color-red, rgba(229, 57, 53, 0.2)); }
+  .form-field.is-error .form-error {
+    display: block; }
+
+.form-label {
+  font-family: "Poppins", "Roboto", "Arial", sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 29px;
+  color: var(--color-grey-100);
+  font-weight: 600;
+  margin: 0; }
+  @media (max-width: 991px) {
+    .form-label {
+      font-size: 14px;
+      line-height: 22px; } }
+
+.form-required {
+  color: var(--color-red); }
+
+.form-hint {
+  font-family: "Poppins", "Roboto", "Arial", sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 29px;
+  color: var(--color-grey-500);
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4; }
+  @media (max-width: 991px) {
+    .form-hint {
+      font-size: 14px;
+      line-height: 22px; } }
+
+.form-error {
+  font-family: "Poppins", "Roboto", "Arial", sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 29px;
+  color: var(--color-red, #e53935);
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+  display: none;
+  /* Hidden by default, shown when .is-error is present */ }
+  @media (max-width: 991px) {
+    .form-error {
+      font-size: 14px;
+      line-height: 22px; } }
+
+
+/*# sourceMappingURL=components-form_common.css.map*/

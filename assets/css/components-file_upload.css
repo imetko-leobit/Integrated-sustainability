@@ -1,0 +1,121 @@
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/styles/components/file_upload.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************/
+/*images*/
+/**
+ * FormFileUpload Component Styles
+ *
+ * Styling for drag-and-drop file upload component
+ */
+.form-file {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 12px; }
+  .form-file input[type="file"] {
+    display: none; }
+  .form-file .file-upload {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding: 1.5rem;
+    font-family: "Poppins", "Roboto", "Arial", sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 29px;
+    background: var(--color-black);
+    border: 1px solid var(--color-grey-400);
+    color: var(--color-white);
+    cursor: pointer;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    width: auto;
+    border-style: dashed;
+    gap: 0.5rem; }
+    @media (max-width: 991px) {
+      .form-file .file-upload {
+        font-size: 14px;
+        line-height: 22px; } }
+    .form-file .file-upload-info {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      color: var(--color-grey-400);
+      gap: 8px; }
+      .form-file .file-upload-info:last-of-type {
+        margin-top: 0.5rem; }
+    .form-file .file-upload-drag {
+      color: var(--color-grey-100);
+      margin-right: 4px;
+      font-family: "PoppinsMedium", "Roboto", "Arial", sans-serif;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 30px;
+      font-weight: 500; }
+      @media (max-width: 991px) {
+        .form-file .file-upload-drag {
+          font-size: 18px;
+          line-height: 26px; } }
+    .form-file .file-upload-browse {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      gap: 8px;
+      background: linear-gradient(90deg, #81FEE5 0%, #818FFE 100%);
+      margin-left: 4px;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-family: "PoppinsMedium", "Roboto", "Arial", sans-serif;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 30px;
+      font-weight: 500; }
+      @media (max-width: 991px) {
+        .form-file .file-upload-browse {
+          font-size: 18px;
+          line-height: 26px; } }
+    .form-file .file-upload-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--color-primary-violet);
+      border-radius: 50%; }
+  .form-file .file-name {
+    font-family: "Poppins", "Roboto", "Arial", sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 29px;
+    color: var(--color-grey-500);
+    font-style: italic;
+    margin: 0;
+    display: none; }
+    @media (max-width: 991px) {
+      .form-file .file-name {
+        font-size: 14px;
+        line-height: 22px; } }
+
+
+/*# sourceMappingURL=components-file_upload.css.map*/
