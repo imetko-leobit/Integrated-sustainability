@@ -115,11 +115,18 @@
         .accordion .accordion-item__list li {
           gap: 12px; } }
   .accordion .icon-minus {
-    display: none; }
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease; }
+  .accordion .icon-plus {
+    opacity: 1;
+    transition: opacity 0.3s ease; }
   .accordion .accordion-item.is-open .icon-plus {
-    display: none; }
+    display: none;
+    opacity: 0; }
   .accordion .accordion-item.is-open .icon-minus {
-    display: block; }
+    display: block;
+    opacity: 1; }
   .accordion .accordion-item__divider {
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     padding-top: 32px; }
