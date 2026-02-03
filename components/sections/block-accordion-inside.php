@@ -55,10 +55,6 @@ $accordion_items = [
             </span>
           </a>
         </div>
-
-        <?php
-          include('../components/elements/accordion.php')
-        ?>
       </div>
     </div>
   </div>
