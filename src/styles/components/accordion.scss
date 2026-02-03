@@ -17,6 +17,14 @@
   .accordion-item {
     cursor: pointer;
 
+    &:not(:first-child) {
+      margin-top: 32px;
+
+      @media (max-width: 991px) {
+        margin-top: 24px;
+      }
+    }
+
     &__title {
       color: var(--color-white);
       margin: 0;
@@ -28,7 +36,7 @@
     .accordion-item__content {
       overflow: hidden;
       transition: all 0.3s ease-out;
-      padding-top: 16px;
+      padding: 0;
 
       p {
         color: var(--color-grey-300);
@@ -47,7 +55,6 @@
     display: flex;
     align-items: center;
     gap: 30px;
-    padding: 32px 0 0;
 
     @media (max-width: 991px) {
       padding-top: 24px;
@@ -155,6 +162,23 @@
 
     @media (max-width: 991px) {
       margin-top: 18px;
+    }
+  }
+}
+
+.accordion.insight-accordion {
+  .accordion-item.is-open {
+    .accordion-item__header .accordion-item__icon {
+      display: none;
+    }
+
+    .accordion-item__title {
+      @include text-h4;
+      margin: 0;
+    }
+
+    .accordion-item__divider {
+      visibility: hidden;
     }
   }
 }

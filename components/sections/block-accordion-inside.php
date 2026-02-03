@@ -12,11 +12,13 @@ $accordion_items = [
         'title' => 'Can multiple treatment scenarios be evaluated in a single testing program?',
         'desc' => 'Coordinating design, sizing, and equipment supply through a single partner results ties each decision to performance and results in greater cost and schedule certainty.',
         'initial_open' => false,
+        'button' => ['button_name' => 'Discuss with our team', 'button_link' => '/wp-content/themes/integrate/frontend/pages/insights.php']
     ],
     [
         'title' => 'Do you offer on-site or remote laboratory support?',
         'desc' => 'Develop integrated water management plans to ensure compliance and operational reliability.',
         'initial_open' => false,
+        'button' => ['button_name' => 'Discuss with our team', 'button_link' => '/wp-content/themes/integrate/frontend/pages/insights.php']
     ],
     [
         'title' => 'How quickly can results be delivered for time-critical projects?',
@@ -27,7 +29,7 @@ $accordion_items = [
       'title' => 'Can laboratory and modelling support systems not designed or built by Integrated Sustainability?',
       'desc' => "We're all stakeholders of our future resources. Employing an owner-mindset enables us to look beyond our own role to what the project, client, and community needs to succeed. We challenge convention where necessary, harness the next generation of environmental technologies and build constructive relationships to drive growth for our clients. ",
       'initial_open' => false,
-      'button' => ['button_name' => 'Explore Advocacy', 'button_link' => '#']
+      'button' => ['button_name' => 'Discuss with our team', 'button_link' => '/wp-content/themes/integrate/frontend/pages/insights.php']
   ],
 
 ];
@@ -45,7 +47,7 @@ $accordion_items = [
 
     <div class="block-accordion__content">
       <div class="block-accordion__content-inner">
-        <?php include('../components/elements/accordion.php'); ?>
+        <?php $is_insight = true; include('../components/elements/accordion.php'); ?>
       </div>
     </div>
   </div>

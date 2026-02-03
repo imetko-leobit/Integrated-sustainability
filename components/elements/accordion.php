@@ -1,7 +1,15 @@
+<?php
+// Передаємо параметр, наприклад $is_insight = true/false
+$accordion_class = 'accordion js-accordion-container';
+if (!empty($is_insight) && $is_insight) {
+    $accordion_class .= ' insight-accordion';
+}
+?>
+
 <link rel="stylesheet" href="../assets/css/components-accordion.css" />
 <link rel="stylesheet" href="../assets/css/components-gradient_link.css" />
 
-<div class="accordion js-accordion-container">
+<div class="<?php echo $accordion_class; ?>">
   <?php foreach ($accordion_items as $index => $item):
         $is_open = $item['initial_open'] ? 'is-open' : '';
   ?>
