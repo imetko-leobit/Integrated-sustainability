@@ -1,5 +1,5 @@
 export default function initInsightAccordion() {
-    const container = document.querySelector('.js-accordion-container.insight-accordion'); // додаємо клас insight-accordion для унікальності
+    const container = document.querySelector('.js-accordion-container');
     if (!container) return;
 
     const items = container.querySelectorAll('.accordion-item');
