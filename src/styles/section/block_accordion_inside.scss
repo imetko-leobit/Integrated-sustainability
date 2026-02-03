@@ -90,24 +90,6 @@
     }
   }
 
-  .title {
-    margin-bottom: 40px;
-
-    @media (max-width: 991px) {
-      @include text-h5;
-    }
-  }
-
-  .description {
-    @include text-body-base;
-    color: var(--color-gray-200);
-    margin-bottom: 40px;
-  }
-
-  .gradient-link {
-    margin-bottom: 40px;
-  }
-
   .accordion {
     padding: 0;
 
