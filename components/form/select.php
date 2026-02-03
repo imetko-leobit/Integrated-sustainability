@@ -36,7 +36,7 @@ $selectClass = $selectClass ?? '';
 $dataAttributes = $dataAttributes ?? [];
 
 // Build class names
-$fieldClass = 'form-field';
+$fieldClass = 'form-field form-field-select';
 if ($error) {
     $fieldClass .= ' is-error';
 }
