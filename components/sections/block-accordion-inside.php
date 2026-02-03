@@ -1,10 +1,13 @@
 <?php
-$title = "What sample volumes and conditions are required for significant testing results?";
-$description = "Sample volumes vary based on the type of analysis, but most chemistry and treatability tests require 1–4 litres to complete a full suite of parameters. We provide guidance on collection, preservation, and shipping to ensure samples arrive in a condition suitable for defensible laboratory results.";
-
 $bg_image = '../assets/img/grass.png';
 
 $accordion_items = [
+    [
+        'title' => 'What sample volumes and conditions are required for significant testing results?',
+        'desc' => 'Sample volumes vary based on the type of analysis, but most chemistry and treatability tests require 1–4 litres to complete a full suite of parameters. We provide guidance on collection, preservation, and shipping to ensure samples arrive in a condition suitable for defensible laboratory results.',
+        'initial_open' => true,
+        'button' => ['button_name' => 'Discuss with our team', 'button_link' => '/wp-content/themes/integrate/frontend/pages/insights.php']
+    ],
     [
         'title' => 'Can multiple treatment scenarios be evaluated in a single testing program?',
         'desc' => 'Coordinating design, sizing, and equipment supply through a single partner results ties each decision to performance and results in greater cost and schedule certainty.',
@@ -32,29 +35,17 @@ $accordion_items = [
 
 <link rel="stylesheet" href="../assets/css/section-block_accordion_inside.css" />
 <link rel="stylesheet" href="../assets/css/components-gradient_link.css" />
+<link rel="stylesheet" href="../assets/css/components-accordion.css" />
 
 <section class="block-accordion-inside">
   <div class="block-accordion__wrapper">
     <div class="block-accordion__image">
-      <img src="<?php echo $bg_image; ?>" alt="picture representing <?php echo $title; ?>" />
+      <img src="<?php echo $bg_image; ?>" alt="FAQ Background" />
     </div>
 
     <div class="block-accordion__content">
       <div class="block-accordion__content-inner">
-        <h4 class="title"><?php echo $title; ?></h4>
-        <p class="description"><?php echo $description; ?></p>
-
-        <div class="gradient-link gradient-link--large">
-          <a href="/wp-content/themes/integrate/frontend/pages/insights.php" aria-label="Discuss with our team">
-            <p class="gradient-link__text">Discuss with our team </p>
-            <span class="arrow-icon">
-              <svg id="arrow-top-right-gradient" viewBox="0 0 24 24">
-                <path class="icon-arrow" fill="currentColor"
-                  d="M22.32 21.729 22.5 0C17.059.053 6.212.128.771.18L.725 2.901c4.897-.049 11.394-.088 17.111-.14L0 20.595 1.903 22.5 19.74 4.664l-.154 17.098 2.734-.03v-.003Z" />
-              </svg>
-            </span>
-          </a>
-        </div>
+        <?php include('../components/elements/accordion.php'); ?>
       </div>
     </div>
   </div>
