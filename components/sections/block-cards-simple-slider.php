@@ -77,7 +77,7 @@ $additional_card =
 
   <div class="swiper-container js-projects-cards-simple-slider">
     <div class="heading">
-      <?php render_heading($section_title, $heading_level, 'title title--h1'); ?>
+      <?php render_heading($section_title, $heading_level, 'title title--h1', [], true); ?>
 
       <div class="cards-navigation">
         <button class="btn btn--arrow js-button-prev" aria-label="Previous Project">

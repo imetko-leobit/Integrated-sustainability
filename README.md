@@ -32,18 +32,24 @@ If no `$heading_level` is specified, components use sensible defaults:
 
 #### The Heading Helper
 
-The `render_heading()` function in `components/helpers/heading.php` handles dynamic heading rendering:
+The `render_heading()` function in `components/helpers/heading.php` handles dynamic heading rendering with automatic XSS protection:
 
 ```php
 <?php
-// Basic usage
+// Basic usage - content is automatically escaped
 render_heading($content, $level, $class);
 
 // Example
 render_heading('Page Title', 1, 'title title--h1');
 // Outputs: <h1 class="title title--h1">Page Title</h1>
+
+// For intentional HTML (like <br> tags), use the $allow_html parameter
+render_heading('water asset <br> performance', 1, 'title', [], true);
+// Outputs: <h1 class="title">water asset <br> performance</h1>
 ?>
 ```
+
+**Security**: Content is automatically escaped to prevent XSS attacks unless `$allow_html` is set to `true`.
 
 ### Best Practices
 

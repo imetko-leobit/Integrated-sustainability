@@ -84,7 +84,7 @@ $modifier_class = $reverse ? ' block-approach-intro--reverse' : '';
       <?php endif; ?>
 
       <div class="heading">
-        <?php render_heading($approach_heading_title, $heading_level, 'title title--h2'); ?>
+        <?php render_heading($approach_heading_title, $heading_level, 'title title--h2', [], true); ?>
       </div>
 
       <div class="text-content text-content--grey">

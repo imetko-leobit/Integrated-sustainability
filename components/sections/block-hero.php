@@ -11,7 +11,7 @@
   </div>
   <div class="block-hero__content">
     <div class="heading">
-      <?php render_heading($hero_title, $heading_level, 'title title--h0'); ?>
+      <?php render_heading($hero_title, $heading_level, 'title title--h0', [], true); ?>
     </div>
 
     <?php if (!empty($hero_description) || !empty($hero_description2)) {?>

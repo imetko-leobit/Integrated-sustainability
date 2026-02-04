@@ -64,7 +64,7 @@ $render_grid_items_feature = function($items, $center_item) {
     <p class="tagline"><?php echo htmlspecialchars($tagline); ?></p>
     <?php endif; ?>
     <div class="heading">
-      <?php render_heading(htmlspecialchars($title), $heading_level, 'title title--h3'); ?>
+      <?php render_heading($title, $heading_level, 'title title--h3'); ?>
     </div>
     <div class="text-content text-content--grey">
       <?php foreach ($paragraphs as $paragraph): ?>

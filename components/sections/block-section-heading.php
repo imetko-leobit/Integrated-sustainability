@@ -21,7 +21,7 @@
 
 <section class="block-section-heading">
     <div class="heading heading-navigation">
-        <?php render_heading($section_title, $heading_level, 'title title--h1'); ?>
+        <?php render_heading($section_title, $heading_level, 'title title--h1', [], true); ?>
 
         <?php if ($link_url || $custom_icon || $person_photo): ?>
             <div class="heading-action <?php echo $link_direction === 'right' ? "heading-action--right" : ($link_direction === 'down' ? "heading-action--down" : ''); ?>">

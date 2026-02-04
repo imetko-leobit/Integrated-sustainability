@@ -18,7 +18,7 @@ include_once(__DIR__ . '/../helpers/heading.php');
     <div class="block-cta__card-wrapper">
       <div class="block-cta__card">
         <div class="block-cta__card-content">
-          <?php render_heading($title, $heading_level, 'title title--h1'); ?>
+          <?php render_heading($title, $heading_level, 'title title--h1', [], true); ?>
           <p class="block-cta__description"><?php echo $description; ?></p>
           <button class="btn btn--gradient"><?php echo $button_text; ?></button>
         </div>
