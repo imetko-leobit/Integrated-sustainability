@@ -1,10 +1,13 @@
+<?php
+    // Default heading level to 3 if not provided
+    $heading_level = $heading_level ?? 3;
+    include_once(__DIR__ . '/../helpers/heading.php');
+?>
 <link rel="stylesheet" href="../assets/css/components-card_external.css" />
 
 <a href="<?php echo htmlspecialchars($url, ENT_QUOTES, 'UTF-8'); ?>" class="card-external" target="_blank" rel="noopener noreferrer">
   <div class="card-external__content">
-    <h4 class="card-external__title title title--h4">
-      <?php echo htmlspecialchars($title, ENT_QUOTES, 'UTF-8'); ?>
-    </h4>
+    <?php render_heading(htmlspecialchars($title, ENT_QUOTES, 'UTF-8'), $heading_level, 'card-external__title title title--h4'); ?>
     <p class="card-external__description text-content">
       <?php echo htmlspecialchars($description, ENT_QUOTES, 'UTF-8'); ?>
     </p>
