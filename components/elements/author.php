@@ -7,12 +7,12 @@ $social_icon = $social_icon ?? null;
 
 <section class="block-author">
   <?php if ($autor_title): ?>
-  <h3 class="title"><?php echo $autor_title; ?></h3>
+  <h3 class="title title--h3"><?php echo $autor_title; ?></h3>
   <?php endif; ?>
   <div class="block-author__wrapper">
     <div class='author__person'>
-      <?php 
-          include('../components/elements/person-card.php') 
+      <?php
+          include('../components/elements/person-card.php')
       ?> <?php if ($social_icon): ?> <div class=' author__actions'>
         <a href='#' class='social-link'><img src='<?php echo $social_icon; ?>' alt='social link icon' /></a>
         <button class='mail-button'><img src='../assets/img/mail.svg' alt='mail icon' /></button>

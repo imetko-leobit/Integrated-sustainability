@@ -137,11 +137,6 @@
 
       .card__title {
         padding-right: 54px;
-        @include text-h3;
-
-        @media (max-width: 1599px) {
-          @include text-h4;
-        }
       }
     }
 

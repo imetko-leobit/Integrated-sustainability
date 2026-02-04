@@ -5,9 +5,9 @@
   <?php foreach ($links as $card): ?>
   <a href="<?php echo $card['link']; ?>" class="link-card <?php echo $card['class']; ?> ">
     <div class="card__content">
-      <h3 class="card__title js-ellipsis-title">
+      <p class="card__title js-ellipsis-title">
         <?php echo $card['title']; ?>
-      </h3>
+      </p>
 
       <span class="arrow-icon">
         <svg id="arrow-top-right" transform="rotate(90)" viewBox="0 0 24 24">

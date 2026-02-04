@@ -6,13 +6,12 @@
   flex-direction: column;
   width: 100%;
 
-  h3 {
+  h2 {
     margin-bottom: 36px;
-    @include text-h2;
   }
 
+  h3:not(.accordion-item__title),
   h4:not(.accordion-item__title) {
-    @include text-h3;
     padding: 44px 0 36px;
     margin-bottom: 48px;
     border-bottom: 1px solid var(--color-grey-500);

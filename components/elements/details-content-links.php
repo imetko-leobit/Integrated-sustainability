@@ -22,7 +22,7 @@
 
 <div class="details-content-links">
   <?php if ($details_title1): ?>
-  <h3><?php echo $details_title1; ?></h4>
+  <h2 class="title title--h2"><?php echo $details_title1; ?></h2>
     <?php endif; ?>
     <?php if ($details_description): ?>
     <p><?php echo $details_description; ?></p>
@@ -57,12 +57,12 @@
       </li>
     </ul>
     <?php if ($details_title3): ?>
-    <h4><?php echo $details_title3; ?></h4>
+    <h3 class="title title--h3"><?php echo $details_title3; ?></h3>
     <?php endif; ?>
     <?php if ($details_description3): ?>
     <p><?php echo $details_description3; ?></p>
     <?php endif; ?>
-    <?php 
+    <?php
 
         $accordion_items = [
           [
@@ -85,11 +85,11 @@
         @include('../components/elements/accordion.php')
       ?>
     <?php
-    
+
     @include ('../components/elements/contact-card.php')
-    
+
     ?>
-    <?php if ($details_title4): ?> <h4><?php echo $details_title4; ?></h4>
+    <?php if ($details_title4): ?> <h3 class="title title--h3"><?php echo $details_title4; ?></h3>
     <?php endif; ?>
 
 

@@ -40,14 +40,9 @@
   }
 
   &__section-title {
-    @include text-h4;
     text-transform: lowercase;
     margin: 0;
     color: var(--color-white);
-  }
-
-  &__section-main-title {
-    @include text-h2;
   }
 
   &__section-description {

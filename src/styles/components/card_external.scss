@@ -49,10 +49,8 @@
 
 
   &__title {
-    @include text-h4;
     color: var(--color-white);
     margin-bottom: 16px;
-
 
     @media (max-width: 991px) {
       margin-bottom: 12px;

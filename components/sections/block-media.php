@@ -3,9 +3,9 @@
 <section class="block-media">
   <div class="block-media__col--text">
     <div class="heading">
-      <h3 class="title title--h2">
+      <h2 class="title title--h2">
         Modular and configurable treatment packages available now
-      </h3>
+      </h2>
     </div>
     <div class="text-content text-content--grey">
       <p>Many operators prefer treatment systems that can be deployed quickly, relocated as conditions change, or

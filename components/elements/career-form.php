@@ -132,7 +132,7 @@ if (!isset($form_submit_button)) {
   <!-- Section 1: Personal Information -->
   <div class="career-form__section">
     <div class="career-form__section-header">
-      <h3 class="career-form__section-title career-form__section-main-title"><?php echo htmlspecialchars($form_section1_header, ENT_QUOTES, 'UTF-8'); ?></h3>
+      <h2 class="title title--h2 career-form__section-title"><?php echo htmlspecialchars($form_section1_header, ENT_QUOTES, 'UTF-8'); ?></h2>
       <p class="career-form__section-description"><?php echo htmlspecialchars($form_section1_description, ENT_QUOTES, 'UTF-8'); ?></p>
     </div>
 
@@ -205,7 +205,7 @@ if (!isset($form_submit_button)) {
   <!-- Section 2: Professional Background -->
   <div class="career-form__section">
     <div class="career-form__section-header">
-      <h3 class="career-form__section-title"><?php echo htmlspecialchars($form_section2_header, ENT_QUOTES, 'UTF-8'); ?></h3>
+      <h4 class="career-form__section-title title title--h4"><?php echo htmlspecialchars($form_section2_header, ENT_QUOTES, 'UTF-8'); ?></h4>
     </div>
 
     <div class="career-form__row">
@@ -277,7 +277,7 @@ if (!isset($form_submit_button)) {
   <!-- Section 3: Additional Information -->
   <div class="career-form__section">
     <div class="career-form__section-header">
-      <h3 class="career-form__section-title"><?php echo htmlspecialchars($form_section3_header, ENT_QUOTES, 'UTF-8'); ?></h3>
+      <h4 class="career-form__section-title title title--h4"><?php echo htmlspecialchars($form_section3_header, ENT_QUOTES, 'UTF-8'); ?></h4>
       <p class="career-form__section-description"><?php echo htmlspecialchars($form_section3_description, ENT_QUOTES, 'UTF-8'); ?></p>
     </div>
 

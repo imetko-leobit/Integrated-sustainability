@@ -10,7 +10,7 @@
 
 <div class="details-general">
     <?php if ($details_title1): ?>
-        <h3><?php echo $details_title1; ?></h3>
+        <h3 class="title title--h3"><?php echo $details_title1; ?></h3>
     <?php endif; ?>
     <?php if ($details_description): ?>
         <p><?php echo $details_description; ?></p>
@@ -22,7 +22,7 @@
         <p><?php echo $details_description3; ?></p>
     <?php endif; ?>
     <?php if ($details_title2): ?>
-        <h3><?php echo $details_title2; ?></h3>
+        <h3 class="title title--h3"><?php echo $details_title2; ?></h3>
     <?php endif; ?>
     <?php if ($details_deliverables): ?>
         <ul>
@@ -34,4 +34,4 @@
     <?php if ($details_button): ?>
         <a href="#" target=""><?php echo $details_button; ?></a>
     <?php endif; ?>
-</div>    
+</div>

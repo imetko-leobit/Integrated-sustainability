@@ -60,9 +60,9 @@
       <img src="../assets/img/closeSmall.svg" alt='close all filters' />
     </button>
   </div>
-  <h3 class='heading title title--h1'>
+  <h1 class='heading title title--h1'>
     41 search results for “water”
-  </h3>
+  </h1>
 </div>
 
 <script type='text/javascript' src="../assets/js/components-multiselect.js"></script>

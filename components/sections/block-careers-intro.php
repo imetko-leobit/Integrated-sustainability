@@ -36,9 +36,9 @@ if (!isset($careers_intro_logos)) {
     <!-- Header and Description Row -->
     <div class="block-careers-intro__content">
       <div class="block-careers-intro__header">
-        <h2 class="title title--h3">
+        <h4 class="title title--h4">
           <?php echo htmlspecialchars($careers_intro_title, ENT_QUOTES, 'UTF-8'); ?>
-        </h2>
+        </h4>
       </div>
 
       <div class="block-careers-intro__description">

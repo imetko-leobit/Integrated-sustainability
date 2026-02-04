@@ -10,7 +10,7 @@
         </button>
     </div>
     <div class="team-member-card__info">
-        <h3 class="team-member-card__name"><?php echo $member_name; ?></h3>
+        <h5 class="title title--h5 team-member-card__name"><?php echo $member_name; ?></h5>
         <p class="team-member-card__additional-info"><?php echo $member_additional_info; ?></p>
         <p class="team-member-card__position"><?php echo $member_position; ?></p>
     </div>

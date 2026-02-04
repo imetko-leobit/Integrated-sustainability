@@ -81,7 +81,7 @@
         <?php
               include('../components/elements/details-content.php')
           ?>
-        <h3 class="title title--top-divider desktop"><?php echo $details_title3; ?></h3>
+        <h3 class="title title--h3 title--top-divider desktop"><?php echo $details_title3; ?></h3>
           <a href="<?php echo $person_link; ?>" class="person-card__link" aria-label="Learn more">
             <?php
                 include('../components/elements/person-card.php')
@@ -94,7 +94,7 @@
       <div class="asside__metadata">
         <?php foreach ($sidebar_tags as $group) : ?>
         <div class="metadata-group">
-          <h4 class="metadata-group__title"><?php echo $group['title']; ?></h4>
+          <h4 class="title title--h4 metadata-group__title"><?php echo $group['title']; ?></h4>
           <div class="metadata-group__links">
             <?php foreach ($group['links'] as $link) : ?>
             <a href="<?php echo $link['link']; ?>" class="metadata-tag"><span><?php echo $link['name']; ?></a>

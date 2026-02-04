@@ -9,7 +9,6 @@
   padding: 0 0 100px;
 
   .table-component__title {
-    @include text-h3;
     color: var(--color-white, #fff);
     margin: 0;
     padding: 0;

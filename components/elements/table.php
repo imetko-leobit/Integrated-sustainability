@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="../assets/css/components-table.css" />
 
 <div class="table-component">
-  <h3 class="table-component__title"><?php echo htmlspecialchars($table_title); ?></h3>
+  <h3 class="title title--h3 table-component__title"><?php echo htmlspecialchars($table_title); ?></h3>
   <div class="table-component__divider"></div>
   <div class="table-component__wrapper">
     <table class="table-component__table">

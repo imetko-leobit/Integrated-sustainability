@@ -2,10 +2,10 @@
 
   $initial_positions = [
     1 => 'P1',
-    2 => 'P2', 
-    3 => 'P3', 
+    2 => 'P2',
+    3 => 'P3',
     4 => 'P4',
-    5 => 'P5', 
+    5 => 'P5',
 ];
 
 $position_to_class = [
@@ -27,9 +27,9 @@ $grid_class = $has_full_card ? 'block-project-cards__grid' : 'block-project-card
 
 <section class="block-project-cards js-project-card-rotator" data-rotation-interval="7000">
   <div class="<?php echo $grid_class; ?>">
-    <?php foreach ($cards_data as $card): 
+    <?php foreach ($cards_data as $card):
             $card_id = $card['id'];
-            $current_position = $initial_positions[$card_id]; 
+            $current_position = $initial_positions[$card_id];
             $current_class = $position_to_class[$current_position];
             $has_image = !empty($card['image']);
         ?>
@@ -40,7 +40,7 @@ $grid_class = $has_full_card ? 'block-project-cards__grid' : 'block-project-card
       </div>
       <div class="card__content">
         <div class="card__text-block">
-          <h3 class="card__title js-ellipsis-title">
+          <h3 class="title title--h3 card__title js-ellipsis-title">
             <?php echo $card['title']; ?>
           </h3>
           <p class="card__description text-content js-ellipsis-text">

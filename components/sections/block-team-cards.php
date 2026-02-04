@@ -165,7 +165,7 @@ $row_titles = [
     <div class="block-team-cards__row <?php echo $is_hidden; ?>" data-row="<?php echo $row_num; ?>">
         <!-- Mobile: Row title and navigation -->
         <div class="block-team-cards__mobile-header">
-            <h3 class="block-team-cards__row-title"><?php echo $row_titles[$row_num]; ?></h3>
+            <h4 class="title title--h4 block-team-cards__row-title"><?php echo $row_titles[$row_num]; ?></h4>
             <div class="block-team-cards__mobile-nav">
                 <button class="btn btn--arrow js-team-prev-<?php echo $row_num; ?>" aria-label="Previous team member">
                     <svg viewBox="0 0 27 15">

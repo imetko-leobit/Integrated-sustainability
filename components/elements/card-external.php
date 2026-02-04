@@ -2,9 +2,9 @@
 
 <a href="<?php echo htmlspecialchars($url, ENT_QUOTES, 'UTF-8'); ?>" class="card-external" target="_blank" rel="noopener noreferrer">
   <div class="card-external__content">
-    <h3 class="card-external__title title title--h4">
+    <h4 class="card-external__title title title--h4">
       <?php echo htmlspecialchars($title, ENT_QUOTES, 'UTF-8'); ?>
-    </h3>
+    </h4>
     <p class="card-external__description text-content">
       <?php echo htmlspecialchars($description, ENT_QUOTES, 'UTF-8'); ?>
     </p>
