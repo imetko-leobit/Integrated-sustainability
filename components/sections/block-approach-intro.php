@@ -62,6 +62,10 @@ if (!isset($accordion_items)) {
     $accordion_items = null;
 }
 
+// Default heading level to 2 if not provided
+$heading_level = $heading_level ?? 2;
+include_once(__DIR__ . '/../helpers/heading.php');
+
 // Build modifier class for reverse layout
 $modifier_class = $reverse ? ' block-approach-intro--reverse' : '';
 ?>
@@ -80,9 +84,7 @@ $modifier_class = $reverse ? ' block-approach-intro--reverse' : '';
       <?php endif; ?>
 
       <div class="heading">
-        <h2 class="title title--h2">
-          <?php echo $approach_heading_title; ?>
-        </h2>
+        <?php render_heading($approach_heading_title, $heading_level, 'title title--h2', [], true); ?>
       </div>
 
       <div class="text-content text-content--grey">

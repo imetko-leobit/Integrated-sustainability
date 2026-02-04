@@ -1,3 +1,8 @@
+<?php
+    // Default heading level to 3 if not provided
+    $heading_level = $heading_level ?? 3;
+    include_once(__DIR__ . '/../helpers/heading.php');
+?>
 <link rel="stylesheet" href="../assets/css/components-post_card.css" />
 
 <article class="post-card--simple" data-post-id="<?php echo $project['id']; ?>">
@@ -8,9 +13,7 @@
     </div>
     <?php endif; ?>
     <div class="post-card__content">
-      <h5 class="post-card__title">
-        <?php echo $project['title']; ?>
-      </h5>
+      <?php render_heading($project['title'], $heading_level, 'post-card__title'); ?>
     </div>
     <div class="post-card__arrow--right">
       <span class="arrow-icon ">

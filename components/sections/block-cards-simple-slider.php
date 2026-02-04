@@ -1,3 +1,8 @@
+<?php
+    // Default heading level to 2 if not provided
+    $heading_level = $heading_level ?? 2;
+    include_once(__DIR__ . '/../helpers/heading.php');
+?>
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 <link rel="stylesheet" href="../assets/css/components-post_card.css" />
 <link rel="stylesheet" href="../assets/css/section-block_cards_slider.css" />
@@ -72,9 +77,7 @@ $additional_card =
 
   <div class="swiper-container js-projects-cards-simple-slider">
     <div class="heading">
-      <h1 class="title title--h1">
-        <?php echo $section_title; ?>
-      </h1>
+      <?php render_heading($section_title, $heading_level, 'title title--h1', [], true); ?>
 
       <div class="cards-navigation">
         <button class="btn btn--arrow js-button-prev" aria-label="Previous Project">
