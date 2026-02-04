@@ -27,6 +27,9 @@ $accordion_items = [
   ],
 
 ];
+// Default heading level to 2 if not provided
+$heading_level = $heading_level ?? 2;
+include_once(__DIR__ . '/../helpers/heading.php');
 ?>
 
 <link rel="stylesheet" href="../assets/css/section-block_accordion.css" />
@@ -44,7 +47,7 @@ $accordion_items = [
       <?php endif ?>
 
       <div class="heading">
-        <h1 class="title title--h1"><?php echo $pillar_title; ?></h1>
+        <?php render_heading($pillar_title, $heading_level, 'title title--h1'); ?>
       </div>
       <?php if ( $pillar_text_1) : ?>
       <div class="text-content text-content--grey">
