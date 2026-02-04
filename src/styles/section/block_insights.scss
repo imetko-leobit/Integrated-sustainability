@@ -105,13 +105,6 @@
         padding-bottom: 30px;
       }
     }
-    .title--h2 {
-      @include text-h2;
-
-      @media (max-width: 991px) {
-        @include text-h5;
-      }
-    }
   }
 
   .text-content {

@@ -6,20 +6,27 @@
   </div>
   <div class="block-hero__content">
     <div class="heading">
-      <h1 class="title title--h1">
+      <h1 class="title title--h0">
         <?php echo $hero_title; ?>
       </h1>
     </div>
-    <?php if (!empty($hero_description)) {?>
-    <div class="block-hero__description">
-      <p><?php echo $hero_description; ?></p>
-    </div>
+
+    <?php if (!empty($hero_description) || !empty($hero_description2)) {?>
+      <div class="block-hero__descriptions">
+        <?php if (!empty($hero_description)) {?>
+          <div class="block-hero__description">
+            <p><?php echo $hero_description; ?></p>
+          </div>
+          <?php }?>
+
+          <?php if (!empty($hero_description2)) {?>
+          <div class="block-hero__description">
+            <p><?php echo $hero_description2; ?></p>
+          </div>
+        <?php }?>
+      </div>
     <?php }?>
-    <?php if (!empty($hero_description2)) {?>
-    <div class="block-hero__description">
-      <p><?php echo $hero_description2; ?></p>
-    </div>
-    <?php }?>
+
     <?php if (!empty($hero_button_name)) {?>
     <div class="block-hero__actions">
       <button class="btn btn--gradient"><?php echo $hero_button_name; ?></button>

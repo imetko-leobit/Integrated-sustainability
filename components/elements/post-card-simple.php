@@ -8,9 +8,9 @@
     </div>
     <?php endif; ?>
     <div class="post-card__content">
-      <h3 class="post-card__title">
+      <h5 class="post-card__title">
         <?php echo $project['title']; ?>
-      </h3>
+      </h5>
     </div>
     <div class="post-card__arrow--right">
       <span class="arrow-icon ">

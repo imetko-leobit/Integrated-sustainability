@@ -62,9 +62,9 @@ $projects_data = [
 
     <div class="swiper-container js-projects-cards-slider">
         <div class="heading">
-            <h2 class="title title--h2">
+            <h1 class="title title--h1">
                 <?php echo $section_title; ?>
-            </h2>
+            </h1>
 
             <div class="cards-navigation">
                 <button class="btn btn--arrow js-button-prev" aria-label="Previous Project">
@@ -79,25 +79,25 @@ $projects_data = [
                 </button>
             </div>
 
-            <div class="divider"></div> 
+            <div class="divider"></div>
         </div>
 
         <div class="swiper-wrapper">
             <?php foreach ($projects_data as $project) : ?>
                 <div class="swiper-slide">
                     <article class="post-card" data-post-id="<?php echo $project['id']; ?>">
-                        <a href="<?php echo $project['link']; ?>" class="post-card__link">                
+                        <a href="<?php echo $project['link']; ?>" class="post-card__link">
                             <?php if (!empty($project['image'])) : ?>
                                 <div class="post-card__image-wrapper">
-                                    <img src="<?php echo $project['image']; ?>" 
-                                        alt="<?php echo $project['title']; ?>" 
+                                    <img src="<?php echo $project['image']; ?>"
+                                        alt="<?php echo $project['title']; ?>"
                                         class="post-card__image"/>
                                 </div>
                             <?php endif; ?>
                             <div class="post-card__content">
-                                <h3 class="post-card__title">
+                                <h5 class="post-card__title">
                                     <?php echo $project['title']; ?>
-                                </h3>
+                                </h5>
                                 <p class="post-card__description">
                                     <?php echo $project['description']; ?>
                                 </p>

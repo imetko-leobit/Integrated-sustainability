@@ -5,7 +5,7 @@
   <div class="info-card__content">
     <div class="info-card__content-top"></div>
     <div class="info-card__content-bottom">
-      <h3 class="title"><?php echo $sidebar_title; ?></h3>
+      <h3 class="title title--h3"><?php echo $sidebar_title; ?></h3>
       <p class="text-content"><?php echo $sidebar_description; ?></p>
       <button class="btn btn--gradient"><?php echo $sidebar_button_name; ?></button>
     </div>

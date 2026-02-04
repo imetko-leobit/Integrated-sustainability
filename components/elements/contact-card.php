@@ -17,9 +17,9 @@ $label_caribbean = "Caribbean";
 <link rel="stylesheet" href="../assets/css/components-contact_card.css" />
 
 <div class="support-card">
-  <h2 class="support-card__title">
+  <h4 class="support-card__title">
     <?php echo $title; ?>
-  </h2>
+  </h4>
 
   <p class="support-card__description">
     <?php echo $description; ?>

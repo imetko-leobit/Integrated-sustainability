@@ -194,27 +194,37 @@ img {
   }
 }
 
-h1 {
+.title--h0 {
+  @include text-h0;
+}
+
+h1,
+.title--h1 {
   @include text-h1;
 }
 
-h2 {
+h2,
+.title--h2 {
   @include text-h2;
 }
 
-h3 {
+h3,
+.title--h3 {
   @include text-h3;
 }
 
-h4 {
+h4,
+.title--h4 {
   @include text-h4;
 }
 
-h5 {
+h5,
+.title--h5 {
   @include text-h5;
 }
 
-h6 {
+h6,
+.title--h6 {
   @include text-h6;
 }
 

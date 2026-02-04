@@ -16,9 +16,9 @@
 
 <section class="block-section-heading">
     <div class="heading heading-navigation">
-        <h2 class="title title--h2">
+        <h1 class="title title--h1">
             <?php echo $section_title; ?>
-        </h2>
+        </h1>
 
         <?php if ($link_url || $custom_icon || $person_photo): ?>
             <div class="heading-action <?php echo $link_direction === 'right' ? "heading-action--right" : ($link_direction === 'down' ? "heading-action--down" : ''); ?>">
@@ -55,5 +55,5 @@
         <?php endif; ?>
     </div>
 
-    <div class="divider"></div> 
+    <div class="divider"></div>
 </section>

@@ -18,9 +18,9 @@
     </div>
     <?php endif; ?>
     <div class="post-card__content">
-      <h3 class="post-card__title">
+      <h5 class="post-card__title">
         <?php echo $project['title']; ?>
-      </h3>
+      </h5>
       <p class="post-card__description">
         <?php echo $project['description']; ?>
       </p>

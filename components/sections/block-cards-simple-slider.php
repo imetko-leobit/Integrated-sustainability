@@ -72,9 +72,9 @@ $additional_card =
 
   <div class="swiper-container js-projects-cards-simple-slider">
     <div class="heading">
-      <h2 class="title title--h2">
+      <h1 class="title title--h1">
         <?php echo $section_title; ?>
-      </h2>
+      </h1>
 
       <div class="cards-navigation">
         <button class="btn btn--arrow js-button-prev" aria-label="Previous Project">
@@ -99,9 +99,9 @@ $additional_card =
       </div>
       <?php endforeach; ?>
       <div class="swiper-slide">
-        <?php 
+        <?php
         $card = $additional_card;
-        include('../components/elements/post-card-action.php'); 
+        include('../components/elements/post-card-action.php');
         ?>
       </div>
     </div>

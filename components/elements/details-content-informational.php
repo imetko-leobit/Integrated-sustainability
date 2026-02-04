@@ -18,7 +18,7 @@
 
 <div class="details-content-informational">
   <?php if ($details_title1): ?>
-  <h3><?php echo $details_title1; ?></h4>
+  <h2 class="title title--h2"><?php echo $details_title1; ?></h2>
     <?php endif; ?>
     <?php if ($details_description): ?>
     <p><?php echo $details_description; ?></p>
@@ -30,7 +30,7 @@
     <p><?php echo $details_description3; ?></p>
     <?php endif; ?>
     <?php if ($details_title2): ?>
-    <h4><?php echo $details_title2; ?></h4>
+    <h3 class="title title--h3"><?php echo $details_title2; ?></h3>
     <?php if ($details_description): ?>
     <p><?php echo $details_description; ?></p>
     <?php endif; ?>
@@ -43,12 +43,12 @@
     </ul>
     <?php endif; ?>
     <?php if ($slider_imgs): ?>
-    <?php 
-					include('../components/elements/slider-preview.php') 
+    <?php
+					include('../components/elements/slider-preview.php')
 	  ?>
     <?php endif; ?>
     <?php if ($details_title3): ?>
-    <h4><?php echo $details_title3; ?></h4>
+    <h3 class="title title--h3"><?php echo $details_title3; ?></h3>
     <?php endif; ?>
     <?php if ($details_description): ?>
     <p><?php echo $details_description; ?></p>
@@ -57,7 +57,7 @@
     <p><?php echo $details_description; ?></p>
     <?php endif; ?>
     <?php if ($details_title4): ?>
-    <h4><?php echo $details_title4; ?></h4>
+    <h3 class="title title--h3"><?php echo $details_title4; ?></h3>
     <?php endif; ?>
     <?php if ($details_description): ?>
     <p><?php echo $details_description; ?></p>
@@ -66,15 +66,15 @@
     <p><?php echo $details_description; ?></p>
     <?php endif; ?>
     <?php if ($details_quote): ?>
-    <?php 
-					include('../components/elements/quote.php') 
+    <?php
+					include('../components/elements/quote.php')
 	  ?>
     <?php endif; ?>
     <?php if ($details_description): ?>
     <p><?php echo $details_description; ?></p>
     <?php endif; ?>
     <?php if ($details_title5): ?>
-    <h4><?php echo $details_title5; ?></h4>
+    <h3 class="title title--h3"><?php echo $details_title5; ?></h3>
     <?php endif; ?>
     <?php if ($details_description): ?>
     <p><?php echo $details_description; ?></p>
@@ -84,13 +84,13 @@
     <?php endif; ?>
 
     <?php if ($person_photo): ?>
-    <?php 
-					include('../components/elements/author.php') 
+    <?php
+					include('../components/elements/author.php')
 				?>
     <?php endif; ?>
 
     <?php if ($details_title6): ?>
-    <h4><?php echo $details_title6; ?></h4>
+    <h3 class="title title--h3"><?php echo $details_title6; ?></h3>
     <?php endif; ?>
 
     <?php if ($details_links): ?>

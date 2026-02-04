@@ -87,9 +87,6 @@
         padding-bottom: 16px;
     }
   }
-  .title--h2 {
-      @include text-h2;
-  }
 
   &__description {
       @include text-body-base;

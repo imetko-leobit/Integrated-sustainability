@@ -15,7 +15,7 @@ $button_text = $button_text ?? 'Book a Call';
     <div class="block-cta__card-wrapper">
       <div class="block-cta__card">
         <div class="block-cta__card-content">
-          <h2 class="title title--h2"><?php echo $title; ?></h2>
+          <h1 class="title title--h1"><?php echo $title; ?></h1>
           <p class="block-cta__description"><?php echo $description; ?></p>
           <button class="btn btn--gradient"><?php echo $button_text; ?></button>
         </div>

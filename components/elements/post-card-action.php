@@ -3,9 +3,9 @@
 <article class="post-card--action">
   <a href="<?php echo $card['link']; ?>" class="post-card__link">
     <div class="post-card__content">
-      <h3 class="post-card__title">
+      <h5 class="post-card__title">
         <?php echo $card['title']; ?>
-      </h3>
+      </h5>
       <p class="post-card__desc">
         <?php echo $card['desc']; ?>
       </p>

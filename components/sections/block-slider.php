@@ -56,7 +56,7 @@ $total_slides = count($pillar_items);
       <?php endif; ?>
 
       <div class="heading">
-        <h2 class="title title--h2"><?php echo $pillar_title; ?></h2>
+        <h1 class="title title--h1"><?php echo $pillar_title; ?></h1>
       </div>
 
       <div class="text-content text-content--grey">

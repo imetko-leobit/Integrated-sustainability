@@ -40,14 +40,6 @@
     @media (max-width: 991px) {
       padding-right: 0;
     }
-
-    &--h2 {
-      @include text-h1;
-
-      @media (max-width: 991px) {
-        @include text-h3;
-      }
-    }
   }
 
   .heading-action {

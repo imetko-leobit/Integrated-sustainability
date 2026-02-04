@@ -14,10 +14,6 @@
     @media (max-width: 991px) {
       margin-bottom: 32px;
     }
-
-    .title--h2 {
-      @include text-h2;
-    }
   }
 
   &__grid {

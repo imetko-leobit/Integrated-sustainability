@@ -57,13 +57,13 @@
             ['name' => 'Yukon', 'link' => '#'],
           ]
       ],
-      
+
   ];
 
-  $sidebar_img='../assets/img/sidebar.jpg'; 
+  $sidebar_img='../assets/img/sidebar.jpg';
   $sidebar_title='request a tailored credentials package' ;
   $sidebar_description='Provide a brief explanation of your project requirements and we will get back to you within 1 business week.';
-  $sidebar_button_name='Submit Request' ; 
+  $sidebar_button_name='Submit Request' ;
 ?>
 
 <link rel="stylesheet" href="../assets/css/section-block_details_sidebar.css" />
@@ -78,13 +78,13 @@
       </div>
 
       <div class="details__wrapper">
-        <?php 
-              include('../components/elements/details-content.php') 
+        <?php
+              include('../components/elements/details-content.php')
           ?>
-        <h3 class="title title--top-divider desktop"><?php echo $details_title3; ?></h2>
+        <h3 class="title title--top-divider desktop"><?php echo $details_title3; ?></h3>
           <a href="<?php echo $person_link; ?>" class="person-card__link" aria-label="Learn more">
-            <?php 
-                include('../components/elements/person-card.php') 
+            <?php
+                include('../components/elements/person-card.php')
             ?>
           </a>
       </div>
@@ -105,8 +105,8 @@
       </div>
     </asside>
     <div class="asside__sticky-card">
-      <?php 
-          include('../components/elements/info-card.php') 
+      <?php
+          include('../components/elements/info-card.php')
       ?>
     </div>
   </div>

@@ -82,7 +82,7 @@ $resources = [
 <section class="block-resources-grid">
   <!-- Header Section -->
   <div class="block-resources-grid__header">
-    <h2 class="title title--h2"><?php echo htmlspecialchars(isset($section_title) ? $section_title : 'Resources & Insights', ENT_QUOTES, 'UTF-8'); ?></h2>
+    <h1 class="title title--h1"><?php echo htmlspecialchars(isset($section_title) ? $section_title : 'Resources & Insights', ENT_QUOTES, 'UTF-8'); ?></h1>
   </div>
 
   <!-- Grid Section -->

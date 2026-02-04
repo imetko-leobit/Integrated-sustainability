@@ -32,7 +32,7 @@ $slides = [
       <div class="info-card__content">
         <div class="info-card__content-top"></div>
         <div class="info-card__content-bottom">
-          <h3 class="title"><?php echo $slide['title']; ?></h3>
+          <h3 class="title title--h3"><?php echo $slide['title']; ?></h3>
           <p class="text-content"><?php echo $slide['desc']; ?></p>
           <button class="btn btn--gradient"><?php echo $slide['btn']; ?></button>
         </div>
