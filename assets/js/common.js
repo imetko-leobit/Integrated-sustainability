@@ -1,6 +1,47 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/scripts/components/breadcrumb_observer.js":
+/*!*******************************************************!*\
+  !*** ./src/scripts/components/breadcrumb_observer.js ***!
+  \*******************************************************/
+/***/ (() => {
+
+document.addEventListener('DOMContentLoaded', function () {
+  var breadcrumbs = document.querySelector('.header-subheader');
+  var heroSection = document.querySelector('.block-hero');
+
+  // Only initialize if both breadcrumbs and hero section exist
+  if (!breadcrumbs || !heroSection) {
+    return;
+  }
+
+  // Create an Intersection Observer to watch the hero section
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        // Hero is visible - show breadcrumbs
+        breadcrumbs.classList.remove('breadcrumbs--hidden');
+      } else {
+        // Hero is not visible - hide breadcrumbs
+        breadcrumbs.classList.add('breadcrumbs--hidden');
+      }
+    });
+  }, {
+    // Trigger when any part of the hero section is visible
+    threshold: 0,
+    // Use viewport as root
+    root: null,
+    // No margin
+    rootMargin: '0px'
+  });
+
+  // Start observing the hero section
+  observer.observe(heroSection);
+});
+
+/***/ }),
+
 /***/ "./src/scripts/components/header_controller.js":
 /*!*****************************************************!*\
   !*** ./src/scripts/components/header_controller.js ***!
@@ -71,39 +112,58 @@ document.addEventListener('DOMContentLoaded', function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ initAccordion)
+/* harmony export */   "default": () => (/* binding */ initInsightAccordion)
 /* harmony export */ });
-function initAccordion() {
-  var triggers = document.querySelectorAll('.js-accordion-trigger');
-  triggers.forEach(function (trigger) {
-    var handleClick = function handleClick(e) {
-      e.preventDefault();
-      var item = trigger.closest('.accordion-item');
-      var content = item.querySelector('.accordion-item__content');
-      if (item.classList.contains('is-open')) {
-        content.style.maxHeight = null;
-        setTimeout(function () {
-          if (!item.classList.contains('is-open')) content.style.display = 'none';
-        }, 300);
-        item.classList.remove('is-open');
-      } else {
-        content.style.display = 'block';
-        setTimeout(function () {
-          content.style.maxHeight = content.scrollHeight + 'px';
-        }, 10);
-        item.classList.add('is-open');
-      }
-    };
-    trigger.removeEventListener('click', trigger._currentHandler);
-    trigger.addEventListener('click', handleClick);
-    trigger._currentHandler = handleClick;
+function initInsightAccordion() {
+  var container = document.querySelector('.js-accordion-container');
+  if (!container) return;
+  var items = container.querySelectorAll('.accordion-item');
+  items.forEach(function (item, index) {
+    var content = item.querySelector('.accordion-item__content');
+    content.style.overflow = 'hidden';
+    content.style.transition = 'max-height 0.3s ease';
+    var expandBtn = item.querySelector('.accordion-item__expand-btn'); // кнопка “Збільшити текст”
+
+    // Ініціалізація: перший відкритий
+    if (index === 0 || item.classList.contains('is-open')) {
+      item.classList.add('is-open');
+      content.style.maxHeight = content.scrollHeight + 'px';
+      if (expandBtn) expandBtn.style.display = 'none'; // приховуємо кнопку
+    } else {
+      content.style.maxHeight = '0';
+    }
   });
-  document.querySelectorAll('.accordion-item.is-open .accordion-item__content').forEach(function (content) {
-    content.style.display = 'block';
-    content.style.maxHeight = content.scrollHeight + 'px';
+  container.addEventListener('click', function (e) {
+    var trigger = e.target.closest('.js-accordion-trigger');
+    if (!trigger) return;
+    var item = trigger.closest('.accordion-item');
+    var content = item.querySelector('.accordion-item__content');
+    var expandBtn = item.querySelector('.accordion-item__expand-btn');
+    var isOpen = item.classList.contains('is-open');
+
+    // Закриваємо всі інші
+    items.forEach(function (otherItem) {
+      if (otherItem !== item) {
+        var otherContent = otherItem.querySelector('.accordion-item__content');
+        var otherBtn = otherItem.querySelector('.accordion-item__expand-btn');
+        otherContent.style.maxHeight = '0';
+        otherItem.classList.remove('is-open');
+        if (otherBtn) otherBtn.style.display = ''; // показуємо кнопку, якщо була прихована
+      }
+    });
+    if (isOpen) {
+      content.style.maxHeight = '0';
+      item.classList.remove('is-open');
+      if (expandBtn) expandBtn.style.display = ''; // показуємо кнопку
+    } else {
+      requestAnimationFrame(function () {
+        content.style.maxHeight = content.scrollHeight + 'px';
+        item.classList.add('is-open');
+        if (expandBtn) expandBtn.style.display = 'none'; // приховуємо кнопку
+      });
+    }
   });
 }
-;
 
 /***/ })
 
@@ -188,11 +248,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_header_controller__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_components_header_controller__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_search__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/search */ "./src/scripts/components/search.js");
 /* harmony import */ var _components_search__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_components_search__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _components_breadcrumb_observer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/breadcrumb_observer */ "./src/scripts/components/breadcrumb_observer.js");
+/* harmony import */ var _components_breadcrumb_observer__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_components_breadcrumb_observer__WEBPACK_IMPORTED_MODULE_3__);
 
 
 // import './components/menu_controller';
 
-document.addEventListener('DOMContentLoaded', function () {
+
+document.addEventListener("DOMContentLoaded", function () {
   (0,_modules_Accordion__WEBPACK_IMPORTED_MODULE_0__["default"])();
 });
 })();

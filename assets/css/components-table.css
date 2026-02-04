@@ -1,0 +1,106 @@
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/styles/components/table.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/*images*/
+.table-component {
+  width: 100%;
+  max-width: 1470px;
+  margin: 0 auto;
+  padding: 0 1.875rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 0 0 100px; }
+  .table-component .table-component__title {
+    color: var(--color-white, #fff);
+    margin: 0;
+    padding: 0; }
+  .table-component .table-component__divider {
+    width: 100%;
+    height: 1px;
+    background: var(--color-grey, #808080);
+    margin-top: 36px; }
+  .table-component .table-component__wrapper {
+    padding-top: 56px;
+    width: 100%;
+    overflow-x: auto; }
+  .table-component .table-component__table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0; }
+    .table-component .table-component__table .table__header {
+      height: 82px;
+      background-image: url(../../assets/img/overlay.svg);
+      background-blend-mode: normal, overlay;
+      background-size: cover;
+      background-position: right top;
+      background-repeat: no-repeat;
+      background-repeat: round; }
+      .table-component .table-component__table .table__header th {
+        font-family: "Poppins", "Roboto", "Arial", sans-serif;
+        font-weight: 400;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-style: normal;
+        font-size: 16px;
+        line-height: 29px;
+        padding: 0 24px;
+        text-align: left;
+        vertical-align: middle;
+        border: none; }
+        @media (max-width: 991px) {
+          .table-component .table-component__table .table__header th {
+            font-size: 14px;
+            line-height: 22px; } }
+        .table-component .table-component__table .table__header th:first-child {
+          padding-left: 32px; }
+        .table-component .table-component__table .table__header th:last-child {
+          padding-right: 32px; }
+        @media (max-width: 991px) {
+          .table-component .table-component__table .table__header th {
+            padding: 0 16px; }
+            .table-component .table-component__table .table__header th:first-child {
+              padding-left: 20px; }
+            .table-component .table-component__table .table__header th:last-child {
+              padding-right: 20px; } }
+    .table-component .table-component__table .table__body tr {
+      background: transparent;
+      border-bottom: 1px solid var(--color-grey, #808080);
+      min-height: 82px; }
+      .table-component .table-component__table .table__body tr td {
+        font-family: "Poppins", "Roboto", "Arial", sans-serif;
+        font-weight: 400;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-style: normal;
+        font-size: 16px;
+        line-height: 29px;
+        color: var(--color-white, #fff);
+        padding: 24px;
+        text-align: left;
+        vertical-align: middle; }
+        @media (max-width: 991px) {
+          .table-component .table-component__table .table__body tr td {
+            font-size: 14px;
+            line-height: 22px; } }
+        .table-component .table-component__table .table__body tr td:first-child {
+          padding-left: 32px; }
+        .table-component .table-component__table .table__body tr td:last-child {
+          padding-right: 32px; }
+        @media (max-width: 991px) {
+          .table-component .table-component__table .table__body tr td {
+            padding: 16px; }
+            .table-component .table-component__table .table__body tr td:first-child {
+              padding-left: 20px; }
+            .table-component .table-component__table .table__body tr td:last-child {
+              padding-right: 20px; } }
+  @media (max-width: 991px) {
+    .table-component .table-component__wrapper {
+      padding-top: 40px; } }
+
+
+/*# sourceMappingURL=components-table.css.map*/

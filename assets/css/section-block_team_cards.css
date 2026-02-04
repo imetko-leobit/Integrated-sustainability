@@ -1,0 +1,128 @@
+/*!*************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/styles/section/block_team_cards.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************/
+/*images*/
+.block-team-cards {
+  width: 100%;
+  max-width: 1560px;
+  margin: 0 auto;
+  padding: 0 0 140px; }
+  @media (max-width: 991px) {
+    .block-team-cards {
+      padding: 60px 40px; } }
+  @media (max-width: 767px) {
+    .block-team-cards {
+      padding: 40px 20px; } }
+  .block-team-cards__row {
+    margin-bottom: 80px;
+    -webkit-transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease; }
+    .block-team-cards__row.is-hidden {
+      display: none; }
+    @media (max-width: 991px) {
+      .block-team-cards__row {
+        margin-bottom: 40px; } }
+    @media (max-width: 767px) {
+      .block-team-cards__row {
+        margin-bottom: 32px; } }
+  .block-team-cards__mobile-header {
+    display: none; }
+    @media (max-width: 767px) {
+      .block-team-cards__mobile-header {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        margin-bottom: 24px; } }
+  .block-team-cards__row-title {
+    color: white;
+    margin: 0; }
+    @media (max-width: 767px) {
+      .block-team-cards__row-title {
+        font-size: 20px; } }
+  .block-team-cards__mobile-nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 12px; }
+    .block-team-cards__mobile-nav .btn {
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      border-radius: 50%;
+      border: 2px solid var(--color-grey-400);
+      background: transparent;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-transition: all 0.3s ease;
+      transition: all 0.3s ease; }
+      .block-team-cards__mobile-nav .btn svg {
+        width: 16px;
+        height: 16px;
+        color: white; }
+      .block-team-cards__mobile-nav .btn:hover {
+        border-color: var(--color-primary-green);
+        background: rgba(129, 254, 229, 0.1); }
+      .block-team-cards__mobile-nav .btn:disabled {
+        opacity: 0.3;
+        cursor: not-allowed; }
+  .block-team-cards__grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 56px; }
+    @media (max-width: 991px) {
+      .block-team-cards__grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px; } }
+    @media (max-width: 767px) {
+      .block-team-cards__grid {
+        display: none; } }
+  .block-team-cards__card {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+  .block-team-cards__slider {
+    display: none; }
+    @media (max-width: 767px) {
+      .block-team-cards__slider {
+        display: block; } }
+    .block-team-cards__slider .swiper-slide {
+      width: auto;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center; }
+  .block-team-cards__actions {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin-top: 40px; }
+    @media (max-width: 767px) {
+      .block-team-cards__actions {
+        display: none; } }
+    .block-team-cards__actions .btn {
+      min-width: 200px; }
+
+
+/*# sourceMappingURL=section-block_team_cards.css.map*/
