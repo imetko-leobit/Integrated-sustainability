@@ -35,6 +35,7 @@
     -ms-flex-pack: center;
     justify-content: center;
     text-align: center;
+    min-height: 136px;
     border: 1px solid rgba(255, 255, 255, 0.15);
     background: rgba(4, 4, 4, 0.2);
     -webkit-transition: z-index 0s, -webkit-transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -93,6 +94,7 @@
     /* --- Active item styles  --- */ }
     .performance-grid__overlay .performance-grid__item {
       border: 1px solid transparent;
+      min-height: 136px;
       background-image: linear-gradient(145deg, rgba(4, 4, 4, 0.95) 0%, rgba(75, 224, 195, 0.01) 95%, transparent 100%), linear-gradient(90deg, #81FEE5 0%, #818FFE 100%);
       background-origin: border-box;
       background-clip: padding-box, border-box;
@@ -159,7 +161,6 @@
       height: auto;
       display: block; }
   .performance-grid__label {
-    font-size: 14px;
     font-weight: 500;
     text-transform: lowercase;
     font-family: "Poppins", "Roboto", "Arial", sans-serif;
@@ -168,12 +169,13 @@
     font-size: 16px;
     line-height: 1.4;
     font-weight: 600;
-    font-family: "PoppinsLight", "Roboto", "Arial", sans-serif;
-    font-weight: 300;
-    -webkit-font-smoothing: subpixel-antialiased;
+    font-family: "Poppins", "Roboto", "Arial", sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     font-style: normal;
-    font-size: 17px;
-    line-height: 28px;
+    font-size: 16px;
+    line-height: 29px;
     background: linear-gradient(90deg, #81FEE5 0%, #818FFE 100%);
     background-clip: text;
     color: transparent;
@@ -182,8 +184,8 @@
     display: block; }
     @media (max-width: 991px) {
       .performance-grid .text-gradient {
-        font-size: 16px;
-        line-height: 24px; } }
+        font-size: 14px;
+        line-height: 22px; } }
 
 
 /*# sourceMappingURL=components-performance_grid.css.map*/
