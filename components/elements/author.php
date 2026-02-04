@@ -1,3 +1,8 @@
+<?php
+    // Default heading level to 2 if not provided
+    $heading_level = $heading_level ?? 2;
+    include_once(__DIR__ . '/../helpers/heading.php');
+?>
 <link rel="stylesheet" href="../assets/css/components-author.css" />
 
 <?php
@@ -7,7 +12,7 @@ $social_icon = $social_icon ?? null;
 
 <section class="block-author">
   <?php if ($autor_title): ?>
-  <h3 class="title title--h3"><?php echo $autor_title; ?></h3>
+  <?php render_heading($autor_title, $heading_level, 'title title--h3'); ?>
   <?php endif; ?>
   <div class="block-author__wrapper">
     <div class='author__person'>

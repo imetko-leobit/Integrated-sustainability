@@ -4,6 +4,9 @@ $accordion_class = 'accordion js-accordion-container';
 if (!empty($is_insight) && $is_insight) {
     $accordion_class .= ' insight-accordion';
 }
+// Default heading level to 3 if not provided
+$heading_level = $heading_level ?? 3;
+include_once(__DIR__ . '/../helpers/heading.php');
 ?>
 
 <link rel="stylesheet" href="../assets/css/components-accordion.css" />
@@ -28,7 +31,7 @@ if (!empty($is_insight) && $is_insight) {
           </svg>
         </span>
       </span>
-      <h4 class="accordion-item__title accordion-item__title--h5"><?php echo $item['title']; ?></h4>
+      <?php render_heading($item['title'], $heading_level, 'accordion-item__title accordion-item__title--h5'); ?>
     </div>
 
     <div class="accordion-item__content">
