@@ -80,9 +80,9 @@ $modifier_class = $reverse ? ' block-approach-intro--reverse' : '';
       <?php endif; ?>
 
       <div class="heading">
-        <h3 class="title title--h3">
+        <h2 class="title title--h2">
           <?php echo $approach_heading_title; ?>
-        </h3>
+        </h2>
       </div>
 
       <div class="text-content text-content--grey">
