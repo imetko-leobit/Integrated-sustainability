@@ -28,7 +28,7 @@
     <p><?php echo $details_description; ?></p>
     <?php endif; ?>
     <?php if ($details_title2): ?>
-    <h4><?php echo $details_title2; ?></h4>
+    <h3 class="title title--h3"><?php echo $details_title2; ?></h3>
     <?php endif; ?>
     <?php if ($details_description2): ?>
     <p><?php echo $details_description2; ?></p>

@@ -52,6 +52,7 @@
 
     .subheader-item {
       color: var(--color-grey-400);
+      @include text-body-small;
 
       &--current {
         color: var(--color-grey-100);
