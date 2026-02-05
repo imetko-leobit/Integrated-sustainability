@@ -10,6 +10,9 @@ $link_text = "Explore our Operations and <br> Maintenance Services";
 $link_url = "/operations";
 $custom_icon = "../assets/img/linkIconArrowRight.svg";
 
+// Default heading level to 2 if not provided
+$heading_level = $heading_level ?? 2;
+include_once(__DIR__ . '/../helpers/heading.php');
 ?>
 
 <link rel="stylesheet" href="../assets/css/section-block_insights.css" />
@@ -25,7 +28,7 @@ $custom_icon = "../assets/img/linkIconArrowRight.svg";
       <?php endif; ?>
 
       <div class="heading">
-        <h1 class="title title--h1"><?php echo $pillar_title; ?></h1>
+        <?php render_heading($pillar_title, $heading_level, 'title title--h1'); ?>
       </div>
 
       <div class="text-content text-content--grey">

@@ -1,3 +1,8 @@
+<?php
+    // Default heading level to 2 if not provided
+    $heading_level = $heading_level ?? 2;
+    include_once(__DIR__ . '/../helpers/heading.php');
+?>
 <link rel="stylesheet" href="../assets/css/section-block_section_heading.css" />
 
 <?php
@@ -16,9 +21,7 @@
 
 <section class="block-section-heading">
     <div class="heading heading-navigation">
-        <h1 class="title title--h1">
-            <?php echo $section_title; ?>
-        </h1>
+        <?php render_heading($section_title, $heading_level, 'title title--h1', [], true); ?>
 
         <?php if ($link_url || $custom_icon || $person_photo): ?>
             <div class="heading-action <?php echo $link_direction === 'right' ? "heading-action--right" : ($link_direction === 'down' ? "heading-action--down" : ''); ?>">

@@ -1,3 +1,7 @@
+<?php
+    $heading_level = $heading_level ?? 4;
+    include_once(__DIR__ . '/../helpers/heading.php');
+?>
 <link rel="stylesheet" href="../assets/css/components-person_card.css" />
 
 <div class="person-card">
@@ -5,7 +9,7 @@
         <img src="<?php echo $person_photo; ?>" alt="person photo" class="person-card__image">
     </div>
     <div class="person-card__info">
-        <h4 class="card__name"><?php echo $person_name; ?></h4>
+        <?php render_heading($person_name, $heading_level, 'card__name'); ?>
         <p class="card__credentials"><?php echo $person_degree; ?></p>
         <p class="card__title"><?php echo $person_role; ?></p>
     </div>
