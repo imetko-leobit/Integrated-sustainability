@@ -1,10 +1,6 @@
 <link href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" rel="stylesheet" />
 <link rel="stylesheet" href="../assets/css/components-main_menu.css" />
 
-
-<header class="header">
-  <?php include('../assets/svg/svg.php'); ?>
-  <div class="header-wrapper">
     <div class="header-top">
       <div class="content-wrapper">
         <button class="menu-toggle" aria-controls="main-menu" aria-expanded="false">
