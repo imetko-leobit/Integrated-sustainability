@@ -9,6 +9,9 @@
       '../assets/img/image3.jpg',
     ];
   }
+  // Default heading level
+  $metadata_heading_level = $metadata_heading_level ?? 4;
+  include_once(__DIR__ . '/../helpers/heading.php');
 
   if (!isset($sidebar_tags)) {
     $sidebar_tags = [
@@ -74,7 +77,7 @@
       <div class="equipment-content__metadata">
         <?php foreach ($sidebar_tags as $group) : ?>
         <div class="metadata-group">
-          <h4 class="metadata-group__title"><?php echo $group['title']; ?></h4>
+          <?php render_heading($group['title'], $metadata_heading_level, 'metadata-group__title'); ?>
           <div class="metadata-group__links">
             <?php foreach ($group['links'] as $link) : ?>
             <a href="<?php echo $link['link']; ?>" class="metadata-tag"><span><?php echo $link['name']; ?></span></a>

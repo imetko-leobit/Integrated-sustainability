@@ -1,3 +1,8 @@
+<?php
+// Default heading level
+$heading_level = $heading_level ?? 3;
+include_once(__DIR__ . '/../helpers/heading.php');
+?>
 <link rel="stylesheet" href="../assets/css/section-block_reduce_fragmentation.css" />
 <link rel="stylesheet" href="../assets/css/components-performance_grid.css" />
 
@@ -7,9 +12,7 @@
     <p class="tagline"><?php echo $top_tagline; ?></p>
     <?php endif; ?>
     <div class="heading">
-      <h3 class="title title--h3">
-        creating the optimum conditions for high-performance infrastructure
-      </h3>
+      <?php render_heading('creating the optimum conditions for high-performance infrastructure', $heading_level, 'title title--h3'); ?>
     </div>
     <div class="text-content text-content--grey">
       <p>To us, advocacy is a structured process of collaboration built on evidence and a shared purpose. It aligns

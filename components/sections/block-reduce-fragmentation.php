@@ -1,3 +1,8 @@
+<?php
+// Default heading level
+$heading_level = $heading_level ?? 3;
+include_once(__DIR__ . '/../helpers/heading.php');
+?>
 <link rel="stylesheet" href="../assets/css/section-block_reduce_fragmentation.css" />
 <link rel="stylesheet" href="../assets/css/components-performance_grid.css" />
 
@@ -7,9 +12,7 @@
     <p class="tagline"><?php echo $top_tagline; ?></p>
     <?php endif; ?>
     <div class="heading">
-      <h3 class="title title--h3">
-        discover how unified environmental science and operational expertise delivers sustainable business performance
-      </h3>
+      <?php render_heading('discover how unified environmental science and operational expertise delivers sustainable business performance', $heading_level, 'title title--h3'); ?>
     </div>
     <div class="text-content text-content--grey">
       <p>Asset performance drifts within fragmented service delivery. Our integrated delivery approach connects on-site
