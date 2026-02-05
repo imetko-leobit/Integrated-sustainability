@@ -1,7 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- MENU DATA STRUCTURE ---
-    const menuData = window.phpMenuData || [];
-
     const megaMenuContent = document.querySelector('.main-menu__content');
     const menuToggle = document.querySelector('.menu-toggle');
     const menuCloseToggle = document.querySelector('.menu-close-toggle');
@@ -21,71 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let clickTimer = null;
     let clickCount = 0;
   
-    /**
-     * Generates HTML columns from menuData synchronously
-     */
-    function createColumn(items, level, parentId = 'level-0', parentTitle = '') {
-      const col = document.createElement('div');
-      col.id = parentId;
-      col.className = `main-menu__col main-menu__col--level-${level} ${level > 0 ? 'submenu' : 'active-level'}`;
-      col.setAttribute('data-level', level);
-  
-      let html = '';
-      
-      if (level > 0) {
-        const prevTarget = parentId.split('-').slice(0, -1).join('-') || 'level-0';
-        html += `
-          <button class="submenu-header" data-prev-target="${prevTarget}" aria-label="Go back">
-            <span class="back-arrow">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><mask id="m${parentId}" width="24" height="24" x="0" y="0" maskUnits="userSpaceOnUse" style="mask-type:alpha"><path fill="#D9D9D9" d="M0 0h24v24H0z"/></mask><g mask="url(#m${parentId})"><path fill="#80F7E6" d="M10 22 0 12 10 2l1.775 1.775L3.55 12l8.225 8.225L10 22Z"/></g></svg>
-            </span>
-            <h3 class="submenu-title">${parentTitle}</h3>
-          </button>`;
-      }
-  
-      html += '<ul class="navbar-nav">';
-      items.forEach((item, index) => {
-        const hasSub = item.submenu && item.submenu.length > 0;
-        const targetId = item.id || `${parentId}-${index + 1}`;
-        const extraClass = item.additional_class ? ` ${item.additional_class}` : '';
-        
-        html += `
-          <li class="nav-item ${hasSub ? 'has-submenu' : ''}${extraClass}" data-target="${targetId}">
-            <a href="${item.url}" class="nav-link">${item.title}</a>
-            ${hasSub ? `
-            <button class="submenu-button">
-              <span class="arrow-icon">
-                <svg id="arrow-top-right-gradient" viewBox="0 0 24 24"><path class="icon-arrow" fill="currentColor" d="M22.32 21.729 22.5 0C17.059.053 6.212.128.771.18L.725 2.901c4.897-.049 11.394-.088 17.111-.14L0 20.595 1.903 22.5 19.74 4.664l-.154 17.098 2.734-.03v-.003Z"/></svg>
-              </span>
-            </button>` : ''}
-          </li>`;
-  
-        if (hasSub) {
-          renderMenuLevel(item.submenu, level + 1, targetId, item.title);
-        }
-      });
-      html += '</ul>';
-  
-      if (level === 0) {
-        const template = document.getElementById('mobile-bottom-template');
-        if (template) html += template.innerHTML;
-      }
-  
-      col.innerHTML = html;
-      megaMenuContent.appendChild(col);
-    }
-  
-    function renderMenuLevel(items, level, parentId, parentTitle) {
-      createColumn(items, level, parentId, parentTitle);
-    }
-  
-    // Initial rendering
-    if (megaMenuContent) {
-      megaMenuContent.innerHTML = ''; 
-      renderMenuLevel(menuData, 0, 'level-0', '');
-    }
-  
-    // Important: select all columns AFTER rendering is complete
+    // Select all menu columns (now statically rendered in HTML)
     const allLevels = document.querySelectorAll('.main-menu__col');
   
     /**
