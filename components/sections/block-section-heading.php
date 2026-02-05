@@ -1,6 +1,7 @@
 <?php
     // Default heading level to 2 if not provided
     $heading_level = $heading_level ?? 2;
+    $person_card_heading_level = $person_card_heading_level ?? 4;
     include_once(__DIR__ . '/../helpers/heading.php');
 ?>
 <link rel="stylesheet" href="../assets/css/section-block_section_heading.css" />
@@ -44,7 +45,7 @@
                 <?php elseif ($person_photo): ?>
                     <div class='person-card'>
                         <div class="person-card__info">
-                            <h4 class="card__name"><?php echo $person_name; ?></h4>
+                            <?php render_heading($person_name, $person_card_heading_level, 'card__name'); ?>
                             <p class="card__credentials"><?php echo $person_degree; ?></p>
                             <p class="card__date"><?php echo $person_date; ?></p>
                         </div>

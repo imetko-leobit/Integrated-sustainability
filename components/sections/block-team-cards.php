@@ -1,5 +1,9 @@
 <?php
 // Sample team data - in production this would come from a database or API
+// Default heading level for row titles
+$row_title_level = $row_title_level ?? 4;
+include_once(__DIR__ . '/../helpers/heading.php');
+
 $team_members = [
     // Row 1
     [
@@ -165,7 +169,7 @@ $row_titles = [
     <div class="block-team-cards__row <?php echo $is_hidden; ?>" data-row="<?php echo $row_num; ?>">
         <!-- Mobile: Row title and navigation -->
         <div class="block-team-cards__mobile-header">
-            <h4 class="title title--h4 block-team-cards__row-title"><?php echo $row_titles[$row_num]; ?></h4>
+            <?php render_heading($row_titles[$row_num], $row_title_level, 'title title--h4 block-team-cards__row-title'); ?>
             <div class="block-team-cards__mobile-nav">
                 <button class="btn btn--arrow js-team-prev-<?php echo $row_num; ?>" aria-label="Previous team member">
                     <svg viewBox="0 0 27 15">
