@@ -1,7 +1,8 @@
 <?php
 // Default heading levels
-$section_heading_level = $section_heading_level ?? 4;
-$category_navigation_card_heading_level = $category_navigation_card_heading_level ?? 5;
+// Note: Use unique variable names to prevent inheritance conflicts with nested components
+$category_nav_section_heading_level = $category_nav_section_heading_level ?? 4;  // For the "Select an industry" heading
+$category_navigation_card_heading_level = $category_navigation_card_heading_level ?? 5;  // For individual category card titles
 include_once(__DIR__ . '/../helpers/heading.php');
 
 $industries = [
@@ -113,7 +114,7 @@ $industries = [
 
     <div class="category-navigation__nav-container">
       <div class="heading">
-        <?php render_heading('select an industry', $section_heading_level, 'title title--h3'); ?>
+        <?php render_heading('Select an industry', $category_nav_section_heading_level, 'title title--h3'); ?>
       </div>
       <ul class="category-navigation__nav" id="industryList">
         <?php foreach ($industries as $index => $item):
