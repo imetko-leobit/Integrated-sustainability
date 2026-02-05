@@ -247,8 +247,8 @@
       margin: 0 auto;
       padding: 0;
       display: flex;
-      flex-direction: row-reverse;
-      justify-content: flex-end;
+      flex-direction: row;
+      justify-content: flex-start;
       position: relative;
       gap: 0;
       width: 100%;
@@ -340,6 +340,7 @@
         }
       }
 
+      &:hover,
       &.active {
         background: $primary-gradient-5;
         border-left: 1px solid transparent;
