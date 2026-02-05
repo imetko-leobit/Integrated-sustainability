@@ -1,12 +1,12 @@
 <?php
-    $heading_level = $heading_level ?? 4;
+    $card_external_heading_level = $card_external_heading_level ?? 4;
     include_once(__DIR__ . '/../helpers/heading.php');
 ?>
 <link rel="stylesheet" href="../assets/css/components-card_external.css" />
 
 <a href="<?php echo htmlspecialchars($url, ENT_QUOTES, 'UTF-8'); ?>" class="card-external" target="_blank" rel="noopener noreferrer">
   <div class="card-external__content">
-    <?php render_heading($title, $heading_level, 'card-external__title title title--h4'); ?>
+    <?php render_heading($title, $card_external_heading_level, 'card-external__title title title--h4'); ?>
     <p class="card-external__description text-content">
       <?php echo htmlspecialchars($description, ENT_QUOTES, 'UTF-8'); ?>
     </p>

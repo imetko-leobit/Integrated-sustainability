@@ -17,14 +17,14 @@
     ];
   }
   // Default heading level
-  $heading_level = $heading_level ?? 4;
+  $table_heading_level = $table_heading_level ?? 4;
   include_once(__DIR__ . '/../helpers/heading.php');
 ?>
 
 <link rel="stylesheet" href="../assets/css/components-table.css" />
 
 <div class="table-component">
-  <?php render_heading($table_title, $heading_level, 'title title--h3 table-component__title'); ?>
+  <?php render_heading($table_title, $table_heading_level, 'title title--h3 table-component__title'); ?>
   <div class="table-component__divider"></div>
   <div class="table-component__wrapper">
     <table class="table-component__table">

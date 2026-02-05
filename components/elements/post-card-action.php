@@ -1,5 +1,5 @@
 <?php
-    $heading_level = $heading_level ?? 5;
+    $post_card_action_heading_level = $post_card_action_heading_level ?? 5;
     include_once(__DIR__ . '/../helpers/heading.php');
 ?>
 <link rel="stylesheet" href="../assets/css/components-post_card.css" />
@@ -7,7 +7,7 @@
 <article class="post-card--action">
   <a href="<?php echo $card['link']; ?>" class="post-card__link">
     <div class="post-card__content">
-      <?php render_heading($card['title'], $heading_level, 'post-card__title'); ?>
+      <?php render_heading($card['title'], $post_card_action_heading_level, 'post-card__title'); ?>
       <p class="post-card__desc">
         <?php echo $card['desc']; ?>
       </p>

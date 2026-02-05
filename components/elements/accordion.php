@@ -4,7 +4,7 @@ $accordion_class = 'accordion js-accordion-container';
 if (!empty($is_insight) && $is_insight) {
     $accordion_class .= ' insight-accordion';
 }
-$heading_level = $heading_level ?? 4;
+$accordion_item_heading_level = $accordion_item_heading_level ?? 4;
 include_once(__DIR__ . '/../helpers/heading.php');
 ?>
 
@@ -30,7 +30,7 @@ include_once(__DIR__ . '/../helpers/heading.php');
           </svg>
         </span>
       </span>
-      <?php render_heading($item['title'], $heading_level, 'accordion-item__title accordion-item__title--h5'); ?>
+      <?php render_heading($item['title'], $accordion_item_heading_level, 'accordion-item__title accordion-item__title--h5'); ?>
     </div>
 
     <div class="accordion-item__content">

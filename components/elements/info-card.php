@@ -1,5 +1,5 @@
 <?php
-    $heading_level = $heading_level ?? 4;
+    $info_card_heading_level = $info_card_heading_level ?? 4;
     include_once(__DIR__ . '/../helpers/heading.php');
 ?>
 <link rel="stylesheet" href="../assets/css/components-info_card.css" />
@@ -9,7 +9,7 @@
   <div class="info-card__content">
     <div class="info-card__content-top"></div>
     <div class="info-card__content-bottom">
-      <?php render_heading($sidebar_title, $heading_level, 'title title--h3'); ?>
+      <?php render_heading($sidebar_title, $info_card_heading_level, 'title title--h3'); ?>
       <p class="text-content"><?php echo $sidebar_description; ?></p>
       <button class="btn btn--gradient"><?php echo $sidebar_button_name; ?></button>
     </div>
