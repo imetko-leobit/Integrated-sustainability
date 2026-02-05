@@ -9,6 +9,9 @@ if (!isset($initial_rows)) {
 if (!isset($load_more_increment)) {
     $load_more_increment = 3; // Default: load 3 more items
 }
+// Default heading level
+$heading_level = $heading_level ?? 2;
+include_once(__DIR__ . '/../helpers/heading.php');
 
 $initial_items = $items_per_row * $initial_rows;
 
@@ -82,7 +85,7 @@ $resources = [
 <section class="block-resources-grid">
   <!-- Header Section -->
   <div class="block-resources-grid__header">
-    <h1 class="title title--h1"><?php echo htmlspecialchars(isset($section_title) ? $section_title : 'Resources & Insights', ENT_QUOTES, 'UTF-8'); ?></h1>
+    <?php render_heading(isset($section_title) ? $section_title : 'Resources & Insights', $heading_level, 'title title--h1'); ?>
   </div>
 
   <!-- Grid Section -->

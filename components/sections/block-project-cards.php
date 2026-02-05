@@ -20,6 +20,11 @@ $has_full_card = in_array('full', array_column($cards_data, 'type'));
 
 $grid_class = $has_full_card ? 'block-project-cards__grid' : 'block-project-cards__grid block-project-cards__grid--small';
 
+// Default heading levels
+$card_title_level = $card_title_level ?? 3;
+$author_name_level = $author_name_level ?? 4;
+include_once(__DIR__ . '/../helpers/heading.php');
+
 ?>
 
 <link rel="stylesheet" href="../assets/css/section-block_project_cards.css" />
@@ -40,9 +45,7 @@ $grid_class = $has_full_card ? 'block-project-cards__grid' : 'block-project-card
       </div>
       <div class="card__content">
         <div class="card__text-block">
-          <h3 class="title title--h3 card__title js-ellipsis-title">
-            <?php echo $card['title']; ?>
-          </h3>
+          <?php render_heading($card['title'], $card_title_level, 'title title--h3 card__title js-ellipsis-title'); ?>
           <p class="card__description text-content js-ellipsis-text">
             <?php echo $card['text']; ?>
           </p>
@@ -59,7 +62,7 @@ $grid_class = $has_full_card ? 'block-project-cards__grid' : 'block-project-card
               <img src="<?php echo $card['author']['photo']; ?>" alt="person photo" class="person-card__image">
             </div>
             <div class="person-card__info">
-              <h4 class="card__name"><?php echo $card['author']['name']; ?></h4>
+              <?php render_heading($card['author']['name'], $author_name_level, 'card__name'); ?>
               <p class="card__credentials"><?php echo $card['author']['degree']; ?></p>
               <p class="card__title"><?php echo $card['author']['role']; ?></p>
             </div>

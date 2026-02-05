@@ -16,12 +16,15 @@
       ['Row 4 Col 1', 'Row 4 Col 2', 'Row 4 Col 3', 'Row 4 Col 4', 'Row 4 Col 5'],
     ];
   }
+  // Default heading level
+  $heading_level = $heading_level ?? 3;
+  include_once(__DIR__ . '/../helpers/heading.php');
 ?>
 
 <link rel="stylesheet" href="../assets/css/components-table.css" />
 
 <div class="table-component">
-  <h3 class="title title--h3 table-component__title"><?php echo htmlspecialchars($table_title); ?></h3>
+  <?php render_heading($table_title, $heading_level, 'title title--h3 table-component__title'); ?>
   <div class="table-component__divider"></div>
   <div class="table-component__wrapper">
     <table class="table-component__table">
