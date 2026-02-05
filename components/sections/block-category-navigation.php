@@ -114,7 +114,7 @@ $industries = [
 
     <div class="category-navigation__nav-container">
       <div class="heading">
-        <?php render_heading('select an industry', $category_nav_section_heading_level, 'title title--h3'); ?>
+        <?php render_heading('Select an industry', $category_nav_section_heading_level, 'title title--h3'); ?>
       </div>
       <ul class="category-navigation__nav" id="industryList">
         <?php foreach ($industries as $index => $item):
