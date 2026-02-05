@@ -26,6 +26,10 @@ if (!isset($careers_intro_logos)) {
         ['src' => '../assets/img/logoSkeena.png', 'alt' => 'Skeena'],
     ];
 }
+
+// Default heading level to 2 if not provided
+$heading_level = $heading_level ?? 4;
+include_once(__DIR__ . '/../helpers/heading.php');
 ?>
 
 <link rel="stylesheet" href="../assets/css/section-block_careers_intro.css" />
@@ -36,9 +40,7 @@ if (!isset($careers_intro_logos)) {
     <!-- Header and Description Row -->
     <div class="block-careers-intro__content">
       <div class="block-careers-intro__header">
-        <h4 class="title title--h4">
-          <?php echo htmlspecialchars($careers_intro_title, ENT_QUOTES, 'UTF-8'); ?>
-        </h4>
+        <?php render_heading($careers_intro_title, $heading_level, 'title title--h4'); ?>
       </div>
 
       <div class="block-careers-intro__description">

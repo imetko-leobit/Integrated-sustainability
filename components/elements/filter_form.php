@@ -1,3 +1,9 @@
+<?php
+// Default heading level to 2 if not provided
+$heading_level = $heading_level ?? 2;
+include_once(__DIR__ . '/../helpers/heading.php');
+?>
+
 <link href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" rel="stylesheet" />
 <link rel="stylesheet" href="../assets/css/components-custom_select.css" />
 <link rel="stylesheet" href="../assets/css/components-filter_form.css" />
@@ -60,9 +66,7 @@
       <img src="../assets/img/closeSmall.svg" alt='close all filters' />
     </button>
   </div>
-  <h1 class='heading title title--h1'>
-    41 search results for “water”
-  </h1>
+  <?php render_heading('41 search results for "water"', $heading_level, 'heading title title--h1'); ?>
 </div>
 
 <script type='text/javascript' src="../assets/js/components-multiselect.js"></script>
