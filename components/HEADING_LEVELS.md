@@ -162,13 +162,20 @@ render_heading($person_name, $person_card_heading_level);  // h3
 
 ## Verification
 
-To verify no naming conflicts exist, run:
+You can verify that no naming conflicts exist by reviewing all heading level variable declarations across the codebase:
 
 ```bash
-php /tmp/comprehensive_review.php
+# Search for all heading level variable declarations in sections
+grep -r "heading_level.*=.*??" components/sections/ --include="*.php"
+
+# Search for all heading level variable declarations in elements  
+grep -r "heading_level.*=.*??" components/elements/ --include="*.php"
 ```
 
-This script analyzes all heading level variables and reports any conflicts between sections and elements.
+The key principle to verify:
+- **Section blocks** can use `$heading_level` for their main heading
+- **Element components** must use unique, component-specific names (never `$heading_level`)
+- No section and element should share the same variable name
 
 ## Related Files
 

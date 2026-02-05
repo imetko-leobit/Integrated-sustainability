@@ -1,7 +1,7 @@
 <?php
 // Default heading levels
 // Note: Use unique variable names to prevent inheritance conflicts with nested components
-$category_nav_section_heading_level = $category_nav_section_heading_level ?? 4;  // For the "select an industry" heading
+$category_nav_section_heading_level = $category_nav_section_heading_level ?? 4;  // For the "Select an industry" heading
 $category_navigation_card_heading_level = $category_navigation_card_heading_level ?? 5;  // For individual category card titles
 include_once(__DIR__ . '/../helpers/heading.php');
 
