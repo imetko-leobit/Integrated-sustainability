@@ -2,6 +2,9 @@
 $pillar_title = "de-risk capital project delivery";
 $pillar_text_1 = "Permitting, environmental, and stakeholder impacts are often major risks to a project's schedule and long-term success.";
 $pillar_text_2 = "We account for environmental compliance, technology readiness, life-cycle growth, and stakeholder engagement to reduce permit timelines and de-risk your project.";
+// Default heading level
+$heading_level = $heading_level ?? 4;
+include_once(__DIR__ . '/../helpers/heading.php');
 
 $pillar_items = [
     [
@@ -79,7 +82,7 @@ $total_slides = count($pillar_items);
           <a class="pillar-carousel-card__content-wrapper" href="<?php echo $item['link']; ?>"
             aria-label="Advance to <?php echo $item['title']; ?>">
 
-            <h4 class="pillar-carousel-card__title pillar-carousel-card__title--h4"><?php echo $item['title']; ?></h4>
+            <?php render_heading($item['title'], $heading_level, 'pillar-carousel-card__title pillar-carousel-card__title--h4'); ?>
             <p class="pillar-carousel-card__desc"><?php echo $item['desc']; ?></p>
 
             <div class="pillar-carousel-card__link">

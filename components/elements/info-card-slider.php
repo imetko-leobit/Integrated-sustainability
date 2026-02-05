@@ -19,6 +19,9 @@ $slides = [
         'btn'  => 'button 3'
     ],
 ];
+// Default heading level
+$heading_level = $heading_level ?? 4;
+include_once(__DIR__ . '/../helpers/heading.php');
 ?>
 
 <link rel="stylesheet" href="../assets/css/components-info_card_slider.css" />
@@ -32,7 +35,7 @@ $slides = [
       <div class="info-card__content">
         <div class="info-card__content-top"></div>
         <div class="info-card__content-bottom">
-          <h3 class="title title--h3"><?php echo $slide['title']; ?></h3>
+          <?php render_heading($slide['title'], $heading_level, 'title title--h3', [], true); ?>
           <p class="text-content"><?php echo $slide['desc']; ?></p>
           <button class="btn btn--gradient"><?php echo $slide['btn']; ?></button>
         </div>

@@ -6,6 +6,9 @@ if (!isset($text_below)) {
 }
 // Ensure $text_below is a boolean
 $text_below = (bool) $text_below;
+// Default heading level
+$heading_level = $heading_level ?? 4;
+include_once(__DIR__ . '/../helpers/heading.php');
 
 $projects = [
     [
@@ -75,7 +78,7 @@ $wrapper_class = 'block-projects__wrapper' . ($text_below ? ' block-projects__wr
               </button>
             </div>
             <div class="heading">
-              <h4 class="title title--h4"><?php echo $project['title']; ?></h4>
+              <?php render_heading($project['title'], $heading_level, 'title title--h4'); ?>
             </div>
             <div class="text-content text-content--grey">
               <p><?php echo $project['desc']; ?></p>

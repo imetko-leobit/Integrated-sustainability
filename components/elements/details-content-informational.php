@@ -14,11 +14,16 @@
     $details_quote = $details_quote ?? null;
     $slider_imgs = $slider_imgs ?? null;
     $details_links = $details_links ?? null;
+
+    // Default heading levels
+    $main_heading_level = $main_heading_level ?? 3;
+    $sub_heading_level = $sub_heading_level ?? 4;
+    include_once(__DIR__ . '/../helpers/heading.php');
 ?>
 
 <div class="details-content-informational">
   <?php if ($details_title1): ?>
-  <h2 class="title title--h2"><?php echo $details_title1; ?></h2>
+  <?php render_heading($details_title1, $main_heading_level, 'title title--h2'); ?>
     <?php endif; ?>
     <?php if ($details_description): ?>
     <p><?php echo $details_description; ?></p>
@@ -30,7 +35,7 @@
     <p><?php echo $details_description3; ?></p>
     <?php endif; ?>
     <?php if ($details_title2): ?>
-    <h3 class="title title--h3"><?php echo $details_title2; ?></h3>
+    <?php render_heading($details_title2, $sub_heading_level, 'title title--h3'); ?>
     <?php if ($details_description): ?>
     <p><?php echo $details_description; ?></p>
     <?php endif; ?>
@@ -48,7 +53,7 @@
 	  ?>
     <?php endif; ?>
     <?php if ($details_title3): ?>
-    <h3 class="title title--h3"><?php echo $details_title3; ?></h3>
+    <?php render_heading($details_title3, $sub_heading_level, 'title title--h3'); ?>
     <?php endif; ?>
     <?php if ($details_description): ?>
     <p><?php echo $details_description; ?></p>
@@ -57,7 +62,7 @@
     <p><?php echo $details_description; ?></p>
     <?php endif; ?>
     <?php if ($details_title4): ?>
-    <h3 class="title title--h3"><?php echo $details_title4; ?></h3>
+    <?php render_heading($details_title4, $sub_heading_level, 'title title--h3'); ?>
     <?php endif; ?>
     <?php if ($details_description): ?>
     <p><?php echo $details_description; ?></p>
@@ -74,7 +79,7 @@
     <p><?php echo $details_description; ?></p>
     <?php endif; ?>
     <?php if ($details_title5): ?>
-    <h3 class="title title--h3"><?php echo $details_title5; ?></h3>
+    <?php render_heading($details_title5, $sub_heading_level, 'title title--h3'); ?>
     <?php endif; ?>
     <?php if ($details_description): ?>
     <p><?php echo $details_description; ?></p>
@@ -90,7 +95,7 @@
     <?php endif; ?>
 
     <?php if ($details_title6): ?>
-    <h3 class="title title--h3"><?php echo $details_title6; ?></h3>
+    <?php render_heading($details_title6, $sub_heading_level, 'title title--h3'); ?>
     <?php endif; ?>
 
     <?php if ($details_links): ?>

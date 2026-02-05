@@ -1,3 +1,8 @@
+<?php
+// Default heading level
+$heading_level = $heading_level ?? 4;
+include_once(__DIR__ . '/../helpers/heading.php');
+?>
 <link rel="stylesheet" href="../assets/css/section-block_media_grid.css" />
 <section class='block-media-grid'>
   <?php if ($card): ?>
@@ -29,7 +34,7 @@
       <div class='media-card__tagline'>
         <p class='tagline'><?php echo $item['tagline']; ?></p>
       </div>
-      <h3 class='title title--h3'><?php echo $item['title']; ?></h3>
+      <?php render_heading($item['title'], $heading_level, 'title title--h3'); ?>
       <p><?php echo $item['description']; ?></p>
       <p><?php echo $item['description_second']; ?></p>
       <q><?php echo $item['quote']; ?></q>
