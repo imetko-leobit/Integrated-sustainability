@@ -4,8 +4,9 @@
 
 <?php
 // Default heading levels
-$heading_level = $heading_level ?? 2;
-$post_card_heading_level = $post_card_heading_level ?? 3;
+// Note: Use unique variable names to prevent inheritance conflicts with nested components
+$heading_level = $heading_level ?? 2;  // For the main section title
+$cards_slider_card_heading_level = $cards_slider_card_heading_level ?? 3;  // For card titles within this slider
 include_once(__DIR__ . '/../helpers/heading.php');
 
 $projects_data = [
@@ -97,7 +98,7 @@ $projects_data = [
                                 </div>
                             <?php endif; ?>
                             <div class="post-card__content">
-                                <?php render_heading($project['title'], $post_card_heading_level, 'post-card__title'); ?>
+                                <?php render_heading($project['title'], $cards_slider_card_heading_level, 'post-card__title'); ?>
                                 <p class="post-card__description">
                                     <?php echo $project['description']; ?>
                                 </p>
