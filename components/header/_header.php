@@ -52,30 +52,6 @@
     </nav>
   </div>
 
-  <template id="mobile-bottom-template">
-    <div class="main-menu__bottom--mobile">
-      <div class="search-container" id="header-search-container-mobile">
-        <button class="search-toggle" aria-label="Toggle Search">
-          <svg viewBox="0 0 28 24" fill="none">
-            <path fill="currentColor"
-              d="m27.707 26.292-8.259-8.259A10.939 10.939 0 0 0 22.001 11c0-6.066-4.934-11-11-11S0 4.934 0 11s4.934 11 11 11c2.673 0 5.125-.96 7.033-2.553l8.259 8.259a.997.997 0 0 0 1.414 0 .998.998 0 0 0 0-1.414h.001ZM2 11c0-4.963 4.037-9 9-9s9 4.037 9 9-4.037 9-9 9-9-4.037-9-9Z" />
-          </svg>
-        </button>
-        <form action="/search" method="get" class="search-form">
-          <input type="search" name="q" placeholder="Search..." class="search-input" aria-label="Search site content">
-        </form>
-      </div>
-
-      <div class="language-select">
-        <select name="language" class="regular-select">
-          <option value="en">English</option>
-          <option value="fr">French</option>
-          <option value="es">Spanish</option>
-        </select>
-      </div>
-    </div>
-  </template>
-
   <?php if (isset($subheader) && is_array($subheader)) : ?>
   <div class="header-subheader">
     <div class="subheader-wrapper">
