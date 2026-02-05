@@ -7,13 +7,13 @@
     $details_deliverables = $details_deliverables ?? null;
     $details_button = $details_button ?? null;
     // Default heading level
-    $heading_level = $heading_level ?? 4;
+    $details_general_heading_level = $details_general_heading_level ?? 4;
     include_once(__DIR__ . '/../helpers/heading.php');
 ?>
 
 <div class="details-general">
     <?php if ($details_title1): ?>
-        <?php render_heading($details_title1, $heading_level, 'title title--h3'); ?>
+        <?php render_heading($details_title1, $details_general_heading_level, 'title title--h3'); ?>
     <?php endif; ?>
     <?php if ($details_description): ?>
         <p><?php echo $details_description; ?></p>
@@ -25,7 +25,7 @@
         <p><?php echo $details_description3; ?></p>
     <?php endif; ?>
     <?php if ($details_title2): ?>
-        <?php render_heading($details_title2, $heading_level, 'title title--h3'); ?>
+        <?php render_heading($details_title2, $details_general_heading_level, 'title title--h3'); ?>
     <?php endif; ?>
     <?php if ($details_deliverables): ?>
         <ul>

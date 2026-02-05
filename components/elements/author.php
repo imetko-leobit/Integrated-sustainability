@@ -1,5 +1,5 @@
 <?php
-    $heading_level = $heading_level ?? 4;
+    $author_heading_level = $author_heading_level ?? 4;
     include_once(__DIR__ . '/../helpers/heading.php');
 ?>
 <link rel="stylesheet" href="../assets/css/components-author.css" />
@@ -11,7 +11,7 @@ $social_icon = $social_icon ?? null;
 
 <section class="block-author">
   <?php if ($autor_title): ?>
-  <?php render_heading($autor_title, $heading_level, 'title title--h3'); ?>
+  <?php render_heading($autor_title, $author_heading_level, 'title title--h3'); ?>
   <?php endif; ?>
   <div class="block-author__wrapper">
     <div class='author__person'>

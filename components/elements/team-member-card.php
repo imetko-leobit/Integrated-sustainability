@@ -1,5 +1,5 @@
 <?php
-    $heading_level = $heading_level ?? 5;
+    $team_member_card_heading_level = $team_member_card_heading_level ?? 5;
     include_once(__DIR__ . '/../helpers/heading.php');
 ?>
 <link rel="stylesheet" href="../assets/css/components-team_member_card.css" />
@@ -14,7 +14,7 @@
         </button>
     </div>
     <div class="team-member-card__info">
-        <?php render_heading($member_name, $heading_level, 'title title--h5 team-member-card__name'); ?>
+        <?php render_heading($member_name, $team_member_card_heading_level, 'title title--h5 team-member-card__name'); ?>
         <p class="team-member-card__additional-info"><?php echo $member_additional_info; ?></p>
         <p class="team-member-card__position"><?php echo $member_position; ?></p>
     </div>

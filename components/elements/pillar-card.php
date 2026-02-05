@@ -1,5 +1,5 @@
 <?php
-    $heading_level = $heading_level ?? 4;
+    $pillar_card_heading_level = $pillar_card_heading_level ?? 4;
     include_once(__DIR__ . '/../helpers/heading.php');
 ?>
 <link rel="stylesheet" href="../assets/css/components-pillar_card.css" />
@@ -15,7 +15,7 @@
       <div class='pillar-card__text'>
         <p class="pillar-card__caption"><?php echo $card['caption']; ?></p>
 
-        <?php render_heading($card['title'], $heading_level, 'pillar-card__title'); ?>
+        <?php render_heading($card['title'], $pillar_card_heading_level, 'pillar-card__title'); ?>
         <p class="pillar-card__desc"><?php echo $card['desc']; ?></p>
       </div>
       <?php if (!empty($card['action'])): ?>

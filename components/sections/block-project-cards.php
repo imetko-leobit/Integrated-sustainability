@@ -21,7 +21,7 @@ $has_full_card = in_array('full', array_column($cards_data, 'type'));
 $grid_class = $has_full_card ? 'block-project-cards__grid' : 'block-project-cards__grid block-project-cards__grid--small';
 
 // Default heading levels
-$card_title_level = $card_title_level ?? 4;
+$project_card_heading_level = $project_card_heading_level ?? 4;
 $author_name_level = $author_name_level ?? 4;
 include_once(__DIR__ . '/../helpers/heading.php');
 
@@ -45,7 +45,7 @@ include_once(__DIR__ . '/../helpers/heading.php');
       </div>
       <div class="card__content">
         <div class="card__text-block">
-          <?php render_heading($card['title'], $card_title_level, 'title title--h3 card__title js-ellipsis-title'); ?>
+          <?php render_heading($card['title'], $project_card_heading_level, 'title title--h3 card__title js-ellipsis-title'); ?>
           <p class="card__description text-content js-ellipsis-text">
             <?php echo $card['text']; ?>
           </p>

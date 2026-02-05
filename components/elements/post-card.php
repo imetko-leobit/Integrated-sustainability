@@ -1,5 +1,5 @@
 <?php
-    $heading_level = $heading_level ?? 5;
+    $post_card_heading_level = $post_card_heading_level ?? 5;
     include_once(__DIR__ . '/../helpers/heading.php');
 ?>
 <link rel="stylesheet" href="../assets/css/components-post_card.css" />
@@ -22,7 +22,7 @@
     </div>
     <?php endif; ?>
     <div class="post-card__content">
-      <?php render_heading($project['title'], $heading_level, 'post-card__title'); ?>
+      <?php render_heading($project['title'], $post_card_heading_level, 'post-card__title'); ?>
       <p class="post-card__description">
         <?php echo $project['description']; ?>
       </p>

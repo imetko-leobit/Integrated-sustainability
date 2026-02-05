@@ -13,14 +13,14 @@ $label_na = "Canada & USA";
 $phone_caribbean = "+1 (246)-622-2311";
 $label_caribbean = "Caribbean";
 
-$heading_level = $heading_level ?? 4;
+$contact_card_heading_level = $contact_card_heading_level ?? 4;
 include_once(__DIR__ . '/../helpers/heading.php');
 ?>
 
 <link rel="stylesheet" href="../assets/css/components-contact_card.css" />
 
 <div class="support-card">
-  <?php render_heading($title, $heading_level, 'support-card__title'); ?>
+  <?php render_heading($title, $contact_card_heading_level, 'support-card__title'); ?>
 
   <p class="support-card__description">
     <?php echo $description; ?>
