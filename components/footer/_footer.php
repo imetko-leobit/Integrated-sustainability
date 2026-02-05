@@ -1,4 +1,9 @@
 <!-- footer -->
+<?php
+// Default heading level for footer sections
+$footer_heading_level = $footer_heading_level ?? 4;
+include_once(__DIR__ . '/../helpers/heading.php');
+?>
 <link rel="stylesheet" href="../assets/css/components-footer.css" />
 
 <footer class="footer">
@@ -9,7 +14,7 @@
   <div class="footer-links-wrapper tablet">
     <div class="footer-sections">
       <section class="footer-section">
-        <h4 class="title">insights</h4>
+        <?php render_heading('insights', $footer_heading_level, 'title'); ?>
         <ul class="link-list">
           <li><a href="#">Projects</a></li>
           <li><a href="#">ESG Reports</a></li>
@@ -19,7 +24,7 @@
       </section>
 
       <section class="footer-section">
-        <h4 class="title">offices</h4>
+        <?php render_heading('offices', $footer_heading_level, 'title'); ?>
         <ul class="link-list">
           <li><a href="#">Calgary, AB, Canada</a></li>
           <li><a href="#">Carlsbad, CA, United States</a></li>
@@ -30,7 +35,7 @@
       </section>
 
       <section class="footer-section">
-        <h4 class="title">safeguards</h4>
+        <?php render_heading('safeguards', $footer_heading_level, 'title'); ?>
         <ul class="link-list">
           <li><a href="#">Health, Safety & Environment</a></li>
           <li><a href="#">DEI Statement</a></li>
@@ -40,7 +45,7 @@
       </section>
 
       <section class="footer-section">
-        <h4 class="title">work with us</h4>
+        <?php render_heading('work with us', $footer_heading_level, 'title'); ?>
         <ul class="link-list">
           <li><a href="#">Contact Us</a></li>
           <li><a href="#">Careers</a></li>
