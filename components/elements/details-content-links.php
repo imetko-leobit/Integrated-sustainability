@@ -94,9 +94,9 @@
     @include ('../components/elements/contact-card.php')
 
     ?>
-    <?php if ($details_title4): ?> 
-    <?php render_heading($details_title4, $sub_heading_level, 'title title--h3'); ?>
-    <?php endif; ?>
+    <?php if ($details_title4): 
+      render_heading($details_title4, $sub_heading_level, 'title title--h3'); 
+    endif; ?>
 
 
     <?php
