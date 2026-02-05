@@ -1,3 +1,9 @@
+<?php
+// Default heading level to 1 if not provided (hero is typically the main page heading)
+$heading_level = $heading_level ?? 1;
+include_once(__DIR__ . '/../helpers/heading.php');
+?>
+
 <link rel="stylesheet" href="../assets/css/section-block_hero.css" />
 
 <section class="block-hero">
@@ -6,9 +12,7 @@
   </div>
   <div class="block-hero__content">
     <div class="heading">
-      <h1 class="title title--h0">
-        <?php echo $hero_title; ?>
-      </h1>
+      <?php render_heading($hero_title, $heading_level, 'title title--h0'); ?>
     </div>
 
     <?php if (!empty($hero_description) || !empty($hero_description2)) {?>

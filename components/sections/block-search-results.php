@@ -59,6 +59,9 @@ $projects_data = [
         'tags' => ['oil & gas', 'water treatment'],
     ]
 ];
+// Default heading level to 1 if not provided
+$heading_level = $heading_level ?? 1;
+include_once(__DIR__ . '/../helpers/heading.php');
 
 ?>
 
@@ -66,9 +69,7 @@ $projects_data = [
 <link rel="stylesheet" href="../assets/css/section-block_search_results.css" />
 
 <section class="block-search-results">
-  <h1 class='heading'>
-    41 search results for “water”
-  </h1>
+  <?php render_heading('41 search results for "water"', $heading_level, 'heading'); ?>
   <?php include('../components/elements/search_form.php'); ?>
   <div class="publications" id="publications">
     <?php foreach ($projects_data as $project) : ?>
