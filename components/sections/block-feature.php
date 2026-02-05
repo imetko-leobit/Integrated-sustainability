@@ -11,13 +11,12 @@
  * - $paragraphs (array): Array of paragraph text strings
  * - $button (array): Button configuration with 'url' and 'label' keys
  * - $checkbox_list (array, optional): Array of checkbox items with 'icon' and 'label' keys
- * - $heading_level (int, optional): Heading level (1-6), defaults to 2
  */
 
 // Set defaults for optional variables
 $tagline = $tagline ?? '';
 $checkbox_list = $checkbox_list ?? [];
-$heading_level = $heading_level ?? 4;
+$block_feature_heading_level = $block_feature_heading_level ?? 4;
 include_once(__DIR__ . '/../helpers/heading.php');
 
 /**
@@ -64,7 +63,7 @@ $render_grid_items_feature = function($items, $center_item) {
     <p class="tagline"><?php echo htmlspecialchars($tagline); ?></p>
     <?php endif; ?>
     <div class="heading">
-      <?php render_heading($title, $heading_level, 'title title--h3'); ?>
+      <?php render_heading($title, $block_feature_heading_level, 'title title--h3'); ?>
     </div>
     <div class="text-content text-content--grey">
       <?php foreach ($paragraphs as $paragraph): ?>

@@ -1,6 +1,6 @@
 <?php
 // Default heading level
-$heading_level = $heading_level ?? 3;
+$block_media_heading_level = $block_media_heading_level ?? 3;
 include_once(__DIR__ . '/../helpers/heading.php');
 ?>
 <link rel="stylesheet" href="../assets/css/section-block_media.css" />
@@ -8,7 +8,7 @@ include_once(__DIR__ . '/../helpers/heading.php');
 <section class="block-media">
   <div class="block-media__col--text">
     <div class="heading">
-      <?php render_heading('Modular and configurable treatment packages available now', $heading_level, 'title title--h2'); ?>
+      <?php render_heading('Modular and configurable treatment packages available now', $block_media_heading_level, 'title title--h2'); ?>
     </div>
     <div class="text-content text-content--grey">
       <p>Many operators prefer treatment systems that can be deployed quickly, relocated as conditions change, or

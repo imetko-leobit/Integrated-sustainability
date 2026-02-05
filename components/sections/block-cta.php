@@ -4,7 +4,7 @@ $title = $title ?? 'partner with <br> a unified team';
 $description = $description ?? 'Achieve greater cost control and schedule certainty with accountable infrastructure designed for high-consequence operations.';
 $button_text = $button_text ?? 'Book a Call';
 // Default heading level to 2 if not provided
-$heading_level = $heading_level ?? 2;
+$block_cta_heading_level = $block_cta_heading_level ?? 2;
 include_once(__DIR__ . '/../helpers/heading.php');
 ?>
 
@@ -18,7 +18,7 @@ include_once(__DIR__ . '/../helpers/heading.php');
     <div class="block-cta__card-wrapper">
       <div class="block-cta__card">
         <div class="block-cta__card-content">
-          <?php render_heading($title, $heading_level, 'title title--h1', [], true); ?>
+          <?php render_heading($title, $block_cta_heading_level, 'title title--h1', [], true); ?>
           <p class="block-cta__description"><?php echo $description; ?></p>
           <button class="btn btn--gradient"><?php echo $button_text; ?></button>
         </div>

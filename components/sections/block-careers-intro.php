@@ -28,7 +28,7 @@ if (!isset($careers_intro_logos)) {
 }
 
 // Default heading level to 2 if not provided
-$heading_level = $heading_level ?? 4;
+$block_careers_intro_heading_level = $block_careers_intro_heading_level ?? 4;
 include_once(__DIR__ . '/../helpers/heading.php');
 ?>
 
@@ -40,7 +40,7 @@ include_once(__DIR__ . '/../helpers/heading.php');
     <!-- Header and Description Row -->
     <div class="block-careers-intro__content">
       <div class="block-careers-intro__header">
-        <?php render_heading($careers_intro_title, $heading_level, 'title title--h4'); ?>
+        <?php render_heading($careers_intro_title, $block_careers_intro_heading_level, 'title title--h4'); ?>
       </div>
 
       <div class="block-careers-intro__description">

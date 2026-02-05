@@ -4,7 +4,7 @@
 
 <?php
 // Default heading levels
-$heading_level = $heading_level ?? 2;
+$block_cards_slider_heading_level = $block_cards_slider_heading_level ?? 2;
 $post_card_heading_level = $post_card_heading_level ?? 3;
 include_once(__DIR__ . '/../helpers/heading.php');
 
@@ -66,7 +66,7 @@ $projects_data = [
 
     <div class="swiper-container js-projects-cards-slider">
         <div class="heading">
-            <?php render_heading($section_title, $heading_level, 'title title--h1', [], true); ?>
+            <?php render_heading($section_title, $block_cards_slider_heading_level, 'title title--h1', [], true); ?>
 
             <div class="cards-navigation">
                 <button class="btn btn--arrow js-button-prev" aria-label="Previous Project">
@@ -97,7 +97,7 @@ $projects_data = [
                                 </div>
                             <?php endif; ?>
                             <div class="post-card__content">
-                                <?php render_heading($project['title'], $post_card_heading_level, 'post-card__title'); ?>
+                                <?php render_heading($project['title'], $block_cards_slider_heading_level, 'post-card__title'); ?>
                                 <p class="post-card__description">
                                     <?php echo $project['description']; ?>
                                 </p>

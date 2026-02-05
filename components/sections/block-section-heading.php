@@ -1,7 +1,7 @@
 <?php
     // Default heading level to 2 if not provided
-    $heading_level = $heading_level ?? 2;
-    $person_card_heading_level = $person_card_heading_level ?? 4;
+    $block_section_heading_heading_level = $block_section_heading_heading_level ?? 2;
+    $block_section_heading_person_card_heading_level = $block_section_heading_person_card_heading_level ?? 4;
     include_once(__DIR__ . '/../helpers/heading.php');
 ?>
 <link rel="stylesheet" href="../assets/css/section-block_section_heading.css" />
@@ -22,7 +22,7 @@
 
 <section class="block-section-heading">
     <div class="heading heading-navigation">
-        <?php render_heading($section_title, $heading_level, 'title title--h1', [], true); ?>
+        <?php render_heading($section_title, $block_section_heading_heading_level, 'title title--h1', [], true); ?>
 
         <?php if ($link_url || $custom_icon || $person_photo): ?>
             <div class="heading-action <?php echo $link_direction === 'right' ? "heading-action--right" : ($link_direction === 'down' ? "heading-action--down" : ''); ?>">
@@ -45,7 +45,7 @@
                 <?php elseif ($person_photo): ?>
                     <div class='person-card'>
                         <div class="person-card__info">
-                            <?php render_heading($person_name, $person_card_heading_level, 'card__name'); ?>
+                            <?php render_heading($person_name, $block_section_heading_person_card_heading_level, 'card__name'); ?>
                             <p class="card__credentials"><?php echo $person_degree; ?></p>
                             <p class="card__date"><?php echo $person_date; ?></p>
                         </div>

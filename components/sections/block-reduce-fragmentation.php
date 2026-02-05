@@ -1,6 +1,6 @@
 <?php
 // Default heading level
-$heading_level = $heading_level ?? 4;
+$block_reduce_fragmentation_heading_level = $block_reduce_fragmentation_heading_level ?? 4;
 include_once(__DIR__ . '/../helpers/heading.php');
 ?>
 <link rel="stylesheet" href="../assets/css/section-block_reduce_fragmentation.css" />
@@ -12,7 +12,7 @@ include_once(__DIR__ . '/../helpers/heading.php');
     <p class="tagline"><?php echo $top_tagline; ?></p>
     <?php endif; ?>
     <div class="heading">
-      <?php render_heading('discover how unified environmental science and operational expertise delivers sustainable business performance', $heading_level, 'title title--h3'); ?>
+      <?php render_heading('discover how unified environmental science and operational expertise delivers sustainable business performance', $block_reduce_fragmentation_heading_level, 'title title--h3'); ?>
     </div>
     <div class="text-content text-content--grey">
       <p>Asset performance drifts within fragmented service delivery. Our integrated delivery approach connects on-site

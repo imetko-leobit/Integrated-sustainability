@@ -43,7 +43,7 @@ $pillar_items = [
 
 $total_slides = count($pillar_items);
 // Default heading level to 2 if not provided
-$heading_level = $heading_level ?? 2;
+$block_slider_heading_level = $block_slider_heading_level ?? 2;
 $pillar_carousel_card_heading_level = $pillar_carousel_card_heading_level ?? 4;
 include_once(__DIR__ . '/../helpers/heading.php');
 ?>
@@ -60,7 +60,7 @@ include_once(__DIR__ . '/../helpers/heading.php');
       <?php endif; ?>
 
       <div class="heading">
-        <?php render_heading($pillar_title, $heading_level, 'title title--h1'); ?>
+        <?php render_heading($pillar_title, $block_slider_heading_level, 'title title--h1'); ?>
       </div>
 
       <div class="text-content text-content--grey">

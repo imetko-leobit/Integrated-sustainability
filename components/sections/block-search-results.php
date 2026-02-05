@@ -60,7 +60,7 @@ $projects_data = [
     ]
 ];
 // Default heading level to 1 if not provided
-$heading_level = $heading_level ?? 2;
+$block_search_results_heading_level = $block_search_results_heading_level ?? 2;
 include_once(__DIR__ . '/../helpers/heading.php');
 
 ?>
@@ -69,7 +69,7 @@ include_once(__DIR__ . '/../helpers/heading.php');
 <link rel="stylesheet" href="../assets/css/section-block_search_results.css" />
 
 <section class="block-search-results">
-  <?php render_heading('41 search results for "water"', $heading_level, 'heading'); ?>
+  <?php render_heading('41 search results for "water"', $block_search_results_heading_level, 'heading'); ?>
   <?php include('../components/elements/search_form.php'); ?>
   <div class="publications" id="publications">
     <?php foreach ($projects_data as $project) : ?>

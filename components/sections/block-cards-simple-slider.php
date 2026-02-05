@@ -1,5 +1,5 @@
 <?php
-    $heading_level = $heading_level ?? 2;
+    $block_cards_simple_slider_heading_level = $block_cards_simple_slider_heading_level ?? 2;
     include_once(__DIR__ . '/../helpers/heading.php');
 ?>
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
@@ -76,7 +76,7 @@ $additional_card =
 
   <div class="swiper-container js-projects-cards-simple-slider">
     <div class="heading">
-      <?php render_heading($section_title, $heading_level, 'title title--h1', [], true); ?>
+      <?php render_heading($section_title, $block_cards_simple_slider_heading_level, 'title title--h1', [], true); ?>
 
       <div class="cards-navigation">
         <button class="btn btn--arrow js-button-prev" aria-label="Previous Project">
