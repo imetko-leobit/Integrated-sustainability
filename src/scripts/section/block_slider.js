@@ -156,6 +156,26 @@ document.addEventListener('DOMContentLoaded', () => {
       clearInterval(autoRotateInterval);
       resetAllTimebars(); 
 
+      // Pre-emptively update active state to trigger width animation simultaneously
+      const currentActive = carouselWrapper.querySelector('.pillar-carousel-card.is-active');
+      let nextActive;
+      
+      if (direction === 'next') {
+          nextActive = currentActive ? currentActive.nextElementSibling : null;
+          if (!nextActive) {
+              nextActive = carouselWrapper.querySelector('.pillar-carousel-card:first-child');
+          }
+      } else {
+          nextActive = currentActive ? currentActive.previousElementSibling : null;
+          if (!nextActive) {
+              nextActive = carouselWrapper.querySelector('.pillar-carousel-card:last-child');
+          }
+      }
+      
+      // Apply active class to next card before starting transition
+      if (currentActive) currentActive.classList.remove('is-active');
+      if (nextActive) nextActive.classList.add('is-active');
+
       const slideWidth = allSlides[0].offsetWidth; 
       const translateValue = direction === 'next' 
           ? -(slideWidth + slideMargin) 
