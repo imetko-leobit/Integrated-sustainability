@@ -60,7 +60,7 @@ $projects_data = [
 <section class="block-posts-cards">
   <?php include('../components/elements/filter_form.php'); ?>
 
-  <div class="publications" id="publications">
+  <div class="publications js-publications-timer" id="publications">
     <?php foreach ($projects_data as $project) : ?>
     <?php include('../components/elements/post-card.php'); ?>
     <?php endforeach; ?>
@@ -70,3 +70,58 @@ $projects_data = [
     <button class="btn">Load more</button>
   </div>
 </section>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.querySelector('.js-publications-timer');
+  const cards = document.querySelectorAll('.post-card');
+
+  if (!container || cards.length === 0) return;
+
+  let currentIndex = -1;
+  let timer = null;
+  const INTERVAL_TIME = 5000;
+
+  const showNextCard = () => {
+    cards.forEach(card => card.classList.remove('is-active'));
+
+    currentIndex = (currentIndex + 1) % cards.length;
+
+    cards[currentIndex].classList.add('is-active');
+  };
+
+  const startTimer = () => {
+    if (!timer) {
+      timer = setInterval(showNextCard, INTERVAL_TIME);
+    }
+  };
+
+  const stopTimer = () => {
+    clearInterval(timer);
+    timer = null;
+    cards.forEach(card => card.classList.remove('is-active'));
+  };
+
+  const observerOptions = {
+    threshold: 0.3
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        startTimer();
+        if (currentIndex === -1) showNextCard();
+      } else {
+        stopTimer();
+      }
+    });
+  }, observerOptions);
+
+  observer.observe(container);
+
+  container.addEventListener('mouseenter', stopTimer);
+
+  container.addEventListener('mouseleave', startTimer);
+});
+</script>

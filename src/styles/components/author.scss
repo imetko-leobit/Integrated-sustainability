@@ -2,7 +2,11 @@
 @import "../common/mixins";
 
 .block-author {
-  padding: 60px 0 140px;
+  padding: 60px 0 0;
+
+  &:not(:last-child) {
+    padding-bottom: 140px;
+  }
 
   .title {
     margin-top: 60px;
@@ -24,7 +28,7 @@
       gap: 38px;
     }
 
-    .person-card__image-container{
+    .person-card__image-container {
       height: 180px;
       width: 180px;
     }
@@ -61,7 +65,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;;
+      justify-content: flex-start;
       gap: 10px;
       margin-top: 36px;
 
@@ -70,7 +74,7 @@
         width: 38px;
         padding: 8px;
         color: var(--color-grey-100);
-        background-color: #1E1E1E;
+        background-color: #1e1e1e;
         border-radius: 10px;
       }
 
@@ -80,15 +84,13 @@
         height: 38px;
         width: 38px;
         padding: 6px;
-        background-color: #1E1E1E;
+        background-color: #1e1e1e;
         border-radius: 10px;
       }
-
     }
     .author__description {
       color: var(--color-grey-200);
       margin: 0;
-
     }
 
     .link {
@@ -125,10 +127,10 @@
         justify-content: center;
         transition: transform 0.3s ease;
         svg {
-            .icon-arrow {
-              fill: white;
-              transition: fill 0.3s ease;
-            }
+          .icon-arrow {
+            fill: white;
+            transition: fill 0.3s ease;
+          }
         }
       }
 
@@ -138,14 +140,13 @@
         background: none;
 
         .arrow-icon {
-            transform: translate(3px, -3px);
-            svg {
-              .icon-arrow {
-                fill: white;
-              }
+          transform: translate(3px, -3px);
+          svg {
+            .icon-arrow {
+              fill: white;
             }
+          }
         }
-
       }
     }
   }

@@ -3,8 +3,6 @@
   !*** ./src/scripts/components/menu_controller.js ***!
   \***************************************************/
 document.addEventListener('DOMContentLoaded', function () {
-  // --- MENU DATA STRUCTURE ---
-  var menuData = window.phpMenuData || [];
   var megaMenuContent = document.querySelector('.main-menu__content');
   var menuToggle = document.querySelector('.menu-toggle');
   var menuCloseToggle = document.querySelector('.menu-close-toggle');
@@ -23,50 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var clickTimer = null;
   var clickCount = 0;
 
-  /**
-   * Generates HTML columns from menuData synchronously
-   */
-  function createColumn(items, level) {
-    var parentId = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'level-0';
-    var parentTitle = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '';
-    var col = document.createElement('div');
-    col.id = parentId;
-    col.className = "main-menu__col main-menu__col--level-".concat(level, " ").concat(level > 0 ? 'submenu' : 'active-level');
-    col.setAttribute('data-level', level);
-    var html = '';
-    if (level > 0) {
-      var prevTarget = parentId.split('-').slice(0, -1).join('-') || 'level-0';
-      html += "\n          <button class=\"submenu-header\" data-prev-target=\"".concat(prevTarget, "\" aria-label=\"Go back\">\n            <span class=\"back-arrow\">\n              <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" fill=\"none\"><mask id=\"m").concat(parentId, "\" width=\"24\" height=\"24\" x=\"0\" y=\"0\" maskUnits=\"userSpaceOnUse\" style=\"mask-type:alpha\"><path fill=\"#D9D9D9\" d=\"M0 0h24v24H0z\"/></mask><g mask=\"url(#m").concat(parentId, ")\"><path fill=\"#80F7E6\" d=\"M10 22 0 12 10 2l1.775 1.775L3.55 12l8.225 8.225L10 22Z\"/></g></svg>\n            </span>\n            <h3 class=\"submenu-title\">").concat(parentTitle, "</h3>\n          </button>");
-    }
-    html += '<ul class="navbar-nav">';
-    items.forEach(function (item, index) {
-      var hasSub = item.submenu && item.submenu.length > 0;
-      var targetId = item.id || "".concat(parentId, "-").concat(index + 1);
-      var extraClass = item.additional_class ? " ".concat(item.additional_class) : '';
-      html += "\n          <li class=\"nav-item ".concat(hasSub ? 'has-submenu' : '').concat(extraClass, "\" data-target=\"").concat(targetId, "\">\n            <a href=\"").concat(item.url, "\" class=\"nav-link\">").concat(item.title, "</a>\n            ").concat(hasSub ? "\n            <button class=\"submenu-button\">\n              <span class=\"arrow-icon\">\n                <svg id=\"arrow-top-right-gradient\" viewBox=\"0 0 24 24\"><path class=\"icon-arrow\" fill=\"currentColor\" d=\"M22.32 21.729 22.5 0C17.059.053 6.212.128.771.18L.725 2.901c4.897-.049 11.394-.088 17.111-.14L0 20.595 1.903 22.5 19.74 4.664l-.154 17.098 2.734-.03v-.003Z\"/></svg>\n              </span>\n            </button>" : '', "\n          </li>");
-      if (hasSub) {
-        renderMenuLevel(item.submenu, level + 1, targetId, item.title);
-      }
-    });
-    html += '</ul>';
-    if (level === 0) {
-      var template = document.getElementById('mobile-bottom-template');
-      if (template) html += template.innerHTML;
-    }
-    col.innerHTML = html;
-    megaMenuContent.appendChild(col);
-  }
-  function renderMenuLevel(items, level, parentId, parentTitle) {
-    createColumn(items, level, parentId, parentTitle);
-  }
-
-  // Initial rendering
-  if (megaMenuContent) {
-    megaMenuContent.innerHTML = '';
-    renderMenuLevel(menuData, 0, 'level-0', '');
-  }
-
-  // Important: select all columns AFTER rendering is complete
+  // Select all menu columns (now statically rendered in HTML)
   var allLevels = document.querySelectorAll('.main-menu__col');
 
   /**

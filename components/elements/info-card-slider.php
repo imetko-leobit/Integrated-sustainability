@@ -30,10 +30,11 @@ include_once(__DIR__ . '/../helpers/heading.php');
   <div class="info-card-wrapper">
     <?php foreach ($slides as $index => $slide): ?>
     <div class="info-card <?php echo $index === 0 ? 'active' : ''; ?>">
-      <img src="<?php echo $slide['img']; ?>" alt="Slide Image" class="info-card__image">
 
       <div class="info-card__content">
-        <div class="info-card__content-top"></div>
+        <div class="info-card__content-top">
+          <img src="<?php echo $slide['img']; ?>" alt="Slide Image" class="info-card__image">
+        </div>
         <div class="info-card__content-bottom">
           <?php render_heading($slide['title'], $info_card_slider_heading_level, 'title title--h3', [], true); ?>
           <p class="text-content"><?php echo $slide['desc']; ?></p>
@@ -72,10 +73,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function updateSlider(index) {
     slides.forEach(slide => slide.classList.remove('active'));
-    if(dots.length > 0) dots.forEach(dot => dot.classList.remove('active'));
+    if (dots.length > 0) dots.forEach(dot => dot.classList.remove('active'));
 
     slides[index].classList.add('active');
-    if(dots.length > 0) dots[index].classList.add('active');
+    if (dots.length > 0) dots[index].classList.add('active');
   }
 
   function animateProgress() {
@@ -90,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const elapsed = currentTime - startTime + pausedTime;
     const progress = Math.min((elapsed / slideDuration) * 100, 100);
 
-    if(progressFill) progressFill.style.width = `${progress}%`;
+    if (progressFill) progressFill.style.width = `${progress}%`;
 
     if (progress >= 100) {
       currentIndex = (currentIndex + 1) % slides.length;
@@ -98,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       startTime = null;
       pausedTime = 0;
-      if(progressFill) progressFill.style.width = '0%';
+      if (progressFill) progressFill.style.width = '0%';
     }
 
     animationFrameId = requestAnimationFrame(animateProgress);
@@ -126,14 +127,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  if(dots.length > 0){
+  if (dots.length > 0) {
     dots.forEach((dot, index) => {
       dot.addEventListener('click', () => {
         currentIndex = index;
         updateSlider(currentIndex);
         startTime = null;
         pausedTime = 0;
-        if(progressFill) progressFill.style.width = '0%';
+        if (progressFill) progressFill.style.width = '0%';
         isPaused = false;
         animateProgress();
       });

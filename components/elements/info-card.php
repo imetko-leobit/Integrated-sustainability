@@ -9,7 +9,7 @@
   <div class="info-card__content">
     <div class="info-card__content-top"></div>
     <div class="info-card__content-bottom">
-      <?php render_heading($sidebar_title, $info_card_heading_level, 'title title--h3'); ?>
+      <?php render_heading($sidebar_title, $info_card_heading_level, 'title title--h4'); ?>
       <p class="text-content"><?php echo $sidebar_description; ?></p>
       <button class="btn btn--gradient"><?php echo $sidebar_button_name; ?></button>
     </div>

@@ -22,6 +22,9 @@
     const filterSelects = gridBlock.querySelectorAll('.js-filter-select');
     const sortSelect = gridBlock.querySelector('.js-sort-select');
     const chipsContainer = gridBlock.querySelector('.js-filter-chips');
+    const chipsSection = chipsContainer
+      ? chipsContainer.closest('.block-filtered-grid__filter-section')
+      : null;
     const gridContainer = gridBlock.querySelector('.js-filtered-grid');
     const noResultsEl = gridBlock.querySelector('.js-no-results');
 
@@ -50,6 +53,8 @@
         handleSortChange(sortSelect);
       });
     }
+
+    toggleChipsSection();
 
     /**
      * Handle filter select change
@@ -96,6 +101,8 @@
         const chip = createChip(filterName, filter.label);
         chipsContainer.appendChild(chip);
       });
+
+      toggleChipsSection();
     }
 
     /**
@@ -104,6 +111,7 @@
     function createChip(filterName, label) {
       const chip = document.createElement('div');
       chip.className = 'block-filtered-grid__chip btn--gradient';
+      chip.dataset.filterName = filterName;
 
       const chipLabel = document.createElement('span');
       chipLabel.className = 'block-filtered-grid__chip-label';
@@ -113,12 +121,18 @@
       removeBtn.className = 'block-filtered-grid__chip-remove';
       removeBtn.innerHTML = '&times;';
       removeBtn.setAttribute('aria-label', 'Remove ' + label + ' filter');
-      removeBtn.addEventListener('click', function () {
+      removeBtn.addEventListener('click', function (event) {
+        event.preventDefault();
+        event.stopPropagation();
         removeFilter(filterName);
       });
 
       chip.appendChild(chipLabel);
       chip.appendChild(removeBtn);
+
+      chip.addEventListener('click', function () {
+        removeFilter(filterName);
+      });
 
       return chip;
     }
@@ -137,6 +151,13 @@
 
       updateChips();
       applyFilters();
+    }
+
+    function toggleChipsSection() {
+      if (!chipsSection) return;
+
+      const hasFilters = Object.keys(activeFilters).length > 0;
+      chipsSection.style.display = hasFilters ? '' : 'none';
     }
 
     /**
@@ -185,9 +206,13 @@
       // Check each active filter
       for (let filterName in activeFilters) {
         const filterValue = activeFilters[filterName].value;
-        const itemValue = item.getAttribute('data-' + filterName);
+        const itemValue = item.getAttribute('data-' + filterName) || '';
+        const itemValues = itemValue
+          .split(',')
+          .map((value) => value.trim())
+          .filter((value) => value.length > 0);
 
-        if (itemValue !== filterValue) {
+        if (!itemValues.includes(filterValue)) {
           return false;
         }
       }

@@ -2,7 +2,14 @@
 
 <section class="block-hero">
   <div class="block-hero__bg">
-    <img src=<?php echo $hero_img; ?> alt="Mountains Landscape" loading="eager" fetchpriority="high">
+    <?php if (!empty($hero_video_url)): ?>
+    <video autoplay muted loop playsinline poster="<?php echo $hero_img; ?>">
+      <source src="<?php echo $hero_video_url; ?>" type="video/mp4">
+      <img src="<?php echo $hero_img; ?>" alt="Hero Background">
+    </video>
+    <?php elseif (!empty($hero_img)): ?>
+    <img src="<?php echo $hero_img; ?>" alt="Mountains Landscape" loading="eager" fetchpriority="high">
+    <?php endif; ?>
   </div>
   <div class="block-hero__content">
     <div class="heading">
@@ -12,19 +19,19 @@
     </div>
 
     <?php if (!empty($hero_description) || !empty($hero_description2)) {?>
-      <div class="block-hero__descriptions">
-        <?php if (!empty($hero_description)) {?>
-          <div class="block-hero__description">
-            <p><?php echo $hero_description; ?></p>
-          </div>
-          <?php }?>
-
-          <?php if (!empty($hero_description2)) {?>
-          <div class="block-hero__description">
-            <p><?php echo $hero_description2; ?></p>
-          </div>
-        <?php }?>
+    <div class="block-hero__descriptions">
+      <?php if (!empty($hero_description)) {?>
+      <div class="block-hero__description">
+        <p><?php echo $hero_description; ?></p>
       </div>
+      <?php }?>
+
+      <?php if (!empty($hero_description2)) {?>
+      <div class="block-hero__description">
+        <p><?php echo $hero_description2; ?></p>
+      </div>
+      <?php }?>
+    </div>
     <?php }?>
 
     <?php if (!empty($hero_button_name)) {?>

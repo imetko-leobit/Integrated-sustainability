@@ -83,7 +83,7 @@
     }
   }
 
-  &:hover {
+  &:hover, &.is-active {
     .post-card__image-wrapper {
       filter: grayscale(0%);
     }
@@ -106,7 +106,7 @@
       &::after {
         bottom: 0;
         left: 0;
-        width: 40%;
+        width: 0;
         height: 2px;
         position: absolute;
         content: '';
@@ -131,6 +131,24 @@
             fill: url(#svg-gradient-primary);
           }
         }
+      }
+    }
+  }
+
+  &.is-active {
+    .post-card__content {
+      &::after {
+        animation: cardProgress 5s linear forwards;
+      }
+    }
+  }
+
+  &:hover {
+    .post-card__content {
+      &::after {
+        animation: none; 
+        width: 40%;
+        transition: width 0.3s ease;
       }
     }
   }
@@ -437,5 +455,14 @@
         padding-right: 40px;
       }
     }
+  }
+}
+
+@keyframes cardProgress {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
   }
 }

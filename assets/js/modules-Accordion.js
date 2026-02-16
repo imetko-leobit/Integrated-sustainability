@@ -39,38 +39,59 @@ var __webpack_exports__ = {};
   \******************************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ initAccordion)
+/* harmony export */   "default": () => (/* binding */ initInsightAccordion)
 /* harmony export */ });
-function initAccordion() {
-  var triggers = document.querySelectorAll('.js-accordion-trigger');
-  triggers.forEach(function (trigger) {
-    var handleClick = function handleClick(e) {
-      e.preventDefault();
+function initInsightAccordion() {
+  var containers = document.querySelectorAll('.js-accordion-container');
+  if (!containers.length) return;
+  containers.forEach(function (container) {
+    var items = container.querySelectorAll('.accordion-item');
+    items.forEach(function (item, index) {
+      var content = item.querySelector('.accordion-item__content');
+      content.style.overflow = 'hidden';
+      content.style.transition = 'max-height 0.3s ease';
+      var expandBtn = item.querySelector('.accordion-item__expand-btn'); // кнопка "Збільшити текст"
+
+      // Ініціалізація: перший відкритий
+      if (index === 0 || item.classList.contains('is-open')) {
+        item.classList.add('is-open');
+        content.style.maxHeight = content.scrollHeight + 'px';
+        if (expandBtn) expandBtn.style.display = 'none'; // приховуємо кнопку
+      } else {
+        content.style.maxHeight = '0';
+      }
+    });
+    container.addEventListener('click', function (e) {
+      var trigger = e.target.closest('.js-accordion-trigger');
+      if (!trigger) return;
       var item = trigger.closest('.accordion-item');
       var content = item.querySelector('.accordion-item__content');
-      if (item.classList.contains('is-open')) {
-        content.style.maxHeight = null;
-        setTimeout(function () {
-          if (!item.classList.contains('is-open')) content.style.display = 'none';
-        }, 300);
+      var expandBtn = item.querySelector('.accordion-item__expand-btn');
+      var isOpen = item.classList.contains('is-open');
+
+      // Закриваємо всі інші
+      items.forEach(function (otherItem) {
+        if (otherItem !== item) {
+          var otherContent = otherItem.querySelector('.accordion-item__content');
+          var otherBtn = otherItem.querySelector('.accordion-item__expand-btn');
+          otherContent.style.maxHeight = '0';
+          otherItem.classList.remove('is-open');
+          if (otherBtn) otherBtn.style.display = ''; // показуємо кнопку, якщо була прихована
+        }
+      });
+      if (isOpen) {
+        content.style.maxHeight = '0';
         item.classList.remove('is-open');
+        if (expandBtn) expandBtn.style.display = ''; // показуємо кнопку
       } else {
-        content.style.display = 'block';
-        setTimeout(function () {
+        requestAnimationFrame(function () {
           content.style.maxHeight = content.scrollHeight + 'px';
-        }, 10);
-        item.classList.add('is-open');
+          item.classList.add('is-open');
+          if (expandBtn) expandBtn.style.display = 'none'; // приховуємо кнопку
+        });
       }
-    };
-    trigger.removeEventListener('click', trigger._currentHandler);
-    trigger.addEventListener('click', handleClick);
-    trigger._currentHandler = handleClick;
-  });
-  document.querySelectorAll('.accordion-item.is-open .accordion-item__content').forEach(function (content) {
-    content.style.display = 'block';
-    content.style.maxHeight = content.scrollHeight + 'px';
+    });
   });
 }
-;
 /******/ })()
 ;

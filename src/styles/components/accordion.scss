@@ -37,6 +37,7 @@
       overflow: hidden;
       transition: all 0.3s ease-out;
       padding: 0;
+      margin-top: 20px;
 
       p {
         color: var(--color-grey-300);
@@ -150,8 +151,6 @@
   }
 
   .accordion-item__desc {
-    margin-top: 20px;
-
     @media (max-width: 991px) {
       margin-top: 0;
     }

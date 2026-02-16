@@ -14,15 +14,15 @@
  */
 
 // Set defaults for optional variables
-$tagline = $tagline ?? '';
-$checkbox_list = $checkbox_list ?? [];
+$tagline                     = $tagline                     ?? '';
+$checkbox_list               = $checkbox_list               ?? [];
 $block_feature_heading_level = $block_feature_heading_level ?? 4;
-include_once(__DIR__ . '/../helpers/heading.php');
+include_once __DIR__ . '/../helpers/heading.php';
 
 /**
  * Helper function to render grid items with proper encoding
  */
-$render_grid_items_feature = function($items, $center_item) {
+$render_grid_items_feature = function ($items, $center_item) {
   foreach ($items as $index => $item):
       if ($index === 4 && !empty($center_item)): ?>
         <?php if ($center_item['type'] === 'image'): ?>

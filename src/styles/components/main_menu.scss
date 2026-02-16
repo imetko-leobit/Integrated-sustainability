@@ -220,7 +220,7 @@
     .header__actions {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 36px;
     }
 
     .main-menu {
@@ -661,7 +661,7 @@
 
 .header.header--scrolled {
   .header-top {
-    height: 88px;
+    height: 100px;
 
     @media (max-width: 991px) {
       height: 80px;
@@ -669,8 +669,8 @@
   }
 
   .main-menu {
-    top: 88px;
-    height: calc(100vh - 88px);
+    top: 100px;
+    height: calc(100vh - 100px);
 
     @media (max-width: 991px) {
       height: calc(100vh - 80px);

@@ -33,11 +33,7 @@
   }
 
   ul {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 22px;
+    @include ul-main;
     margin: 12px;
 
     @media (max-width: 1199px) {

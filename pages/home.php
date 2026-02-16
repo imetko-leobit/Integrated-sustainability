@@ -18,6 +18,7 @@
         $hero_button_name = "Accountable Asset Delivery";
         $hero_link_name = "Find Your Industry";
         $hero_img = "../assets/img/bg-home.png";
+        $hero_video_url = 'https://www.pexels.com/uk-ua/download/video/19227266/';
         include('../components/sections/block-hero.php')
     ?>
     <?php

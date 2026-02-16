@@ -8,30 +8,30 @@ if (!isset($text_below)) {
 $text_below = (bool) $text_below;
 // Default heading level
 $block_projects_heading_level = $block_projects_heading_level ?? 4;
-include_once(__DIR__ . '/../helpers/heading.php');
+include_once __DIR__ . '/../helpers/heading.php';
 
 $projects = [
     [
-        'title' => '600m³/day mine water treatment plant design & commissioning',
-        'desc' => 'Our client was planning to use breakpoint chlorination (BPC) to manage the ammonia concentrations within the underground water at a Mine in the Yukon. The work included detailed research, design, and commissioning of the plant.',
-        'image_url' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_SwmZu1t5AW2DxK0oL1Qg0GaNeFrCOrFjEA&s',
+        'title'             => '600m³/day mine water treatment plant design & commissioning',
+        'desc'              => 'Our client was planning to use breakpoint chlorination (BPC) to manage the ammonia concentrations within the underground water at a Mine in the Yukon. The work included detailed research, design, and commissioning of the plant.',
+        'image_url'         => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_SwmZu1t5AW2DxK0oL1Qg0GaNeFrCOrFjEA&s',
         'project_portfolio' => '/portfolio/1',
     ],
     [
-        'title' => 'Industrial Wastewater Treatment Facility Upgrade',
-        'desc' => 'We executed a major upgrade to an existing industrial wastewater facility to meet stringent new environmental compliance standards. The project focused on modular expansion and operational efficiency.',
-        'image_url' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSPIBvgHbYQZuE_Q9rYEIxJQbvgiCtDM6JgQ&s',
+        'title'             => 'Industrial Wastewater Treatment Facility Upgrade',
+        'desc'              => 'We executed a major upgrade to an existing industrial wastewater facility to meet stringent new environmental compliance standards. The project focused on modular expansion and operational efficiency.',
+        'image_url'         => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSPIBvgHbYQZuE_Q9rYEIxJQbvgiCtDM6JgQ&s',
         'project_portfolio' => '/portfolio/2',
     ],
     [
-        'title' => 'Hydroelectric Dam Decommissioning',
-        'desc' => 'A comprehensive, multi-year project involving environmental impact assessment, public consultation, and safe removal of a decommissioned hydroelectric dam structure and restoration of the natural river flow.',
-        'image_url' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMiR_wQ0cWyibxDyjCRMMjdrXHOoYGgYxphA&s',
+        'title'             => 'Hydroelectric Dam Decommissioning',
+        'desc'              => 'A comprehensive, multi-year project involving environmental impact assessment, public consultation, and safe removal of a decommissioned hydroelectric dam structure and restoration of the natural river flow.',
+        'image_url'         => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMiR_wQ0cWyibxDyjCRMMjdrXHOoYGgYxphA&s',
         'project_portfolio' => '/portfolio/3',
     ],
 ];
 
-$portfolio_links = array_column($projects, 'project_portfolio');
+$portfolio_links      = array_column($projects, 'project_portfolio');
 $portfolio_links_json = json_encode($portfolio_links);
 
 $projects_page_link = '/insights';

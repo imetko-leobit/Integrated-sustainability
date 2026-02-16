@@ -9,71 +9,73 @@ $accent-purple: #8e44ad;
 $badge-bg: rgba(255, 255, 255, 0.05);
 
 .support-card {
-    color: $text-white;
-    padding: 56px;
-    width: 100%;
-    @include bg-image;
-    margin: 56px 0;
+  color: $text-white;
+  padding: 56px;
+  width: 100%;
+  @include bg-image;
+  margin: 56px 0;
 
-    &__title {
-        @include text-h3;
+  &__title {
+    @include text-h3;
 
-        padding-top: 0 !important;
-        padding-bottom: 32px;
-        border-bottom: 1px solid var(--color-grey-500);
-        margin-bottom: 32px;
-    }
+    padding-top: 0 !important;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--color-grey-500);
+    margin-bottom: 32px;
+  }
 
 
-    &__description {
-        @include text-body-base;
-        color: var(--color-grey-200);
-        margin-bottom: 32px;
-      }
+  &__description {
+    @include text-body-base;
+    color: var(--color-grey-200);
+    margin-bottom: 32px;
+  }
 
-    &__cta {
+  &__cta {
+    @include text-body-base;
+    color: var(--color-grey-200);
+    margin-bottom: 32px;
+
+    a {
       @include text-body-base;
       color: var(--color-grey-200);
-      margin-bottom: 32px;
-
-        a {
-          @include text-body-base;
-          color: var(--color-grey-200);
-          transition: all 0.3s ease;
-          &:hover { color: white; }
-        }
+      transition: all 0.3s ease;
+      &:hover {
+        color: white;
+      }
     }
+  }
 
-    &__contacts {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 28px;
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 28px;
 
-            .phone {
-                @include text-h4;
-            }
+      .phone {
+        @include text-h4;
+      }
 
-            .contact-tag {
-              border-radius: 32px;
-              padding: 8px 20px;
-              @include bg-image;
-              background-position: center;
-            }
+      .contact-tag {
+        border-radius: 32px;
+        padding: 8px 20px;
+        @include bg-image;
+        background-position: center;
+      }
 
-            .badge {
-                @include text-body-base;
-                background: $primary-gradient;
-                background-clip: text;
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-            }
-        }
+      .badge {
+        @include text-body-base;
+        background: $primary-gradient;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
     }
+  }
 }
 
 .support-card .support-card__description {
@@ -83,14 +85,22 @@ $badge-bg: rgba(255, 255, 255, 0.05);
 }
 
 .support-card .support-card__cta {
-@include text-body-base;
-color: var(--color-grey-200);
-margin-bottom: 32px;
+  @include text-body-base;
+  color: var(--color-grey-200);
+  margin-bottom: 32px;
 
   a {
     @include text-body-base;
     color: var(--color-grey-200);
     transition: all 0.3s ease;
-    &:hover { color: white; }
+    &:hover {
+      color: white;
+    }
+  }
+}
+.contact-info__inner-blocks {
+  .support-card {
+    background: none;
+    padding: 0;
   }
 }

@@ -8,8 +8,6 @@
   flex-direction: column;
   background: transparent;
   transition: transform 0.3s ease;
-  cursor: pointer;
-  gap: 24px;
 
   @media (max-width: 767px) {
     max-width: 280px;
@@ -23,6 +21,11 @@
     flex-shrink: 0;
     filter: grayscale(100%);
     transition: filter 0.3s ease;
+
+    a,
+    img {
+      display: block;
+    }
 
     @media (max-width: 767px) {
       filter: grayscale(0%);
@@ -54,11 +57,6 @@
     padding: 0;
     z-index: 2;
 
-    &:hover {
-      transform: scale(1.1);
-      background: $primary-gradient;
-    }
-
     svg {
       height: 12px;
     }
@@ -76,9 +74,12 @@
   }
 
   &__info {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+    a {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      padding-top: 24px;
+    }
   }
 
   &__name {
@@ -102,6 +103,10 @@
 
     .team-member-card__image-container {
       filter: grayscale(0%);
+    }
+    .team-member-card__action-btn {
+      transform: scale(1.1);
+      background: $primary-gradient;
     }
   }
 }

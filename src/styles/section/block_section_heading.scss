@@ -70,10 +70,12 @@
 
       .card__name {
           @include text-h5;
+          text-transform: capitalize;
       }
 
       .card__credentials {
         margin-bottom: 12px;
+        font-size: 14px;
 
         @media (max-width: 991px) {
           margin-bottom: 12px;
@@ -85,6 +87,7 @@
         font-family: $font-light;
         font-weight: $w-light;
         line-height: 18px;
+        font-size: 14px;
       }
     }
 

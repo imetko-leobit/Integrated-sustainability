@@ -5,11 +5,13 @@
 
 .block-filtered-grid {
   width: 100%;
+  padding-bottom: 180px;
 
   &__container {
     margin: 0 auto;
-    display: flex;
-    gap: 5rem;
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 56px;
     align-items: flex-start;
 
     @media (max-width: 1024px) {
@@ -62,7 +64,9 @@
     background-color: #ffffff;
     color: #1a1a1a;
     cursor: pointer;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
     appearance: none;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
@@ -98,6 +102,7 @@
     gap: 0.5rem;
     border-radius: 20px;
     transition: background-color 0.2s ease;
+    cursor: pointer;
   }
 
   &__chip-label {
@@ -153,7 +158,9 @@
   }
 
   &__grid-item {
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
 
     &.is-hidden {
       display: none;

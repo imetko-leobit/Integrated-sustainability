@@ -35,27 +35,35 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Load More functionality for desktop
+  // Load More functionality for desktop (card-based pagination)
   const loadMoreBtn = document.querySelector('.js-load-more-team');
 
   if (loadMoreBtn) {
-    const rows = document.querySelectorAll('.block-team-cards__row');
-    let visibleRows = 1;
+    const section = loadMoreBtn.closest('.block-team-cards');
+    if (!section) return;
 
-    // Helper function to manage Load More button visibility
+    const cards = section.querySelectorAll('.team-card-item');
+    const loadMoreCount = parseInt(section.dataset.loadMore) || 6;
+    let visibleCount = parseInt(section.dataset.showInitially) || 6;
+
+    // Helper function to update Load More button visibility
     const updateLoadMoreButtonVisibility = () => {
-      if (visibleRows >= rows.length) {
+      if (visibleCount >= cards.length) {
         loadMoreBtn.style.display = 'none';
+      } else {
+        loadMoreBtn.style.display = '';
       }
     };
 
     loadMoreBtn.addEventListener('click', function () {
-      // Show next row
-      if (visibleRows < rows.length) {
-        rows[visibleRows].classList.remove('is-hidden');
-        visibleRows++;
-      }
+      // Show next batch of cards
+      const cardsToShow = Array.from(cards).slice(visibleCount, visibleCount + loadMoreCount);
 
+      cardsToShow.forEach(card => {
+        card.classList.remove('is-hidden');
+      });
+
+      visibleCount += cardsToShow.length;
       updateLoadMoreButtonVisibility();
     });
 

@@ -58,14 +58,14 @@ $projects_data = [
 <link rel="stylesheet" href="../assets/css/section-block_post_cards.css" />
 <link rel="stylesheet" href="../assets/css/section-block_publications.css" />
 
-<section class="block-publications"> 
-  <div class="publications" id="publications">  
+<section class="block-publications">
+  <div class="publications" id="publications">
     <?php foreach ($projects_data as $project) : ?>
-      <?php include('../components/elements/post-card.php'); ?>
+    <?php include('../components/elements/post-card.php'); ?>
     <?php endforeach; ?>
   </div>
-  
+
   <div class="posts__actions">
     <button class="btn">Load more</button>
-   </div>
+  </div>
 </section>

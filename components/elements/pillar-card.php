@@ -13,7 +13,7 @@
       <?php endif; ?>
 
       <div class='pillar-card__text'>
-        <p class="pillar-card__caption"><?php echo $card['caption']; ?></p>
+        <p class="pillar-card__caption tagline"><?php echo $card['caption']; ?></p>
 
         <?php render_heading($card['title'], $pillar_card_heading_level, 'pillar-card__title'); ?>
         <p class="pillar-card__desc"><?php echo $card['desc']; ?></p>

@@ -1,13 +1,11 @@
 @import "../common/variable";
 @import "../common/mixins";
 
-
 .career-form {
   display: flex;
   flex-direction: column;
   gap: 64px;
   width: 100%;
-
 
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
@@ -20,7 +18,6 @@
 
   padding: 80px;
 
-
   @media (max-width: 991px) {
     padding: 80px 1.5rem;
   }
@@ -30,7 +27,6 @@
     flex-direction: column;
     gap: 32px;
   }
-
 
   &__section-header {
     display: flex;
@@ -48,44 +44,41 @@
   &__section-description {
     margin: 0;
     color: var(--color-grey-300);
-  }
 
+    p {
+      margin-bottom: 16px;
+    }
+  }
 
   &__row {
     display: flex;
     gap: 16px;
     width: 100%;
 
-
     @media (max-width: 767px) {
       flex-direction: column;
       gap: 16px;
     }
-
 
     &--three {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
 
-
       @media (max-width: 991px) {
         grid-template-columns: 1fr;
       }
     }
-
 
     &--two {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 32px;
 
-
       @media (max-width: 767px) {
         grid-template-columns: 1fr;
       }
     }
-
 
     &--mixed {
       display: grid;
@@ -93,28 +86,23 @@
       grid-template-rows: auto auto;
       gap: 16px;
 
-
       @media (max-width: 991px) {
         grid-template-columns: 1fr;
         grid-template-rows: auto;
       }
 
-
       .career-form__field--small {
         grid-column: 1;
         grid-row: 1;
-
 
         @media (max-width: 991px) {
           grid-column: 1;
         }
       }
 
-
       .career-form__field--large {
         grid-column: 2;
         grid-row: 1;
-
 
         @media (max-width: 991px) {
           grid-column: 1;
@@ -122,11 +110,9 @@
         }
       }
 
-
       .career-form__field--textarea {
         grid-column: 1 / -1;
         grid-row: 2;
-
 
         @media (max-width: 991px) {
           grid-column: 1;
@@ -135,11 +121,9 @@
       }
     }
 
-
     &--full {
       width: 100%;
     }
-
 
     &--actions {
       display: flex;
@@ -149,25 +133,21 @@
     }
   }
 
-
   &__field {
     display: flex;
     flex-direction: column;
     gap: 8px;
     flex: 1;
 
-
     &--full {
       width: 100%;
     }
   }
 
-
   &__label {
     color: var(--color-grey-300);
     margin: 0;
   }
-
 
   &__input {
     width: 100%;
@@ -179,17 +159,14 @@
     @include input-border;
     color: var(--color-white);
 
-
     &::placeholder {
       color: var(--color-grey-500);
     }
-
 
     &:focus {
       border-color: var(--color-grey-400);
     }
   }
-
 
   &__textarea {
     width: 100%;
@@ -202,23 +179,19 @@
     color: var(--color-white);
     resize: vertical;
 
-
     &::placeholder {
       color: var(--color-grey-500);
     }
-
 
     &:focus {
       border-color: var(--color-grey-400);
     }
   }
 
-
   &__file-upload {
     position: relative;
     width: 100%;
   }
-
 
   &__file-input {
     position: absolute;
@@ -226,7 +199,6 @@
     width: 0;
     height: 0;
   }
-
 
   &__file-label {
     display: flex;
@@ -243,23 +215,19 @@
     cursor: pointer;
     transition: all 0.3s ease;
 
-
     &:hover {
       border-color: var(--color-grey-400);
     }
   }
 
-
   &__file-text {
     color: var(--color-grey-300);
   }
-
 
   &__file-name {
     color: var(--color-grey-500);
     font-style: italic;
   }
-
 
   &__buttons {
     display: flex;
@@ -268,11 +236,9 @@
     justify-content: flex-start;
     width: 100%;
 
-
     @media (max-width: 767px) {
       flex-direction: column-reverse;
       gap: 12px;
-
 
       .btn {
         width: 100%;
@@ -280,24 +246,20 @@
     }
   }
 
-
   &__cancel {
     &:hover {
       text-decoration: underline;
     }
   }
 
-
   .choices {
     margin-bottom: 0;
     background-color: var(--color-black);
-
 
     .choices__placeholder {
       color: var(--color-grey-500);
       opacity: 1;
     }
-
 
     .choices__inner {
       display: flex;
@@ -316,17 +278,14 @@
       border-radius: 0px;
     }
 
-
     input::placeholder {
       @include text-body-base;
       color: var(--color-grey-500);
     }
 
-
     .choices__item.choices__placeholder.choices__item--selectable {
       @include text-body-base;
     }
-
 
     .choices__list.choices__list--single {
       padding-right: 32px;
@@ -334,7 +293,6 @@
         @include text-body-base;
       }
     }
-
 
     .choices__list--dropdown {
       border-top: none;
@@ -346,14 +304,16 @@
       right: 0;
       overflow-y: auto;
       z-index: 100;
-      box-shadow: 0 9px 28px 8px rgba(0, 0, 0, 0.05), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12);
+      box-shadow:
+        0 9px 28px 8px rgba(0, 0, 0, 0.05),
+        0 6px 16px 0 rgba(0, 0, 0, 0.08),
+        0 3px 6px -4px rgba(0, 0, 0, 0.12);
       background: var(--color-grey-800);
       padding: 0px 1px;
       min-width: 200px;
       max-height: 330px;
       border: none;
     }
-
 
     .choices__list--dropdown .choices__item {
       display: flex;
@@ -368,16 +328,14 @@
       color: var(--color-white);
     }
 
-
-    .choices__list--dropdown .choices__item.choices__item--selectable.is-highlighted {
+    .choices__list--dropdown
+      .choices__item.choices__item--selectable.is-highlighted {
       background-color: var(--color-grey);
     }
-
 
     .choices__list--dropdown .choices__item.is-selected {
       background-color: var(--color-grey-800);
     }
-
 
     .choices__input {
       color: var(--color-white);
@@ -385,19 +343,16 @@
     }
   }
 
-
-  .choices[data-type*=select-one] .choices__button {
+  .choices[data-type*="select-one"] .choices__button {
     background-color: var(--color-grey-200);
     margin-right: 32px;
   }
 
-
-  .choices[data-type*=select-one]::after {
+  .choices[data-type*="select-one"]::after {
     display: none;
   }
 
-
-  .choices[data-type*=select-one]::before {
+  .choices[data-type*="select-one"]::before {
     content: "\2335"; /* Down arrow unicode character &#9013; */
     height: 0;
     width: 0;
@@ -409,7 +364,6 @@
     top: 8px;
     pointer-events: none;
   }
-
 
   .choices__list--dropdown .choices__item[data-value=""] {
     display: none !important;

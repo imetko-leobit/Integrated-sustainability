@@ -16,7 +16,7 @@
           <select name="language" id="lang-select" class="regular-select">
             <option value="en" class="language-select_option">English</option>
             <option value="fr" class="language-select_option">Franch</option>
-            <option value="fr" class="language-select_option">Spanish</option>
+            <option value="sp" class="language-select_option">Spanish</option>
           </select>
         </div>
       </div>

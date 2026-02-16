@@ -1,0 +1,167 @@
+@import "../common/variable";
+@import "../common/mixins";
+
+.block-author {
+  padding: 80px 0 140px;
+
+  @media (max-width: 991px) {
+    padding: 40px 24px 60px;
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 56px;
+
+    @media (max-width: 991px) {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+  }
+
+  &__col {
+    &--sidebar {
+      position: relative;
+    }
+
+    &--content {
+      @media (max-width: 991px) {
+        order: 1;
+        max-width: 100%;
+      }
+    }
+  }
+
+  .person-card {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 42px;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 48px;
+    @include bg-image;
+    position: sticky;
+    top: 130px;
+
+    @media (max-width: 991px) {
+      padding: 48px 24px;
+      width: 100%;
+      height: fit-content;
+      justify-content: flex-start;
+    }
+
+    @media (max-width: 767px) {
+      padding: 48px 24px;
+      width: 100%;
+    }
+
+    &__image-container {
+      width: 255px;
+      height: 255px;
+      min-width: 125px;
+      border-radius: 50%;
+      overflow: hidden;
+
+      .person-card__image {
+        height: 100%;
+        object-fit: cover;
+        filter: grayscale(100%);
+        transition: filter 0.5s ease;
+      }
+    }
+
+    .person-card__info {
+      text-align: center;
+      @media (max-width: 991px) {
+        text-align: left;
+      }
+
+      .card__name {
+        font-size: 24px;
+        line-height: 44px;
+        font-weight: $w-semibold;
+        border: none;
+        padding: 0;
+        margin: 0;
+        text-transform: capitalize;
+      }
+
+      .card__credentials {
+        margin-bottom: 26px;
+        line-height: 24px;
+      }
+      .card__title {
+        font-size: 20px;
+      }
+    }
+
+    &:hover {
+      .person-card__image {
+        filter: none;
+      }
+    }
+  }
+}
+
+.author-block {
+  margin-bottom: 84px;
+
+  @media (max-width: 991px) {
+    margin-bottom: 32px;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  h3,
+  &__title,
+  &__list-title {
+    margin-bottom: 24px;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 60px;
+
+    p {
+      @include text-body-base;
+      margin: 0;
+    }
+  }
+
+  .author__description ul,
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 54px;
+  }
+
+  &__list-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    @include text-body-base;
+
+    span {
+      flex: 1;
+      line-height: 1.6;
+    }
+  }
+
+  &__icon {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+}

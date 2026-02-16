@@ -10,6 +10,10 @@
     margin-bottom: 36px;
   }
 
+  h4 {
+    margin-bottom: 36px;
+  }
+
   h3 {
     padding: 44px 0 36px;
     margin-bottom: 48px;
@@ -32,11 +36,7 @@
   }
 
   ul {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 22px;
+    @include ul-main;
     margin-top: 12px;
 
     @media (max-width: 1199px) {

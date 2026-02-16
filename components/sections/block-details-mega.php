@@ -74,7 +74,7 @@
 
 <link rel="stylesheet" href="../assets/css/section-block_details_mega.css" />
 
-<section class="block-details-mega">
+<section class="block-details-main">
   <?php 
 			$section_title = "Embedding Mine Water Reuse Planning for Compliance and Cost Control";
 			$custom_icon = null;
@@ -94,7 +94,7 @@
 
     </div>
 
-    <div class="asside-card">
+    <div class="asside-card asside-card--narrow">
       <?php 
 					include('../components/elements/info-card.php') 
 				?>

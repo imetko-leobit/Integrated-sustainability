@@ -36,6 +36,43 @@
       @media (max-width: 991px) {
         order: 2;
       }
+
+      .support-card {
+        margin: 0;
+        &__title {
+          border: none;
+          padding-bottom: 0;
+          margin-bottom: 20px;
+        }
+        .support-card__contacts {
+          .contact-item {
+            flex-direction: column-reverse;
+            align-items: start;
+            gap: 14px;
+          }
+          .contact-tag {
+            all: unset;
+          }
+          .badge {
+            all: unset;
+            font-size: 14px;
+            font-weight: 400;
+          }
+          .phone {
+            width: 100%;
+            font-family: var(--base-font);
+            font-weight: 400;
+            font-size: 14px;
+            border-radius: 32px;
+            border: 1px solid #4a4c4d;
+            padding: 18px 10px;
+            height: 56px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+      }
     }
 
     &--form {

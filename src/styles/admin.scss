@@ -57,6 +57,8 @@
   @import "./section/block_accordion_scroll";
   @import "./section/block_accordion_inside";
   @import "./section/block_media_grid";
+  @import "./section/block_author";
+  @import "./section/block_vacancy_details";
 
   a {
     pointer-events: none;
@@ -131,4 +133,7 @@
 }
 :root :where(.wp-site-blocks) > * {
   margin-top: 0 !important;
+}
+.sidebar__sticky-card {
+  position: static;
 }

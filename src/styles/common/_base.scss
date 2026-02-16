@@ -329,11 +329,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   ul {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 22px;
+    @include ul-main;
     margin: 0;
 
     &:not(:last-child) {
@@ -480,27 +476,8 @@ h1, h2, h3, h4, h5, h6 {
   padding-top: 48px;
   border-top: 1px solid var(--color-grey-400);
 }
-
-// a.button,
-// .button {
-//   @include button;
-//   @include button-primary;
-
-//   &_dark {
-//     @include button-dark;
-
-//     span {
-//       &:before {
-//         background: url(../img/angle-right-light.svg) no-repeat;
-//       }
-//     }
-
-//     &:hover {
-//       span {
-//         &:before {
-//           background: url(../img/angle-right-dark.svg) no-repeat;
-//         }
-//       }
-//     }
-//   }
-// }
+.no-hero-block {
+  .main {
+    margin-top: 115px;
+  }
+}

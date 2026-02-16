@@ -172,8 +172,8 @@ class PostsFilter {
     // Check taxonomies
     const taxonomies = [
       "locations",
-      "industry",
-      "project_services",
+      "industry_categories",
+      "service_categories",
       "project_tags",
     ];
     for (const tax of taxonomies) {
@@ -228,11 +228,11 @@ class PostsFilter {
     const locations = formData.getAll("locations[]").filter((v) => v);
     locations.forEach((val) => params.append("locations[]", val));
 
-    const industries = formData.getAll("industry[]").filter((v) => v);
-    industries.forEach((val) => params.append("industry[]", val));
+    const industries = formData.getAll("industry_categories[]").filter((v) => v);
+    industries.forEach((val) => params.append("industry_categories[]", val));
 
-    const services = formData.getAll("project_services[]").filter((v) => v);
-    services.forEach((val) => params.append("project_services[]", val));
+    const services = formData.getAll("service_categories[]").filter((v) => v);
+    services.forEach((val) => params.append("service_categories[]", val));
 
     const tags = formData.getAll("project_tags[]").filter((v) => v);
     tags.forEach((val) => params.append("project_tags[]", val));
