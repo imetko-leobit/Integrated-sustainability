@@ -58,6 +58,7 @@
 
   .heading {
     .title {
+      color: var(--color-white, #fff);
       margin-bottom: 50px;
     }
   }
@@ -278,14 +279,6 @@
         @include text-h5;
     }
 
-    &.is-active .pillar-carousel-card__title--h4 {
-      @include text-h4;
-
-      @media (max-width: 1199px) {
-        @include text-h5;
-      }
-    }
-
     &__desc {
       margin-bottom: 24px;
       color: var(--color-grey-300);
@@ -318,7 +311,7 @@
       left: 0;
       height: calc(50% - 20px);
       width: 100%;
-      padding: 30px;
+      padding: 40px 30px;
       margin-bottom: 20px;
 
       &:is(a):hover {
@@ -350,14 +343,6 @@
     }
     &__title--h4 {
       @include text-h5;
-    }
-
-    &.is-active .pillar-carousel-card__title--h4 {
-      @include text-h4;
-
-      @media (max-width: 1199px) {
-        @include text-h5;
-      }
     }
 
     &__desc {

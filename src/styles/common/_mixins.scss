@@ -512,7 +512,7 @@
 }
 
 @mixin button-arrow {
-  background: var(--color-grey-300);
+  background: var(--color-white, #fff);
   border: none;
   border-radius: 50%;
   padding: 10px;
