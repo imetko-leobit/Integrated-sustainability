@@ -38,9 +38,6 @@ if (!isset($sort_options)) {
         ['value' => 'date-old', 'label' => 'Oldest First'],
     ];
 }
-// Default heading level for filter section titles
-$filter_heading_level = $filter_heading_level ?? 5;
-include_once(__DIR__ . '/../helpers/heading.php');
 ?>
 
 <link rel="stylesheet" href="../assets/css/section-block_filtered_grid.css" />
@@ -55,7 +52,7 @@ include_once(__DIR__ . '/../helpers/heading.php');
 
       <!-- Filter By Section -->
       <div class="block-filtered-grid__filter-section">
-        <?php render_heading('Filter By:', $filter_heading_level, 'block-filtered-grid__section-title'); ?>
+        <div class="block-filtered-grid__section-title">Filter By:</div>
 
         <div class="block-filtered-grid__filter-inputs">
           <?php foreach ($filter_config as $filter) : ?>
@@ -86,7 +83,7 @@ include_once(__DIR__ . '/../helpers/heading.php');
 
       <!-- Sort By Section -->
       <div class="block-filtered-grid__filter-section">
-        <?php render_heading('Sort By:', $filter_heading_level, 'block-filtered-grid__section-title'); ?>
+        <div class="block-filtered-grid__section-title">Sort By:</div>
 
         <div class="block-filtered-grid__filter-item">
           <?php
@@ -113,7 +110,7 @@ include_once(__DIR__ . '/../helpers/heading.php');
 
       <!-- Filters Applied Section -->
       <div class="block-filtered-grid__filter-section">
-        <?php render_heading('Filters Applied', $filter_heading_level, 'block-filtered-grid__section-title'); ?>
+        <div class="block-filtered-grid__section-title">Filters Applied</div>
 
         <div class="block-filtered-grid__chips js-filter-chips">
           <!-- Filter chips will be dynamically added here -->

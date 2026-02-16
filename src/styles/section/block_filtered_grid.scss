@@ -42,6 +42,7 @@
   }
 
   &__section-title {
+    @include text-h5;
     margin: 0;
   }
 
