@@ -56,9 +56,12 @@
     @include bg-overlay();
 
     align-self: start;
+    height: 100%;
+    width: auto;
 
     img {
-      aspect-ratio: 460 / 406;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
     }
 
