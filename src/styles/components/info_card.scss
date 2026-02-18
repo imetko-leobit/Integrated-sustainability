@@ -7,6 +7,8 @@
   justify-content: flex-start;
   align-items: flex-start;
   position: relative;
+  height: 366px;
+  overflow: hidden;
 
   .info-card__image {
     width: 100%;
@@ -16,6 +18,7 @@
   }
 
   .info-card__content {
+    position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
@@ -31,7 +34,8 @@
     }
 
     &-bottom {
-      height: 100%;
+      position: relative;
+      height: auto;
       padding: 56px;
       text-align: left;
       gap: 1.5em;
@@ -39,7 +43,20 @@
       flex-direction: column;
       @include bg-image;
       min-height: fit-content;
+      overflow: hidden;
     }
+  }
+
+  .text-content {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+  }
+
+  &:hover .text-content {
+    max-height: 500px;
+    opacity: 1;
   }
 
   .btn {
