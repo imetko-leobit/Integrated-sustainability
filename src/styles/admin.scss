@@ -29,6 +29,8 @@
   @import "./components/link_card";
   @import "./components/contact_card";
   @import "./components/pillar_card";
+  @import "./components/equipment_card";
+  @import "./components/form_components";
 
   @import "./section/block_hero";
   @import "./section/block_approach_intro";
@@ -59,6 +61,7 @@
   @import "./section/block_media_grid";
   @import "./section/block_author";
   @import "./section/block_vacancy_details";
+  @import "./section/block_filtered_grid";
 
   a {
     pointer-events: none;
