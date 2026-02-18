@@ -4,7 +4,7 @@
 .slider-preview {
   padding: 80px 0 36px;
   width: 100%;
-  max-width: 1600px;
+  max-width: 700px;
   display: flex;
   flex-direction: column;
   gap: 56px;
@@ -37,8 +37,9 @@
   .thumbs-wrapper {
     display: flex;
     align-items: center;
-    gap: 36px;
+    gap: 56px;
     width: 100%;
+    padding-right: 36px;
   }
 
   .js-thumbs-slider-preview {
@@ -50,7 +51,7 @@
       opacity: 0.5;
       transition: opacity 0.3s;
       @include bg-overlay();
-      aspect-ratio: 215/188;
+      aspect-ratio: 1/1;
       max-height: 188px;
 
       img {
