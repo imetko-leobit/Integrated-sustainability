@@ -99,7 +99,13 @@
   }
 
   &--center {
-      justify-content: center;
+    justify-content: center;
+
+    .block-cta__background {
+      height: 100%;
+      max-height: 756px;
+    }
+
       .block-cta__card {
           min-width: 760px;
           margin: 0;
@@ -115,6 +121,11 @@
   }
 
   &--default {
+    .block-cta__background {
+      height: 100%;
+      max-height: 740px;
+    }
+
       .block-cta__card-wrapper {
         display: grid;
         grid-template-columns: repeat(12, 1fr);
@@ -161,6 +172,11 @@
   }
 
   &--right {
+    .block-cta__background {
+      height: 100%;
+      max-height: 682px;
+    }
+
       .block-cta__card-wrapper {
         display: grid;
         grid-template-columns: repeat(12, 1fr);
@@ -207,6 +223,7 @@
         }
       }
   }
+
   .btn--gradient {
     min-width: 320px;
 
