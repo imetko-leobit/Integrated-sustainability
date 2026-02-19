@@ -4,6 +4,9 @@ export default function initInsightAccordion() {
 
   containers.forEach((container) => {
     const items = container.querySelectorAll('.accordion-item');
+    const defaultActiveIndex = container.dataset.defaultActiveIndex !== undefined
+      ? parseInt(container.dataset.defaultActiveIndex, 10)
+      : -1;
 
     items.forEach((item, index) => {
       const content = item.querySelector('.accordion-item__content');
@@ -12,8 +15,9 @@ export default function initInsightAccordion() {
 
       const expandBtn = item.querySelector('.accordion-item__expand-btn');
 
-      if (index === 0 || item.classList.contains('is-open')) {
+      if (index === defaultActiveIndex || item.classList.contains('is-open')) {
         item.classList.add('is-open');
+        content.style.maxHeight = content.scrollHeight + 'px';
         if (expandBtn) expandBtn.style.display = 'none';
       } else {
         content.style.maxHeight = '0';
