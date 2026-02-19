@@ -47,7 +47,7 @@ $accordion_items = [
 
     <div class="block-accordion__content">
       <div class="block-accordion__content-inner">
-        <?php $is_insight = true; include('../components/elements/accordion.php'); ?>
+        <?php $is_insight = true; $default_active_index = 0; include('../components/elements/accordion.php'); ?>
       </div>
     </div>
   </div>
