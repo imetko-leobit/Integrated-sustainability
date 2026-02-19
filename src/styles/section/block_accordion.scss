@@ -40,6 +40,11 @@
       flex-direction: column;
       justify-content: space-between;
     }
+
+    ul {
+      margin-top: 60px !important;
+      padding-left: 20px !important;
+    }
   }
 
   &__media {
