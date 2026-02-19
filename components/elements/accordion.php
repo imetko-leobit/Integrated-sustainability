@@ -5,13 +5,15 @@ if (!empty($is_insight) && $is_insight) {
     $accordion_class .= ' insight-accordion';
 }
 $accordion_item_heading_level = $accordion_item_heading_level ?? 4;
+// Default active index: -1 means all closed, 0+ means that index is open
+$default_active_index = $default_active_index ?? -1;
 include_once(__DIR__ . '/../helpers/heading.php');
 ?>
 
 <link rel="stylesheet" href="../assets/css/components-accordion.css" />
 <link rel="stylesheet" href="../assets/css/components-gradient_link.css" />
 
-<div class="<?php echo $accordion_class; ?>">
+<div class="<?php echo $accordion_class; ?>" <?php if ($default_active_index >= 0): ?>data-default-active-index="<?php echo $default_active_index; ?>"<?php endif; ?>>
   <?php foreach ($accordion_items as $index => $item):
         $is_open = $item['initial_open'] ? 'is-open' : '';
   ?>
