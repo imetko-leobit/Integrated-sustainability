@@ -24,18 +24,11 @@
         }
       }
 
-      &:nth-child(2){
-        flex-basis: calc(22% - 16px);
-
-        @media (max-width: 1499px) {
-          flex-basis: calc(30% - 16px);
-        }
-      }
-
+      &:nth-child(2),
       &:nth-child(3),
       &:nth-child(4),
       &:nth-child(5) {
-        flex-basis: calc(14% - 16px);
+        flex-basis: calc(19% - 16px);
 
         @media (max-width: 1499px) {
           flex-basis: calc(30% - 16px);

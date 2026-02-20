@@ -13,9 +13,8 @@ include_once(__DIR__ . '/../helpers/heading.php');
     <div class='form-item'>
       <input type="text" name="search" class="filter-search" placeholder="Search...">
     </div>
-    <div id='locationSelect' class='form-item optional' data-label='Locations'>
-      <select name="locations[]" class="filter-select regular-select-clearable">
-        <option value="" placeholder disabled selected>Locations</option>
+    <div id='locationSelect' class='form-item custom-select optional js-custom-multiselect' data-label='Locations'>
+      <select name="locations[]" class="filter-select" multiple="">
         <option value="canada">Canada</option>
         <option value="yukon">Yukon</option>
       </select>
