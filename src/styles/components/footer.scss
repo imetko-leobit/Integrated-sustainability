@@ -70,10 +70,10 @@
 
 .footer-sections {
   display: flex;
-  gap: 120px;
+  gap: 160px;
 
   @media (max-width: 1199px) {
-    gap: 60px;
+    gap: 80px;
   }
 }
 
@@ -140,7 +140,7 @@
 }
 
 .footer-bottom {
-  padding: 150px 0 100px;
+  padding: 150px 0 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
