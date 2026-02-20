@@ -121,7 +121,7 @@ $industries = [
           $has_subitems = isset($item['subitems']) && !empty($item['subitems']);
           ?>
           <li
-            class="category-navigation__nav-item <?php echo ($index === 0) ? 'active' : ''; ?> <?php echo $has_subitems ? 'has-subitems' : ''; ?>"
+            class="category-navigation__nav-item <?php echo $has_subitems ? 'has-subitems' : ''; ?>"
             data-image="<?php echo htmlspecialchars($item['image']); ?>"
             data-title="<?php echo htmlspecialchars($item['name']); ?>"
             data-desc="<?php echo htmlspecialchars($item['desc']); ?>"
