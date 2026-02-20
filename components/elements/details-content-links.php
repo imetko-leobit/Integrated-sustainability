@@ -20,7 +20,7 @@
 
   $links = [
     ['title' => 'proceed to water treatment use cases', 'url' => '/industries', 'class' => 'single'],  // single or double
-    ['title' => 'skip to oil and gas support services', 'url' => '/industries/oil-gas', 'class' => 'double'],
+    ['title' => 'skip to oil and gas support services', 'url' => '/industries/oil-gas', 'class' => 'single'],
     ['title' => 'other', 'url' => '/industries/other', 'class' => 'single']
 ];
 ?>
