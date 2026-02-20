@@ -115,38 +115,40 @@ $industries = [
       <div class="heading">
         <?php render_heading('select an industry', $section_heading_level, 'title title--h3'); ?>
       </div>
-      <ul class="category-navigation__nav" id="industryList">
-        <?php foreach ($industries as $index => $item):
-        $has_subitems = isset($item['subitems']) && !empty($item['subitems']);
-    ?>
-        <li
-          class="category-navigation__nav-item <?php echo ($index === 0) ? 'active' : ''; ?> <?php echo $has_subitems ? 'has-subitems' : ''; ?>"
-          data-image="<?php echo htmlspecialchars($item['image']); ?>"
-          data-title="<?php echo htmlspecialchars($item['name']); ?>"
-          data-desc="<?php echo htmlspecialchars($item['desc']); ?>"
-          data-link="/industry#<?php echo htmlspecialchars($item['slug']); ?>">
+      <div class="category-navigation__nav-wrapper">
+        <ul class="category-navigation__nav" id="industryList">
+          <?php foreach ($industries as $index => $item):
+          $has_subitems = isset($item['subitems']) && !empty($item['subitems']);
+          ?>
+          <li
+            class="category-navigation__nav-item <?php echo ($index === 0) ? 'active' : ''; ?> <?php echo $has_subitems ? 'has-subitems' : ''; ?>"
+            data-image="<?php echo htmlspecialchars($item['image']); ?>"
+            data-title="<?php echo htmlspecialchars($item['name']); ?>"
+            data-desc="<?php echo htmlspecialchars($item['desc']); ?>"
+            data-link="/industry#<?php echo htmlspecialchars($item['slug']); ?>">
 
-          <div class="category-navigation__item-header">
-            <span><?php echo $item['name']; ?></span>
-          </div>
+            <div class="category-navigation__item-header">
+              <span><?php echo $item['name']; ?></span>
+            </div>
 
-          <?php if ($has_subitems): ?>
-          <ul class="category-navigation__sublist">
-            <?php foreach ($item['subitems'] as $sub): ?>
-            <li class="category-navigation__subitem" data-image="<?php echo htmlspecialchars($sub['image']); ?>"
-              data-title="<?php echo htmlspecialchars($sub['name']); ?>"
-              data-desc="<?php echo htmlspecialchars($sub['desc']); ?>"
-              data-link="/industry#<?php echo htmlspecialchars($sub['slug']); ?>">
-              <div class="category-navigation__item-header">
-                <span><?php echo $sub['name']; ?></span>
-              </div>
-            </li>
-            <?php endforeach; ?>
-          </ul>
-          <?php endif; ?>
-        </li>
-        <?php endforeach; ?>
-      </ul>
+            <?php if ($has_subitems): ?>
+            <ul class="category-navigation__sublist">
+              <?php foreach ($item['subitems'] as $sub): ?>
+              <li class="category-navigation__subitem" data-image="<?php echo htmlspecialchars($sub['image']); ?>"
+                data-title="<?php echo htmlspecialchars($sub['name']); ?>"
+                data-desc="<?php echo htmlspecialchars($sub['desc']); ?>"
+                data-link="/industry#<?php echo htmlspecialchars($sub['slug']); ?>">
+                <div class="category-navigation__item-header">
+                  <span><?php echo $sub['name']; ?></span>
+                </div>
+              </li>
+              <?php endforeach; ?>
+            </ul>
+            <?php endif; ?>
+          </li>
+          <?php endforeach; ?>
+        </ul>
+      </div>
     </div>
 
     <div class="category-navigation__content">

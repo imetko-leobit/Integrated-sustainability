@@ -65,10 +65,6 @@
       }
   }
 
-  .category-navigation__nav::-webkit-scrollbar {
-      display: none;
-  }
-
   .category-navigation__nav-item {
     .category-navigation__item-header {
       padding: 16px 40px;
@@ -113,7 +109,6 @@
     &>.category-navigation__item-header {
       color: white;
       border-image: none;
-      border-left: 1px solid white;
       background: $primary-gradient-5;
     }
   }
@@ -281,4 +276,27 @@
           }
       }
   }
+
+  .category-navigation__nav-wrapper {
+    overflow: scroll;
+    direction: rtl;
+
+    & > * {
+      direction: ltr;
+    }
+
+    &::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #ffffff;
+      border-radius: 20px;
+    }
+  }
 }
+
