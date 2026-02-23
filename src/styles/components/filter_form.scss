@@ -36,7 +36,7 @@
       }
 
       &:nth-child(6) {
-        flex-basis: calc(24% - 16px);
+        flex-basis: calc(18% - 16px);
         padding-left: 16px;
         border-left: 1px solid var(--color-grey);
 
@@ -79,6 +79,12 @@
       outline: none;
       @include input-border;
       color: white;
+
+      &.has-selection {
+        background: $primary-gradient-10;
+        border-color: var(--color-grey-600);
+        border-left-color: var(--color-primary-green);
+      }
     }
 
     .choices {

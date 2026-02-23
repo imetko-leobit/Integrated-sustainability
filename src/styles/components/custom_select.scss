@@ -67,10 +67,8 @@
     min-height: 56px;
     background: var(--color-grey-900);
     color: white;
-  }
 
-  .dropdown-item:hover {
-    background: $primary-gradient-5;
+    @include text-body-small;
   }
 
   /* castom checkbox */

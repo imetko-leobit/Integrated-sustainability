@@ -8,7 +8,7 @@ function MultiSelect({ container, label, options }) {
   this._attachEvents();
 }
 
-MultiSelect.prototype._render = function() {
+MultiSelect.prototype._render = function () {
   var self = this;
   this.originalSelect = this.container.querySelector('select');
   this.showSelectAll = this.container.getAttribute('data-select-all') === 'true';
@@ -25,7 +25,7 @@ MultiSelect.prototype._render = function() {
       '</div>';
   }
 
-  this.options.forEach(function(opt) {
+  this.options.forEach(function (opt) {
     dropdownHtml += '<div class="dropdown-item" data-checkbox="' + opt.id + '">' +
       '<div class="checkbox-wrapper">' +
       '<input type="checkbox" class="option-checkbox" id="' + opt.id + '" />' +
@@ -58,16 +58,16 @@ MultiSelect.prototype._render = function() {
   this.itemsEl = Array.from(this.container.querySelectorAll('.dropdown-item'));
 };
 
-MultiSelect.prototype._attachEvents = function() {
+MultiSelect.prototype._attachEvents = function () {
   var self = this;
 
-  this.labelEl.addEventListener('click', function() {
+  this.labelEl.addEventListener('click', function () {
     self.labelEl.classList.toggle('open');
     self.dropdownEl.classList.toggle('open');
   });
 
-  this.itemsEl.forEach(function(item) {
-    item.addEventListener('click', function(e) {
+  this.itemsEl.forEach(function (item) {
+    item.addEventListener('click', function (e) {
       if (e.target.tagName !== 'INPUT') {
         var cb = item.querySelector('input[type="checkbox"]');
         cb.checked = !cb.checked;
@@ -76,8 +76,8 @@ MultiSelect.prototype._attachEvents = function() {
     });
   });
 
-  this.optionEls.forEach(function(cb) {
-    cb.addEventListener('change', function() {
+  this.optionEls.forEach(function (cb) {
+    cb.addEventListener('change', function () {
       if (self.originalSelect) {
         var targetOption = self.originalSelect.querySelector('option[value="' + cb.id + '"]');
         if (targetOption) {
@@ -87,38 +87,40 @@ MultiSelect.prototype._attachEvents = function() {
       }
 
       if (self.selectAllEl) {
-        self.selectAllEl.checked = self.optionEls.every(function(c) { return c.checked; });
+        self.selectAllEl.checked = self.optionEls.every(function (c) { return c.checked; });
       }
       self._updateCount();
     });
   });
 
   if (this.selectAllEl) {
-    this.selectAllEl.addEventListener('change', function() {
+    this.selectAllEl.addEventListener('change', function () {
       var isChecked = self.selectAllEl.checked;
-      self.optionEls.forEach(function(c) {
+      self.optionEls.forEach(function (c) {
         if (c.checked !== isChecked) {
           c.checked = isChecked;
-          c.dispatchEvent(new Event('change')); 
+          c.dispatchEvent(new Event('change'));
         }
       });
     });
   }
 
-  document.addEventListener('click', function(e) {
+  document.addEventListener('click', function (e) {
     if (!self.container.contains(e.target)) {
       self.dropdownEl.classList.remove('open');
     }
   });
 };
 
-MultiSelect.prototype._updateCount = function() {
-  var selectedCount = this.optionEls.filter(function(c) { return c.checked; }).length;
+MultiSelect.prototype._updateCount = function () {
+  var selectedCount = this.optionEls.filter(function (c) { return c.checked; }).length;
   if (selectedCount > 0) {
     this.countEl.textContent = selectedCount;
     this.countEl.style.display = 'inline';
+    this.labelEl.classList.add('has-selection');
   } else {
     this.countEl.style.display = 'none';
+    this.labelEl.classList.remove('has-selection');
   }
 };
 
@@ -126,7 +128,7 @@ MultiSelect.prototype._updateCount = function() {
 // Initialisation
 const customMultiselects = document.querySelectorAll('.js-custom-multiselect');
 
-customMultiselects.forEach(function(container) {
+customMultiselects.forEach(function (container) {
   const select = container.querySelector('select');
   if (!select) return;
 
@@ -135,14 +137,14 @@ customMultiselects.forEach(function(container) {
   const label = container.getAttribute('data-label') || 'Select';
   const options = [];
 
-  select.querySelectorAll('option').forEach(function(opt) {
+  select.querySelectorAll('option').forEach(function (opt) {
     options.push({
       id: opt.value,
       name: opt.textContent
     });
   });
 
-  select.style.display = 'none'; 
+  select.style.display = 'none';
 
   new MultiSelect({
     container: container,

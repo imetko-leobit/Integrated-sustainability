@@ -186,11 +186,12 @@ img {
   @include text-h6;
   text-transform: uppercase;
   letter-spacing: 6px;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   padding: 0 20px;
   background-color: white;
   color: black;
   width: max-content;
+  font-family: $font-semibold;
 
   @media (max-width: 991px) {
     font-size: 10px;
