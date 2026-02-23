@@ -106,6 +106,7 @@
   .category-navigation__nav-item.active,
   .category-navigation__subitem.active {
     &>.category-navigation__item-header {
+      @include text-body-base;
       color: white;
       border-image: none;
       background: $primary-gradient-5;

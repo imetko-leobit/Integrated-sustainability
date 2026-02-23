@@ -4,11 +4,14 @@
 .info-slider-container {
   position: relative;
   width: 100%;
+
+  max-width: 420px;
+  margin-left: auto;
 }
 
 .info-card-wrapper {
   position: relative;
-  min-height: 690px;
+  min-height: 650px;
 
   .info-card {
       position: absolute;
