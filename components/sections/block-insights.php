@@ -10,8 +10,21 @@ $link_text = "Explore our Operations and <br> Maintenance Services";
 $link_url = "/operations";
 $custom_icon = "../assets/img/linkIconArrowRight.svg";
 
+$sidebar_tags = [
+  [
+      'title' => '',
+      'id' => 2,
+      'links' => [
+        ['name' => 'Assessment and Evaluations', 'link' => '#'],
+        ['name' => 'Water Resources', 'link' => '#'],
+        ['name' => 'Water Treatment', 'link' => '#'],
+      ]
+  ],
+];
+
 // Default heading level to 2 if not provided
 $block_insights_heading_level = $block_insights_heading_level ?? 2;
+$block_insights_metadata_heading_level = $block_insights_metadata_heading_level ?? 2;
 include_once(__DIR__ . '/../helpers/heading.php');
 ?>
 
@@ -37,20 +50,31 @@ include_once(__DIR__ . '/../helpers/heading.php');
       </div>
 
       <!-- <div class="link_wrapper">
-              <div class="gradient-link gradient-link--large">
-                <a href="/wp-content/themes/integrate/frontend/pages/insights.php" aria-label="Insights & Whitepapers ">
-                  <p class="gradient-link__text">Insights & Whitepapers </p>
-                  <span class="arrow-icon">
-                    <svg id="arrow-top-right-gradient" viewBox="0 0 24 24">
-                        <path class="icon-arrow" fill="currentColor" d="M22.32 21.729 22.5 0C17.059.053 6.212.128.771.18L.725 2.901c4.897-.049 11.394-.088 17.111-.14L0 20.595 1.903 22.5 19.74 4.664l-.154 17.098 2.734-.03v-.003Z"/>
-                    </svg>
-                  </span>
-                </a>
-              </div>
-            </div> -->
+        <div class="gradient-link gradient-link--large">
+          <a href="/wp-content/themes/integrate/frontend/pages/insights.php" aria-label="Insights & Whitepapers ">
+            <p class="gradient-link__text">Insights & Whitepapers </p>
+            <span class="arrow-icon">
+              <svg id="arrow-top-right-gradient" viewBox="0 0 24 24">
+                  <path class="icon-arrow" fill="currentColor" d="M22.32 21.729 22.5 0C17.059.053 6.212.128.771.18L.725 2.901c4.897-.049 11.394-.088 17.111-.14L0 20.595 1.903 22.5 19.74 4.664l-.154 17.098 2.734-.03v-.003Z"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div> -->
 
       <div class="block-insights__action">
-        <?php if ($link_url): ?>
+        <?php foreach ($sidebar_tags as $group) : ?>
+          <div class="metadata-group">
+            <?php render_heading($group['title'], $block_insights_metadata_heading_level, 'title title--h4 metadata-group__title'); ?>
+            <div class="metadata-group__links">
+              <?php foreach ($group['links'] as $link) : ?>
+              <a href="<?php echo $link['link']; ?>" class="metadata-tag"><span><?php echo $link['name']; ?></a>
+              <?php endforeach; ?>
+            </div>
+          </div>
+        <?php endforeach; ?>
+
+        <!-- <?php if ($link_url): ?>
         <a href="<?php echo $link_url; ?>" class="link-icon"
           aria-label="<?php echo $link_text ? $link_text : 'View Section'; ?>">
           <span class="icon icon--active">
@@ -62,7 +86,7 @@ include_once(__DIR__ . '/../helpers/heading.php');
           <?php echo $link_text; ?>
         </span>
         <?php endif; ?>
-        <?php endif; ?>
+        <?php endif; ?> -->
       </div>
 
     </div>
