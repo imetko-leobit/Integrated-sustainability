@@ -24,7 +24,6 @@ $sidebar_tags = [
 
 // Default heading level to 2 if not provided
 $block_insights_heading_level = $block_insights_heading_level ?? 2;
-$block_insights_metadata_heading_level = $block_insights_metadata_heading_level ?? 2;
 include_once(__DIR__ . '/../helpers/heading.php');
 ?>
 
@@ -65,7 +64,6 @@ include_once(__DIR__ . '/../helpers/heading.php');
       <div class="block-insights__action">
         <?php foreach ($sidebar_tags as $group) : ?>
           <div class="metadata-group">
-            <?php render_heading($group['title'], $block_insights_metadata_heading_level, 'title title--h4 metadata-group__title'); ?>
             <div class="metadata-group__links">
               <?php foreach ($group['links'] as $link) : ?>
               <a href="<?php echo $link['link']; ?>" class="metadata-tag"><span><?php echo $link['name']; ?></a>

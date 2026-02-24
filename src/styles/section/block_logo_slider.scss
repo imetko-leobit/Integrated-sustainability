@@ -7,8 +7,8 @@
   padding-left: 138px;
 
   @media (max-width: 991px) {
-    padding-left: 0;
     min-width: 100vw;
+    padding: 0 0 48px;
   }
 
   .swiper-container {

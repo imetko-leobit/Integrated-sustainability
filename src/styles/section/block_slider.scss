@@ -6,7 +6,7 @@
   position: relative;
 
   @media (max-width: 991px) {
-    padding: 0 16px 80px;
+    padding: 0 24px 2rem;
   }
 
   &--full {
@@ -60,6 +60,10 @@
     .title {
       color: var(--color-white, #fff);
       margin-bottom: 50px;
+
+      @media (max-width: 991px) {
+        margin-bottom: 1rem;
+      }
     }
   }
 

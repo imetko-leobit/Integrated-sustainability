@@ -11,7 +11,7 @@
   padding: 60px 0 220px;
 
   @media (max-width: 991px) {
-    padding: 24px;
+    padding: 3rem 24px;
   }
 
   &__background {
@@ -26,6 +26,10 @@
     overflow: hidden;
     @include bg-overlay();
 
+    @media (max-width: 991px) {
+      max-height: 590px !important;
+    }
+
     .block-cta__image {
       object-fit: cover;
       height: 100%;
@@ -34,6 +38,8 @@
 
       @media (max-width: 991px) {
         height: 100%;
+        width: max-content;
+        max-width: max-content;
       }
     }
   }

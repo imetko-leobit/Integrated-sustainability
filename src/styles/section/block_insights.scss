@@ -9,7 +9,7 @@
   position: relative;
 
   @media (max-width: 991px) {
-    padding: 0 24px 80px;
+    padding: 2rem 24px 2rem;
   }
 
   &__wrapper {
@@ -43,11 +43,8 @@
   &__media {
     grid-column: 7 / -1;
 
-    @media (max-width: 1199px) {
-      grid-area: center;
-    }
     @media (max-width: 991px) {
-      display: none;
+      grid-column: 1;
     }
 
     .insights-card__image-wrapper {
@@ -76,6 +73,10 @@
         object-fit: contain;
         display: block;
         margin-bottom: 56px;
+
+        @media (max-width: 991px) {
+          margin-bottom: 0;
+        }
       }
 
       .insights-person-card__wrapper {
@@ -118,6 +119,14 @@
     display: flex;
     gap: 2rem;
     margin-top: 50px;
+
+    @media (max-width: 991px) {
+      margin-top: 20px;
+    }
+
+    .metadata-group {
+      margin-bottom: 0;
+    }
 
     a {
       display: flex;
