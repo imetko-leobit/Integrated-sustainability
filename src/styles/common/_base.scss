@@ -433,7 +433,7 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 12px; // Відступ між текстом і стрілкою
+  gap: 12px !important;
   padding: 3px 14px;
   color: #fff;
   text-decoration: none;
