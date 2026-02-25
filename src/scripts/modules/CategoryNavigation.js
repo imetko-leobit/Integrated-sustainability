@@ -5,8 +5,8 @@ export default function initCategoryNavigation() {
     const industryList = container.querySelector('#industryList');
     const cardImage = container.querySelector('#cardImage');
     const cardTitle = container.querySelector('#cardTitle');
-    const cardDesc  = container.querySelector('#cardDesc');
-    const cardLink  = container.querySelector('#cardLink'); // Твоя кнопка/лінк всередині
+    const cardDesc = container.querySelector('#cardDesc');
+    const cardLink = container.querySelector('#cardLink'); // Твоя кнопка/лінк всередині
     const industryCard = container.querySelector('#industryCard'); // Тег <a> навколо всієї картки
 
     function updateCard(data) {
@@ -16,7 +16,7 @@ export default function initCategoryNavigation() {
         setTimeout(() => {
             cardImage.src = data.image;
             cardImage.alt = data.title;
-            
+
             // Оновлюємо посилання навколо всієї картки
             if (industryCard) {
                 industryCard.href = data.link;
@@ -27,9 +27,9 @@ export default function initCategoryNavigation() {
                 cardTitle.textContent = data.title + ' ';
                 if (arrow) cardTitle.appendChild(arrow);
             }
-            
+
             if (cardDesc) cardDesc.textContent = data.desc;
-            
+
             // Оновлюємо посилання в кнопці (якщо вона є окремо)
             if (cardLink) cardLink.href = data.link;
 
@@ -38,7 +38,7 @@ export default function initCategoryNavigation() {
         }, 200);
     }
 
-    industryList.addEventListener('click', function(e) {
+    industryList.addEventListener('click', function (e) {
         const targetLi = e.target.closest('li');
         if (!targetLi) return;
 
@@ -46,19 +46,25 @@ export default function initCategoryNavigation() {
 
         // 1. Клік по ПІДПУНКТУ
         if (targetLi.classList.contains('category-navigation__subitem')) {
+            const isActive = targetLi.classList.contains('active');
             container.querySelectorAll('.category-navigation__subitem').forEach(s => s.classList.remove('active'));
-            targetLi.classList.add('active');
-            updateCard(targetLi.dataset);
+            if (!isActive) {
+                targetLi.classList.add('active');
+                updateCard(targetLi.dataset);
+            }
             return;
         }
 
         // 2. Клік по ОСНОВНОМУ ПУНКТУ
         if (targetLi.classList.contains('category-navigation__nav-item')) {
+            const isActive = targetLi.classList.contains('active');
             container.querySelectorAll('.category-navigation__nav-item').forEach(li => li.classList.remove('active'));
             container.querySelectorAll('.category-navigation__subitem').forEach(sub => sub.classList.remove('active'));
-            
-            targetLi.classList.add('active');
-            updateCard(targetLi.dataset);
+
+            if (!isActive) {
+                targetLi.classList.add('active');
+                updateCard(targetLi.dataset);
+            }
         }
     });
 }
