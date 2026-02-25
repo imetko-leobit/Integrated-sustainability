@@ -3,26 +3,30 @@
   !*** ./src/scripts/section/block_projects.js ***!
   \***********************************************/
 document.addEventListener('DOMContentLoaded', function () {
-  var portfolioLinkElement = document.querySelector('.js-project-portfolio-link');
-  if (!portfolioLinkElement) {
-    console.error("Portfolio link element not found.");
-    return;
-  }
-  var portfolioLinks = [];
-  try {
-    var jsonString = portfolioLinkElement.dataset.portfolioLinks;
-    if (jsonString) {
-      portfolioLinks = JSON.parse(jsonString);
-    }
-  } catch (e) {
-    console.error("Error parsing portfolio links JSON:", e);
-    return;
-  }
-  var updatePortfolioLink = function updatePortfolioLink(index) {
-    if (portfolioLinkElement && portfolioLinks[index] !== undefined) {
-      portfolioLinkElement.href = portfolioLinks[index];
-    }
-  };
+  // const portfolioLinkElement = document.querySelector('.js-project-portfolio-link');
+
+  // if (!portfolioLinkElement) {
+  //     console.error("Portfolio link element not found.");
+  //     return;
+  // }
+
+  // let portfolioLinks = [];
+  // try {
+  //     const jsonString = portfolioLinkElement.dataset.portfolioLinks;
+  //     if (jsonString) {
+  //         portfolioLinks = JSON.parse(jsonString);
+  //     }
+  // } catch (e) {
+  //     console.error("Error parsing portfolio links JSON:", e);
+  //     return;
+  // }
+
+  // const updatePortfolioLink = (index) => {
+  //     if (portfolioLinkElement && portfolioLinks[index] !== undefined) {
+  //         portfolioLinkElement.href = portfolioLinks[index];
+  //     }
+  // };
+
   var textSwiper = new Swiper('.js-projects-text-slider', {
     slidesPerView: 1,
     effect: 'fade',
@@ -38,11 +42,11 @@ document.addEventListener('DOMContentLoaded', function () {
     on: {
       init: function init() {
         this.update();
-        updatePortfolioLink(this.realIndex);
+        // updatePortfolioLink(this.realIndex);
       },
       slideChange: function slideChange() {
         this.update();
-        updatePortfolioLink(this.realIndex);
+        // updatePortfolioLink(this.realIndex);
       }
     }
   });

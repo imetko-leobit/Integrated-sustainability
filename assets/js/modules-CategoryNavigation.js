@@ -84,24 +84,30 @@ function initCategoryNavigation() {
 
     // 1. Клік по ПІДПУНКТУ
     if (targetLi.classList.contains('category-navigation__subitem')) {
+      var isActive = targetLi.classList.contains('active');
       container.querySelectorAll('.category-navigation__subitem').forEach(function (s) {
         return s.classList.remove('active');
       });
-      targetLi.classList.add('active');
-      updateCard(targetLi.dataset);
+      if (!isActive) {
+        targetLi.classList.add('active');
+        updateCard(targetLi.dataset);
+      }
       return;
     }
 
     // 2. Клік по ОСНОВНОМУ ПУНКТУ
     if (targetLi.classList.contains('category-navigation__nav-item')) {
+      var _isActive = targetLi.classList.contains('active');
       container.querySelectorAll('.category-navigation__nav-item').forEach(function (li) {
         return li.classList.remove('active');
       });
       container.querySelectorAll('.category-navigation__subitem').forEach(function (sub) {
         return sub.classList.remove('active');
       });
-      targetLi.classList.add('active');
-      updateCard(targetLi.dataset);
+      if (!_isActive) {
+        targetLi.classList.add('active');
+        updateCard(targetLi.dataset);
+      }
     }
   });
 }
