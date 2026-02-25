@@ -144,6 +144,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @include text-body-small;
 
   @media (max-width: 767px) {
     width: 100%;
@@ -163,7 +164,6 @@
   }
 
   .copyright {
-    @include text-body-base;
     margin: 0;
   }
 
