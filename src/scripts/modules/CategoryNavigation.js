@@ -12,30 +12,33 @@ export default function initCategoryNavigation() {
     function updateCard(data) {
         if (!cardImage) return;
 
-        cardImage.style.opacity = '0';
-        setTimeout(() => {
-            cardImage.src = data.image;
-            cardImage.alt = data.title;
+        const newImg = new Image();
+        newImg.onload = () => {
+            cardImage.style.opacity = '0';
+            setTimeout(() => {
+                cardImage.src = data.image;
+                cardImage.alt = data.title;
 
-            // Оновлюємо посилання навколо всієї картки
-            if (industryCard) {
-                industryCard.href = data.link;
-            }
+                // Оновлюємо посилання навколо всієї картки
+                if (industryCard) {
+                    industryCard.href = data.link;
+                }
 
-            if (cardTitle) {
-                const arrow = cardTitle.querySelector('.arrow-icon');
-                cardTitle.textContent = data.title + ' ';
-                if (arrow) cardTitle.appendChild(arrow);
-            }
+                if (cardTitle) {
+                    const arrow = cardTitle.querySelector('.arrow-icon');
+                    cardTitle.textContent = data.title + ' ';
+                    if (arrow) cardTitle.appendChild(arrow);
+                }
 
-            if (cardDesc) cardDesc.textContent = data.desc;
+                if (cardDesc) cardDesc.textContent = data.desc;
 
-            // Оновлюємо посилання в кнопці (якщо вона є окремо)
-            if (cardLink) cardLink.href = data.link;
+                // Оновлюємо посилання в кнопці (якщо вона є окремо)
+                if (cardLink) cardLink.href = data.link;
 
-            cardImage.onload = () => cardImage.style.opacity = '1';
-            if (cardImage.complete) cardImage.style.opacity = '1';
-        }, 200);
+                cardImage.style.opacity = '1';
+            }, 200);
+        };
+        newImg.src = data.image;
     }
 
     industryList.addEventListener('click', function (e) {
