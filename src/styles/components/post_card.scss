@@ -272,8 +272,10 @@
     right: 0;
     backdrop-filter: blur(16px);
     background: rgba(13, 13, 13, 0.8);
-    height: 200px;
     transition: all 0.3s ease;
+
+    min-height: 200px;
+    height: max-content;
   }
 
   .post-card__link {
@@ -312,6 +314,26 @@
   &:hover {
     .post-card__arrow--right {
       right: 26px;
+    }
+
+    .post-card__description,
+    .post-card__desc {
+      height: 200px;
+      overflow: visible;
+    }
+  }
+
+  .post-card__description,
+  .post-card__desc {
+    height: 0;
+    overflow: hidden;
+    color: var(--color-gray-200);
+    transition: all 0.5s ease;
+    max-height: max-content;
+
+    @media (max-width: 991px) {
+      height: auto;
+      overflow: visible;
     }
   }
 
@@ -369,12 +391,14 @@
     }
 
     &:hover {
+      .post-card__description,
       .post-card__desc {
         height: 200px;
         overflow: visible;
       }
     }
 
+    .post-card__description,
     .post-card__desc {
       height: 0;
       overflow: hidden;
