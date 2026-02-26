@@ -24,6 +24,15 @@ export default function initInsightAccordion() {
       }
     });
 
+    document.fonts.ready.then(() => {
+      items.forEach((item) => {
+        if (item.classList.contains('is-open')) {
+          const content = item.querySelector('.accordion-item__content');
+          content.style.maxHeight = content.scrollHeight + 'px';
+        }
+      });
+    }).catch(() => { });
+
     container.addEventListener('click', (e) => {
       const trigger = e.target.closest('.js-accordion-trigger');
       if (!trigger) return;
