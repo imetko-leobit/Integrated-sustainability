@@ -54,15 +54,19 @@
             padding: 56px;
             text-align: left;
             @include bg-image;
+
+            @media (max-width: 991px) {
+              padding: 1.5rem;
+            }
           }
 
           .title {
-            font-weight: 300;
-            font-size: 25px;
-            font-family: $font-light;
-            line-height: 144%;
             margin-bottom: 32px;
             text-align: left;
+
+            @media (max-width: 991px) {
+              margin-bottom: 0.75rem;
+            }
 
             strong { font-weight: $w-semibold; font-family: $font-semibold; }
           }
@@ -73,6 +77,10 @@
 
           .btn {
             margin-top: 48px;
+
+            @media (max-width: 991px) {
+              margin-top: 1.5rem;
+            }
           }
       }
   }

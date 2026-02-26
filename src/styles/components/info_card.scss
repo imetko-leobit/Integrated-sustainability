@@ -39,6 +39,10 @@
       flex-direction: column;
       @include bg-image;
       min-height: fit-content;
+
+      @media (max-width: 991px) {
+        padding: 1.5rem;
+      }
     }
   }
 

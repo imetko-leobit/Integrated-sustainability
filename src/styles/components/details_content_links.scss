@@ -75,6 +75,10 @@
 
   .accordion {
     padding: 0 0 44px;
+
+    @media (max-width: 991px) {
+      padding: 0 0 2rem;
+    }
   }
 
   .accordion-item__icon {

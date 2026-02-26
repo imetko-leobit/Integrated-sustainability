@@ -48,12 +48,6 @@
     }
   }
 
-  .heading-action {
-    @media (max-width: 767px) {
-      display: none;
-    }
-  }
-
   .divider {
     @media (max-width: 991px) {
       left: 24px;
@@ -71,8 +65,17 @@
       flex-direction: row-reverse;
     }
 
+    @media (max-width: 991px) {
+      flex-direction: row-reverse;
+      gap: 1rem;
+    }
+
     .person-card__info {
       text-align: right;
+
+      @media (max-width: 991px) {
+        text-align: left;
+      }
 
       .card__name {
           @include text-h5;
@@ -102,6 +105,11 @@
       height: 152px;
       border-radius: 50%;
       overflow: hidden;
+
+      @media (max-width: 991px) {
+        height: 80px;
+        width: 80px;
+      }
 
       .person-card__image {
         height: 100%;

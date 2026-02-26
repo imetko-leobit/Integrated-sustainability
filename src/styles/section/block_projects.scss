@@ -114,7 +114,7 @@
     padding-right: 70px;
 
     @media (max-width: 991px) {
-      padding: 1.5rem 0 !important;
+      padding: 0 !important;
       height: auto;
     }
   }
@@ -180,6 +180,10 @@
     align-items: flex-start;
     gap: 30px;
     height: 100%;
+
+    @media (max-width: 991px) {
+      gap: 1.5rem;
+    }
   }
 
   .swiper-button-prev,
@@ -211,6 +215,7 @@
 
     @media (max-width: 991px) {
       margin-top: 24px;
+      margin-bottom: 0;
       gap: 12px;
     }
   }

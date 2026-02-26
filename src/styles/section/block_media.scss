@@ -19,11 +19,13 @@
   }
 
   @media (max-width: 991px) {
-    margin: 60px auto;
+    margin: 2rem 1.5rem;
     padding: 32px;
     gap: 32px;
     height: 100%;
-    width: calc(100vw - 50px);
+    width: calc(100% - 3rem);
+    background-position: top;
+    flex-direction: column;
   }
 
   &__col--text {
@@ -43,21 +45,24 @@
     margin: auto;
     @include bg-overlay();
 
-    @media (max-width: 1199px) {
-      display: none;
-    }
-
-
     img {
       height: 430px;
       width: 460px;
       object-fit: cover;
+
+      @media (max-width: 991px) {
+        height: auto;
+      }
     }
   }
 
   .title {
     color: white;
     margin-bottom: 42px;
+
+    @media (max-width: 991px) {
+      margin-bottom: 1rem;
+    }
   }
 
   .text-content p {
@@ -68,8 +73,9 @@
 
   .btn {
     margin-top: 48px;
+
+    @media (max-width: 991px) {
+      margin-top: 1rem;
+    }
   }
-
-
-
 }

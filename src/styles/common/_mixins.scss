@@ -609,6 +609,10 @@
   color: white;
   @include text-body-base;
 
+  @media (max-width: 991px) {
+    padding-left: 38px;
+  }
+
   &::before {
     content: "";
     position: absolute;
@@ -619,6 +623,11 @@
     background-image: url("../../assets/img/mark.svg");
     background-size: contain;
     background-repeat: no-repeat;
+
+    @media (max-width: 991px) {
+      width: 22px;
+      height: 22px;
+    }
   }
 }
 

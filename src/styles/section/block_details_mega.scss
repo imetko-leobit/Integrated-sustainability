@@ -79,7 +79,7 @@
   padding: 0 0 60px;
 
   @media (max-width: 991px) {
-    padding: 0 0 60px;
+    padding: 0;
 
     .details-general,
     .block-author {
@@ -96,14 +96,10 @@
     gap: 56px;
     padding: 0 0 140px;
 
-    @media (max-width: 1199px) {
-      gap: 32px
-    }
-
     @media (max-width: 991px) {
       grid-template-columns: 1fr;
       gap: 32px;
-      padding: 0 24px 140px;
+      padding: 0 24px 2rem;
     }
   }
 
@@ -113,6 +109,7 @@
 
     @media (max-width: 991px) {
       grid-column: 1;
+      overflow: hidden;
     }
   }
 
@@ -176,10 +173,10 @@
     gap: 56px;
     padding: 0 0 140px;
 
-    @media (max-width: 1199px) {
+    @media (max-width: 991px) {
       grid-template-columns: 1fr;
       gap: 40px;
-      padding: 0 24px;
+      padding: 0 24px 2rem;
     }
   }
 

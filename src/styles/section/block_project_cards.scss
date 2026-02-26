@@ -109,6 +109,11 @@
       @media (max-width: 1599px) {
         padding: 24px;
       }
+
+      @media (max-width: 991px) {
+        background-position: left;
+        gap: 1.5rem;
+      }
     }
 
     .card__text-block {
@@ -257,6 +262,12 @@
       height: 100%;
       width: 50%;
     }
+
+    @media (max-width: 991px) {
+      background-position: left;
+      gap: inherit;
+    }
+
     @media (max-width: 767px) {
       width: 100%;
       height: 70%;
@@ -275,6 +286,11 @@
     @media (max-width: 1199px) {
       flex-direction: row;
     }
+
+    @media (max-width: 991px) {
+      background-position: left;
+    }
+
     @media (max-width: 767px) {
       flex-direction: column-reverse;
     }
@@ -309,6 +325,11 @@
       height: 100%;
       width: 50%;
     }
+
+    @media (max-width: 991px) {
+      gap: inherit;
+    }
+
     @media (max-width: 767px) {
       width: 100%;
       height: 70%;

@@ -9,14 +9,21 @@
 
   @media (max-width: 991px) {
     grid-template-columns: 1fr;
+    padding-bottom: 2rem;
+    padding-top: 0;
+    gap: 1.5rem;
   }
 
   .link-card {
     width: 100%;
     min-height: 210px;
     max-height: max-content;
-
     @include bg-image;
+
+    @media (max-width: 991px) {
+      min-height: max-content;
+      background-position: center;
+    }
 
     .card__content {
       height: 100%;
@@ -25,6 +32,10 @@
       flex-direction: column;
       justify-content: space-between;
       padding: 40px;
+
+      @media (max-width: 991px) {
+        padding: 1.5rem;
+      }
 
       .js-ellipsis-title,
       .js-ellipsis-text {

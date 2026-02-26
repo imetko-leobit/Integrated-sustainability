@@ -15,6 +15,12 @@ $badge-bg: rgba(255, 255, 255, 0.05);
   @include bg-image;
   margin: 56px 0;
 
+  @media (max-width: 991px) {
+    background-position: inherit;
+    padding: 1.5rem;
+    margin: 2rem 0;
+  }
+
   &__title {
     @include text-h3;
 
@@ -55,6 +61,12 @@ $badge-bg: rgba(255, 255, 255, 0.05);
       display: flex;
       align-items: center;
       gap: 28px;
+
+      @media (max-width: 991px) {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
 
       .phone {
         @include text-h4;
