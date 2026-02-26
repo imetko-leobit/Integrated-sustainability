@@ -206,7 +206,7 @@ var PostsFilter = /*#__PURE__*/function () {
       if (searchValue && searchValue.trim()) return true;
 
       // Check taxonomies
-      var taxonomies = ["locations", "industry", "project_services", "project_tags"];
+      var taxonomies = ["locations", "industry_categories", "service_categories", "project_tags"];
       for (var _i = 0, _taxonomies = taxonomies; _i < _taxonomies.length; _i++) {
         var tax = _taxonomies[_i];
         var values = formData.getAll("".concat(tax, "[]")).filter(function (v) {
@@ -267,17 +267,17 @@ var PostsFilter = /*#__PURE__*/function () {
       locations.forEach(function (val) {
         return params.append("locations[]", val);
       });
-      var industries = formData.getAll("industry[]").filter(function (v) {
+      var industries = formData.getAll("industry_categories[]").filter(function (v) {
         return v;
       });
       industries.forEach(function (val) {
-        return params.append("industry[]", val);
+        return params.append("industry_categories[]", val);
       });
-      var services = formData.getAll("project_services[]").filter(function (v) {
+      var services = formData.getAll("service_categories[]").filter(function (v) {
         return v;
       });
       services.forEach(function (val) {
-        return params.append("project_services[]", val);
+        return params.append("service_categories[]", val);
       });
       var tags = formData.getAll("project_tags[]").filter(function (v) {
         return v;
@@ -544,6 +544,80 @@ document.addEventListener("DOMContentLoaded", function () {
     // Initialize infinite scroll
     new _modules_InfiniteScroll_js__WEBPACK_IMPORTED_MODULE_1__["default"](".scroll-trigger", filter);
   }
+  var container = document.querySelector('.js-publications-timer');
+  if (!container) return;
+  var cards = Array.from(container.querySelectorAll('.post-card'));
+  var currentIndex = -1;
+  var timer = null;
+  var isInView = false;
+  var INTERVAL_TIME = 5000;
+  var refreshCards = function refreshCards() {
+    cards = Array.from(container.querySelectorAll('.post-card'));
+    if (cards.length === 0) {
+      stopTimer();
+      currentIndex = -1;
+      return;
+    }
+    if (currentIndex >= cards.length) {
+      currentIndex = -1;
+    }
+  };
+  var showNextCard = function showNextCard() {
+    if (cards.length === 0) return;
+    cards.forEach(function (card) {
+      return card.classList.remove('is-active');
+    });
+    currentIndex = (currentIndex + 1) % cards.length;
+    cards[currentIndex].classList.add('is-active');
+  };
+  var startTimer = function startTimer() {
+    if (!timer && cards.length > 0) {
+      timer = setInterval(showNextCard, INTERVAL_TIME);
+    }
+  };
+  var stopTimer = function stopTimer() {
+    clearInterval(timer);
+    timer = null;
+    cards.forEach(function (card) {
+      return card.classList.remove('is-active');
+    });
+  };
+  var observerOptions = {
+    threshold: 0.3
+  };
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        isInView = true;
+        startTimer();
+        if (currentIndex === -1) showNextCard();
+      } else {
+        isInView = false;
+        stopTimer();
+      }
+    });
+  }, observerOptions);
+  observer.observe(container);
+  container.addEventListener('mouseenter', stopTimer);
+  container.addEventListener('mouseleave', startTimer);
+  document.addEventListener('postsLoaded', function () {
+    refreshCards();
+    if (isInView && currentIndex === -1) {
+      showNextCard();
+      startTimer();
+    }
+  });
+  var mutationObserver = new MutationObserver(function () {
+    refreshCards();
+    if (isInView && currentIndex === -1) {
+      showNextCard();
+      startTimer();
+    }
+  });
+  mutationObserver.observe(container, {
+    childList: true,
+    subtree: true
+  });
 });
 })();
 

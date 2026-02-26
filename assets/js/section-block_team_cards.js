@@ -37,24 +37,30 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Load More functionality for desktop
+  // Load More functionality for desktop (card-based pagination)
   var loadMoreBtn = document.querySelector('.js-load-more-team');
   if (loadMoreBtn) {
-    var rows = document.querySelectorAll('.block-team-cards__row');
-    var visibleRows = 1;
+    var section = loadMoreBtn.closest('.block-team-cards');
+    if (!section) return;
+    var cards = section.querySelectorAll('.team-card-item');
+    var loadMoreCount = parseInt(section.dataset.loadMore) || 6;
+    var visibleCount = parseInt(section.dataset.showInitially) || 6;
 
-    // Helper function to manage Load More button visibility
+    // Helper function to update Load More button visibility
     var updateLoadMoreButtonVisibility = function updateLoadMoreButtonVisibility() {
-      if (visibleRows >= rows.length) {
+      if (visibleCount >= cards.length) {
         loadMoreBtn.style.display = 'none';
+      } else {
+        loadMoreBtn.style.display = '';
       }
     };
     loadMoreBtn.addEventListener('click', function () {
-      // Show next row
-      if (visibleRows < rows.length) {
-        rows[visibleRows].classList.remove('is-hidden');
-        visibleRows++;
-      }
+      // Show next batch of cards
+      var cardsToShow = Array.from(cards).slice(visibleCount, visibleCount + loadMoreCount);
+      cardsToShow.forEach(function (card) {
+        card.classList.remove('is-hidden');
+      });
+      visibleCount += cardsToShow.length;
       updateLoadMoreButtonVisibility();
     });
 

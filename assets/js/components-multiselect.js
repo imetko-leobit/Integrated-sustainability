@@ -95,8 +95,10 @@ MultiSelect.prototype._updateCount = function () {
   if (selectedCount > 0) {
     this.countEl.textContent = selectedCount;
     this.countEl.style.display = 'inline';
+    this.labelEl.classList.add('has-selection');
   } else {
     this.countEl.style.display = 'none';
+    this.labelEl.classList.remove('has-selection');
   }
 };
 
