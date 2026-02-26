@@ -26,6 +26,10 @@
 
   .gradient-link__text {
     display: block;
+    background: $primary-gradient;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   & .arrow-icon {
@@ -38,7 +42,7 @@
     transition: transform 0.3s ease;
     svg {
         .icon-arrow {
-          fill: url(#svg-gradient-primary);
+          fill: var(--color-primary-violet);
           transition: fill 0.3s ease;
         }
     }

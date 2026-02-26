@@ -101,7 +101,7 @@ $wrapper_class = 'block-projects__wrapper' . ($text_below ? ' block-projects__wr
         </div>
         <a href="<?php echo $projects[0]['project_portfolio']; ?>" class="link link--text js-project-portfolio-link"
           data-portfolio-links='<?php echo htmlspecialchars($portfolio_links_json, ENT_QUOTES, 'UTF-8'); ?>'>
-          View project Portfolio
+          View Project Portfolio
         </a>
       </div>
     </div>
