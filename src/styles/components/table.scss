@@ -9,6 +9,10 @@
   flex-direction: column;
   padding: 0 0 100px;
 
+  @media (max-width: 991px) {
+    padding: 0 0 3rem;
+  }
+
   .table-component__title {
     color: var(--color-white, #fff);
     margin: 0;

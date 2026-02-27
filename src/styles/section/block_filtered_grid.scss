@@ -7,6 +7,10 @@
   width: 100%;
   padding-bottom: 180px;
 
+  @media (max-width: 1199px) {
+    padding-bottom: 2rem;
+  }
+
   &__container {
     margin: 0 auto;
     display: flex;
@@ -29,10 +33,11 @@
     gap: 2rem;
     min-width: 300px;
 
-    @media (max-width: 1199px) {
+    @media (max-width: 991px) {
       flex: 1 1 100%;
       width: 100%;
       order: 1; /* Display filters first on mobile */
+      position: static;
     }
   }
 

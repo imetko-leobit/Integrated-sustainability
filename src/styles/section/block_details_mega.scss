@@ -85,8 +85,7 @@
   @media (max-width: 991px) {
     padding: 0;
 
-    .details-general,
-    .block-author {
+    .details-general {
       padding-left: 24px;
       padding-right: 24px;
     }
@@ -197,10 +196,9 @@
   padding: 0 0 60px;
 
   @media (max-width: 991px) {
-    padding: 0 0 60px;
+    padding: 0;
 
-    .details-general,
-    .block-author {
+    .details-general {
       padding-left: 24px;
       padding-right: 24px;
     }
@@ -228,6 +226,7 @@
     @media (max-width: 1199px) {
       padding-right: 0;
       grid-column: 1;
+      overflow: hidden;
     }
   }
 
