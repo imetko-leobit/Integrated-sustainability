@@ -5,7 +5,7 @@
   padding: 80px 0;
 
   @media (max-width: 991px) {
-    padding: 60px 1.5rem 0 1.5rem;
+    padding: 2rem 1.5rem 0;
   }
 
   &__header {
@@ -24,8 +24,8 @@
 
     @media (max-width: 991px) {
       grid-template-columns: 1fr;
+      margin-bottom: 0;
       gap: 24px;
-      margin-bottom: 32px;
     }
   }
 

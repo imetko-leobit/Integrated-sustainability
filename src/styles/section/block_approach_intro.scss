@@ -5,7 +5,7 @@
     padding: 0 0 220px;
 
     @media (max-width: 991px) {
-        padding: 0 24px 80px;
+        padding: 0 24px 2rem;
     }
 
     // Tagline styling (optional)
@@ -33,6 +33,12 @@
         @media (max-width: 991px) {
             grid-template-columns: 1fr;
             gap: 32px;
+        }
+
+        .image-card {
+            @media (max-width: 991px) {
+                padding: 0;
+            }
         }
     }
 
@@ -86,6 +92,7 @@
 
             @media (max-width: 991px) {
                 grid-column: 1;
+                position: static;
             }
 
             .image-card {
@@ -259,7 +266,7 @@
         padding: 0 20px 56px;
 
         @media (max-width: 991px) {
-            padding: 0 0 56px;
+            padding: 0;
         }
 
         .accordion-item__divider {

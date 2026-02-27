@@ -60,7 +60,6 @@ include_once(__DIR__ . '/../helpers/heading.php');
               <ul class="vacancy-details-block__list">
                 <?php foreach ($block['list_items'] as $item): ?>
                   <li class="vacancy-details-block__list-item">
-                    <img src="../assets/img/mark.svg" alt="" class="vacancy-details-block__icon" />
                     <span><?php echo htmlspecialchars($item, ENT_QUOTES, 'UTF-8'); ?></span>
                   </li>
                 <?php endforeach; ?>

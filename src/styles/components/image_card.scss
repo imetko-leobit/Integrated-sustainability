@@ -7,6 +7,10 @@
   height: fit-content;
   position: relative;
 
+  @media (max-width: 991px) {
+    padding: 0 1.5rem 2rem;
+  }
+
   &-container {
     @include bg-overlay();
     position: relative;
@@ -30,6 +34,10 @@
     @include bg-image;
     overflow: hidden;
     z-index: -1;
+
+    @media (max-width: 991px) {
+      content: none;
+    }
   }
 
   img {
