@@ -368,6 +368,13 @@
   }
 }
 
+@mixin text-h5-20 {
+  @include text-h5;
+  font-size: $h5-size-20;
+  line-height: $h5-lh-20;
+
+}
+
 @mixin text-h6 {
   font-family: $font-light;
   font-style: normal;

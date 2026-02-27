@@ -1,6 +1,7 @@
 @import "../common/variable";
 @import "../common/mixins";
 
+.wp-block-table,
 .table-component {
   width: 100%;
   @include container;
@@ -27,15 +28,18 @@
     overflow-x: auto;
   }
 
+  table,
   .table-component__table {
     width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
 
+    thead,
     .table__header {
       height: 82px;
       @include bg-image;
       background-repeat: round;
+      border: none;
 
       th {
         @include text-body-base;
@@ -66,6 +70,7 @@
       }
     }
 
+    tbody,
     .table__body {
       tr {
         background: transparent;
@@ -78,6 +83,7 @@
           padding: 24px;
           text-align: left;
           vertical-align: middle;
+          border: none;
 
           &:first-child {
             padding-left: 32px;

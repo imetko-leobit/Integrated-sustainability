@@ -6,11 +6,11 @@
   flex-direction: column;
   width: 100%;
 
-  h2 {
+  h2, .heading__title {
     margin-bottom: 36px;
   }
-
-  h4:not(.accordion-item__title):not(.card__title) {
+  h3:not(.accordion-item__title):not(.card__title):not(.heading__title),
+  h4:not(.accordion-item__title):not(.card__title):not(.heading__title) {
     padding: 44px 0 36px;
     margin-bottom: 48px;
     border-bottom: 1px solid var(--color-grey-500);

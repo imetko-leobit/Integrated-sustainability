@@ -54,7 +54,7 @@
   h3,
   &__title,
   &__list-title {
-    @include text-h3;
+    @include text-h4;
     text-transform: lowercase;
     margin-bottom: 24px;
 

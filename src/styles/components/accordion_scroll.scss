@@ -107,7 +107,7 @@
   }
 
   .title {
-    @include text-h4;
+    @include text-h5;
     color: white;
     text-transform: lowercase;
     cursor: pointer;
@@ -124,6 +124,7 @@
       padding-top: 0px;
       padding-right: 64px;
     }
+    
   }
 
   .desc-box {
@@ -133,16 +134,21 @@
     color: var(--color-gray-200);
   }
 
-  .item.is-open .desc-box {
-    max-height: 600px;
-    padding-bottom: 24px;
-
-    p {
-      margin-bottom: 20px;
+  .item.is-open {
+    .title{
+      @include text-h4;
     }
+    .desc-box {
+      max-height: 600px;
+      padding-bottom: 24px;
+
+      p {
+        margin-bottom: 20px;
+      }
+  }
   }
 
-  .desc-box   ul {
+  .desc-box ul {
     @include ul-main;
 
     @media (max-width: 991px) {

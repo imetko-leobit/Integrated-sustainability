@@ -41,6 +41,13 @@
       justify-content: space-between;
     }
 
+    .text-content {
+      h2, h3 {
+        margin-bottom: 40px;
+        @include text-h4;
+      }
+    }
+
     ul {
       margin-top: 60px !important;
       padding-left: 20px !important;

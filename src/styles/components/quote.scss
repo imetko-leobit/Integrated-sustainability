@@ -17,14 +17,12 @@
   }
 
   .quote__text {
-    @include text-h4;
+    @include text-h5;
     color: white;
   }
 
   .quote__author {
-
     @include text-body-base;
     color: var(--color-grey-200);
-
   }
 }

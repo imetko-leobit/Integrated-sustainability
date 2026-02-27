@@ -40,7 +40,7 @@
       .js-ellipsis-title,
       .js-ellipsis-text {
         -webkit-line-clamp: 4;
-        @include overflow-dots
+        @include overflow-dots;
       }
 
       .card__title {
@@ -58,10 +58,10 @@
         justify-content: center;
         transition: transform 0.3s ease;
         svg {
-            .icon-arrow {
-              fill: white;
-              transition: fill 0.3s ease;
-            }
+          .icon-arrow {
+            fill: white;
+            transition: fill 0.3s ease;
+          }
         }
       }
     }
@@ -78,5 +78,4 @@
   .link-card.double {
     grid-column: span 2;
   }
-
 }

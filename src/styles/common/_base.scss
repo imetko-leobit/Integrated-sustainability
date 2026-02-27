@@ -120,7 +120,7 @@ img {
     overflow: hidden;
 
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       inset: 0;
       border-radius: 100px;
@@ -138,7 +138,7 @@ img {
     }
 
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       inset: 0;
       background: $primary-gradient;
@@ -228,12 +228,21 @@ h5,
   @include text-h5;
 }
 
+.title--h5-20 {
+  @include text-h5-20;
+}
+
 h6,
 .title--h6 {
   @include text-h6;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: var(--color-grey-100);
   text-transform: lowercase;
 }
@@ -462,16 +471,16 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 22px;
 
   &::after {
-    content: '';
+    content: "";
     width: 6px;
     height: 16px;
     background-color: white;
 
-    mask-image: url('../../assets/img/expand-more.svg');
+    mask-image: url("../../assets/img/expand-more.svg");
     mask-size: contain;
     mask-repeat: no-repeat;
     mask-position: center;
-    -webkit-mask-image: url('../../assets/img/expand-more.svg');
+    -webkit-mask-image: url("../../assets/img/expand-more.svg");
     -webkit-mask-size: contain;
   }
 
