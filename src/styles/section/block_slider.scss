@@ -25,11 +25,12 @@
     position: relative;
     min-height: 560px;
 
-    @media (max-width: 1199px) {
+    @media (max-width: 991px) {
       display: flex;
       flex-wrap: wrap;
       flex-direction: column;
       gap: 16px;
+      min-height: auto;
     }
   }
 

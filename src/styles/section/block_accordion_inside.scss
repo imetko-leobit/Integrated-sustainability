@@ -7,7 +7,7 @@
   position: relative;
 
   @media (max-width: 991px) {
-    padding: 0 24px 80px;
+    padding: 0 24px 2rem;
   }
 
   .block-accordion__wrapper {
@@ -87,11 +87,32 @@
       padding: 56px;
       flex-grow: 1;
       overflow: auto;
+
+      @media (max-width: 991px) {
+        padding: 0;
+        height: auto;
+        overflow: hidden;
+      }
     }
   }
 
   .accordion {
     padding: 0;
+
+    .accordion-item.is-open {
+      .accordion-item__divider {
+        padding-top: 20px;
+
+        @media (max-width: 991px) {
+          background: $primary-gradient;
+          visibility: visible !important;
+          margin-top: 20px;
+          height: 1px;
+          border: none;
+          padding: 0;
+        }
+      }
+    }
 
     .accordion-item__divider {
       padding-top: 20px;
