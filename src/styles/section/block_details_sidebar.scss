@@ -8,7 +8,7 @@
   padding: 0 0 140px;
 
   @media (max-width: 991px) {
-    padding: 0 24px 80px;
+    padding: 0 24px 4rem;
   }
 
   &__wrapper {
@@ -119,6 +119,7 @@
     @media (max-width: 991px) {
       grid-column: 1;
       padding-left: 0;
+      position: static;
     }
   }
 

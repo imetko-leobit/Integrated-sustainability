@@ -9,8 +9,9 @@
   background: transparent;
   transition: transform 0.3s ease;
 
-  @media (max-width: 767px) {
+  @media (max-width: 991px) {
     max-width: 280px;
+    gap: 1.5rem;
   }
 
   &__image-container {

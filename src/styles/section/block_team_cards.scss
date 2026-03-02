@@ -8,11 +8,7 @@
   padding: 0 0 140px;
 
   @media (max-width: 991px) {
-    padding: 60px 40px;
-  }
-
-  @media (max-width: 767px) {
-    padding: 40px 20px;
+    padding: 0 1.5rem;
   }
 
   &__row {
@@ -20,11 +16,7 @@
     transition: opacity 0.3s ease;
 
     @media (max-width: 991px) {
-      margin-bottom: 40px;
-    }
-
-    @media (max-width: 767px) {
-      margin-bottom: 32px;
+      margin-bottom: 3rem;
     }
   }
 
@@ -63,6 +55,7 @@
       align-items: center;
       justify-content: center;
       transition: all 0.3s ease;
+      min-width: max-content !important;
 
       svg {
         width: 16px;

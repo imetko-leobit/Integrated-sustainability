@@ -219,6 +219,7 @@
       left: auto;
     }
 
+    &.is-active,
     &:hover {
       height: 450px;
 
@@ -227,6 +228,8 @@
         background-color: rgba(04, 04, 04, 0.5);
         background: right 0% bottom 0% url(../../assets/img/card-bg.svg)
           no-repeat;
+
+        padding-bottom: 4rem;
 
         .post-card__title {
           padding-right: 0;

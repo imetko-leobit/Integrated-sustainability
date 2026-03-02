@@ -74,6 +74,11 @@ img {
   padding: 18px 60px;
   border-radius: 100px;
 
+  @media (max-width: 991px) {
+    min-width: 260px !important;
+    padding: 18px 0;
+  }
+
   // --- Button gradient ---
   // &--gradient {
   //   position: relative;

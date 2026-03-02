@@ -9,23 +9,27 @@
   flex-direction: column;
   gap: 56px;
 
-  @media (max-width: 1199px) {
-    max-width: 80vw;
-  }
-
   @media (max-width: 991px) {
-    max-width: 90vw;
     padding-top: 2rem;
+    max-width: 80vw;
   }
 
   .js-main-slider-preview {
     width: 100%;
     overflow: hidden;
 
+    @media (max-width: 991px) {
+      overflow: visible;
+    }
+
     .swiper-slide {
       @include bg-overlay();
       aspect-ratio: 896 / 600;
       max-height: 600px;
+
+      @media (max-width: 991px) {
+        padding-right: 1rem;
+      }
 
       img {
         width: 100%;
@@ -42,6 +46,10 @@
     gap: 56px;
     width: 100%;
     padding-right: 36px;
+
+    @media (max-width: 991px) {
+      display: none;
+    }
   }
 
   .js-thumbs-slider-preview {
