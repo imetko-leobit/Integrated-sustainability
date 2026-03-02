@@ -5,7 +5,7 @@
   padding-bottom: 100px;
 
   @media (max-width: 991px) {
-    padding-bottom: 72px;
+    padding-bottom: 3rem;
   }
 
   &__grid {
@@ -18,13 +18,17 @@
     @include bg-image();
 
     @include max-tablet {
-      padding: 40px;
+      padding: 1.5rem;
       grid-template-columns: 1fr;
-      gap: 32px;
+      gap: 2rem;
     }
   }
 
   &__main {
+    @include max-tablet {
+      overflow: hidden;
+    }
+
     .title {
       margin-bottom: 42px;
 

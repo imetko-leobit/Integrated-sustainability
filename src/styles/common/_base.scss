@@ -201,6 +201,7 @@ img {
   @media (max-width: 991px) {
     font-size: 10px;
     margin-bottom: 10px;
+    max-width: 100%;
   }
 }
 
@@ -275,6 +276,7 @@ h6 {
     }
   }
 
+  .icon-image,
   .action-text,
   .link-icon {
     display: block;

@@ -21,7 +21,7 @@
       @media (max-width: 991px) {
         display: flex;
         flex-direction: column;
-        gap: 32px;
+        gap: 1rem;
       }
   }
 
@@ -77,6 +77,10 @@
       object-fit: contain;
       display: block;
       margin-bottom: 56px;
+
+      @media (max-width: 991px) {
+        margin-bottom: 0;
+      }
     }
   }
 }
