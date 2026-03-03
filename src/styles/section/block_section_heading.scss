@@ -25,6 +25,11 @@
     );
   }
 
+  @media (max-width: 1535px) {
+    padding: 48px 0 2rem;
+    margin-bottom: 4rem;
+  }
+
   @media (max-width: 991px) {
     padding: 48px 24px 24px;
     margin-bottom: 32px;
