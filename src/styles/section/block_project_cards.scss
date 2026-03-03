@@ -20,7 +20,7 @@
       "half-left-top half-left-top half-right half-right"
       "small-left small-right half-right half-right";
 
-    grid-template-rows: 630px 550px 280px;
+    grid-template-rows: minmax(630px, max-content) minmax(550px, max-content) minmax(280px, max-content);
 
     @media (max-width: 1599px) {
       gap: 30px;
@@ -63,7 +63,7 @@
       "half-left-top half-left-top half-right half-right"
       "small-left small-right half-right half-right";
 
-    grid-template-rows: 550px 280px;
+    grid-template-rows: minmax(550px, max-content) minmax(280px, max-content);
 
     @media (max-width: 1599px) {
       gap: 30px;
@@ -313,7 +313,6 @@
   }
 
   .card__container.card__container--half .card__content {
-    height: 60%;
     width: 100%;
     display: flex;
     flex-direction: column;

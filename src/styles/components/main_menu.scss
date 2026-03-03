@@ -53,6 +53,7 @@
 
     .subheader-item {
       color: var(--color-grey-400);
+      white-space: nowrap;
       @include text-body-small;
 
       &--current {

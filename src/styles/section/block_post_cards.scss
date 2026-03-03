@@ -15,13 +15,12 @@
 
 .publications {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(0, 482px));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 56px;
   margin-top: 20px;
 
-  @media (max-width: 1600px) {
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
+  @media (max-width: 1535px) {
+    gap: 2rem;
   }
 
   @media (max-width: 767px) {

@@ -16,10 +16,7 @@
 
   .accordion-item {
     cursor: pointer;
-
-    @media (max-width: 991px) {
-      margin-top: 24px;
-    }
+    margin-top: 24px;
 
     &__title {
       color: var(--color-white);
