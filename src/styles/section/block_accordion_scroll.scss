@@ -18,6 +18,10 @@
       position: relative;
       height: 100%;
 
+      @media (max-width: 1199px) {
+        gap: 3rem;
+      }
+
       @media (max-width: 991px) {
         display: flex;
         flex-direction: column;
@@ -29,6 +33,10 @@
     flex: 0 0 55%;
     background-color: var(--color-black);
     z-index: 1;
+
+    @media (max-width: 1199px) {
+      flex: 1;
+    }
 
     @media (max-width: 991px) {
       width: 100%;
@@ -45,6 +53,10 @@
   &__media {
     flex: 0 0 35%;
 
+    @media (max-width: 1199px) {
+      flex: 1;
+    }
+
     @media (max-width: 991px) {
       width: 100%;
       height: auto;
@@ -53,6 +65,10 @@
     .accordion-card__image-wrapper {
       position: relative;
       @include bg-overlay();
+
+      @media (max-width: 1199px) {
+        margin-right: 56px;
+      }
 
       &::before {
         content: '';
