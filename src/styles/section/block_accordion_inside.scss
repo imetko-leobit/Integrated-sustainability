@@ -58,6 +58,10 @@
     display: flex;
     flex-direction: column;
 
+    @media (max-width: 1200px) {
+      grid-column: span 9;
+    }
+
     @media (max-width: 991px) {
       padding: 0;
       margin: 0;
@@ -87,6 +91,10 @@
       padding: 56px;
       flex-grow: 1;
       overflow: auto;
+
+      @media (max-width: 1200px) {
+        padding: 2rem;
+      }
 
       @media (max-width: 991px) {
         padding: 0;

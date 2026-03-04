@@ -149,6 +149,10 @@
       grid-column: 1/6;
       grid-row: 1;
 
+      @media (max-width: 1200px) {
+        grid-column: 1/7;
+      }
+
       @media (max-width: 991px) {
         grid-column: auto;
       }

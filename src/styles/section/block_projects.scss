@@ -91,6 +91,10 @@
     height: 100%;
     padding-bottom: 74px;
 
+    @media (max-width: 1200px) {
+      grid-column: span 7;
+    }
+
     @media (max-width: 991px) {
       width: 100%;
       padding: 0;
@@ -100,6 +104,10 @@
     grid-column: span 4;
     height: 100%;
     padding-bottom: 74px;
+
+    @media (max-width: 1200px) {
+      grid-column: span 5;
+    }
 
     @media (max-width: 991px) {
       width: 100%;
@@ -116,6 +124,11 @@
     margin: 0;
     padding-top: 78px;
     padding-right: 70px;
+
+    @media (max-width: 1200px) {
+      padding-right: 2rem;
+      padding-top: 3rem;
+    }
 
     @media (max-width: 991px) {
       padding: 0 !important;
