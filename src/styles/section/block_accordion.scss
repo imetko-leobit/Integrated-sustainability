@@ -67,6 +67,10 @@
   &__media {
     grid-column: span 5;
 
+    @media (max-width: 1199px) {
+      grid-column: span 6;
+    }
+
     @media (max-width: 991px) {
       display: none;
     }
@@ -93,6 +97,7 @@
     .accordion-card__image-wrapper {
       @include bg-overlay();
       margin-bottom: 56px;
+      margin-right: 56px;
       position: sticky;
       top: 130px;
 
@@ -149,7 +154,7 @@
       grid-column: 1/6;
       grid-row: 1;
 
-      @media (max-width: 1200px) {
+      @media (max-width: 1199px) {
         grid-column: 1/7;
       }
 

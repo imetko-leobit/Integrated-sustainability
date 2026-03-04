@@ -17,6 +17,10 @@
     gap: 40px;
     @include bg-image();
 
+    @media (max-width: 1199px) {
+      padding: 3rem;
+    }
+
     @include max-tablet {
       padding: 1.5rem;
       grid-template-columns: 1fr;
