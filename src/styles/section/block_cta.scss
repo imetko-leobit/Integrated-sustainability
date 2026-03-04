@@ -279,6 +279,13 @@
   .btn--gradient {
     min-width: 320px;
 
+    @media (max-width: 1199px) {
+      padding: 18px;
+      max-width: 100%;
+      width: 100%;
+      min-width: max-content;
+    }
+
     @media (max-width: 991px) {
       min-width: 260px;
       width: 260px;

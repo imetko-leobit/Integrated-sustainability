@@ -85,9 +85,7 @@
     position: relative;
     margin-top: -175px;
     padding-top: 175px;
-    @media (max-width: 1199px) {
-      padding: 48px;
-    }
+
     @media (max-width: 991px) {
       background-position: inherit;
       margin-top: 0;
