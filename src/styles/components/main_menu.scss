@@ -48,7 +48,7 @@
       @media (max-width: 1199px) {
         max-width: var(--wp--style--global--content-size-small);
       }
-      @media (min-width: 991px) {
+      @media (max-width: 991px) {
         max-width: 100%;
         padding: 0 24px;
       }
@@ -107,7 +107,7 @@
       @media (max-width: 1199px) {
         max-width: var(--wp--style--global--content-size-small);
       }
-      @media (min-width: 991px) {
+      @media (max-width: 991px) {
         max-width: 100%;
         padding: 0 24px;
       }
@@ -162,7 +162,7 @@
       background: none;
       border: none;
       cursor: pointer;
-      transition: all 0.3 ease;
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -180,6 +180,21 @@
         background-color: white;
         width: 100%;
         height: 1px;
+        transform-origin: center;
+        transition:
+          transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+          opacity 0.25s ease,
+          width 0.3s ease;
+      }
+
+      &:hover {
+        .icon-bar {
+          width: 85%;
+        }
+
+        .icon-bar:nth-child(2) {
+          width: 60%;
+        }
       }
     }
 
@@ -193,13 +208,13 @@
         }
 
         .icon-bar:first-of-type {
-          transform: rotate(45deg) translate(8px, 11px);
+          transform: rotate(45deg) translate(20px, 14px);
         }
         .icon-bar:nth-of-type(2) {
           display: none;
         }
         .icon-bar:last-of-type {
-          transform: rotate(135deg) translate(-8px, 11px);
+          transform: rotate(135deg) translate(-17px, 11px);
         }
       }
     }
@@ -257,7 +272,6 @@
       gap: 0;
       width: 100%;
       height: 100%;
-      text-transform: lowercase;
     }
 
     .main-menu__col {
@@ -287,10 +301,6 @@
 
       .nav-item {
         padding: 12px 24px;
-
-        a {
-          @include text-body-base;
-        }
       }
 
       .nav-item.top-margin {
@@ -311,9 +321,24 @@
     }
     .main-menu__col.active-level:first-of-type {
       .nav-item {
-        padding-left: 90px;
+        padding-left: calc(calc(100vw - var(--wp--style--global--content-size-large)) / 2);
+
+        @media (max-width: 1599px) {
+          padding-left: 77px;
+        }
+
+        @media (max-width: 1199px) {
+          padding-left: 50px;
+        }
+
+        @media (max-width: 991px) {
+          max-width: 100%;
+          padding: 0 24px;
+        }
       }
     }
+
+
     .main-menu__col.active-level:last-of-type {
       .nav-item {
         padding-right: 90px;
@@ -335,57 +360,33 @@
       cursor: pointer;
       position: relative;
       transition: all 0.3s ease;
+      @include text-body-small;
 
       .nav-link {
         transition: all 0.3s ease;
         color: var(--color-grey-200);
+        @include text-body-small;
 
         &:hover {
           color: white;
         }
       }
 
-      &:hover,
       &.active {
         background: $primary-gradient-5;
-        border-left: 1px solid transparent;
-        border-image: $primary-gradient;
-        border-image-slice: 1;
+        font-family: $font-medium;
 
         .nav-link {
-          background: $primary-gradient;
-          background-clip: text;
-          color: transparent;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-
-          &:hover {
-            color: transparent;
-            opacity: 0.75;
-          }
+          font-family: inherit;
         }
 
         .submenu-button {
           transform: rotate(90deg);
-
-          &:hover {
-            color: transparent;
-            opacity: 0.75;
-          }
-        }
-
-        .icon-arrow {
-          fill: url(#svg-gradient-primary);
-          transition: fill 0.3s ease;
         }
       }
 
       a {
         text-decoration: none;
-
-        &:hover {
-          color: $primary-gradient;
-        }
       }
 
       .submenu-button {
@@ -523,11 +524,6 @@
           color: transparent;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
-        }
-
-        &:hover {
-          color: transparent;
-          opacity: 0.75;
         }
       }
 
