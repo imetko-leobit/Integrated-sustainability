@@ -293,6 +293,7 @@
         @media (max-width: 991px) {
           text-align: left;
           @include text-body-small;
+          padding-left: 0;
           padding-bottom: 0;
         }
 

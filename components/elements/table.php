@@ -37,9 +37,11 @@
       </thead>
       <tbody class="table__body">
         <?php foreach ($table_rows as $row) : ?>
-          <tr>
-            <?php foreach ($row as $cell) : ?>
-              <td><?php echo htmlspecialchars($cell); ?></td>
+          <tr class="table__row">
+            <?php foreach ($row as $index => $cell) : ?>
+              <td data-header="<?php echo htmlspecialchars($table_headers[$index]); ?>">
+                <?php echo htmlspecialchars($cell); ?>
+              </td>
             <?php endforeach; ?>
           </tr>
         <?php endforeach; ?>

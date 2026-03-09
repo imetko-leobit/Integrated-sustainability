@@ -30,6 +30,10 @@
     padding-top: 56px;
     width: 100%;
     overflow-x: auto;
+
+    @media (max-width: 991px) {
+      padding-top: 1.5rem;
+    }
   }
 
   table,
@@ -59,18 +63,6 @@
         &:last-child {
           padding-right: 32px;
         }
-
-        @media (max-width: 991px) {
-          padding: 0 16px;
-
-          &:first-child {
-            padding-left: 20px;
-          }
-
-          &:last-child {
-            padding-right: 20px;
-          }
-        }
       }
     }
 
@@ -82,7 +74,7 @@
         min-height: 82px;
 
         td {
-          @include text-body-base;
+          @include text-body-small;
           color: var(--color-white, #fff);
           padding: 24px;
           text-align: left;
@@ -96,26 +88,63 @@
           &:last-child {
             padding-right: 32px;
           }
-
-          @media (max-width: 991px) {
-            padding: 16px;
-
-            &:first-child {
-              padding-left: 20px;
-            }
-
-            &:last-child {
-              padding-right: 20px;
-            }
-          }
         }
       }
     }
   }
+}
+
+.table-component__table {
+  width: 100%;
+  border-collapse: collapse;
+
+  thead {
+    display: table-header-group;
+  }
+
+  th, td {
+    padding: 24px;
+    text-align: left;
+    vertical-align: middle;
+    border: none;
+  }
+
+  tbody tr {
+    border-bottom: 1px solid var(--color-grey, #808080);
+  }
 
   @media (max-width: 991px) {
-    .table-component__wrapper {
-      padding-top: 40px;
+    display: block;
+    width: 100%;
+
+    thead {
+      display: none;
+    }
+
+    .table__body {
+      display: initial;
+    }
+
+    tbody tr {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--color-grey, #808080);
+      margin-bottom: 0.5rem;
+
+      td {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 !important;
+
+        &:before {
+          content: attr(data-header);
+          font-weight: bold;
+          color: var(--color-grey-400);
+          margin-right: 8px;
+        }
+      }
     }
   }
 }
