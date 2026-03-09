@@ -469,13 +469,15 @@ h6 {
   display: inline-flex;
   align-items: center;
   gap: 12px !important;
-  padding: 3px 14px;
-  color: #fff;
+  padding: 3px 20px;
+  color: var(--color-text-grey);
   text-decoration: none;
   transition: all 0.3s ease;
   border-radius: 100px;
   @include tag-border;
-  line-height: 22px;
+  @include text-body-small;
+  position: relative;
+  z-index: 0;
 
   &::after {
     content: "";
@@ -491,10 +493,18 @@ h6 {
     -webkit-mask-size: contain;
   }
 
-  &:hover {
-    color: var(--color-black, #000);
-    background-image: $primary-gradient, $primary-gradient;
-    background-clip: none;
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 100px;
+    background: transparent;
+    z-index: -1;
+    transition: background 0.3s ease;
+  }
+
+  &:hover::before {
+    background: rgba(255,255,255,0.1);
   }
 
   &:hover::after {
