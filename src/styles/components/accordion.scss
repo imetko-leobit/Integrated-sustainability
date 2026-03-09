@@ -16,7 +16,7 @@
 
   .accordion-item {
     cursor: pointer;
-    margin-top: 24px;
+    margin-top: 2rem;
 
     &__title {
       color: var(--color-white);
@@ -152,6 +152,7 @@
   .accordion-item__divider {
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     padding-top: 32px;
+    cursor: default;
 
     @media (max-width: 991px) {
       padding-top: 24px;
