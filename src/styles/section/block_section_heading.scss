@@ -67,6 +67,12 @@
     padding: 0;
     cursor: pointer;
 
+    &:hover {
+      .person-card__image {
+        filter: grayscale(100%);
+      }
+    }
+
     &--reverse {
       flex-direction: row-reverse;
     }
