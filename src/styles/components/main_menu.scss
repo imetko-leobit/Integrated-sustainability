@@ -178,7 +178,9 @@
           opacity 0.25s ease,
           width 0.3s ease;
       }
+    }
 
+    .menu-toggle {
       &:hover {
         .icon-bar {
           width: 85%;
@@ -193,20 +195,20 @@
     .menu-toggle.open {
       transform: rotate(90deg);
       @media (max-width: 991px) {
-        padding: 2px;
+        padding: 12px;
 
         .icon-bar {
           transition: all 0.3 ease;
         }
 
         .icon-bar:first-of-type {
-          transform: rotate(45deg) translate(20px, 14px);
+          transform: rotate(45deg) translate(9px, 8px);
         }
         .icon-bar:nth-of-type(2) {
           display: none;
         }
         .icon-bar:last-of-type {
-          transform: rotate(135deg) translate(-17px, 11px);
+          transform: rotate(135deg) translate(-9px, 8px);
         }
       }
     }
@@ -355,6 +357,10 @@
       position: relative;
       transition: all 0.3s ease;
       @include text-body-small;
+
+      @media (max-width: 991px) {
+        min-height: 50px;
+      }
 
       .nav-link {
         transition: all 0.3s ease;
@@ -508,6 +514,8 @@
         z-index: 1;
         backdrop-filter: blur(60px);
         background: $primary-gradient-5;
+        height: 80px;
+        gap: 0.5rem;
 
         .submenu-title {
           width: auto;
@@ -518,6 +526,10 @@
           color: transparent;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
+        }
+
+        .back-arrow {
+          margin-top: 5px;
         }
       }
 
@@ -546,8 +558,9 @@
         align-items: center;
         padding: 24px 24px 32px;
         gap: 16px;
-        background-color: rgba(44, 44, 44, 0.3);
         border-top: 1px solid rgba(44, 44, 44, 1);
+        @include bg-image;
+        min-height: fit-content;
       }
     }
   }
@@ -563,7 +576,7 @@
       opacity: 1;
       width: 100%;
       max-width: 400px;
-      border: 2px solid rgba(44, 44, 44, 0.8);
+      border: 1px solid var(--color-grey-600);
     }
 
     &.is-active {
@@ -652,6 +665,7 @@
       width: 100%;
       min-width: 100%;
       max-width: 100%;
+      height: 100%;
     }
   }
 }

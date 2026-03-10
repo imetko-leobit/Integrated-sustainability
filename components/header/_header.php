@@ -22,7 +22,7 @@
       </div>
 
       <a href="/" class="logo" aria-label="Go to Integrated Sustainability home page">
-        <img class='logo--secondary' src="../assets/img/integratedsustainability.svg" alt="Integrated Sustainability" />
+        <img class='logo--main' src="../assets/img/integratedsustainability.svg" alt="Integrated Sustainability" />
       </a>
 
       <div class="header__actions header__actions--desktop">
