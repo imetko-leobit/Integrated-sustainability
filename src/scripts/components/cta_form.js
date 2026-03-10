@@ -1,3 +1,4 @@
+/** @module cta-form */
 const ctaFormContainers = [];
 
 const getRoutingValue = function () {
@@ -30,7 +31,7 @@ const applyRoutingKeyToIframe = function (formContainer, routingValue) {
 };
 
 document.addEventListener('DOMContentLoaded', function () {
-  const ctaBlocks = document.querySelectorAll('.block-cta');
+  const ctaBlocks = document.querySelectorAll('.js-has-cta-form');
 
   ctaBlocks.forEach(function (block) {
     const formContainer = block.querySelector('.block-cta__form');

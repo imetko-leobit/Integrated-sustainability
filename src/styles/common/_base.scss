@@ -218,6 +218,10 @@ h2,
 .title--h2 {
   @include text-h2;
 }
+.title--h2-48 {
+  @include text-h2;
+  font-size: $h2-size-48;
+}
 
 h3,
 .title--h3 {
