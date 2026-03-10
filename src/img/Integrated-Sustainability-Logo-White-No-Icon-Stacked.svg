@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="Integrated_Sustainability" version="1.1" viewBox="0 0 1149 361.7">
+  <!-- Generator: Adobe Illustrator 30.1.0, SVG Export Plug-In . SVG Version: 2.1.1 Build 136)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill-rule: evenodd;
+      }
+
+      .st0, .st1, .st2 {
+        fill: #fff;
+      }
+
+      .st3, .st1, .st2 {
+        isolation: isolate;
+      }
+
+      .st1 {
+        font-family: Poppins-Light, Poppins;
+        font-weight: 300;
+      }
+
+      .st1, .st2 {
+        font-size: 146.8px;
+      }
+
+      .st4 {
+        display: none;
+      }
+
+      .st2 {
+        font-family: Poppins-SemiBold, Poppins;
+        font-weight: 600;
+      }
+    </style>
+  </defs>
+  <g class="st3">
+    <text class="st1" transform="translate(67.5 148.3)"><tspan x="0" y="0">integrated</tspan></text>
+    <text class="st2" transform="translate(67.5 295.1)"><tspan x="0" y="0">sustainability</tspan></text>
+  </g>
+  <g id="Icon" class="st4">
+    <path class="st0" d="M-.9,180C-.9,118.7-22.9,59.8-63.7,13.5,6.9,117.9-19.8,260-124.2,331.5c-104.4,71.5-246.5,44-318-60.5-51.8-77-51.8-179,.8-256.8-91.8,104.4-80.9,263.8,23.6,354.9,104.4,91.1,263.8,80.9,354.9-23.6C-22.9,300.1-.9,241.2-.9,180Z"/>
+    <path class="st0" d="M-253.8-72.1c-51.8,0-101.3,18.9-139.8,52.6,88-59.7,208.1-36.9,267.8,51,59.7,87.9,36.9,208.1-51,267.7-65.2,44.7-151.5,44.7-216.7,0,87.9,77,222.2,68.3,299.1-19.6C-17.4,191.7-26.1,57.4-114-19.5c-39.2-33.7-88.7-52.6-139.8-52.6Z"/>
+    <path class="st0" d="M-407.6,264c29.8,29.8,70.7,48.7,113.1,51-86.4-16.5-142.9-99.7-126.4-186.1C-404.5,42.6-321.3-14.7-234.9,1.7c64.4,12.6,114.6,62.8,126.4,126.4-5.5-96.6-89.5-169.6-186.1-163.3-96.6,6.3-170.4,89.5-164.1,186,3.1,42.4,21.2,83.2,51,113.1h0Z"/>
+  </g>
+</svg>

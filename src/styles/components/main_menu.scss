@@ -129,7 +129,19 @@
         width: 350px;
 
         @media (max-width: 991px) {
+          display: none;
           width: 200px;
+        }
+      }
+
+      .logo--mobile {
+        display: none;
+        width: 200px;
+        position: relative;
+        left: -10px;
+
+        @media (max-width: 991px) {
+          display: block;
         }
       }
 
@@ -147,6 +159,8 @@
       align-items: center;
       gap: 20px;
       z-index: 1;
+      position: relative;
+      left: -14px;
     }
 
     .menu-toggle,

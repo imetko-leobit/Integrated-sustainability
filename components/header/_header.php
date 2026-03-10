@@ -23,6 +23,7 @@
 
       <a href="/" class="logo" aria-label="Go to Integrated Sustainability home page">
         <img class='logo--main' src="../assets/img/integratedsustainability.svg" alt="Integrated Sustainability" />
+        <img class='logo--mobile' src="../assets/img/Integrated-Sustainability-Logo-White-No-Icon-Stacked.svg" alt="Integrated Sustainability" />
       </a>
 
       <div class="header__actions header__actions--desktop">
