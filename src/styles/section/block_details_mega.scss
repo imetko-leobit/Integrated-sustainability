@@ -6,6 +6,10 @@
 .block-details {
   padding-top: 60px;
 
+  @media (max-width: 991px) {
+    padding-top: 0;
+  }
+
   &__title {
     @include text-h4;
   }

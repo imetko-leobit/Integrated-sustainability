@@ -23,6 +23,11 @@
       grid-template-columns: 1fr 1fr;
       grid-template-areas: "center";
     }
+
+    @media (max-width: 991px) {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
   }
 
   &__description {
