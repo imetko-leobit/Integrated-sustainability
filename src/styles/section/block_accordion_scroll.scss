@@ -70,6 +70,10 @@
         margin-right: 56px;
       }
 
+      @media (max-width: 991px) {
+        margin-right: 0;
+      }
+
       &::before {
         content: '';
         position: absolute;
