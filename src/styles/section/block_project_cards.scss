@@ -267,12 +267,9 @@
 
     @media (max-width: 991px) {
       background-position: left;
-      gap: inherit;
-    }
-
-    @media (max-width: 767px) {
+      gap: 1.5rem;
       width: 100%;
-      height: 70%;
+      height: auto;
       padding: 24px;
 
       .js-ellipsis-text {

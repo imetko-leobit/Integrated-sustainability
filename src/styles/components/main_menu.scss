@@ -125,13 +125,16 @@
         margin-left: 0;
       }
 
-      .logo--main,
-      .logo--secondary {
+      .logo--main {
         width: 350px;
 
         @media (max-width: 991px) {
           width: 200px;
         }
+      }
+
+      .logo--secondary {
+        display: none;
       }
     }
 
