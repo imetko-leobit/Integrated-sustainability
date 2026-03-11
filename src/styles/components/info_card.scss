@@ -43,6 +43,18 @@
       @media (max-width: 991px) {
         padding: 1.5rem;
       }
+
+      .text-content {
+        height: 0;
+        overflow: hidden;
+        transition: height 0.5s ease;
+        max-height: max-content;
+      }
+
+      .btn {
+        padding: 18px;
+        width: 100%;
+      }
     }
   }
 
@@ -97,6 +109,12 @@
       top: 0;
       height: 100%;
       padding-top: 60px;
+    }
+  }
+
+  &:hover {
+    .text-content {
+      height: 120px !important;
     }
   }
 }
