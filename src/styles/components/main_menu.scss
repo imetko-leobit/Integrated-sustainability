@@ -33,13 +33,15 @@
       display: flex;
       align-items: center;
       gap: 10px;
-
       height: 100%;
 
       color: var(--color-grey-400);
-      max-width: var(--wp--style--global--content-size-large);
       margin-left: auto !important;
       margin-right: auto !important;
+    }
+
+    .subheader-wrapper {
+      max-width: var(--wp--style--global--content-size-large);
 
       @media (max-width: 1599px) {
         max-width: var(--wp--style--global--content-size-medium);
