@@ -22,6 +22,7 @@
     var filterSelects = gridBlock.querySelectorAll('.js-filter-select');
     var sortSelect = gridBlock.querySelector('.js-sort-select');
     var chipsContainer = gridBlock.querySelector('.js-filter-chips');
+    var chipsSection = chipsContainer ? chipsContainer.closest('.block-filtered-grid__filter-section') : null;
     var gridContainer = gridBlock.querySelector('.js-filtered-grid');
     var noResultsEl = gridBlock.querySelector('.js-no-results');
 
@@ -49,6 +50,7 @@
         handleSortChange(sortSelect);
       });
     }
+    toggleChipsSection();
 
     /**
      * Handle filter select change
@@ -93,6 +95,7 @@
         var chip = createChip(filterName, filter.label);
         chipsContainer.appendChild(chip);
       });
+      toggleChipsSection();
     }
 
     /**
@@ -101,6 +104,7 @@
     function createChip(filterName, label) {
       var chip = document.createElement('div');
       chip.className = 'block-filtered-grid__chip btn--gradient';
+      chip.dataset.filterName = filterName;
       var chipLabel = document.createElement('span');
       chipLabel.className = 'block-filtered-grid__chip-label';
       chipLabel.textContent = label;
@@ -108,11 +112,16 @@
       removeBtn.className = 'block-filtered-grid__chip-remove';
       removeBtn.innerHTML = '&times;';
       removeBtn.setAttribute('aria-label', 'Remove ' + label + ' filter');
-      removeBtn.addEventListener('click', function () {
+      removeBtn.addEventListener('click', function (event) {
+        event.preventDefault();
+        event.stopPropagation();
         removeFilter(filterName);
       });
       chip.appendChild(chipLabel);
       chip.appendChild(removeBtn);
+      chip.addEventListener('click', function () {
+        removeFilter(filterName);
+      });
       return chip;
     }
 
@@ -129,6 +138,11 @@
       }
       updateChips();
       applyFilters();
+    }
+    function toggleChipsSection() {
+      if (!chipsSection) return;
+      var hasFilters = Object.keys(activeFilters).length > 0;
+      chipsSection.style.display = hasFilters ? '' : 'none';
     }
 
     /**
@@ -176,8 +190,13 @@
       // Check each active filter
       for (var filterName in activeFilters) {
         var filterValue = activeFilters[filterName].value;
-        var itemValue = item.getAttribute('data-' + filterName);
-        if (itemValue !== filterValue) {
+        var itemValue = item.getAttribute('data-' + filterName) || '';
+        var itemValues = itemValue.split(',').map(function (value) {
+          return value.trim();
+        }).filter(function (value) {
+          return value.length > 0;
+        });
+        if (!itemValues.includes(filterValue)) {
           return false;
         }
       }

@@ -119,17 +119,16 @@ function initInsightAccordion() {
   if (!containers.length) return;
   containers.forEach(function (container) {
     var items = container.querySelectorAll('.accordion-item');
+    var defaultActiveIndex = container.dataset.defaultActiveIndex !== undefined ? parseInt(container.dataset.defaultActiveIndex, 10) : -1;
     items.forEach(function (item, index) {
       var content = item.querySelector('.accordion-item__content');
       content.style.overflow = 'hidden';
       content.style.transition = 'max-height 0.3s ease';
-      var expandBtn = item.querySelector('.accordion-item__expand-btn'); // кнопка "Збільшити текст"
-
-      // Ініціалізація: перший відкритий
-      if (index === 0 || item.classList.contains('is-open')) {
+      var expandBtn = item.querySelector('.accordion-item__expand-btn');
+      if (index === defaultActiveIndex || item.classList.contains('is-open')) {
         item.classList.add('is-open');
         content.style.maxHeight = content.scrollHeight + 'px';
-        if (expandBtn) expandBtn.style.display = 'none'; // приховуємо кнопку
+        if (expandBtn) expandBtn.style.display = 'none';
       } else {
         content.style.maxHeight = '0';
       }
@@ -149,18 +148,18 @@ function initInsightAccordion() {
           var otherBtn = otherItem.querySelector('.accordion-item__expand-btn');
           otherContent.style.maxHeight = '0';
           otherItem.classList.remove('is-open');
-          if (otherBtn) otherBtn.style.display = ''; // показуємо кнопку, якщо була прихована
+          if (otherBtn) otherBtn.style.display = '';
         }
       });
       if (isOpen) {
         content.style.maxHeight = '0';
         item.classList.remove('is-open');
-        if (expandBtn) expandBtn.style.display = ''; // показуємо кнопку
+        if (expandBtn) expandBtn.style.display = '';
       } else {
         requestAnimationFrame(function () {
           content.style.maxHeight = content.scrollHeight + 'px';
           item.classList.add('is-open');
-          if (expandBtn) expandBtn.style.display = 'none'; // приховуємо кнопку
+          if (expandBtn) expandBtn.style.display = 'none';
         });
       }
     });

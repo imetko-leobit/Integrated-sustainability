@@ -235,7 +235,7 @@ var PostsFilter = /*#__PURE__*/function () {
       if (searchValue && searchValue.trim()) return true;
 
       // Check taxonomies
-      var taxonomies = ["locations", "industry", "project_services", "project_tags"];
+      var taxonomies = ["locations", "industry_categories", "service_categories", "project_tags"];
       for (var _i = 0, _taxonomies = taxonomies; _i < _taxonomies.length; _i++) {
         var tax = _taxonomies[_i];
         var values = formData.getAll("".concat(tax, "[]")).filter(function (v) {
@@ -296,17 +296,17 @@ var PostsFilter = /*#__PURE__*/function () {
       locations.forEach(function (val) {
         return params.append("locations[]", val);
       });
-      var industries = formData.getAll("industry[]").filter(function (v) {
+      var industries = formData.getAll("industry_categories[]").filter(function (v) {
         return v;
       });
       industries.forEach(function (val) {
-        return params.append("industry[]", val);
+        return params.append("industry_categories[]", val);
       });
-      var services = formData.getAll("project_services[]").filter(function (v) {
+      var services = formData.getAll("service_categories[]").filter(function (v) {
         return v;
       });
       services.forEach(function (val) {
-        return params.append("project_services[]", val);
+        return params.append("service_categories[]", val);
       });
       var tags = formData.getAll("project_tags[]").filter(function (v) {
         return v;
