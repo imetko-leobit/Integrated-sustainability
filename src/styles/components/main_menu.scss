@@ -340,14 +340,14 @@
 
     .main-menu__col.active-level {
       background-color: rgba(04, 04, 04, 0.8);
-      flex-basis: calc(25% - var(--wp--style--global--padding-size-large) / 4);
+      flex-basis: calc(25% - var(--wp--style--global--padding-size-large) / 4 + 0.5rem);
 
       @media (max-width: 1599px) {
-        flex-basis: calc(25% - var(--wp--style--global--padding-size-medium) / 4);
+        flex-basis: calc(25% - var(--wp--style--global--padding-size-medium) / 4 + 0.5rem);
       }
 
       @media (max-width: 1199px) {
-        flex-basis: calc(25% - var(--wp--style--global--padding-size-small) / 4);
+        flex-basis: calc(25% - var(--wp--style--global--padding-size-small) / 4 + 0.5rem);
       }
     }
     .main-menu__col.active-level:first-of-type {
@@ -461,14 +461,14 @@
     }
 
     .main-menu__col--level-0.active-level {
-      flex-basis: calc(var(--wp--style--global--padding-size-large) - 2rem + calc(25% - var(--wp--style--global--padding-size-large) / 4));
+      flex-basis: calc(var(--wp--style--global--padding-size-large) - 1.5rem + calc(25% - var(--wp--style--global--padding-size-large) / 4));
 
       @media (max-width: 1599px) {
-        flex-basis: calc(var(--wp--style--global--padding-size-medium) - 2rem + calc(25% - var(--wp--style--global--padding-size-medium) / 4));
+        flex-basis: calc(var(--wp--style--global--padding-size-medium) - 1.5rem + calc(25% - var(--wp--style--global--padding-size-medium) / 4));
       }
 
       @media (max-width: 1199px) {
-        flex-basis: calc(var(--wp--style--global--padding-size-small) - 2rem + calc(25% - var(--wp--style--global--padding-size-small) / 4));
+        flex-basis: calc(var(--wp--style--global--padding-size-small) - 1.5rem + calc(25% - var(--wp--style--global--padding-size-small) / 4));
       }
 
       @media (max-width: 991px) {
