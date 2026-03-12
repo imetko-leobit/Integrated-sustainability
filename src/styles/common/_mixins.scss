@@ -375,6 +375,12 @@
 
 }
 
+@mixin text-h5-24 {
+  @include text-h5;
+  font-size: $h5-size-24;
+  line-height: $h5-lh-24;
+}
+
 @mixin text-h6 {
   font-family: $font-light;
   font-style: normal;

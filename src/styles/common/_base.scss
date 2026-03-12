@@ -246,6 +246,10 @@ h5,
   @include text-h5-20;
 }
 
+.title--h5-24 {
+  @include text-h5-24;
+}
+
 h6,
 .title--h6 {
   @include text-h6;
@@ -504,7 +508,7 @@ h6 {
   }
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
     border-radius: 100px;
@@ -514,13 +518,25 @@ h6 {
   }
 
   &:hover::before {
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
   }
 
   &:hover::after {
     color: white;
     transform: translateX(4px);
     transition: transform 0.3s ease;
+  }
+
+  &--no-link {
+    cursor: default;
+
+    &::after {
+      display: none;
+    }
+
+    &:hover::before {
+      background: transparent;
+    }
   }
 }
 
@@ -540,4 +556,7 @@ h6 {
   .main {
     margin-top: 115px;
   }
+}
+.block-tags-text-only-no-link{
+  margin: 36px 0;
 }

@@ -852,9 +852,10 @@
     border: 2px solid rgba(44, 44, 44, 0.8);
 
     .search-form {
+      max-width: 100%;
+      width: 400px;
       pointer-events: auto;
       opacity: 1;
-      width: 400px;
 
       @media (max-width: 991px) {
         width: 100%;
@@ -879,6 +880,11 @@
 
     &::placeholder {
       color: rgba(white, 0.5);
+    }
+
+    &::-webkit-search-cancel-button {
+        -webkit-appearance: none;
+        appearance: none;
     }
 
     @media (max-width: 991px) {
