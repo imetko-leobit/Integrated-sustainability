@@ -2,6 +2,11 @@
   --wp--style--global--content-size-large: 1576px;
   --wp--style--global--content-size-medium: calc(100% - 144px);
   --wp--style--global--content-size-small: calc(100% - 100px);
+
+  --wp--style--global--padding-size-large: calc(calc(100vw - var(--wp--style--global--content-size-large)) / 2);
+  --wp--style--global--padding-size-medium: 77px;
+  --wp--style--global--padding-size-small: 50px;
+
   --color-black: #040404;
   --color-black-opacity---900: rgba(0, 0, 0, 0.9);
   --color-black-opacity: rgba(0, 0, 0, 0.4);
