@@ -89,7 +89,8 @@
       font-weight: 600;
       border: none;
       padding: 0;
-      margin: 0; }
+      margin: 0;
+      text-transform: capitalize; }
       @media (max-width: 991px) {
         .person-card .person-card__info .card__name {
           font-family: "PoppinsMedium", "Roboto", "Arial", sans-serif;
@@ -103,12 +104,20 @@
         .person-card .person-card__info .card__credentials {
           margin-bottom: 12px; } }
     .person-card .person-card__info .card__title {
-      font-size: 16px; }
+      font-family: "Poppins", "Roboto", "Arial", sans-serif;
+      font-style: normal;
+      font-size: 14px;
+      line-height: 24px;
+      font-weight: 400; }
+      @media (max-width: 991px) {
+        .person-card .person-card__info .card__title {
+          font-size: 12px;
+          line-height: 20px; } }
     .person-card .person-card__info .person-card__description {
       font-family: "PoppinsMedium", "Roboto", "Arial", sans-serif;
       font-style: normal;
       font-size: 20px;
-      line-height: 30px;
+      line-height: 1.5;
       font-weight: 500;
       padding-bottom: 16px; }
       @media (max-width: 991px) {

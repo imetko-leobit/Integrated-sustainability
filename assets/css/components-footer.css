@@ -13,7 +13,10 @@
       max-width: var(--wp--style--global--content-size-medium); } }
   @media (max-width: 1199px) {
     .footer {
-      max-width: var(--wp--style--global--content-size-small);
+      max-width: var(--wp--style--global--content-size-small); } }
+  @media (max-width: 991px) {
+    .footer {
+      max-width: 100%;
       padding: 0 24px; } }
 
 .footer-logo {
@@ -60,7 +63,7 @@
   -ms-flex-pack: justify;
   justify-content: space-between;
   gap: 60px;
-  padding: 60px 0; }
+  padding: 60px 0 0; }
   @media (max-width: 1199px) {
     .footer-links-wrapper {
       gap: 30px; } }
@@ -71,13 +74,14 @@
 .footer-sections {
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex; }
+  display: flex;
+  gap: 140px; }
+  @media (max-width: 1199px) {
+    .footer-sections {
+      gap: 60px; } }
 
 .footer-section {
-  padding-right: 120px; }
-  @media (max-width: 1199px) {
-    .footer-section {
-      padding-right: 60px; } }
+  min-width: 150px; }
 
 .link-list, .footer-section .menu {
   list-style: none;
@@ -90,16 +94,14 @@
     -webkit-transition: opacity 0.3s ease;
     transition: opacity 0.3s ease;
     font-family: "Poppins", "Roboto", "Arial", sans-serif;
-    font-weight: 400;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     font-style: normal;
-    font-size: 16px;
-    line-height: 29px; }
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 400; }
     @media (max-width: 991px) {
       .link-list a, .footer-section .menu a {
-        font-size: 14px;
-        line-height: 22px; } }
+        font-size: 12px;
+        line-height: 20px; } }
     .link-list a:hover, .footer-section .menu a:hover {
       opacity: 0.7; }
 
@@ -146,7 +148,7 @@
       opacity: 0.7; }
 
 .footer-bottom {
-  padding: 300px 0 200px;
+  padding: 340px 0 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -155,7 +157,16 @@
   justify-content: space-between;
   -webkit-box-align: center;
   -ms-flex-align: center;
-  align-items: center; }
+  align-items: center;
+  font-family: "Poppins", "Roboto", "Arial", sans-serif;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 400; }
+  @media (max-width: 991px) {
+    .footer-bottom {
+      font-size: 12px;
+      line-height: 20px; } }
   @media (max-width: 767px) {
     .footer-bottom {
       width: 100%;
@@ -172,18 +183,7 @@
     .footer-bottom {
       padding: 24px 0 48px; } }
   .footer-bottom .copyright {
-    font-family: "Poppins", "Roboto", "Arial", sans-serif;
-    font-weight: 400;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-style: normal;
-    font-size: 16px;
-    line-height: 29px;
     margin: 0; }
-    @media (max-width: 991px) {
-      .footer-bottom .copyright {
-        font-size: 14px;
-        line-height: 22px; } }
   .footer-bottom .bottom-links {
     display: -webkit-box;
     display: -ms-flexbox;

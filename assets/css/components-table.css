@@ -2,6 +2,7 @@
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/styles/components/table.scss ***!
   \*****************************************************************************************************************************************************************************************************************************/
 /*images*/
+.wp-block-table,
 .table-component {
   width: 100%;
   max-width: 1470px;
@@ -15,23 +16,44 @@
   -ms-flex-direction: column;
   flex-direction: column;
   padding: 0 0 100px; }
+  @media (max-width: 991px) {
+    .wp-block-table,
+    .table-component {
+      padding: 0 0 3rem; } }
+  .wp-block-table .table-component__title,
   .table-component .table-component__title {
     color: var(--color-white, #fff);
     margin: 0;
     padding: 0; }
+  .wp-block-table .table-component__divider,
   .table-component .table-component__divider {
     width: 100%;
     height: 1px;
     background: var(--color-grey, #808080);
     margin-top: 36px; }
+  .wp-block-table .table-component__wrapper,
   .table-component .table-component__wrapper {
     padding-top: 56px;
     width: 100%;
     overflow-x: auto; }
+    @media (max-width: 991px) {
+      .wp-block-table .table-component__wrapper,
+      .table-component .table-component__wrapper {
+        padding-top: 1.5rem; } }
+  .wp-block-table table,
+  .wp-block-table .table-component__table,
+  .table-component table,
   .table-component .table-component__table {
     width: 100%;
     border-collapse: collapse;
     border-spacing: 0; }
+    .wp-block-table table thead,
+    .wp-block-table table .table__header,
+    .wp-block-table .table-component__table thead,
+    .wp-block-table .table-component__table .table__header,
+    .table-component table thead,
+    .table-component table .table__header,
+    .table-component .table-component__table thead,
     .table-component .table-component__table .table__header {
       height: 82px;
       background-image: url(../../assets/img/overlay.svg);
@@ -39,7 +61,15 @@
       background-size: cover;
       background-position: right top;
       background-repeat: no-repeat;
-      background-repeat: round; }
+      background-repeat: round;
+      border: none; }
+      .wp-block-table table thead th,
+      .wp-block-table table .table__header th,
+      .wp-block-table .table-component__table thead th,
+      .wp-block-table .table-component__table .table__header th,
+      .table-component table thead th,
+      .table-component table .table__header th,
+      .table-component .table-component__table thead th,
       .table-component .table-component__table .table__header th {
         font-family: "Poppins", "Roboto", "Arial", sans-serif;
         font-weight: 400;
@@ -53,54 +83,133 @@
         vertical-align: middle;
         border: none; }
         @media (max-width: 991px) {
+          .wp-block-table table thead th,
+          .wp-block-table table .table__header th,
+          .wp-block-table .table-component__table thead th,
+          .wp-block-table .table-component__table .table__header th,
+          .table-component table thead th,
+          .table-component table .table__header th,
+          .table-component .table-component__table thead th,
           .table-component .table-component__table .table__header th {
             font-size: 14px;
             line-height: 22px; } }
+        .wp-block-table table thead th:first-child,
+        .wp-block-table table .table__header th:first-child,
+        .wp-block-table .table-component__table thead th:first-child,
+        .wp-block-table .table-component__table .table__header th:first-child,
+        .table-component table thead th:first-child,
+        .table-component table .table__header th:first-child,
+        .table-component .table-component__table thead th:first-child,
         .table-component .table-component__table .table__header th:first-child {
           padding-left: 32px; }
+        .wp-block-table table thead th:last-child,
+        .wp-block-table table .table__header th:last-child,
+        .wp-block-table .table-component__table thead th:last-child,
+        .wp-block-table .table-component__table .table__header th:last-child,
+        .table-component table thead th:last-child,
+        .table-component table .table__header th:last-child,
+        .table-component .table-component__table thead th:last-child,
         .table-component .table-component__table .table__header th:last-child {
           padding-right: 32px; }
-        @media (max-width: 991px) {
-          .table-component .table-component__table .table__header th {
-            padding: 0 16px; }
-            .table-component .table-component__table .table__header th:first-child {
-              padding-left: 20px; }
-            .table-component .table-component__table .table__header th:last-child {
-              padding-right: 20px; } }
+    .wp-block-table table tbody tr,
+    .wp-block-table table .table__body tr,
+    .wp-block-table .table-component__table tbody tr,
+    .wp-block-table .table-component__table .table__body tr,
+    .table-component table tbody tr,
+    .table-component table .table__body tr,
+    .table-component .table-component__table tbody tr,
     .table-component .table-component__table .table__body tr {
       background: transparent;
       border-bottom: 1px solid var(--color-grey, #808080);
       min-height: 82px; }
+      .wp-block-table table tbody tr td,
+      .wp-block-table table .table__body tr td,
+      .wp-block-table .table-component__table tbody tr td,
+      .wp-block-table .table-component__table .table__body tr td,
+      .table-component table tbody tr td,
+      .table-component table .table__body tr td,
+      .table-component .table-component__table tbody tr td,
       .table-component .table-component__table .table__body tr td {
         font-family: "Poppins", "Roboto", "Arial", sans-serif;
-        font-weight: 400;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
         font-style: normal;
-        font-size: 16px;
-        line-height: 29px;
+        font-size: 14px;
+        line-height: 24px;
+        font-weight: 400;
         color: var(--color-white, #fff);
         padding: 24px;
         text-align: left;
-        vertical-align: middle; }
+        vertical-align: middle;
+        border: none; }
         @media (max-width: 991px) {
+          .wp-block-table table tbody tr td,
+          .wp-block-table table .table__body tr td,
+          .wp-block-table .table-component__table tbody tr td,
+          .wp-block-table .table-component__table .table__body tr td,
+          .table-component table tbody tr td,
+          .table-component table .table__body tr td,
+          .table-component .table-component__table tbody tr td,
           .table-component .table-component__table .table__body tr td {
-            font-size: 14px;
-            line-height: 22px; } }
+            font-size: 12px;
+            line-height: 20px; } }
+        .wp-block-table table tbody tr td:first-child,
+        .wp-block-table table .table__body tr td:first-child,
+        .wp-block-table .table-component__table tbody tr td:first-child,
+        .wp-block-table .table-component__table .table__body tr td:first-child,
+        .table-component table tbody tr td:first-child,
+        .table-component table .table__body tr td:first-child,
+        .table-component .table-component__table tbody tr td:first-child,
         .table-component .table-component__table .table__body tr td:first-child {
           padding-left: 32px; }
+        .wp-block-table table tbody tr td:last-child,
+        .wp-block-table table .table__body tr td:last-child,
+        .wp-block-table .table-component__table tbody tr td:last-child,
+        .wp-block-table .table-component__table .table__body tr td:last-child,
+        .table-component table tbody tr td:last-child,
+        .table-component table .table__body tr td:last-child,
+        .table-component .table-component__table tbody tr td:last-child,
         .table-component .table-component__table .table__body tr td:last-child {
           padding-right: 32px; }
-        @media (max-width: 991px) {
-          .table-component .table-component__table .table__body tr td {
-            padding: 16px; }
-            .table-component .table-component__table .table__body tr td:first-child {
-              padding-left: 20px; }
-            .table-component .table-component__table .table__body tr td:last-child {
-              padding-right: 20px; } }
+
+.table-component__table {
+  width: 100%;
+  border-collapse: collapse; }
+  .table-component__table thead {
+    display: table-header-group; }
+  .table-component__table th, .table-component__table td {
+    padding: 24px;
+    text-align: left;
+    vertical-align: middle;
+    border: none; }
+  .table-component__table tbody tr {
+    border-bottom: 1px solid var(--color-grey, #808080); }
   @media (max-width: 991px) {
-    .table-component .table-component__wrapper {
-      padding-top: 40px; } }
+    .table-component__table {
+      display: block;
+      width: 100%; }
+      .table-component__table thead {
+        display: none; }
+      .table-component__table .table__body {
+        display: initial; }
+      .table-component__table tbody tr {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 16px 0;
+        border-bottom: 1px solid var(--color-grey, #808080);
+        margin-bottom: 0.5rem; }
+        .table-component__table tbody tr td {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+          justify-content: space-between;
+          padding: 0 !important; }
+          .table-component__table tbody tr td:before {
+            content: attr(data-header);
+            font-weight: bold;
+            color: var(--color-grey-400);
+            margin-right: 8px; } }
 
 
 /*# sourceMappingURL=components-table.css.map*/

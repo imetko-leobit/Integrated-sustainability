@@ -94,11 +94,11 @@
       .accordion-scroll .content-wrap {
         padding-bottom: 0px; } }
   .accordion-scroll .title {
-    font-family: "PoppinsSBold", "Roboto", "Arial", sans-serif;
+    font-family: "PoppinsMedium", "Roboto", "Arial", sans-serif;
     font-style: normal;
-    font-size: 24px;
-    line-height: 36px;
-    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.5;
+    font-weight: 500;
     color: white;
     text-transform: lowercase;
     cursor: pointer;
@@ -107,14 +107,14 @@
     padding-bottom: 20px; }
     @media (max-width: 991px) {
       .accordion-scroll .title {
-        font-size: 20px;
-        line-height: 28px; } }
+        font-size: 18px;
+        line-height: 26px; } }
     @media (max-width: 1199px) {
       .accordion-scroll .title {
         font-family: "PoppinsMedium", "Roboto", "Arial", sans-serif;
         font-style: normal;
         font-size: 20px;
-        line-height: 30px;
+        line-height: 1.5;
         font-weight: 500; } }
   @media (max-width: 1199px) and (max-width: 991px) {
     .accordion-scroll .title {
@@ -141,26 +141,27 @@
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
     color: var(--color-gray-200); }
+  .accordion-scroll .item.is-open .title {
+    font-family: "PoppinsSBold", "Roboto", "Arial", sans-serif;
+    font-style: normal;
+    font-size: 32px;
+    line-height: 1.375;
+    font-weight: 600; }
+    @media (max-width: 991px) {
+      .accordion-scroll .item.is-open .title {
+        font-size: 18px;
+        line-height: 26px; } }
   .accordion-scroll .item.is-open .desc-box {
     max-height: 600px;
     padding-bottom: 24px; }
     .accordion-scroll .item.is-open .desc-box p {
       margin-bottom: 20px; }
   .accordion-scroll .desc-box ul {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
-    -webkit-box-pack: start;
-    -ms-flex-pack: start;
     justify-content: flex-start;
-    -webkit-box-align: start;
-    -ms-flex-align: start;
     align-items: flex-start;
-    gap: 22px; }
+    gap: 30px; }
     @media (max-width: 991px) {
       .accordion-scroll .desc-box ul {
         gap: 12px; } }
@@ -194,6 +195,9 @@
         .accordion-scroll .desc-box ul li {
           font-size: 14px;
           line-height: 22px; } }
+      @media (max-width: 991px) {
+        .accordion-scroll .desc-box ul li {
+          padding-left: 38px; } }
       .accordion-scroll .desc-box ul li::before {
         content: "";
         position: absolute;
@@ -204,6 +208,10 @@
         background-image: url("../../assets/img/mark.svg");
         background-size: contain;
         background-repeat: no-repeat; }
+        @media (max-width: 991px) {
+          .accordion-scroll .desc-box ul li::before {
+            width: 22px;
+            height: 22px; } }
       @media (max-width: 991px) {
         .accordion-scroll .desc-box ul li {
           gap: 12px; } }

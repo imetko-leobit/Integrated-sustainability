@@ -6,7 +6,7 @@
   padding: 80px 0; }
   @media (max-width: 991px) {
     .block-resources-grid {
-      padding: 60px 1.5rem 0 1.5rem; } }
+      padding: 2rem 1.5rem 0; } }
   .block-resources-grid__header {
     margin-bottom: 48px; }
     @media (max-width: 991px) {
@@ -20,8 +20,8 @@
     @media (max-width: 991px) {
       .block-resources-grid__grid {
         grid-template-columns: 1fr;
-        gap: 24px;
-        margin-bottom: 32px; } }
+        margin-bottom: 0;
+        gap: 24px; } }
   .block-resources-grid__item {
     -webkit-transition: opacity 0.3s ease, -webkit-transform 0.3s ease;
     transition: opacity 0.3s ease, -webkit-transform 0.3s ease;

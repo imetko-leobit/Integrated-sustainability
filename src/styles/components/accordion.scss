@@ -18,6 +18,10 @@
     cursor: pointer;
     margin-top: 2rem;
 
+    @media (max-width: 991px) {
+      margin-top: 1.5rem;
+    }
+
     &__title {
       color: var(--color-white);
       margin: 0;
@@ -110,6 +114,7 @@
     margin-left: 50px;
 
     @media (max-width: 1199px) {
+      padding: 0;
       gap: 12px;
     }
 

@@ -9,9 +9,12 @@
   padding-bottom: 140px; }
   @media (max-width: 1199px) {
     .block-pillars {
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(2, 1fr);
       gap: 32px;
       padding-bottom: 48px; } }
+  @media (max-width: 991px) {
+    .block-pillars {
+      grid-template-columns: 1fr; } }
 
 
 /*# sourceMappingURL=section-block_pillars.css.map*/

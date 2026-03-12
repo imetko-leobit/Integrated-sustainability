@@ -63,7 +63,8 @@
       font-weight: 600;
       border: none;
       padding: 0;
-      margin: 0; }
+      margin: 0;
+      text-transform: capitalize; }
       @media (max-width: 991px) {
         .person-card .person-card__info .card__name {
           font-family: "PoppinsMedium", "Roboto", "Arial", sans-serif;
@@ -77,12 +78,20 @@
         .person-card .person-card__info .card__credentials {
           margin-bottom: 12px; } }
     .person-card .person-card__info .card__title {
-      font-size: 16px; }
+      font-family: "Poppins", "Roboto", "Arial", sans-serif;
+      font-style: normal;
+      font-size: 14px;
+      line-height: 24px;
+      font-weight: 400; }
+      @media (max-width: 991px) {
+        .person-card .person-card__info .card__title {
+          font-size: 12px;
+          line-height: 20px; } }
     .person-card .person-card__info .person-card__description {
       font-family: "PoppinsMedium", "Roboto", "Arial", sans-serif;
       font-style: normal;
       font-size: 20px;
-      line-height: 30px;
+      line-height: 1.5;
       font-weight: 500;
       padding-bottom: 16px; }
       @media (max-width: 991px) {
@@ -117,6 +126,10 @@
     opacity: 0.1;
     z-index: -1;
     background: radial-gradient(232.15% 232.15% at 50% 119.48%, rgba(129, 254, 229, 0.5) 0%, rgba(104, 115, 205, 0.5) 12.98%, #000 24.04%); }
+  @media (max-width: 1535px) {
+    .block-section-heading {
+      padding: 48px 0 2rem;
+      margin-bottom: 4rem; } }
   @media (max-width: 991px) {
     .block-section-heading {
       padding: 48px 24px 24px;
@@ -124,13 +137,15 @@
   .block-section-heading--center {
     text-align: center; }
   .block-section-heading .title {
-    text-align: left; }
+    text-align: left;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis; }
     @media (max-width: 991px) {
       .block-section-heading .title {
         padding-right: 0; } }
-  @media (max-width: 767px) {
-    .block-section-heading .heading-action {
-      display: none; } }
   @media (max-width: 991px) {
     .block-section-heading .divider {
       left: 24px;
@@ -143,26 +158,45 @@
     -ms-flex-pack: end;
     justify-content: flex-end;
     gap: 32px;
-    padding: 0; }
+    padding: 0;
+    cursor: pointer; }
+    .block-section-heading .person-card:hover .person-card__image {
+      -webkit-filter: grayscale(100%);
+      filter: grayscale(100%); }
     .block-section-heading .person-card--reverse {
       -webkit-box-orient: horizontal;
       -webkit-box-direction: reverse;
       -ms-flex-direction: row-reverse;
       flex-direction: row-reverse; }
+    @media (max-width: 991px) {
+      .block-section-heading .person-card {
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        gap: 1rem; } }
     .block-section-heading .person-card .person-card__info {
       text-align: right; }
+      @media (max-width: 991px) {
+        .block-section-heading .person-card .person-card__info {
+          text-align: left; } }
       .block-section-heading .person-card .person-card__info .card__name {
         font-family: "PoppinsMedium", "Roboto", "Arial", sans-serif;
         font-style: normal;
         font-size: 20px;
-        line-height: 30px;
-        font-weight: 500; }
+        line-height: 1.5;
+        font-weight: 500;
+        text-transform: capitalize; }
         @media (max-width: 991px) {
           .block-section-heading .person-card .person-card__info .card__name {
             font-size: 18px;
             line-height: 26px; } }
       .block-section-heading .person-card .person-card__info .card__credentials {
-        margin-bottom: 12px; }
+        margin-bottom: 12px;
+        font-size: 14px; }
         @media (max-width: 991px) {
           .block-section-heading .person-card .person-card__info .card__credentials {
             margin-bottom: 12px; } }
@@ -170,25 +204,23 @@
         color: var(--color-grey-300);
         font-family: "Poppins", "Roboto", "Arial", sans-serif;
         font-weight: 400;
-        line-height: 18px; }
+        line-height: 18px;
+        font-size: 14px; }
     .block-section-heading .person-card__image-container {
       width: 152px;
       height: 152px;
       border-radius: 50%;
       overflow: hidden; }
+      @media (max-width: 991px) {
+        .block-section-heading .person-card__image-container {
+          height: 80px;
+          width: 80px; } }
       .block-section-heading .person-card__image-container .person-card__image {
         height: 100%;
         -o-object-fit: cover;
         object-fit: cover;
         -webkit-filter: grayscale(100%);
-        filter: grayscale(100%);
-        -webkit-transition: -webkit-filter 0.5s ease;
-        transition: -webkit-filter 0.5s ease;
-        transition: filter 0.5s ease;
-        transition: filter 0.5s ease, -webkit-filter 0.5s ease; }
-    .block-section-heading .person-card:hover .person-card__image {
-      -webkit-filter: none;
-      filter: none; }
+        filter: grayscale(100%); }
 
 
 /*# sourceMappingURL=section-block_section_heading.css.map*/

@@ -53,29 +53,30 @@ function initCategoryNavigation() {
 
   function updateCard(data) {
     if (!cardImage) return;
-    cardImage.style.opacity = '0';
-    setTimeout(function () {
-      cardImage.src = data.image;
-      cardImage.alt = data.title;
+    var newImg = new Image();
+    newImg.onload = function () {
+      cardImage.style.opacity = '0';
+      setTimeout(function () {
+        cardImage.src = data.image;
+        cardImage.alt = data.title;
 
-      // Оновлюємо посилання навколо всієї картки
-      if (industryCard) {
-        industryCard.href = data.link;
-      }
-      if (cardTitle) {
-        var arrow = cardTitle.querySelector('.arrow-icon');
-        cardTitle.textContent = data.title + ' ';
-        if (arrow) cardTitle.appendChild(arrow);
-      }
-      if (cardDesc) cardDesc.textContent = data.desc;
+        // Оновлюємо посилання навколо всієї картки
+        if (industryCard) {
+          industryCard.href = data.link;
+        }
+        if (cardTitle) {
+          var arrow = cardTitle.querySelector('.arrow-icon');
+          cardTitle.textContent = data.title + ' ';
+          if (arrow) cardTitle.appendChild(arrow);
+        }
+        if (cardDesc) cardDesc.textContent = data.desc;
 
-      // Оновлюємо посилання в кнопці (якщо вона є окремо)
-      if (cardLink) cardLink.href = data.link;
-      cardImage.onload = function () {
-        return cardImage.style.opacity = '1';
-      };
-      if (cardImage.complete) cardImage.style.opacity = '1';
-    }, 200);
+        // Оновлюємо посилання в кнопці (якщо вона є окремо)
+        if (cardLink) cardLink.href = data.link;
+        cardImage.style.opacity = '1';
+      }, 200);
+    };
+    newImg.src = data.image;
   }
   industryList.addEventListener('click', function (e) {
     var targetLi = e.target.closest('li');
@@ -84,24 +85,30 @@ function initCategoryNavigation() {
 
     // 1. Клік по ПІДПУНКТУ
     if (targetLi.classList.contains('category-navigation__subitem')) {
+      var isActive = targetLi.classList.contains('active');
       container.querySelectorAll('.category-navigation__subitem').forEach(function (s) {
         return s.classList.remove('active');
       });
-      targetLi.classList.add('active');
-      updateCard(targetLi.dataset);
+      if (!isActive) {
+        targetLi.classList.add('active');
+        updateCard(targetLi.dataset);
+      }
       return;
     }
 
     // 2. Клік по ОСНОВНОМУ ПУНКТУ
     if (targetLi.classList.contains('category-navigation__nav-item')) {
+      var _isActive = targetLi.classList.contains('active');
       container.querySelectorAll('.category-navigation__nav-item').forEach(function (li) {
         return li.classList.remove('active');
       });
       container.querySelectorAll('.category-navigation__subitem').forEach(function (sub) {
         return sub.classList.remove('active');
       });
-      targetLi.classList.add('active');
-      updateCard(targetLi.dataset);
+      if (!_isActive) {
+        targetLi.classList.add('active');
+        updateCard(targetLi.dataset);
+      }
     }
   });
 }

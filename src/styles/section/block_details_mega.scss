@@ -125,6 +125,11 @@
         "b c";
       grid-template-rows: min-content 1fr;
 
+      @media (max-width: 991px) {
+        display: flex;
+        flex-direction: column;
+      }
+
       .details-content__wrapper {
         grid-area: b;
       }
@@ -137,6 +142,10 @@
         grid-area: a;
         grid-column: 8 / 13;
         padding-left: 136px;
+
+        @media (max-width: 991px) {
+          padding-left: 0;
+        }
       }
 
       .asside-card {

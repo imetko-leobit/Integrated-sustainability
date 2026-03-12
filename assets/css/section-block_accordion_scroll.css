@@ -20,6 +20,9 @@
     flex-wrap: wrap;
     position: relative;
     height: 100%; }
+    @media (max-width: 1199px) {
+      .block-accordion-scroll__wrapper {
+        gap: 3rem; } }
     @media (max-width: 991px) {
       .block-accordion-scroll__wrapper {
         display: -webkit-box;
@@ -29,13 +32,18 @@
         -webkit-box-direction: normal;
         -ms-flex-direction: column;
         flex-direction: column;
-        gap: 32px; } }
+        gap: 1rem; } }
   .block-accordion-scroll__description {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 55%;
     flex: 0 0 55%;
     background-color: var(--color-black);
     z-index: 1; }
+    @media (max-width: 1199px) {
+      .block-accordion-scroll__description {
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1; } }
     @media (max-width: 991px) {
       .block-accordion-scroll__description {
         width: 100%;
@@ -55,6 +63,11 @@
     -webkit-box-flex: 0;
     -ms-flex: 0 0 35%;
     flex: 0 0 35%; }
+    @media (max-width: 1199px) {
+      .block-accordion-scroll__media {
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1; } }
     @media (max-width: 991px) {
       .block-accordion-scroll__media {
         width: 100%;
@@ -67,8 +80,15 @@
         position: absolute;
         inset: 0;
         pointer-events: none;
-        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.3'/%3E%3C/svg%3E");
-        background-size: cover; }
+        background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' preserveAspectRatio='none'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' result='noise'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noise)' opacity='0.15'/%3E%3C/svg%3E");
+        background-size: cover, 200px 200px;
+        background-repeat: no-repeat, repeat; }
+      @media (max-width: 1199px) {
+        .block-accordion-scroll__media .accordion-card__image-wrapper {
+          margin-right: 56px; } }
+      @media (max-width: 991px) {
+        .block-accordion-scroll__media .accordion-card__image-wrapper {
+          margin-right: 0; } }
       .block-accordion-scroll__media .accordion-card__image-wrapper::before {
         content: '';
         position: absolute;
@@ -93,6 +113,9 @@
       object-fit: contain;
       display: block;
       margin-bottom: 56px; }
+      @media (max-width: 991px) {
+        .block-accordion-scroll__media img {
+          margin-bottom: 0; } }
 
 
 /*# sourceMappingURL=section-block_accordion_scroll.css.map*/

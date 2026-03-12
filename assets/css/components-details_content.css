@@ -14,6 +14,16 @@
   @media (max-width: 991px) {
     .details-content {
       gap: 24px; } }
+  .details-content h3 {
+    font-family: "PoppinsSBold", "Roboto", "Arial", sans-serif;
+    font-style: normal;
+    font-size: 32px;
+    line-height: 1.375;
+    font-weight: 600; }
+    @media (max-width: 991px) {
+      .details-content h3 {
+        font-size: 18px;
+        line-height: 26px; } }
   .details-content h3:not(:first-of-type) {
     padding-top: 48px;
     border-top: 1px solid var(--color-grey-400); }
@@ -34,20 +44,11 @@
         font-size: 14px;
         line-height: 22px; } }
   .details-content ul {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
-    -webkit-box-pack: start;
-    -ms-flex-pack: start;
     justify-content: flex-start;
-    -webkit-box-align: start;
-    -ms-flex-align: start;
     align-items: flex-start;
-    gap: 26px; }
+    gap: 30px; }
     @media (max-width: 991px) {
       .details-content ul {
         gap: 12px; } }
@@ -81,6 +82,9 @@
         .details-content ul li {
           font-size: 14px;
           line-height: 22px; } }
+      @media (max-width: 991px) {
+        .details-content ul li {
+          padding-left: 38px; } }
       .details-content ul li::before {
         content: "";
         position: absolute;
@@ -91,6 +95,10 @@
         background-image: url("../../assets/img/mark.svg");
         background-size: contain;
         background-repeat: no-repeat; }
+        @media (max-width: 991px) {
+          .details-content ul li::before {
+            width: 22px;
+            height: 22px; } }
       @media (max-width: 991px) {
         .details-content ul li {
           gap: 12px; } }

@@ -12,12 +12,11 @@
     .accordion {
       padding: 0; } }
   .accordion .accordion-item {
-    cursor: pointer; }
-    .accordion .accordion-item:not(:first-child) {
-      margin-top: 32px; }
-      @media (max-width: 991px) {
-        .accordion .accordion-item:not(:first-child) {
-          margin-top: 24px; } }
+    cursor: pointer;
+    margin-top: 2rem; }
+    @media (max-width: 991px) {
+      .accordion .accordion-item {
+        margin-top: 1.5rem; } }
     .accordion .accordion-item__title {
       color: var(--color-white);
       margin: 0;
@@ -28,7 +27,7 @@
       font-family: "PoppinsMedium", "Roboto", "Arial", sans-serif;
       font-style: normal;
       font-size: 20px;
-      line-height: 30px;
+      line-height: 1.5;
       font-weight: 500; }
       @media (max-width: 991px) {
         .accordion .accordion-item__title--h5 {
@@ -38,13 +37,23 @@
       overflow: hidden;
       -webkit-transition: all 0.3s ease-out;
       transition: all 0.3s ease-out;
-      padding: 0; }
+      padding: 0;
+      padding-left: 10px; }
+      @media (max-width: 991px) {
+        .accordion .accordion-item .accordion-item__content {
+          padding-left: 0; } }
+      .accordion .accordion-item .accordion-item__content > :first-child {
+        padding-top: 40px; }
+        @media (max-width: 991px) {
+          .accordion .accordion-item .accordion-item__content > :first-child {
+            padding-top: 1rem; } }
       .accordion .accordion-item .accordion-item__content p {
         color: var(--color-grey-300); }
     .accordion .accordion-item:last-child .accordion-item__divider {
       border-bottom: none;
       display: none; }
   .accordion .accordion-item__header {
+    padding-left: 10px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -54,7 +63,8 @@
     gap: 30px; }
     @media (max-width: 991px) {
       .accordion .accordion-item__header {
-        padding-top: 24px; } }
+        padding-left: 0;
+        gap: 1rem; } }
   .accordion .accordion-item__icon {
     background: white;
     border: none;
@@ -79,7 +89,8 @@
       .accordion .accordion-item__icon {
         width: 24px;
         height: 24px;
-        min-width: 24px; } }
+        min-width: 24px;
+        margin-left: 0; } }
     .accordion .accordion-item__icon svg {
       color: var(--color-black);
       display: block;
@@ -105,6 +116,7 @@
     margin-left: 50px; }
     @media (max-width: 1199px) {
       .accordion .accordion-item__list {
+        padding: 0;
         gap: 12px; } }
     .accordion .accordion-item__list li {
       display: -webkit-box;
@@ -136,6 +148,9 @@
         .accordion .accordion-item__list li {
           font-size: 14px;
           line-height: 22px; } }
+      @media (max-width: 991px) {
+        .accordion .accordion-item__list li {
+          padding-left: 38px; } }
       .accordion .accordion-item__list li::before {
         content: "";
         position: absolute;
@@ -146,6 +161,10 @@
         background-image: url("../../assets/img/mark.svg");
         background-size: contain;
         background-repeat: no-repeat; }
+        @media (max-width: 991px) {
+          .accordion .accordion-item__list li::before {
+            width: 22px;
+            height: 22px; } }
       @media (max-width: 1199px) {
         .accordion .accordion-item__list li {
           gap: 12px; } }
@@ -166,38 +185,41 @@
     opacity: 1; }
   .accordion .accordion-item__divider {
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    padding-top: 32px; }
+    padding-top: 32px;
+    cursor: default; }
     @media (max-width: 991px) {
       .accordion .accordion-item__divider {
         padding-top: 24px; } }
-  .accordion .accordion-item__desc {
-    margin-top: 20px; }
-    @media (max-width: 991px) {
-      .accordion .accordion-item__desc {
-        margin-top: 0; } }
+  @media (max-width: 991px) {
+    .accordion .accordion-item__desc {
+      margin-top: 0;
+      margin-left: 0; } }
   .accordion .gradient-link {
     margin-top: 36px; }
     @media (max-width: 991px) {
       .accordion .gradient-link {
         margin-top: 18px; } }
 
-.accordion.insight-accordion .accordion-item.is-open .accordion-item__header .accordion-item__icon {
-  display: none; }
+.accordion.insight-accordion .accordion-item.is-open {
+  padding-bottom: 30px; }
+  .accordion.insight-accordion .accordion-item.is-open .accordion-item__header .accordion-item__icon {
+    display: none; }
+  .accordion.insight-accordion .accordion-item.is-open .accordion-item__title {
+    font-family: "PoppinsSBold", "Roboto", "Arial", sans-serif;
+    font-style: normal;
+    font-size: 32px;
+    line-height: 1.375;
+    font-weight: 600;
+    margin: 0; }
+    @media (max-width: 991px) {
+      .accordion.insight-accordion .accordion-item.is-open .accordion-item__title {
+        font-size: 18px;
+        line-height: 26px; } }
+  .accordion.insight-accordion .accordion-item.is-open .accordion-item__divider {
+    visibility: hidden; }
 
-.accordion.insight-accordion .accordion-item.is-open .accordion-item__title {
-  font-family: "PoppinsSBold", "Roboto", "Arial", sans-serif;
-  font-style: normal;
-  font-size: 24px;
-  line-height: 36px;
-  font-weight: 600;
-  margin: 0; }
-  @media (max-width: 991px) {
-    .accordion.insight-accordion .accordion-item.is-open .accordion-item__title {
-      font-size: 20px;
-      line-height: 28px; } }
-
-.accordion.insight-accordion .accordion-item.is-open .accordion-item__divider {
-  visibility: hidden; }
+.accordion.insight-accordion .accordion-item:not(.is-open) .accordion-item__title {
+  text-transform: capitalize; }
 
 
 /*# sourceMappingURL=components-accordion.css.map*/

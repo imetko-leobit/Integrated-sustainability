@@ -48,6 +48,8 @@
   .career-form__section-description {
     margin: 0;
     color: var(--color-grey-300); }
+    .career-form__section-description p {
+      margin-bottom: 16px; }
   .career-form__row {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -457,19 +459,20 @@
         .career-form .choices .choices__list--dropdown .choices__item {
           font-size: 14px;
           line-height: 22px; } }
-    .career-form .choices .choices__list--dropdown .choices__item.choices__item--selectable.is-highlighted {
+    .career-form .choices .choices__list--dropdown
+.choices__item.choices__item--selectable.is-highlighted {
       background-color: var(--color-grey); }
     .career-form .choices .choices__list--dropdown .choices__item.is-selected {
       background-color: var(--color-grey-800); }
     .career-form .choices .choices__input {
       color: var(--color-white);
       background-color: var(--color-black); }
-  .career-form .choices[data-type*=select-one] .choices__button {
+  .career-form .choices[data-type*="select-one"] .choices__button {
     background-color: var(--color-grey-200);
     margin-right: 32px; }
-  .career-form .choices[data-type*=select-one]::after {
+  .career-form .choices[data-type*="select-one"]::after {
     display: none; }
-  .career-form .choices[data-type*=select-one]::before {
+  .career-form .choices[data-type*="select-one"]::before {
     content: "\2335";
     /* Down arrow unicode character &#9013; */
     height: 0;

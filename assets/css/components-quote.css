@@ -18,16 +18,16 @@
     .quote .quote__wrapper p {
       margin: 0; }
   .quote .quote__text {
-    font-family: "PoppinsSBold", "Roboto", "Arial", sans-serif;
+    font-family: "PoppinsMedium", "Roboto", "Arial", sans-serif;
     font-style: normal;
-    font-size: 24px;
-    line-height: 36px;
-    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.5;
+    font-weight: 500;
     color: white; }
     @media (max-width: 991px) {
       .quote .quote__text {
-        font-size: 20px;
-        line-height: 28px; } }
+        font-size: 18px;
+        line-height: 26px; } }
   .quote .quote__author {
     font-family: "Poppins", "Roboto", "Arial", sans-serif;
     font-weight: 400;

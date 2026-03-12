@@ -10,8 +10,8 @@
   padding-left: 138px; }
   @media (max-width: 991px) {
     .block-logo-slider {
-      padding-left: 0;
-      min-width: 100vw; } }
+      min-width: 100vw;
+      padding: 0 0 48px; } }
   .block-logo-slider .swiper-container {
     overflow: hidden; }
   .block-logo-slider .swiper-wrapper {

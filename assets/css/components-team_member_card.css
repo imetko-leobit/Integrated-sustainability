@@ -16,12 +16,11 @@
   -webkit-transition: -webkit-transform 0.3s ease;
   transition: -webkit-transform 0.3s ease;
   transition: transform 0.3s ease;
-  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
-  cursor: pointer;
-  gap: 24px; }
-  @media (max-width: 767px) {
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease; }
+  @media (max-width: 991px) {
     .team-member-card {
-      max-width: 280px; } }
+      max-width: 280px;
+      gap: 1.5rem; } }
   .team-member-card__image-container {
     position: relative;
     width: 100%;
@@ -35,6 +34,9 @@
     transition: -webkit-filter 0.3s ease;
     transition: filter 0.3s ease;
     transition: filter 0.3s ease, -webkit-filter 0.3s ease; }
+    .team-member-card__image-container a,
+    .team-member-card__image-container img {
+      display: block; }
     @media (max-width: 767px) {
       .team-member-card__image-container {
         -webkit-filter: grayscale(0%);
@@ -69,11 +71,6 @@
     transition: all 0.3s ease;
     padding: 0;
     z-index: 2; }
-    .team-member-card__action-btn:hover {
-      -webkit-transform: scale(1.1);
-      -ms-transform: scale(1.1);
-      transform: scale(1.1);
-      background: linear-gradient(90deg, #81FEE5 0%, #818FFE 100%); }
     .team-member-card__action-btn svg {
       height: 12px; }
   .team-member-card__arrow {
@@ -84,7 +81,7 @@
     transition: color 0.3s ease; }
     .team-member-card__action-btn:hover .team-member-card__arrow {
       color: var(--color-black); }
-  .team-member-card__info {
+  .team-member-card__info a {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -92,7 +89,8 @@
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    height: 100%; }
+    height: 100%;
+    padding-top: 24px; }
   .team-member-card__name {
     color: white;
     margin: 0;
@@ -130,6 +128,11 @@
     .team-member-card:hover .team-member-card__image-container {
       -webkit-filter: grayscale(0%);
       filter: grayscale(0%); }
+    .team-member-card:hover .team-member-card__action-btn {
+      -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+      transform: scale(1.1);
+      background: linear-gradient(90deg, #81FEE5 0%, #818FFE 100%); }
 
 
 /*# sourceMappingURL=components-team_member_card.css.map*/

@@ -17,7 +17,7 @@
       -ms-flex-direction: column;
       flex-direction: column;
       gap: 0;
-      padding: 0 24px 80px; } }
+      padding: 0 24px 2rem; } }
   .block-media-grid .media-card__tagline-trigger {
     display: none; }
     @media (max-width: 991px) {
@@ -77,14 +77,14 @@
       font-family: "PoppinsSBold", "Roboto", "Arial", sans-serif;
       font-style: normal;
       font-size: 32px;
-      line-height: 44px;
+      line-height: 1.375;
       font-weight: 600;
       text-transform: lowercase;
       margin-top: 24px; }
       @media (max-width: 991px) {
         .block-media-grid .media-card__content q {
-          font-size: 24px;
-          line-height: 32px; } }
+          font-size: 18px;
+          line-height: 26px; } }
     .block-media-grid .media-card__content .title {
       margin-bottom: 40px; }
     .block-media-grid .media-card__content p {
@@ -100,8 +100,9 @@
       position: absolute;
       inset: 0;
       pointer-events: none;
-      background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.3'/%3E%3C/svg%3E");
-      background-size: cover; }
+      background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' preserveAspectRatio='none'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' result='noise'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noise)' opacity='0.15'/%3E%3C/svg%3E");
+      background-size: cover, 200px 200px;
+      background-repeat: no-repeat, repeat; }
     .block-media-grid .media-card__image-wrapper img {
       height: 100%;
       width: 100%;
@@ -263,12 +264,12 @@
           font-family: "PoppinsSBold", "Roboto", "Arial", sans-serif;
           font-style: normal;
           font-size: 40px;
-          line-height: 52px;
+          line-height: 1.25;
           font-weight: 600; } }
       @media (max-width: 991px) and (max-width: 991px) {
         .block-media-grid article.media-card .media-card__content .title {
-          font-size: 28px;
-          line-height: 36px; } }
+          font-size: 20px;
+          line-height: 28px; } }
   @media (max-width: 991px) {
         .block-media-grid article.media-card .media-card__content p {
           font-family: "Poppins", "Roboto", "Arial", sans-serif;
@@ -287,13 +288,13 @@
           font-family: "PoppinsSBold", "Roboto", "Arial", sans-serif;
           font-style: normal;
           font-size: 40px;
-          line-height: 52px;
+          line-height: 1.25;
           font-weight: 600;
           margin: 0; } }
       @media (max-width: 991px) and (max-width: 991px) {
         .block-media-grid article.media-card .media-card__content q {
-          font-size: 28px;
-          line-height: 36px; } }
+          font-size: 20px;
+          line-height: 28px; } }
   @media (max-width: 991px) {
       .block-media-grid article.media-card .media-card__image-wrapper {
         width: 100%; }
@@ -336,9 +337,13 @@
       overflow: hidden;
       -webkit-transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
       transition: max-height 0.5s cubic-bezier(0, 1, 0, 1); }
-    .block-media-grid .media-card.is-open .media-card__content > *:not(.media-card__tagline-trigger):not(.media-card__tagline) {
+    .block-media-grid .media-card.is-open
+.media-card__content
+> *:not(.media-card__tagline-trigger):not(.media-card__tagline) {
       display: block; }
-      .block-media-grid .media-card.is-open .media-card__content > *:not(.media-card__tagline-trigger):not(.media-card__tagline) .media-card__tagline {
+      .block-media-grid .media-card.is-open
+.media-card__content
+> *:not(.media-card__tagline-trigger):not(.media-card__tagline) .media-card__tagline {
         display: none; }
     .block-media-grid .media-card.is-open .media-card__image-wrapper {
       max-height: 500px;

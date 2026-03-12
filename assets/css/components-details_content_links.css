@@ -11,16 +11,16 @@
   -ms-flex-direction: column;
   flex-direction: column;
   width: 100%; }
-  .details-content-links h2 {
+  .details-content-links h2, .details-content-links .heading__title {
     margin-bottom: 36px; }
-  .details-content-links h3:not(.accordion-item__title),
-  .details-content-links h4:not(.accordion-item__title) {
+  .details-content-links h3:not(.accordion-item__title):not(.card__title):not(.heading__title),
+  .details-content-links h4:not(.accordion-item__title):not(.card__title):not(.heading__title) {
     padding: 44px 0 36px;
     margin-bottom: 48px;
     border-bottom: 1px solid var(--color-grey-500); }
     @media (max-width: 1199px) {
-      .details-content-links h3:not(.accordion-item__title),
-      .details-content-links h4:not(.accordion-item__title) {
+      .details-content-links h3:not(.accordion-item__title):not(.card__title):not(.heading__title),
+      .details-content-links h4:not(.accordion-item__title):not(.card__title):not(.heading__title) {
         padding: 36px 0 24px;
         margin-bottom: 24px; } }
   .details-content-links p {
@@ -41,20 +41,11 @@
       .details-content-links p {
         margin-bottom: 16px; } }
   .details-content-links ul {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
-    -webkit-box-pack: start;
-    -ms-flex-pack: start;
     justify-content: flex-start;
-    -webkit-box-align: start;
-    -ms-flex-align: start;
     align-items: flex-start;
-    gap: 22px;
+    gap: 30px;
     margin: 12px; }
     @media (max-width: 1199px) {
       .details-content-links ul {
@@ -89,6 +80,9 @@
         .details-content-links ul li {
           font-size: 14px;
           line-height: 22px; } }
+      @media (max-width: 991px) {
+        .details-content-links ul li {
+          padding-left: 38px; } }
       .details-content-links ul li::before {
         content: "";
         position: absolute;
@@ -99,6 +93,10 @@
         background-image: url("../../assets/img/mark.svg");
         background-size: contain;
         background-repeat: no-repeat; }
+        @media (max-width: 991px) {
+          .details-content-links ul li::before {
+            width: 22px;
+            height: 22px; } }
       @media (max-width: 1199px) {
         .details-content-links ul li {
           gap: 12px; } }
@@ -135,8 +133,9 @@
         gap: 12px; } }
   .details-content-links .accordion {
     padding: 0 0 44px; }
-  .details-content-links .accordion-item__icon {
-    margin-left: 20px; }
+    @media (max-width: 991px) {
+      .details-content-links .accordion {
+        padding: 0 0 2rem; } }
   .details-content-links .accordion-item__desc {
     margin-left: 20px; }
   .details-content-links .gallery-wrapper {

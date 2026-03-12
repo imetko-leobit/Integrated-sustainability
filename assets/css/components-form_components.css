@@ -321,7 +321,7 @@
       font-family: "PoppinsMedium", "Roboto", "Arial", sans-serif;
       font-style: normal;
       font-size: 20px;
-      line-height: 30px;
+      line-height: 1.5;
       font-weight: 500; }
       @media (max-width: 991px) {
         .form-file .file-upload-drag {
@@ -339,7 +339,7 @@
       font-family: "PoppinsMedium", "Roboto", "Arial", sans-serif;
       font-style: normal;
       font-size: 20px;
-      line-height: 30px;
+      line-height: 1.5;
       font-weight: 500; }
       @media (max-width: 991px) {
         .form-file .file-upload-browse {

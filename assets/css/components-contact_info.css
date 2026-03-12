@@ -56,14 +56,14 @@
   .contact-info__phone {
     font-family: "PoppinsSBold", "Roboto", "Arial", sans-serif;
     font-style: normal;
-    font-size: 24px;
-    line-height: 36px;
+    font-size: 32px;
+    line-height: 1.375;
     font-weight: 600;
     color: var(--color-white); }
     @media (max-width: 991px) {
       .contact-info__phone {
-        font-size: 20px;
-        line-height: 28px; } }
+        font-size: 18px;
+        line-height: 26px; } }
   .contact-info__chip {
     border-radius: 32px;
     padding: 8px 20px;

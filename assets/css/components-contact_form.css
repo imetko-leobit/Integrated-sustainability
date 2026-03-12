@@ -25,15 +25,15 @@
   .contact-form__title {
     font-family: "PoppinsSBold", "Roboto", "Arial", sans-serif;
     font-style: normal;
-    font-size: 32px;
-    line-height: 44px;
+    font-size: 40px;
+    line-height: 1.3;
     font-weight: 600;
     text-transform: lowercase;
     margin: 0; }
     @media (max-width: 991px) {
       .contact-form__title {
-        font-size: 24px;
-        line-height: 32px; } }
+        font-size: 20px;
+        line-height: 28px; } }
   .contact-form__description {
     font-family: "Poppins", "Roboto", "Arial", sans-serif;
     font-weight: 400;

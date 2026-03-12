@@ -4,27 +4,21 @@
 /*images*/
 .block-team-cards {
   width: 100%;
-  max-width: 1560px;
   margin: 0 auto;
   padding: 0 0 140px; }
+  @media (max-width: 1199px) {
+    .block-team-cards {
+      padding: 0 1.5rem; } }
   @media (max-width: 991px) {
     .block-team-cards {
-      padding: 60px 40px; } }
-  @media (max-width: 767px) {
-    .block-team-cards {
-      padding: 40px 20px; } }
+      padding: 0 1.5rem; } }
   .block-team-cards__row {
     margin-bottom: 80px;
     -webkit-transition: opacity 0.3s ease;
     transition: opacity 0.3s ease; }
-    .block-team-cards__row.is-hidden {
-      display: none; }
     @media (max-width: 991px) {
       .block-team-cards__row {
-        margin-bottom: 40px; } }
-    @media (max-width: 767px) {
-      .block-team-cards__row {
-        margin-bottom: 32px; } }
+        margin-bottom: 3rem; } }
   .block-team-cards__mobile-header {
     display: none; }
     @media (max-width: 767px) {
@@ -67,7 +61,10 @@
       -ms-flex-pack: center;
       justify-content: center;
       -webkit-transition: all 0.3s ease;
-      transition: all 0.3s ease; }
+      transition: all 0.3s ease;
+      min-width: -webkit-max-content !important;
+      min-width: -moz-max-content !important;
+      min-width: max-content !important; }
       .block-team-cards__mobile-nav .btn svg {
         width: 16px;
         height: 16px;
@@ -81,7 +78,10 @@
   .block-team-cards__grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    gap: 56px; }
+    gap: 80px 56px; }
+    @media (max-width: 1199px) {
+      .block-team-cards__grid {
+        grid-template-columns: repeat(4, 1fr); } }
     @media (max-width: 991px) {
       .block-team-cards__grid {
         grid-template-columns: repeat(3, 1fr);
@@ -97,6 +97,13 @@
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center; }
+    .block-team-cards__card.is-hidden {
+      display: none; }
+      @media (max-width: 991px) {
+        .block-team-cards__card.is-hidden {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex; } }
   .block-team-cards__slider {
     display: none; }
     @media (max-width: 767px) {

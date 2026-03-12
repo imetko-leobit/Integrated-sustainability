@@ -5,7 +5,7 @@
   padding: 0 0 60px; }
   @media (max-width: 991px) {
     .block-publications-simple {
-      padding: 0 24px 48px; } }
+      padding: 0 24px 2rem; } }
   .block-publications-simple .publications {
     display: grid;
     grid-template-columns: repeat(4, 1fr);

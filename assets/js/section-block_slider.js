@@ -189,6 +189,37 @@ document.addEventListener('DOMContentLoaded', function () {
     }, delay);
   };
 
+  /** Moves the carousel directly to a specific slide in one smooth animation. */
+  var moveToSlide = function moveToSlide(clickedSlide) {
+    if (isTransitioning) return;
+    var stepsToMove = allSlides.indexOf(clickedSlide);
+    if (stepsToMove <= 0) return; // Already the active (first) slide
+
+    isTransitioning = true;
+    isNavigatingManually = true;
+    disconnectObserver();
+    pauseTimebar();
+    clearInterval(autoRotateInterval);
+    resetAllTimebars();
+    var slideWidth = allSlides[0].offsetWidth;
+    var translateValue = -(slideWidth + slideMargin) * stepsToMove;
+    carouselWrapper.style.transition = "transform ".concat(animationDuration / 1000, "s cubic-bezier(0.25, 0.46, 0.45, 0.94)");
+    carouselWrapper.style.transform = "translateX(".concat(translateValue, "px)");
+    setTimeout(function () {
+      carouselWrapper.style.transition = 'none';
+      carouselWrapper.style.transform = 'translateX(0)';
+      for (var i = 0; i < stepsToMove; i++) {
+        var firstSlide = carouselWrapper.querySelector('.pillar-carousel-card:first-child');
+        carouselWrapper.appendChild(firstSlide);
+      }
+      allSlides = Array.from(carouselWrapper.querySelectorAll('.pillar-carousel-card'));
+      updateActiveState(true);
+      isTransitioning = false;
+      isNavigatingManually = false;
+      reconnectObserver();
+    }, animationDuration);
+  };
+
   // --- Event Handlers ---
   prevButton.addEventListener('click', function () {
     return moveSlides('prev', false);
@@ -196,6 +227,16 @@ document.addEventListener('DOMContentLoaded', function () {
   nextButton.addEventListener('click', function () {
     return moveSlides('next', false);
   }); // Move to the next slide
+
+  // Navigate to slide on click; allow link navigation only for the active slide
+  carouselWrapper.addEventListener('click', function (e) {
+    var clickedCard = e.target.closest('.pillar-carousel-card');
+    if (!clickedCard) return;
+    if (!clickedCard.classList.contains('is-active')) {
+      e.preventDefault();
+      moveToSlide(clickedCard);
+    }
+  });
 
   // --- Intersection Observer Logic ---
   var observerOptions = {
