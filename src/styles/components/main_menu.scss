@@ -163,6 +163,10 @@
       z-index: 1;
       position: relative;
       left: -14px;
+
+      @media (max-width: 991px) {
+        left: 0;
+      }
     }
 
     .menu-toggle,
@@ -291,6 +295,10 @@
 
       @media (max-width: 1199px) {
         padding-right: var(--wp--style--global--padding-size-small);
+      }
+
+      @media (max-width: 991px) {
+        padding-right: 0;
       }
     }
 
