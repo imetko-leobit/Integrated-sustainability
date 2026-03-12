@@ -32,10 +32,6 @@
       gap: 2rem;
       min-height: auto;
     }
-
-    @media (max-width: 991px) {
-      gap: 1rem;
-    }
   }
 
   &__description {
@@ -281,6 +277,7 @@
     &__title {
       text-transform: lowercase;
       margin-bottom: 20px;
+      min-height: max-content;
       color: white;
 
       display: -webkit-box;
@@ -288,10 +285,6 @@
       -webkit-line-clamp: 2;
       overflow: hidden;
       text-overflow: ellipsis;
-
-      @media (max-width: 1199px) {
-        margin: 0;
-      }
     }
 
     &__title--h4 {
