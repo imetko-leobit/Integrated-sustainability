@@ -103,6 +103,12 @@
       font-size: 22px;
       margin-bottom: 32px;
     }
+
+    &:hover {
+      .text-content {
+        height: 120px !important;
+      }
+    }
   }
 }
 
@@ -147,12 +153,6 @@
         width: 22px;
         height: 22px;
       }
-    }
-  }
-
-  &:hover {
-    .text-content {
-      height: 120px !important;
     }
   }
 }
