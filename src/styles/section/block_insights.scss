@@ -57,20 +57,27 @@
 
     .insights-card__image-wrapper {
       position: relative;
+      margin-right: 56px;
+      margin-bottom: 56px;
       @include bg-overlay();
+
+      @media (max-width: 991px) {
+        margin-right: 0;
+        margin-bottom: 0;
+      }
 
       &::before {
         content: "";
         position: absolute;
         bottom: -56px;
-        left: -56px;
+        left: 56px;
         height: 100%;
         width: 100%;
         @include bg-image;
         overflow: hidden;
         z-index: -1;
 
-        @media (max-width: 1199px) {
+        @media (max-width: 991px) {
           display: none;
         }
       }
@@ -80,7 +87,6 @@
         height: 100%;
         object-fit: contain;
         display: block;
-        margin-bottom: 56px;
 
         @media (max-width: 991px) {
           margin-bottom: 0;

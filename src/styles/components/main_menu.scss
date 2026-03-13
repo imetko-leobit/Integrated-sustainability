@@ -139,8 +139,6 @@
       .logo--mobile {
         display: none;
         width: 200px;
-        position: relative;
-        left: -10px;
 
         @media (max-width: 991px) {
           display: block;
@@ -165,7 +163,7 @@
       left: -14px;
 
       @media (max-width: 991px) {
-        left: 0;
+        left: 14px;
       }
     }
 
@@ -303,7 +301,7 @@
     }
 
     .main-menu__col {
-      padding: 2rem 0 90px;
+      padding: 2rem 0 0;
       height: 100%;
       width: 100%;
       min-width: 200px;
@@ -353,7 +351,8 @@
     }
     .main-menu__col.active-level:first-of-type {
       .main-menu__title {
-        margin: 10px 0 2rem;
+        margin: 10px 0 25px;
+        @include text-h5;
       }
 
       .main-menu__title,
@@ -400,11 +399,8 @@
       position: relative;
       transition: all 0.3s ease;
       @include text-body-small;
+      min-height: 50px;
       gap: 1rem;
-
-      @media (max-width: 991px) {
-        min-height: 50px;
-      }
 
       .nav-link {
         transition: all 0.3s ease;
