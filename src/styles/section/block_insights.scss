@@ -31,7 +31,7 @@
   }
 
   &__description {
-    grid-column: span 5;
+    grid-column: span 6;
 
     @media (max-width: 1199px) {
       grid-area: auto;
@@ -45,7 +45,7 @@
   }
 
   &__media {
-    grid-column: 7 / -1;
+    grid-column: 8 / -1;
 
     @media (max-width: 1199px) {
       grid-area: auto;
