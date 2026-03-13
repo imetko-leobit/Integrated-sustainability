@@ -325,9 +325,6 @@
         display: block;
         justify-content: flex-start;
       }
-      &.main-menu__col--level-0.active-level {
-        justify-content: space-between;
-      }
 
       .nav-item {
         padding: 12px 2rem 12px 2rem;
@@ -339,10 +336,6 @@
         @media (max-width: 991px) {
           margin-top: 22px;
         }
-      }
-
-      @media (min-width: 992px) {
-        border-right: 1px solid rgba(255, 255, 255, 0.1);
       }
     }
 
@@ -359,8 +352,14 @@
       }
     }
     .main-menu__col.active-level:first-of-type {
+      .main-menu__title {
+        margin: 10px 0 2rem;
+      }
+
+      .main-menu__title,
       .nav-item {
         padding-left: calc(calc(100vw - var(--wp--style--global--content-size-large)) / 2);
+        padding-right: 2rem;
 
         @media (max-width: 1599px) {
           padding-left: 77px;
@@ -389,6 +388,7 @@
       padding: 0;
       margin: 0;
       width: 100%;
+      overflow: auto;
     }
 
     .nav-item {
@@ -400,6 +400,7 @@
       position: relative;
       transition: all 0.3s ease;
       @include text-body-small;
+      gap: 1rem;
 
       @media (max-width: 991px) {
         min-height: 50px;
@@ -416,6 +417,7 @@
         }
       }
 
+      &:hover,
       &.active {
         background: $primary-gradient-5;
         font-family: $font-medium;
@@ -461,6 +463,9 @@
 
       display: none;
       transition: all 0.3s ease;
+
+      position: relative;
+      left: -1px;
 
       &.active-level {
         display: flex;
@@ -569,17 +574,19 @@
         backdrop-filter: blur(60px);
         background: $primary-gradient-5;
         height: 80px;
+        min-height: 80px;
         gap: 0.5rem;
 
         .submenu-title {
           width: auto;
           margin: 0;
-          @include text-h6;
+          @include text-body-small;
           background: $primary-gradient;
           background-clip: text;
           color: transparent;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
+          text-transform: capitalize;
         }
 
         .back-arrow {
@@ -615,6 +622,7 @@
         border-top: 1px solid rgba(44, 44, 44, 1);
         @include bg-image;
         min-height: fit-content;
+        margin-top: auto;
       }
     }
   }
@@ -761,9 +769,6 @@
           border-top: none;
         }
 
-        &:hover {
-        }
-
         &__thumb {
           width: 136px;
           height: 88px;
@@ -900,19 +905,6 @@
       min-width: 100%;
       max-width: 100%;
       height: 100%;
-    }
-  }
-}
-
-.header.header--scrolled {
-  .main-menu {
-    top: 100px;
-    height: calc(100vh - 100px);
-
-    @media (max-width: 991px) {
-      height: calc(100vh - 80px);
-
-      top: 80px;
     }
   }
 }

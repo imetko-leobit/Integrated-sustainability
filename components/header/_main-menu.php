@@ -1,6 +1,8 @@
 <div class="main-menu__content">
   <!-- Level 0 - Main Menu -->
   <div id="level-0" class="main-menu__col main-menu__col--level-0 active-level" data-level="0">
+    <h5 class="main-menu__title">Lifecycle Accountability for Industrial Water Assets</h5>
+
     <ul class="navbar-nav">
       <!-- Services -->
       <li class="nav-item has-submenu" data-target="level-0-1">
@@ -11,7 +13,7 @@
           </span>
         </button>
       </li>
-      
+
       <!-- Applications -->
       <li class="nav-item has-submenu" data-target="level-0-2">
         <a href="/applications" class="nav-link">applications</a>
@@ -21,12 +23,12 @@
           </span>
         </button>
       </li>
-      
+
       <!-- Equipment -->
       <li class="nav-item" data-target="level-0-3">
         <a href="/equipment" class="nav-link">equipment</a>
       </li>
-      
+
       <!-- Industries -->
       <li class="nav-item has-submenu top-margin" data-target="level-0-4">
         <a href="/industries" class="nav-link">industries</a>
@@ -36,28 +38,28 @@
           </span>
         </button>
       </li>
-      
+
       <!-- Projects -->
       <li class="nav-item" data-target="level-0-5">
         <a href="/projects" class="nav-link">projects</a>
       </li>
-      
+
       <!-- Insights -->
       <li class="nav-item" data-target="level-0-6">
         <a href="/insights" class="nav-link">insights</a>
       </li>
-      
+
       <!-- About -->
       <li class="nav-item top-margin" data-target="level-0-7">
         <a href="/about" class="nav-link">about</a>
       </li>
-      
+
       <!-- Contact -->
       <li class="nav-item" data-target="level-0-8">
         <a href="/contact" class="nav-link">contact</a>
       </li>
     </ul>
-    
+
     <div class="main-menu__bottom--mobile">
       <div class="search-container" id="header-search-container-mobile">
         <button class="search-toggle" aria-label="Toggle Search">
@@ -80,7 +82,7 @@
       </div>
     </div>
   </div>
-  
+
   <!-- Level 1 - Services Submenu -->
   <div id="level-0-1" class="main-menu__col main-menu__col--level-1 submenu" data-level="1">
     <button class="submenu-header" data-prev-target="level-0" aria-label="Go back">
@@ -95,7 +97,7 @@
       </li>
     </ul>
   </div>
-  
+
   <!-- Level 1 - Applications Submenu -->
   <div id="level-0-2" class="main-menu__col main-menu__col--level-1 submenu" data-level="1">
     <button class="submenu-header" data-prev-target="level-0" aria-label="Go back">
@@ -110,7 +112,7 @@
       </li>
     </ul>
   </div>
-  
+
   <!-- Level 1 - Industries Submenu -->
   <div id="level-0-4" class="main-menu__col main-menu__col--level-1 submenu" data-level="1">
     <button class="submenu-header" data-prev-target="level-0" aria-label="Go back">
@@ -172,7 +174,7 @@
       </li>
     </ul>
   </div>
-  
+
   <!-- Level 2 - Medical Technologies Submenu -->
   <div id="level-0-4-8" class="main-menu__col main-menu__col--level-2 submenu" data-level="2">
     <button class="submenu-header" data-prev-target="level-0-4" aria-label="Go back">
@@ -219,7 +221,7 @@
       </li>
     </ul>
   </div>
-  
+
   <!-- Level 3 - Define Submenu -->
   <div id="level-0-4-8-2" class="main-menu__col main-menu__col--level-3 submenu" data-level="3">
     <button class="submenu-header" data-prev-target="level-0-4-8" aria-label="Go back">
