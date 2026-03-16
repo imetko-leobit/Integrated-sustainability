@@ -16,11 +16,7 @@
 
   .accordion-item {
     cursor: pointer;
-    margin-top: 2rem;
-
-    @media (max-width: 991px) {
-      margin-top: 1.5rem;
-    }
+    margin-top: 1.5rem;
 
     &__title {
       color: var(--color-white);
@@ -182,7 +178,7 @@
 
 .accordion.insight-accordion {
   .accordion-item.is-open {
-    padding-bottom: 30px;
+    padding-bottom: 15px;
 
     .accordion-item__header .accordion-item__icon {
       display: none;
