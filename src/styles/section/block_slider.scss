@@ -304,7 +304,8 @@
       color: var(--color-grey-300);
       opacity: 0;
       transition: opacity 0.3s ease;
-      min-height: 72px;
+      min-height: 70px;
+      @include text-body-base;
 
       display: -webkit-box;
       -webkit-box-orient: vertical;
@@ -363,10 +364,11 @@
       margin-bottom: 20px;
       color: white;
 
-      @media (max-width: 1199px) {
-        margin: 0;
+      @media (max-width: 991px) {
+        margin-bottom: 0.25rem;
       }
     }
+
     &__title--h4 {
       @include text-h5;
     }
@@ -385,6 +387,11 @@
 
       @media (max-width: 1199px) {
         opacity: 1;
+      }
+
+      @media (max-width: 991px) {
+        -webkit-line-clamp: 4;
+        margin-bottom: 1rem;
       }
     }
 
