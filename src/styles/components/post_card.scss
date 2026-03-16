@@ -282,6 +282,10 @@
 
     min-height: 200px;
     height: max-content;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
   }
 
   .post-card__link {
@@ -293,17 +297,13 @@
 
   .post-card__title {
     -webkit-line-clamp: 2;
-    min-height: 60px;
+    min-height: auto;
     @include overflow-dots;
-
-    @media (max-width: 991px) {
-      min-height: auto;
-    }
   }
 
   .post-card__arrow--right {
     position: absolute;
-    bottom: 32px;
+    bottom: 1.5rem;
     right: 32px;
     display: flex;
     align-items: center;
