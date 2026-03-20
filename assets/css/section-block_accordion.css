@@ -14,10 +14,7 @@
       padding: 0; } }
   .accordion .accordion-item {
     cursor: pointer;
-    margin-top: 2rem; }
-    @media (max-width: 991px) {
-      .accordion .accordion-item {
-        margin-top: 1.5rem; } }
+    margin-top: 1.5rem; }
     .accordion .accordion-item__title {
       color: var(--color-white);
       margin: 0;
@@ -41,7 +38,7 @@
         .accordion .accordion-item .accordion-item__content {
           padding-left: 0; } }
       .accordion .accordion-item .accordion-item__content > :first-child {
-        padding-top: 40px; }
+        padding-top: 50px; }
         @media (max-width: 991px) {
           .accordion .accordion-item .accordion-item__content > :first-child {
             padding-top: 1rem; } }
@@ -157,18 +154,30 @@
     @media (max-width: 991px) {
       .accordion .accordion-item__divider {
         padding-top: 24px; } }
-  @media (max-width: 991px) {
-    .accordion .accordion-item__desc {
-      margin-top: 0;
-      margin-left: 0; } }
+  .accordion .accordion-item__desc {
+    font-family: "Poppins", "Roboto", "Arial", sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 29px; }
+    @media (max-width: 991px) {
+      .accordion .accordion-item__desc {
+        font-size: 14px;
+        line-height: 22px; } }
+    @media (max-width: 991px) {
+      .accordion .accordion-item__desc {
+        margin-top: 0;
+        margin-left: 0; } }
   .accordion .gradient-link {
     margin-top: 36px; }
     @media (max-width: 991px) {
       .accordion .gradient-link {
-        margin-top: 18px; } }
+        margin-top: 1.5rem; } }
 
 .accordion.insight-accordion .accordion-item.is-open {
-  padding-bottom: 30px; }
+  padding-bottom: 5px; }
   .accordion.insight-accordion .accordion-item.is-open .accordion-item__header .accordion-item__icon {
     display: none; }
   .accordion.insight-accordion .accordion-item.is-open .accordion-item__title {
@@ -236,7 +245,7 @@
   .gradient-link .arrow-icon {
     width: 24px;
     height: 24px;
-    padding: 6px;
+    padding: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -342,9 +351,7 @@
     .block-accordion__media .accordion-card__image-wrapper {
       position: relative;
       margin-bottom: 56px;
-      margin-right: 56px;
-      position: sticky;
-      top: 130px; }
+      margin-right: 56px; }
       .block-accordion__media .accordion-card__image-wrapper::after {
         content: "";
         position: absolute;

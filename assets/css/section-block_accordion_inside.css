@@ -50,7 +50,7 @@
   .gradient-link .arrow-icon {
     width: 24px;
     height: 24px;
-    padding: 6px;
+    padding: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -169,6 +169,18 @@
       -ms-flex-positive: 1;
       flex-grow: 1;
       overflow: auto; }
+      .block-accordion-inside .block-accordion__content-inner::after {
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0), black);
+        pointer-events: none; }
+        @media (max-width: 991px) {
+          .block-accordion-inside .block-accordion__content-inner::after {
+            content: none; } }
       @media (max-width: 1199px) {
         .block-accordion-inside .block-accordion__content-inner {
           padding: 2rem; } }
@@ -191,6 +203,9 @@
           padding: 0; } }
     .block-accordion-inside .accordion .accordion-item__divider {
       padding-top: 20px; }
+      @media (max-width: 991px) {
+        .block-accordion-inside .accordion .accordion-item__divider {
+          padding-top: 1.5rem; } }
     .block-accordion-inside .accordion .accordion-item__title {
       font-family: "Poppins", "Roboto", "Arial", sans-serif;
       font-weight: 400;

@@ -89,14 +89,6 @@
       .text-content {
         text-align: left;
       }
-
-      .btn {
-        margin-top: 48px;
-
-        @media (max-width: 991px) {
-          margin-top: 1.5rem;
-        }
-      }
     }
 
     &__title {
@@ -107,6 +99,25 @@
     &:hover {
       .text-content {
         height: 120px !important;
+      }
+
+      .btn {
+        margin-top: 48px;
+
+        @media (max-width: 991px) {
+          margin-top: 1.5rem;
+        }
+      }
+    }
+
+    &[data-popup-open] {
+      cursor: pointer;
+
+      &:hover {
+        .btn {
+          background: $primary-gradient;
+          color: var(--color-black);
+        }
       }
     }
   }

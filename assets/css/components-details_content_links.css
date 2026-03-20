@@ -11,7 +11,8 @@
   -ms-flex-direction: column;
   flex-direction: column;
   width: 100%; }
-  .details-content-links h2, .details-content-links .heading__title {
+  .details-content-links h2,
+  .details-content-links .heading__title {
     margin-bottom: 36px; }
   .details-content-links h3:not(.accordion-item__title):not(.card__title):not(.heading__title),
   .details-content-links h4:not(.accordion-item__title):not(.card__title):not(.heading__title) {
@@ -23,7 +24,14 @@
       .details-content-links h4:not(.accordion-item__title):not(.card__title):not(.heading__title) {
         padding: 36px 0 24px;
         margin-bottom: 24px; } }
-  .details-content-links p {
+  .details-content-links .tagline + .heading h3,
+  .details-content-links .tagline + .heading h4 {
+    padding-top: 0 !important; }
+  .details-content-links > .text-content h2:first-child,
+  .details-content-links > .text-content h3:first-child {
+    padding-top: 0 !important;
+    border-bottom: none !important; }
+  .details-content-links p:not(.accordion-item__desc) {
     font-family: "Poppins", "Roboto", "Arial", sans-serif;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
@@ -34,11 +42,11 @@
     color: var(--color-grey-200);
     margin-bottom: 36px; }
     @media (max-width: 991px) {
-      .details-content-links p {
+      .details-content-links p:not(.accordion-item__desc) {
         font-size: 14px;
         line-height: 22px; } }
     @media (max-width: 1199px) {
-      .details-content-links p {
+      .details-content-links p:not(.accordion-item__desc) {
         margin-bottom: 16px; } }
   .details-content-links ul {
     display: flex;
@@ -46,7 +54,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     gap: 30px;
-    margin: 12px; }
+    margin: 12px !important; }
     @media (max-width: 1199px) {
       .details-content-links ul {
         gap: 12px; } }
@@ -136,8 +144,6 @@
     @media (max-width: 991px) {
       .details-content-links .accordion {
         padding: 0 0 2rem; } }
-  .details-content-links .accordion-item__desc {
-    margin-left: 20px; }
   .details-content-links .gallery-wrapper {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));

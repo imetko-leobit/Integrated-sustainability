@@ -13,13 +13,13 @@
   }
 
   &__col {
-      width: 100%;
-      width: calc(50% - 40px);
+    width: 100%;
+    width: calc(50% - 40px);
 
-      @media (max-width: 1199px) {
-        width: 100%;
-        padding-top: none;
-      }
+    @media (max-width: 1199px) {
+      width: 100%;
+      padding-top: none;
+    }
   }
 
   &__col--text {
@@ -31,29 +31,33 @@
   }
 
   &__col--media {
-      padding: 3.5rem 0;
-      @media (max-width: 1199px) {
-          display: none;
-      }
+    padding: 3.5rem 0;
+    @media (max-width: 1199px) {
+      display: none;
+    }
   }
 
   .heading {
-      padding-bottom: 40px;
+    padding-bottom: 40px;
 
-      .title--h3 {
-          @include text-h3;
-      }
+    .title--h3 {
+      @include text-h3;
+    }
 
-      @media (max-width: 991px) {
-        display: none;
-      }
+    @media (max-width: 991px) {
+      display: none;
+    }
   }
 
   .text-content {
-      margin-bottom: 2.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
+    margin-bottom: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    h3 {
+      margin-bottom: 40px;
+    }
   }
 
   .btn {
@@ -61,19 +65,46 @@
   }
 
   &_actions {
-      margin-top: 2rem;
+    margin-top: 2rem;
 
-      @media (max-width: 991px) {
-        margin-top: 0;
+    @media (max-width: 991px) {
+      margin-top: 0;
+      width: 100%;
+
+      .btn {
         width: 100%;
-
-        .btn {
-            width: 100%;
-        }
       }
+    }
   }
 
   .performance-grid__link.hidden {
-      visibility: hidden;
+    visibility: hidden;
+  }
+
+  &_image {
+    .block-reduce-fragmentation__col--media {
+      padding-right: 56px;
+
+      @media (max-width: 991px) {
+        padding-right: 0;
+      }
+    }
+    .performance-grid {
+      &::before {
+        content: "";
+        position: absolute;
+        top: 56px;
+        left: 186px;
+        height: 100%;
+        width: calc(100% - 136px);
+        @include bg-image;
+        overflow: hidden;
+        z-index: -1;
+
+        @media (max-width: 991px) {
+          display: none;
+        }
+      }
+    }
   }
 }

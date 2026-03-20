@@ -1,0 +1,102 @@
+@import "../common/variable";
+@import "../common/mixins";
+
+// ============================================================================
+// Popup / Modal component
+// ============================================================================
+//
+// Structure:
+//  .popup                  — root wrapper, hidden by default (display: none)
+//    .popup__overlay       — semi-transparent full-screen backdrop (click to close)
+//    .popup__dialog        — centered dialog (max-width: 900px, scrollable)
+//      .popup__close       — top-right close button
+//      .popup__body        — scrollable content area
+//
+// Open state toggled via `.is-open` class (added / removed by popup.js).
+// ============================================================================
+
+.popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+
+  &.is-open {
+    display: flex;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+  }
+
+  &__dialog {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1000px;
+    min-width: 500px;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+
+    @include bg-image;
+    background-color: #000;
+    color: var(--color-grey-100);
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 2px;
+    }
+
+    @media (max-width: 991px) {
+      min-width: 100%;
+      max-width: 100%;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #7a7a7a;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    background: transparent;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+}
+
+// Prevent the page from scrolling behind an open popup.
+html.popup-open {
+  overflow: hidden;
+
+  .header {
+    z-index: 1;
+  }
+}

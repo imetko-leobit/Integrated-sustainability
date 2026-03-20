@@ -182,6 +182,9 @@
         width: 250px;
         max-width: 100%;
         padding: 0; } }
+    .block-slider .pillar-carousel-card--no-link-text .pillar-carousel-card__desc {
+      margin-bottom: 0;
+      -webkit-line-clamp: 5; }
     .block-slider .pillar-carousel-card.is-active {
       padding: 0;
       max-width: 22.45%; }
@@ -276,12 +279,23 @@
       opacity: 0;
       -webkit-transition: opacity 0.3s ease;
       transition: opacity 0.3s ease;
-      min-height: 72px;
+      min-height: 70px;
+      font-family: "Poppins", "Roboto", "Arial", sans-serif;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-style: normal;
+      font-size: 16px;
+      line-height: 29px;
       display: -webkit-box;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 3;
       overflow: hidden;
       text-overflow: ellipsis; }
+      @media (max-width: 991px) {
+        .block-slider .pillar-carousel-card__desc {
+          font-size: 14px;
+          line-height: 22px; } }
     .block-slider .pillar-carousel-card__image-container {
       width: 100%;
       height: 100%;
@@ -318,9 +332,9 @@
       text-transform: lowercase;
       margin-bottom: 20px;
       color: white; }
-      @media (max-width: 1199px) {
+      @media (max-width: 991px) {
         .block-slider .pillar-carousel-card__title {
-          margin: 0; } }
+          margin-bottom: 0.25rem; } }
     .block-slider .pillar-carousel-card__title--h4 {
       font-family: "PoppinsMedium", "Roboto", "Arial", sans-serif;
       font-style: normal;
@@ -345,6 +359,10 @@
       @media (max-width: 1199px) {
         .block-slider .pillar-carousel-card__desc {
           opacity: 1; } }
+      @media (max-width: 991px) {
+        .block-slider .pillar-carousel-card__desc {
+          -webkit-line-clamp: 4;
+          margin-bottom: 1rem; } }
     .block-slider .pillar-carousel-card.is-active .pillar-carousel-card__desc {
       opacity: 1; }
     .block-slider .pillar-carousel-card__link {

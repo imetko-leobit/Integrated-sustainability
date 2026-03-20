@@ -146,6 +146,30 @@
     @media (max-width: 991px) {
       .block-section-heading .title {
         padding-right: 0; } }
+  .block-section-heading .title--desktop {
+    display: block; }
+  .block-section-heading .title--mobile {
+    display: none; }
+  .block-section-heading .heading-icon--mobile {
+    display: none; }
+  .block-section-heading .heading-content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 0.75em; }
+  @media (max-width: 991px) {
+    .block-section-heading .title--desktop {
+      display: none; }
+    .block-section-heading .title--mobile {
+      display: block; }
+    .block-section-heading .heading-icon--mobile {
+      display: inline-block;
+      vertical-align: middle;
+      height: 24px;
+      width: 24px; } }
   @media (max-width: 991px) {
     .block-section-heading .divider {
       left: 24px;

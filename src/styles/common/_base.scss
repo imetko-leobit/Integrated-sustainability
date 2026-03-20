@@ -281,7 +281,8 @@ h6 {
     gap: 1rem;
   }
 
-  .heading-action {
+  .heading-action,
+  .heading-action--right .icon-link {
     display: flex;
     align-items: center;
     flex-shrink: 0;
@@ -361,6 +362,10 @@ h6 {
 
   .heading-action--right {
     text-align: right;
+
+    .icon-link {
+      max-width: 100%;
+    }
 
     .icon--active:hover {
       transform: translate(3px, 0);
@@ -561,6 +566,6 @@ h6 {
     margin-top: 115px;
   }
 }
-.block-tags-text-only-no-link{
+.block-tags-text-only-no-link {
   margin: 36px 0;
 }

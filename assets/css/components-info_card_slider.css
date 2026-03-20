@@ -89,16 +89,21 @@
           font-family: "PoppinsSBold", "Roboto", "Arial", sans-serif; }
       .info-card-wrapper .info-card .info-card__content .text-content {
         text-align: left; }
-      .info-card-wrapper .info-card .info-card__content .btn {
-        margin-top: 48px; }
-        @media (max-width: 991px) {
-          .info-card-wrapper .info-card .info-card__content .btn {
-            margin-top: 1.5rem; } }
     .info-card-wrapper .info-card__title {
       font-size: 22px;
       margin-bottom: 32px; }
     .info-card-wrapper .info-card:hover .text-content {
       height: 120px !important; }
+    .info-card-wrapper .info-card:hover .btn {
+      margin-top: 48px; }
+      @media (max-width: 991px) {
+        .info-card-wrapper .info-card:hover .btn {
+          margin-top: 1.5rem; } }
+    .info-card-wrapper .info-card[data-popup-open] {
+      cursor: pointer; }
+      .info-card-wrapper .info-card[data-popup-open]:hover .btn {
+        background: linear-gradient(90deg, #81FEE5 0%, #818FFE 100%);
+        color: var(--color-black); }
 
 .slider-controls {
   padding: 0 0 12px;

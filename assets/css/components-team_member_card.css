@@ -12,15 +12,23 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
+  gap: 1.5rem;
   background: transparent;
-  -webkit-transition: -webkit-transform 0.3s ease;
-  transition: -webkit-transform 0.3s ease;
-  transition: transform 0.3s ease;
-  transition: transform 0.3s ease, -webkit-transform 0.3s ease; }
+  filter: grayscale(100%);
+  transition: all 0.5s ease;
+  cursor: pointer; }
+  @media (hover: hover) {
+    .team-member-card:hover {
+      filter: grayscale(0%); } }
+  @media (hover: none) {
+    .team-member-card:active {
+      filter: grayscale(0%); } }
   @media (max-width: 991px) {
     .team-member-card {
-      max-width: 280px;
-      gap: 1.5rem; } }
+      filter: grayscale(0%); } }
+  @media (max-width: 991px) {
+    .team-member-card {
+      max-width: 280px; } }
   .team-member-card__image-container {
     position: relative;
     width: 100%;
@@ -28,8 +36,6 @@
     overflow: hidden;
     -ms-flex-negative: 0;
     flex-shrink: 0;
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
     -webkit-transition: -webkit-filter 0.3s ease;
     transition: -webkit-filter 0.3s ease;
     transition: filter 0.3s ease;
@@ -39,8 +45,6 @@
       display: block; }
     @media (max-width: 767px) {
       .team-member-card__image-container {
-        -webkit-filter: grayscale(0%);
-        filter: grayscale(0%);
         height: 360px; } }
   .team-member-card__image {
     width: 100%;
@@ -67,10 +71,11 @@
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
-    -webkit-transition: all 0.3s ease;
-    transition: all 0.3s ease;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
     padding: 0;
-    z-index: 2; }
+    z-index: 2;
+    color: #080808; }
     .team-member-card__action-btn svg {
       height: 12px; }
   .team-member-card__arrow {
@@ -79,8 +84,6 @@
     color: var(--color-black);
     -webkit-transition: color 0.3s ease;
     transition: color 0.3s ease; }
-    .team-member-card__action-btn:hover .team-member-card__arrow {
-      color: var(--color-black); }
   .team-member-card__info a {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -89,8 +92,7 @@
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    height: 100%;
-    padding-top: 24px; }
+    height: 100%; }
   .team-member-card__name {
     color: white;
     margin: 0;
@@ -125,14 +127,10 @@
     -webkit-transform: translateY(-4px);
     -ms-transform: translateY(-4px);
     transform: translateY(-4px); }
-    .team-member-card:hover .team-member-card__image-container {
-      -webkit-filter: grayscale(0%);
-      filter: grayscale(0%); }
     .team-member-card:hover .team-member-card__action-btn {
       -webkit-transform: scale(1.1);
       -ms-transform: scale(1.1);
-      transform: scale(1.1);
-      background: linear-gradient(90deg, #81FEE5 0%, #818FFE 100%); }
+      transform: scale(1.1); }
 
 
 /*# sourceMappingURL=components-team_member_card.css.map*/
