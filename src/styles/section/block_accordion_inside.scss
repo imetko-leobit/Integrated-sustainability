@@ -125,6 +125,10 @@
 
     .accordion-item__divider {
       padding-top: 20px;
+
+      @media (max-width: 991px) {
+        padding-top: 1.5rem;
+      }
     }
 
     .accordion-item__title {

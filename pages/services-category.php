@@ -134,6 +134,8 @@
 
     <?php
         $section_title = "frequently asked questions";
+        $mobile_title = "faq";
+        $mobile_icon = "../assets/img/iconQuestion.svg";
         $link_url = "/contact-us";
         $custom_icon = "../assets/img/iconQuestion.svg";
         $link_text = "Ready to go deeper?<br>Discuss with our specialists";
@@ -145,6 +147,8 @@
     <?php
         $section_title = "How we deliver reliable water performance <br>across your asset lifecycle";
         $custom_icon = "../assets/img/linkIconCircles.svg";
+        $mobile_title = "";
+        $mobile_icon = "";
         include('../components/sections/block-section-heading.php');
     ?>
     <?php include('../components/sections/block-reduce-fragmentation.php') ?>

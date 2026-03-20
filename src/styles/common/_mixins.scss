@@ -189,11 +189,18 @@
 
 @mixin grayscale-hover {
   filter: grayscale(100%);
-  transition: filter 0.5s;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
   @include hover {
     filter: grayscale(0%);
   }
+
+  @media (max-width: 991px) {
+    filter: grayscale(0%);
+  }
 }
+
 @mixin scrollbar {
   scrollbar-color: #fff #040404;
   scrollbar-width: thin;

@@ -161,6 +161,8 @@
   }
 
   .accordion-item__desc {
+    @include text-body-base;
+
     @media (max-width: 991px) {
       margin-top: 0;
       margin-left: 0;
@@ -171,14 +173,14 @@
     margin-top: 36px;
 
     @media (max-width: 991px) {
-      margin-top: 18px;
+      margin-top: 1.5rem;
     }
   }
 }
 
 .accordion.insight-accordion {
   .accordion-item.is-open {
-    padding-bottom: 15px;
+    padding-bottom: 5px;
 
     .accordion-item__header .accordion-item__icon {
       display: none;

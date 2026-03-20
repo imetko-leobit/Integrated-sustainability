@@ -53,6 +53,41 @@
     }
   }
 
+  .title--desktop {
+    display: block;
+  }
+
+  .title--mobile {
+    display: none;
+  }
+
+  .heading-icon--mobile {
+    display: none;
+  }
+
+  .heading-content {
+    display: flex;
+    align-items: center;
+    gap: 0.75em;
+  }
+
+  @media (max-width: 991px) {
+    .title--desktop {
+      display: none;
+    }
+
+    .title--mobile {
+      display: block;
+    }
+
+    .heading-icon--mobile {
+      display: inline-block;
+      vertical-align: middle;
+      height: 24px;
+      width: 24px;
+    }
+  }
+
   .divider {
     @media (max-width: 991px) {
       left: 24px;

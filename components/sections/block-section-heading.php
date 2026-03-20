@@ -18,11 +18,28 @@
     $person_degree = $person_degree ?? null;
     $person_date = $person_date ?? null;
     $person_photo = $person_photo ?? null;
+
+    $mobile_title = $mobile_title ?? $section_title;
+    $mobile_icon = $mobile_icon ?? null;
 ?>
 
 <section class="block-section-heading">
     <div class="heading heading-navigation">
-        <?php render_heading($section_title, $block_section_heading_heading_level, 'title title--h1', [], true); ?>
+        <?php if (!$mobile_icon): ?>
+            <?php render_heading($section_title, $block_section_heading_heading_level, 'title title--h1', [], true); ?>
+        <?php endif; ?>
+
+
+        <?php if ($mobile_icon): ?>
+            <div class="heading-content">
+                <span class="heading-icon heading-icon--mobile">
+                    <img src="<?php echo $mobile_icon; ?>" alt="Mobile Heading Icon" />
+                </span>
+
+                <?php render_heading($section_title, $block_section_heading_heading_level, 'title title--h1 title--desktop', [], true); ?>
+                <?php render_heading($mobile_title, $block_section_heading_heading_level, 'title title--h1 title--mobile', [], true); ?>
+            </div>
+        <?php endif; ?>
 
         <?php if ($link_url || $custom_icon || $person_photo): ?>
             <div class="heading-action <?php echo $link_direction === 'right' ? "heading-action--right" : ($link_direction === 'down' ? "heading-action--down" : ''); ?>">
