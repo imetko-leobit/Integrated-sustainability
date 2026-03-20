@@ -50,10 +50,10 @@
       }
 
       &-bottom {
-        height: 100%;
         padding: 56px;
         text-align: left;
         @include bg-image;
+        height: max-content;
 
         @media (max-width: 991px) {
           padding: 1.5rem;
@@ -67,6 +67,7 @@
         }
 
         .btn {
+          margin-top: 1rem;
           padding: 18px;
           width: 100%;
         }
