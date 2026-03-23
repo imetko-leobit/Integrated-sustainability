@@ -146,6 +146,11 @@
         height: 18px;
         color: white;
         transition: transform 0.3s ease;
+
+        @media (max-width: 991px) {
+          width: 14px;
+          height: 14px;
+        }
       }
 
       &:hover .arrow-icon {
