@@ -14,7 +14,8 @@
     @include text-h4;
   }
 
-  h3:not(:first-of-type) {
+  h3:not(:first-of-type),
+  .project-profile-block h3 {
     padding-top: 48px;
     border-top: 0.5px solid var(--color-grey-500);
 
@@ -22,7 +23,6 @@
       padding-top: 24px;
     }
   }
-
   p {
     @include text-body-base;
     color: var(--color-grey-200);

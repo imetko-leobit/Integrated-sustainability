@@ -6,6 +6,14 @@
   position: relative;
   padding: 0 0 60px;
 
+  .page-template-template-meet-the-team & {
+    padding-bottom: 120px;
+
+    @media (max-width: 991px) {
+      padding-bottom: 80px;
+    }
+  }
+
   @media (max-width: 991px) {
     padding: 0 24px 32px;
   }
@@ -20,7 +28,9 @@
       "half-left-top half-left-top half-right half-right"
       "small-left small-right half-right half-right";
 
-    grid-template-rows: minmax(630px, max-content) minmax(550px, max-content) minmax(280px, max-content);
+    grid-template-rows:
+      minmax(630px, max-content) minmax(550px, max-content)
+      minmax(280px, max-content);
 
     @media (max-width: 1599px) {
       gap: 30px;
