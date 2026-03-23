@@ -119,6 +119,13 @@
   cursor: pointer;
   transition: all 0.3s ease;
 
+  &.has-value {
+    background-color: var(--color-grey-700);
+    background-clip: inherit;
+    background-image: none;
+    border-left: 1px solid #81E2EB;
+  }
+
   &:focus {
     border-color: var(--color-grey-400);
   }

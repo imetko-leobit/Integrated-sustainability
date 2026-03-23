@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
   const breadcrumbs = document.querySelector('.header-subheader');
-  const heroSection = document.querySelector('.block-hero');
+  const triggerElement = document.querySelector('h1');
 
   // Only initialize if both breadcrumbs and hero section exist
-  if (!breadcrumbs || !heroSection) {
+  if (!breadcrumbs || !triggerElement) {
     return;
   }
 
@@ -24,9 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Use viewport as root
     root: null,
     // No margin
-    rootMargin: '0px'
+    rootMargin: '-300px'
   });
 
   // Start observing the hero section
-  observer.observe(heroSection);
+  observer.observe(triggerElement);
 });
