@@ -111,7 +111,7 @@
   width: 100%;
   height: 54px;
   padding: 12px 20px;
-  @include text-body-base;
+  @include text-body-small;
   background: var(--color-black);
   outline: none;
   @include input-border;
