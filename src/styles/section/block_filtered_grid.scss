@@ -25,7 +25,7 @@
 
   /* Left Column - Filters */
   &__filters {
-    top: 120px;
+    top: $sticky-top;
     position: sticky;
     flex: 0 0 26%;
     display: flex;

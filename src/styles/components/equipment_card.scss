@@ -19,10 +19,6 @@
   &:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-
-    .equipment-card__overlay {
-      backdrop-filter: blur(12px);
-    }
   }
 
   &__image {
@@ -64,10 +60,10 @@
       min-height: 100px;
       height: max-content;
       padding: 1.25rem;
-      background: $card-gradient;
       backdrop-filter: blur(16px);
       transition: backdrop-filter 0.3s ease;
       flex-shrink: 0;
+      @include bg-image;
     }
   }
 
