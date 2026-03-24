@@ -100,20 +100,13 @@
   }
 
   &__chip {
-    height: 28px;
-    padding: 0 0.5rem 0 1rem;
-    background-color: transparent;
-
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    border-radius: 20px;
-    transition: background-color 0.2s ease;
-    cursor: pointer;
+    &::after {
+      content: none;
+    }
   }
 
   &__chip-label {
-    @include text-body-base;
+    @include text-body-small;
   }
 
   &__chip-remove {

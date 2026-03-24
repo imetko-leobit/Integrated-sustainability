@@ -512,7 +512,7 @@
 
 @mixin input-border {
   color: var(--color-white, #fff);
-  border: 1px solid transparent;
+  border: 0.5px solid transparent;
   background-image:
       linear-gradient(#040404, #040404),
       $grey-gradient-50;
