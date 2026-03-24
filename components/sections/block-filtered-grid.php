@@ -114,7 +114,7 @@ if (!isset($sort_options)) {
 
         <div class="block-filtered-grid__chips js-filter-chips">
           <!-- Filter chips will be dynamically added here -->
-          <div class="block-filtered-grid__chip btn--gradient">
+          <div class="block-filtered-grid__chip">
             <span class="block-filtered-grid__chip-label">Biological Treatment</span>
             <button class="block-filtered-grid__chip-remove" aria-label="Remove Biological Treatment filter">×</button>
           </div>

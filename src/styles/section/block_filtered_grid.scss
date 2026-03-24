@@ -100,6 +100,8 @@
   }
 
   &__chip {
+    cursor: pointer;
+
     &::after {
       content: none;
     }

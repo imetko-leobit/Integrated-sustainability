@@ -115,7 +115,7 @@
      */
     function createChip(filterName, label) {
       const chip = document.createElement("div");
-      chip.className = "block-filtered-grid__chip btn--gradient";
+      chip.className = "block-filtered-grid__chip";
       chip.dataset.filterName = filterName;
 
       const chipLabel = document.createElement("span");
