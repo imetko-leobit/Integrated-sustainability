@@ -143,8 +143,20 @@
         grid-column: 8 / 13;
         padding-left: 136px;
 
+        &--narrow {
+          padding-left: 200px;
+
+          @media (max-width: 1199px) {
+            padding-left: 0;
+          }
+
+          @media (max-width: 1599px) {
+            padding-left: 80px;
+          }
+        }
+
         @media (max-width: 991px) {
-          padding-left: 0;
+          padding-left: 0 !important;
         }
       }
 
@@ -171,10 +183,27 @@
     .details-content-links {
       margin-top: 100px;
     }
+    .accordion-item__content {
+      .details-content-links {
+        margin-top: 40px;
+        margin-bottom: 40px;
+      }
+    }
     .block-services-included {
       .metadata-group {
         margin-bottom: 0;
       }
+    }
+    .support-card {
+      margin-top: 100px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .block-button {
+      margin-top: 40px;
     }
   }
 

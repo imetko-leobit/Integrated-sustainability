@@ -4,69 +4,74 @@
  */
 
 (function () {
-  'use strict';
+  "use strict";
 
   // Wait for DOM to be ready
-  document.addEventListener('DOMContentLoaded', function () {
-
+  document.addEventListener("DOMContentLoaded", function () {
     // Get all filtered grid instances on the page
-    const filteredGrids = document.querySelectorAll('.block-filtered-grid');
+    const filteredGrids = document.querySelectorAll(".block-filtered-grid");
 
     filteredGrids.forEach(function (gridBlock) {
       initFilteredGrid(gridBlock);
     });
-
   });
 
   function initFilteredGrid(gridBlock) {
-    const filterSelects = gridBlock.querySelectorAll('.js-filter-select');
-    const sortSelect = gridBlock.querySelector('.js-sort-select');
-    const chipsContainer = gridBlock.querySelector('.js-filter-chips');
+    const filterSelects = gridBlock.querySelectorAll(".js-filter-select");
+    const sortSelect = gridBlock.querySelector(".js-sort-select");
+    const chipsContainer = gridBlock.querySelector(".js-filter-chips");
     const chipsSection = chipsContainer
-      ? chipsContainer.closest('.block-filtered-grid__filter-section')
+      ? chipsContainer.closest(".block-filtered-grid__filter-section")
       : null;
-    const gridContainer = gridBlock.querySelector('.js-filtered-grid');
-    const noResultsEl = gridBlock.querySelector('.js-no-results');
+    const gridContainer = gridBlock.querySelector(".js-filtered-grid");
+    const noResultsEl = gridBlock.querySelector(".js-no-results");
 
     // Check if required elements exist
     if (!gridContainer) {
-      console.warn('Filtered grid container not found');
+      console.warn("Filtered grid container not found");
       return;
     }
 
-    const gridItems = gridContainer.querySelectorAll('.block-filtered-grid__grid-item');
+    const gridItems = gridContainer.querySelectorAll(
+      ".block-filtered-grid__grid-item",
+    );
 
     // Store active filters
     let activeFilters = {};
-    let activeSortOption = '';
+    let activeSortOption = "";
 
     // Initialize filter listeners
     filterSelects.forEach(function (select) {
-      select.addEventListener('change', function () {
+      select.addEventListener("change", function () {
         handleFilterChange(select);
       });
     });
 
     // Initialize sort listener
     if (sortSelect) {
-      sortSelect.addEventListener('change', function () {
+      sortSelect.addEventListener("change", function () {
         handleSortChange(sortSelect);
       });
     }
 
     toggleChipsSection();
+    // URL params activate first so the preset (block editor config) can override them if needed.
+    activateFilterFromUrl();
+    // Preset activation runs last — guarantees the block-configured filter always wins,
+    // even if a URL param targets the same filter key.
+    activatePresetFilter();
 
     /**
      * Handle filter select change
      */
     function handleFilterChange(select) {
-      const filterName = select.getAttribute('data-filter-name');
+      const filterName = select.getAttribute("data-filter-name");
       const filterValue = select.value;
 
       if (filterValue) {
         activeFilters[filterName] = {
           value: filterValue,
-          label: select.options[select.selectedIndex].text
+          label: select.options[select.selectedIndex].text,
         };
       } else {
         delete activeFilters[filterName];
@@ -109,19 +114,19 @@
      * Create a filter chip element
      */
     function createChip(filterName, label) {
-      const chip = document.createElement('div');
-      chip.className = 'block-filtered-grid__chip btn--gradient';
+      const chip = document.createElement("div");
+      chip.className = "block-filtered-grid__chip btn--gradient";
       chip.dataset.filterName = filterName;
 
-      const chipLabel = document.createElement('span');
-      chipLabel.className = 'block-filtered-grid__chip-label';
+      const chipLabel = document.createElement("span");
+      chipLabel.className = "block-filtered-grid__chip-label";
       chipLabel.textContent = label;
 
-      const removeBtn = document.createElement('button');
-      removeBtn.className = 'block-filtered-grid__chip-remove';
-      removeBtn.innerHTML = '&times;';
-      removeBtn.setAttribute('aria-label', 'Remove ' + label + ' filter');
-      removeBtn.addEventListener('click', function (event) {
+      const removeBtn = document.createElement("button");
+      removeBtn.className = "block-filtered-grid__chip-remove";
+      removeBtn.innerHTML = "&times;";
+      removeBtn.setAttribute("aria-label", "Remove " + label + " filter");
+      removeBtn.addEventListener("click", function (event) {
         event.preventDefault();
         event.stopPropagation();
         removeFilter(filterName);
@@ -130,7 +135,7 @@
       chip.appendChild(chipLabel);
       chip.appendChild(removeBtn);
 
-      chip.addEventListener('click', function () {
+      chip.addEventListener("click", function () {
         removeFilter(filterName);
       });
 
@@ -144,9 +149,11 @@
       delete activeFilters[filterName];
 
       // Reset the select element
-      const select = gridBlock.querySelector('[data-filter-name="' + filterName + '"]');
+      const select = gridBlock.querySelector(
+        '[data-filter-name="' + filterName + '"]',
+      );
       if (select) {
-        select.value = '';
+        select.value = "";
       }
 
       updateChips();
@@ -157,7 +164,7 @@
       if (!chipsSection) return;
 
       const hasFilters = Object.keys(activeFilters).length > 0;
-      chipsSection.style.display = hasFilters ? '' : 'none';
+      chipsSection.style.display = hasFilters ? "" : "none";
     }
 
     /**
@@ -172,10 +179,10 @@
         const shouldShow = checkItemMatchesFilters(item);
 
         if (shouldShow) {
-          item.classList.remove('is-hidden');
+          item.classList.remove("is-hidden");
           visibleCount++;
         } else {
-          item.classList.add('is-hidden');
+          item.classList.add("is-hidden");
         }
       });
 
@@ -187,9 +194,9 @@
       // Show/hide no results message
       if (noResultsEl) {
         if (visibleCount === 0 && Object.keys(activeFilters).length > 0) {
-          noResultsEl.style.display = 'block';
+          noResultsEl.style.display = "block";
         } else {
-          noResultsEl.style.display = 'none';
+          noResultsEl.style.display = "none";
         }
       }
     }
@@ -206,9 +213,9 @@
       // Check each active filter
       for (let filterName in activeFilters) {
         const filterValue = activeFilters[filterName].value;
-        const itemValue = item.getAttribute('data-' + filterName) || '';
+        const itemValue = item.getAttribute("data-" + filterName) || "";
         const itemValues = itemValue
-          .split(',')
+          .split(",")
           .map((value) => value.trim())
           .filter((value) => value.length > 0);
 
@@ -221,26 +228,102 @@
     }
 
     /**
+     * Pre-activate the filter that was configured in the block editor.
+     * Reads data-preset-filter and data-preset-term from the section element.
+     * Runs before URL-based activation so URL params can override if needed.
+     */
+    function activatePresetFilter() {
+      const filterName = gridBlock.dataset.presetFilter;
+      const termSlug = gridBlock.dataset.presetTerm;
+
+      if (!filterName || !termSlug) {
+        return;
+      }
+
+      const select = gridBlock.querySelector(
+        '[data-filter-name="' + filterName + '"]',
+      );
+      if (!select) {
+        return;
+      }
+
+      const optionExists = Array.from(select.options).some(function (opt) {
+        return opt.value === termSlug;
+      });
+
+      if (!optionExists) {
+        return;
+      }
+
+      select.value = termSlug;
+      handleFilterChange(select);
+    }
+
+    /**
+     * Activate a filter based on URL query parameters.
+     * Expects ?filter=<filter_key>&term=<term_slug>.
+     * The filter key matches the keys in $taxonomy_map in the PHP block template.
+     */
+    function activateFilterFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      const filterName = params.get("filter");
+      const termSlug = params.get("term");
+
+      if (!filterName || !termSlug) {
+        return;
+      }
+
+      const select = gridBlock.querySelector(
+        '[data-filter-name="' + filterName + '"]',
+      );
+      if (!select) {
+        return;
+      }
+
+      // Only activate if the option actually exists in the select
+      const optionExists = Array.from(select.options).some(function (opt) {
+        return opt.value === termSlug;
+      });
+
+      if (!optionExists) {
+        return;
+      }
+
+      select.value = termSlug;
+      handleFilterChange(select);
+    }
+
+    /**
      * Sort items based on active sort option
      */
     function sortItems(itemsArray) {
       const visibleItems = itemsArray.filter(function (item) {
-        return !item.classList.contains('is-hidden');
+        return !item.classList.contains("is-hidden");
       });
 
       visibleItems.sort(function (a, b) {
         switch (activeSortOption) {
-          case 'name-asc':
-            return a.getAttribute('data-title').localeCompare(b.getAttribute('data-title'));
+          case "name-asc":
+            return a
+              .getAttribute("data-title")
+              .localeCompare(b.getAttribute("data-title"));
 
-          case 'name-desc':
-            return b.getAttribute('data-title').localeCompare(a.getAttribute('data-title'));
+          case "name-desc":
+            return b
+              .getAttribute("data-title")
+              .localeCompare(a.getAttribute("data-title"));
 
-          case 'date-new':
-            return new Date(b.getAttribute('data-date')) - new Date(a.getAttribute('data-date'));
+          case "date-new":
+            return (
+              new Date(b.getAttribute("data-date")) -
+              new Date(a.getAttribute("data-date"))
+            );
 
-          case 'date-old':
-            return new Date(a.getAttribute('data-date')) - new Date(b.getAttribute('data-date'));
+          case "date-old":
+            return (
+              new Date(a.getAttribute("data-date")) -
+              new Date(b.getAttribute("data-date"))
+            );
 
           default:
             return 0;
@@ -253,5 +336,4 @@
       });
     }
   }
-
 })();

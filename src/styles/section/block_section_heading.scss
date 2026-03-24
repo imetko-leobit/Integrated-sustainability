@@ -103,7 +103,9 @@
     }
 
     &--reverse {
-      flex-direction: row-reverse;
+      .person-card__link {
+        flex-direction: row-reverse;
+      }
     }
 
     @media (max-width: 991px) {
@@ -120,8 +122,8 @@
       }
 
       .card__name {
-          @include text-h5;
-          text-transform: capitalize;
+        @include text-h5;
+        text-transform: capitalize;
       }
 
       .card__credentials {

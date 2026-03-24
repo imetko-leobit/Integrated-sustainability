@@ -1,7 +1,9 @@
 @import "../common/variable";
 @import "../common/mixins";
-
 .person-card {
+  width: 100%;
+}
+.person-card__link {
   width: 100%;
   height: 100%;
   display: flex;
@@ -46,68 +48,66 @@
   }
 
   &__image-container {
-      width: 125px;
-      height: 125px;
-      min-width: 125px;
-      border-radius: 50%;
-      overflow: hidden;
+    width: 125px;
+    height: 125px;
+    min-width: 125px;
+    border-radius: 50%;
+    overflow: hidden;
 
-      .person-card__image {
-          height: 100%;
-          object-fit: cover;
-          filter: grayscale(100%);
-          transition: filter 0.5s ease;
-      }
+    .person-card__image {
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%);
+      transition: filter 0.5s ease;
+    }
 
-      @media (max-width: 1199px) {
-        width: 80px;
-        height: 80px;
-        min-width: 80px;
-      }
+    @media (max-width: 1199px) {
+      width: 80px;
+      height: 80px;
+      min-width: 80px;
+    }
   }
 
   .person-card__info {
-      text-align: left;
+    text-align: left;
 
-      .card__name {
-          font-size: 20px;
-          font-weight: $w-semibold;
-          border: none;
-          padding: 0;
-          margin: 0;
-          text-transform: capitalize;
+    .card__name {
+      font-size: 20px;
+      font-weight: $w-semibold;
+      border: none;
+      padding: 0;
+      margin: 0;
+      text-transform: capitalize;
 
-          @media (max-width: 991px) {
-              @include text-h7;
-          }
-
+      @media (max-width: 991px) {
+        @include text-h7;
       }
-      .card__credentials {
-          margin-bottom: 16px;
+    }
+    .card__credentials {
+      margin-bottom: 16px;
 
-          @media (max-width: 991px) {
-              margin-bottom: 12px;
-          }
+      @media (max-width: 991px) {
+        margin-bottom: 12px;
       }
-      .card__title {
-        @include text-body-small;
-      }
+    }
+    .card__title {
+      @include text-body-small;
+    }
 
-      .person-card__description {
-          @include text-h5;
-          padding-bottom: 16px;
-      }
+    .person-card__description {
+      @include text-h5;
+      padding-bottom: 16px;
+    }
 
-      .arrow-icon {
-        width: 32px;
-        height: 32px;
-        padding: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: transform 0.3s ease;
-      }
-
+    .arrow-icon {
+      width: 32px;
+      height: 32px;
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+    }
   }
 
   &:hover {
