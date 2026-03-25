@@ -114,9 +114,10 @@
   }
   ul {
     @include ul-main;
+    gap: 10px;
 
     @media (max-width: 1199px) {
-      gap: 12px;
+      gap: 16px;
     }
 
     li {
@@ -124,11 +125,11 @@
       flex-direction: column;
       justify-content: flex-start;
       align-items: flex-start;
-      gap: 22px;
-      @include item-marked;
+      gap: 10px;
+      @include item-marked-alt;
 
       @media (max-width: 1199px) {
-        gap: 12px;
+        gap: 16px;
       }
     }
   }

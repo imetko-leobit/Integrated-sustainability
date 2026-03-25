@@ -557,6 +557,9 @@ h6 {
 
 .title {
   text-transform: lowercase;
+  .name {
+    text-transform: capitalize;
+  }
 }
 
 .title--top-divider {
