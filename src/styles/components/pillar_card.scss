@@ -27,6 +27,11 @@
     .pillar-card__caption {
       border-bottom: 1px solid var(--color-grey-600);
       margin-bottom: 40px;
+      text-transform: uppercase;
+      letter-spacing: 60%;
+      font-weight: $w-light;
+      padding: 0 0 10px;
+      color: var(--color-white);
     }
 
     .pillar-card__title {
@@ -39,11 +44,8 @@
     }
 
     .pillar-card__desc {
-      @include text-h5;
-
-      @media (max-width: 991px) {
-        @include text-h6;
-      }
+      @include text-h5-24;
+      font-family: $font-semibold;
     }
 
     .pillar-card__action {
@@ -91,6 +93,7 @@
   &:hover {
     .pillar-card__content {
       @include bg-image;
+      background-position: initial;
 
       .pillar-card__action {
         .pillar-card__card__action-text {

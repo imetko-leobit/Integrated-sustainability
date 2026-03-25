@@ -363,6 +363,8 @@
 
     .info-card-wrapper {
       min-height: auto;
+      margin-bottom: 56px;
+
       &::before {
         content: "";
         position: absolute;
