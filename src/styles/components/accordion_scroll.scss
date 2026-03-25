@@ -124,7 +124,7 @@
       padding-top: 0px;
       padding-right: 64px;
     }
-    
+
   }
 
   .desc-box {
@@ -136,8 +136,9 @@
 
   .item.is-open {
     .title{
-      @include text-h4;
+      @include text-h5-24;
     }
+
     .desc-box {
       max-height: 600px;
       padding-bottom: 24px;
