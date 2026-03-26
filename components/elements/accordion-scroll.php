@@ -148,4 +148,8 @@ $acc_items = [
   }
 
   container.addEventListener('wheel', throttle(onWheelStep, 500), { passive: false });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    setActive(0);
+  });
 </script>

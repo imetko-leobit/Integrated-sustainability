@@ -108,7 +108,7 @@
 
   .title {
     @include text-h5;
-    color: white;
+    color: var(--color-text-grey);
     text-transform: lowercase;
     cursor: pointer;
     margin: 0;
@@ -124,19 +124,19 @@
       padding-top: 0px;
       padding-right: 64px;
     }
-
   }
 
   .desc-box {
     max-height: 0;
     overflow: hidden;
     transition: all 0.3s ease;
-    color: var(--color-gray-200);
+    color: var(--color-grey-200);
   }
 
   .item.is-open {
     .title{
-      @include text-h5-24;
+      color: var(--color-white);
+      @include text-h4;
     }
 
     .desc-box {
