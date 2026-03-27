@@ -772,6 +772,8 @@
 }
 
 @mixin scroll-fade-overlay($height: 40px) {
+  position: relative;
+
   &::after {
     content: "";
     position: absolute;

@@ -33,6 +33,7 @@
     flex: 0 0 55%;
     background-color: var(--color-black);
     z-index: 1;
+    @include scroll-fade-overlay(80px);
 
     @media (max-width: 1199px) {
       flex: 1;
