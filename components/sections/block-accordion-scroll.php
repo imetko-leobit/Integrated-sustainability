@@ -170,7 +170,7 @@ $acc_items = [
     };
   }
 
-  container.addEventListener('wheel', throttle(onWheelStep, 800), { passive: false });
+  container.addEventListener('wheel', throttle(onWheelStep, 1100), { passive: false });
 
   document.addEventListener('DOMContentLoaded', () => {
     setActive(0);
