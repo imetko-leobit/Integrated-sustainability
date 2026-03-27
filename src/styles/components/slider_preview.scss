@@ -2,7 +2,7 @@
 @import "../common/mixins";
 
 .slider-preview {
-  padding: 80px 0 36px;
+  margin: 100px 0;
   width: 100%;
   max-width: 700px;
   display: flex;
@@ -10,7 +10,7 @@
   gap: 56px;
 
   @media (max-width: 991px) {
-    padding-top: 2rem;
+    margin: $mobile-block-margin 0;
     max-width: 80vw;
   }
 

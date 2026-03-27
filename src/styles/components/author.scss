@@ -27,7 +27,7 @@
       padding: 1.5rem;
     }
 
-    .person-card {
+    .person-card__link {
       max-width: 500px;
       text-align: left;
       padding: 0;
@@ -45,10 +45,18 @@
     .person-card__image-container {
       height: 180px;
       width: 180px;
+      border-radius: 50%;
+      overflow: hidden;
 
       @media (max-width: 991px) {
         height: 80px;
         width: 80px;
+      }
+
+      .person-card__image {
+        height: 100%;
+        object-fit: cover;
+        filter: grayscale(100%);
       }
     }
 
@@ -115,6 +123,7 @@
       }
     }
     .author__description {
+      padding-top: 48px;
       color: var(--color-grey-200);
       margin: 0;
     }

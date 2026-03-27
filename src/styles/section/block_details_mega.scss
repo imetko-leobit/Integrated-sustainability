@@ -12,6 +12,7 @@
 
   &__title {
     @include text-h4;
+    padding-top: 0 !important;
   }
 
   &.block-accordion_media_right {
@@ -94,7 +95,7 @@
 }
 
 .block-details-mega {
-  padding: 0 0 60px;
+  margin-bottom: 140px;
 
   @media (max-width: 991px) {
     padding: 0;
@@ -102,6 +103,7 @@
     .details-general {
       padding-left: 24px;
       padding-right: 24px;
+      margin-bottom: 2rem;
     }
   }
 
@@ -111,12 +113,10 @@
     grid-template-columns: repeat(12, 1fr);
     align-items: start;
     gap: 56px;
-    padding: 0 0 140px;
 
     @media (max-width: 1199px) {
       grid-template-columns: 1fr;
       gap: 32px;
-      padding: 0 0 2rem;
     }
 
     &--areas {
@@ -180,6 +180,30 @@
   }
 
   .acf-innerblocks-container {
+    margin-top: 100px;
+
+    > :first-child {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+
+      > :first-child {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+      }
+    }
+
+    & > :last-child {
+      margin-bottom: 0 !important;
+
+      > :last-child {
+        margin-bottom: 0 !important;
+      }
+    }
+
+    @media (max-width: 991px) {
+      margin-top: $mobile-block-margin;
+    }
+
     .details-content-links {
       margin-top: 100px;
     }
@@ -195,11 +219,19 @@
       }
     }
     .support-card {
-      margin-top: 100px;
+      margin: 100px 0;
+
+      @media (max-width: 991px) {
+        margin: $mobile-block-margin 0;
+      }
 
       &:last-child {
         margin-bottom: 0;
       }
+    }
+
+    .link-cards {
+      padding-top: 8px;
     }
 
     .block-button {

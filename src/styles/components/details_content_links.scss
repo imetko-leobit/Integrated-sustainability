@@ -8,11 +8,11 @@
 
   h2,
   .heading__title {
-    margin-bottom: 36px;
+    margin-bottom: 48px;
   }
   h3:not(.accordion-item__title):not(.card__title):not(.heading__title),
   h4:not(.accordion-item__title):not(.card__title):not(.heading__title) {
-    padding: 44px 0 36px;
+    padding: 0 0 36px;
     margin-bottom: 48px;
     border-bottom: 1px solid var(--color-grey-500);
 
@@ -30,6 +30,7 @@
     h2:first-child,
     h3:first-child {
       padding-top: 0 !important;
+      padding-bottom: 0 !important;
       border-bottom: none !important;
     }
   }
@@ -87,7 +88,7 @@
   }
 
   .accordion {
-    padding: 10px 0 44px;
+    padding: 12px 0 0;
 
     @media (max-width: 991px) {
       padding: 0 0 2rem;

@@ -90,11 +90,13 @@
   }
 
   .person-card {
-    display: flex;
-    justify-content: flex-end;
-    gap: 32px;
-    padding: 0;
-    cursor: pointer;
+    .person-card__link {
+      display: flex;
+      justify-content: flex-end;
+      gap: 32px;
+      padding: 0;
+      cursor: pointer;
+    }
 
     &:hover {
       .person-card__image {

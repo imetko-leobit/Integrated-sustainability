@@ -7,10 +7,10 @@
   @include container;
   display: flex;
   flex-direction: column;
-  padding: 0 0 100px;
+  margin-bottom: 100px;
 
   @media (max-width: 991px) {
-    padding: 0 0 3rem;
+    margin-bottom: $mobile-block-margin;
   }
 
   .table-component__title {
@@ -102,7 +102,8 @@
     display: table-header-group;
   }
 
-  th, td {
+  th,
+  td {
     padding: 24px;
     text-align: left;
     vertical-align: middle;
