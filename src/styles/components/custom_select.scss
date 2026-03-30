@@ -52,6 +52,7 @@
     min-width: 200px;
     max-height: 330px;
     @include bg-image;
+    background-position: initial;
   }
 
   .dropdown.open {
@@ -66,13 +67,12 @@
     border: none;
     padding: 11px 16px;
     min-height: 56px;
-    background: var(--color-grey-900);
     color: var(--color-text-grey);
 
     @include text-body-small;
 
     &:hover {
-      background: var(--color-white);
+      color: var(--color-white);
     }
   }
 
