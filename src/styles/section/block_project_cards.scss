@@ -55,8 +55,10 @@
     }
 
     .person-card {
-      padding: 0;
-      height: max-content;
+      &__link {
+        padding: 0;
+        height: max-content;
+      }
 
       .person-card__content {
         gap: 20px;

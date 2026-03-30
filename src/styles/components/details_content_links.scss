@@ -33,6 +33,10 @@
       padding-bottom: 0 !important;
       border-bottom: none !important;
     }
+
+    > :last-child {
+      margin-bottom: 0 !important;
+    }
   }
 
   p:not(.accordion-item__desc) {

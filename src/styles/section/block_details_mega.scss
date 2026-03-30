@@ -184,11 +184,17 @@
 
     > :first-child {
       margin-top: 0 !important;
-      padding-top: 0 !important;
+
+      &:not(.btn) {
+        padding-top: 0 !important;
+      }
 
       > :first-child {
         margin-top: 0 !important;
-        padding-top: 0 !important;
+
+        &:not(.btn) {
+          padding-top: 0 !important;
+        }
       }
     }
 
@@ -206,6 +212,12 @@
 
     .details-content-links {
       margin-top: 100px;
+      margin-bottom: 100px;
+
+      @media (max-width: 991px) {
+        margin-top: $mobile-block-margin;
+        margin-bottom: $mobile-block-margin;
+      }
     }
     .accordion-item__content {
       .details-content-links {
@@ -236,6 +248,31 @@
 
     .block-button {
       margin-top: 40px;
+
+      &:first-child {
+        margin-top: -60px !important;
+
+        @media (max-width: 991px) {
+          margin-top: 0 !important;
+        }
+      }
+    }
+
+    .block-author {
+      padding-top: 0;
+      margin-top: 100px;
+
+      @media (max-width: 991px) {
+        margin-top: $mobile-block-margin;
+      }
+    }
+
+    .block-tags-text-only-no-link {
+      margin-bottom: 100px;
+
+      @media (max-width: 991px) {
+        margin-bottom: $mobile-block-margin;
+      }
     }
   }
 
