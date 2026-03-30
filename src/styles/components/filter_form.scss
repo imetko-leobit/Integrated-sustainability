@@ -2,18 +2,23 @@
 @import "../common/mixins";
 
 .block-filter-form {
+  position: sticky;
+  top: 115px;
+  z-index: 1;
+  background-color: var(--color-black);
+  padding: 1.5rem 0 48px;
+
+  @media (max-width: 991px) {
+    padding: 0 0 1rem;
+    position: initial;
+  }
 
   .filter-form {
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
-    margin-bottom: 48px;
     justify-content: space-between;
     flex-shrink: 0;
-
-    @media (max-width: 991px) {
-      margin-bottom: 1rem;
-    }
 
     .form-item {
       flex-shrink: 0;
