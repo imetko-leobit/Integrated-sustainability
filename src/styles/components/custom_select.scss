@@ -38,6 +38,7 @@
   }
 
   .dropdown {
+    @include scroll-fade-overlay(30px);
     position: absolute;
     margin-top: 4px;
     top: 100%;
@@ -45,7 +46,7 @@
     right: 0;
     overflow-y: auto;
     display: none;
-    z-index: 100;
+    z-index: 112;
     box-shadow: 0 9px 28px 8px rgba(0, 0, 0, 0.05), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12);
     background: var(--color-grey-800);
     padding: 0px 1px;
@@ -78,6 +79,10 @@
 
     &:hover {
       color: var(--color-white);
+    }
+
+    &:last-of-type {
+      padding-bottom: 20px;
     }
   }
 
