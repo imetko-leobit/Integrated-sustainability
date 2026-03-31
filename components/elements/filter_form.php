@@ -11,7 +11,7 @@ include_once(__DIR__ . '/../helpers/heading.php');
 <div class='block-filter-form'>
   <form class="filter-form" data-post-type="projects">
     <div class='form-item'>
-      <input type="text" name="search" class="filter-search" placeholder="Search...">
+      <input type="text" name="search" class="filter-search" placeholder="Search Projects">
     </div>
     <div id='locationSelect' class='form-item custom-select optional js-custom-multiselect' data-label='Locations'>
       <select name="locations[]" class="filter-select" multiple="">
@@ -65,7 +65,7 @@ include_once(__DIR__ . '/../helpers/heading.php');
       <img src="../assets/img/closeSmall.svg" alt='close all filters' />
     </button>
   </div>
-  <?php render_heading('41 search results for "water"', $filter_form_heading_level, 'heading title title--h1'); ?>
+  <!-- <?php render_heading('41 search results for "water"', $filter_form_heading_level, 'heading title title--h1'); ?> -->
 </div>
 
 <script type='text/javascript' src="../assets/js/components-multiselect.js"></script>

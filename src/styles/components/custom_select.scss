@@ -23,7 +23,7 @@
   .count {
     margin-left: 10px;
     @include text-caption;
-    color: white;
+    color: #080808;
     display: none; /* hide by default */
     background: $primary-gradient;
     border-radius: 32px;
