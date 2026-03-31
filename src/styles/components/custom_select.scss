@@ -54,6 +54,10 @@
     @include bg-image;
     background-position: initial;
     background-image: url(../../assets/img/overlay.svg);
+
+    padding-top: 66px;
+    margin: 0;
+    top: 0;
   }
 
   .dropdown.open {
