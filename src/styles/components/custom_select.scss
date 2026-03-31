@@ -50,9 +50,10 @@
     background: var(--color-grey-800);
     padding: 0px 1px;
     min-width: 200px;
-    max-height: 330px;
+    max-height: 600px;
     @include bg-image;
     background-position: initial;
+    background-image: url(../../assets/img/overlay.svg);
   }
 
   .dropdown.open {
@@ -66,7 +67,7 @@
     user-select: none;
     border: none;
     padding: 11px 16px;
-    min-height: 56px;
+    min-height: 40px;
     color: var(--color-text-grey);
 
     @include text-body-small;
