@@ -15,28 +15,66 @@ $mt2: $mt * 2;
 $mb: 1rem;
 $mb2: $mb * 2;
 $minDesktop: 1470px;
-$primary-gradient: linear-gradient(90deg, #81FEE5 0%, #818FFE 100%);
-$primary-gradient-5: linear-gradient(90deg, rgba(129, 254, 229, 0.05) 0%, rgba(129, 144, 254, 0.05) 100%);
-$primary-gradient-20: linear-gradient(90deg, rgba(129, 254, 229, 0.2) 0%, rgba(129, 143, 254, 0.2) 100%);
-$primary-gradient-10: linear-gradient(125deg, rgba(129, 254, 229, 0.1) 0%, rgba(129, 143, 254, 0.1) 100%);
-$card-bg-gradient: linear-gradient(155deg, rgba(4, 4, 4, 1) 50%, rgba(129, 254, 229, 0.3) 70%, rgba(129, 143, 254, 0.5) 90%);
-$grey-gradient: linear-gradient(90deg, #BBBFC7 0%, #94989A 100%);
-$grey-gradient-50: linear-gradient(90deg, rgba(187, 191, 199, 0.5) 0%, rgba(148, 152, 154, 0.5) 100%);
-$green-gradient: linear-gradient(90deg, rgba(129, 254, 229, 0.2) 0%, rgba(4,4,4,0) 100%);
-$card-dark-gradient: linear-gradient(90deg, rgba(4, 4, 4, 0.75) 0%, rgba(4, 4, 4, 0.85) 100%);
-$card-gradient: linear-gradient(90deg, rgba(4, 4, 4, 0.75) 0%, rgba(4, 4, 4, 0.85) 100%);
+$primary-gradient: linear-gradient(90deg, #81fee5 0%, #818ffe 100%);
+$primary-gradient-5: linear-gradient(
+  90deg,
+  rgba(129, 254, 229, 0.05) 0%,
+  rgba(129, 144, 254, 0.05) 100%
+);
+$primary-gradient-20: linear-gradient(
+  90deg,
+  rgba(129, 254, 229, 0.2) 0%,
+  rgba(129, 143, 254, 0.2) 100%
+);
+$primary-gradient-10: linear-gradient(
+  125deg,
+  rgba(129, 254, 229, 0.1) 0%,
+  rgba(129, 143, 254, 0.1) 100%
+);
+$card-bg-gradient: linear-gradient(
+  155deg,
+  rgba(4, 4, 4, 1) 50%,
+  rgba(129, 254, 229, 0.3) 70%,
+  rgba(129, 143, 254, 0.5) 90%
+);
+$grey-gradient: linear-gradient(90deg, #bbbfc7 0%, #94989a 100%);
+$grey-gradient-50: linear-gradient(
+  90deg,
+  rgba(187, 191, 199, 0.5) 0%,
+  rgba(148, 152, 154, 0.5) 100%
+);
+$green-gradient: linear-gradient(
+  90deg,
+  rgba(129, 254, 229, 0.2) 0%,
+  rgba(4, 4, 4, 0) 100%
+);
+$card-dark-gradient: linear-gradient(
+  90deg,
+  rgba(4, 4, 4, 0.75) 0%,
+  rgba(4, 4, 4, 0.85) 100%
+);
+$card-gradient: linear-gradient(
+  90deg,
+  rgba(4, 4, 4, 0.75) 0%,
+  rgba(4, 4, 4, 0.85) 100%
+);
 $blurred-background:
-    linear-gradient(155deg, rgba(4, 4, 4, 1) 00%, rgba(129, 254, 229, 0.2) 50%, rgba(129, 143, 254, 0.2) 90%),
-    radial-gradient(at 70% 85%, rgba(129, 143, 254, 0.1) 0px, transparent 50%),
-    radial-gradient(at 15% 35%, rgba(129, 254, 229, 0.1) 0px, transparent 50%),
-    rgba(4, 4, 4, 0.85);
+  linear-gradient(
+    155deg,
+    rgba(4, 4, 4, 1) 00%,
+    rgba(129, 254, 229, 0.2) 50%,
+    rgba(129, 143, 254, 0.2) 90%
+  ),
+  radial-gradient(at 70% 85%, rgba(129, 143, 254, 0.1) 0px, transparent 50%),
+  radial-gradient(at 15% 35%, rgba(129, 254, 229, 0.1) 0px, transparent 50%),
+  rgba(4, 4, 4, 0.85);
 
 // --- Typography: Font Family ---
-$font-primary: 'Poppins', 'Roboto', 'Arial', sans-serif;
-$font-light: 'Poppins', 'Roboto', 'Arial', sans-serif;
-$font-medium: 'PoppinsMedium', 'Roboto', 'Arial', sans-serif;
-$font-semibold: 'PoppinsSBold', 'Roboto', 'Arial', sans-serif;
-$font-bold: 'PoppinsBold', 'Roboto', 'Arial', sans-serif;
+$font-primary: "Poppins", "Roboto", "Arial", sans-serif;
+$font-light: "Poppins", "Roboto", "Arial", sans-serif;
+$font-medium: "PoppinsMedium", "Roboto", "Arial", sans-serif;
+$font-semibold: "PoppinsSBold", "Roboto", "Arial", sans-serif;
+$font-bold: "PoppinsBold", "Roboto", "Arial", sans-serif;
 
 // --- Typography: Weights ---
 $w-light: 400;
@@ -64,8 +102,8 @@ $h2-size: 40px;
 $h2-lh: 1.25;
 $h2-size-48: 48px;
 
-$h2-size-mobile: 20px;
-$h2-lh-mobile: 28px;
+$h2-size-mobile: 28px;
+$h2-lh-mobile: 1.4;
 
 // H3
 $h3-size: 40px;

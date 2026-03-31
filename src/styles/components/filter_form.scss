@@ -101,7 +101,7 @@
       &.has-selection {
         border: none;
         border-left: 1px solid var(--color-primary-green);
-        @include bg-image-65;
+        @include bg-image;
         background-position: initial;
       }
     }

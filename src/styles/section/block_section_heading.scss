@@ -32,7 +32,7 @@
 
   @media (max-width: 991px) {
     padding: 48px 24px 24px;
-    margin-bottom: 32px;
+    margin-bottom: 50px;
   }
 
   &--center {
@@ -96,6 +96,10 @@
       gap: 32px;
       padding: 0;
       cursor: pointer;
+
+      @media (max-width: 991px) {
+        justify-content: flex-start;
+      }
     }
 
     &:hover {
@@ -107,12 +111,15 @@
     &--reverse {
       .person-card__link {
         flex-direction: row-reverse;
+        @media (max-width: 991px) {
+          flex-direction: row;
+        }
       }
     }
 
     @media (max-width: 991px) {
       justify-content: flex-start;
-      flex-direction: row;
+      flex-direction: row-reverse;
       gap: 1rem;
     }
 
