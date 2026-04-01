@@ -75,7 +75,7 @@ $projects_data = [
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.querySelector('.js-publications-timer');
-  const cards = document.querySelectorAll('.post-card');
+  const cards = Array.from(document.querySelectorAll('.post-card'));
 
   if (!container || cards.length === 0) return;
 
@@ -83,12 +83,22 @@ document.addEventListener('DOMContentLoaded', () => {
   let timer = null;
   const INTERVAL_TIME = 5000;
 
+  const getVisibleCards = () => {
+    return cards.filter(card => {
+      const rect = card.getBoundingClientRect();
+      return rect.top >= 0 && rect.bottom <= window.innerHeight;
+    });
+  };
+
   const showNextCard = () => {
+    const visibleCards = getVisibleCards();
+    if (visibleCards.length === 0) return;
+
     cards.forEach(card => card.classList.remove('is-active'));
 
-    currentIndex = (currentIndex + 1) % cards.length;
+    currentIndex = (currentIndex + 1) % visibleCards.length;
 
-    cards[currentIndex].classList.add('is-active');
+    visibleCards[currentIndex].classList.add('is-active');
   };
 
   const startTimer = () => {
@@ -103,9 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cards.forEach(card => card.classList.remove('is-active'));
   };
 
-  const observerOptions = {
-    threshold: 0.3
-  };
+  const observerOptions = { threshold: 0.3 };
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -121,7 +129,14 @@ document.addEventListener('DOMContentLoaded', () => {
   observer.observe(container);
 
   container.addEventListener('mouseenter', stopTimer);
-
   container.addEventListener('mouseleave', startTimer);
+
+  window.addEventListener('scroll', () => {
+    const visibleCards = getVisibleCards();
+    if (!visibleCards.includes(cards[currentIndex])) {
+      currentIndex = -1;
+      showNextCard();
+    }
+  });
 });
 </script>
