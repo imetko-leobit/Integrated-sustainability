@@ -13,7 +13,10 @@ MultiSelect.prototype._render = function () {
   this.originalSelect = this.container.querySelector('select');
   this.showSelectAll = this.container.getAttribute('data-select-all') === 'true';
 
-  var dropdownHtml = '<div class="dropdown">';
+  var dropdownHtml = `
+    <div class="dropdown">
+      <div class="dropdown-inner">
+  `;
 
   if (this.showSelectAll) {
     dropdownHtml += '<div class="dropdown-item" data-checkbox="selectAll">' +
@@ -35,7 +38,10 @@ MultiSelect.prototype._render = function () {
       '</div>';
   });
 
-  dropdownHtml += '</div>';
+  dropdownHtml += `
+      </div>
+    </div>
+  `;
 
   var uiHtml = '<div class="select-label">' +
     '<span>' + this.labelText + '</span>' +
