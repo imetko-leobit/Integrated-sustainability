@@ -10,8 +10,21 @@ function MultiSelect({ container, label, options }) {
 
 MultiSelect.prototype._render = function () {
   var self = this;
-  this.originalSelect = this.container.querySelector('select');
-  this.showSelectAll = this.container.getAttribute('data-select-all') === 'true';
+  this.originalSelect = this.container.querySelector("select");
+  this.showSelectAll =
+    this.container.getAttribute("data-select-all") === "true";
+
+  // Build parent-child map
+  var topLevel = this.options.filter(function (o) {
+    return !o.parentId;
+  });
+  var childrenMap = {};
+  this.options.forEach(function (o) {
+    if (o.parentId) {
+      if (!childrenMap[o.parentId]) childrenMap[o.parentId] = [];
+      childrenMap[o.parentId].push(o);
+    }
+  });
 
   var dropdownHtml = `
     <div class="dropdown">
@@ -19,23 +32,77 @@ MultiSelect.prototype._render = function () {
   `;
 
   if (this.showSelectAll) {
-    dropdownHtml += '<div class="dropdown-item" data-checkbox="selectAll">' +
+    dropdownHtml +=
+      '<div class="dropdown-item" data-checkbox="selectAll">' +
       '<div class="checkbox-wrapper">' +
       '<input type="checkbox" id="selectAll"/>' +
       '<span class="checkmark"></span>' +
-      '</div>' +
-      '<label>Select All</label>' +
-      '</div>';
+      "</div>" +
+      "<label>Select All</label>" +
+      "</div>";
   }
 
-  this.options.forEach(function (opt) {
-    dropdownHtml += '<div class="dropdown-item" data-checkbox="' + opt.id + '">' +
-      '<div class="checkbox-wrapper">' +
-      '<input type="checkbox" class="option-checkbox" id="' + opt.id + '" />' +
-      '<span class="checkmark"></span>' +
-      '</div>' +
-      '<label>' + opt.name + '</label>' +
-      '</div>';
+  topLevel.forEach(function (opt) {
+    var children =
+      opt.termId && childrenMap[opt.termId] ? childrenMap[opt.termId] : [];
+
+    if (children.length > 0) {
+      // Parent with children: render as expandable group
+      dropdownHtml +=
+        '<div class="dropdown-group" data-group="' +
+        opt.termId +
+        '">' +
+        '<div class="dropdown-item dropdown-group__parent" data-checkbox="' +
+        opt.id +
+        '">' +
+        '<div class="checkbox-wrapper">' +
+        '<input type="checkbox" class="option-checkbox" id="' +
+        opt.id +
+        '" />' +
+        '<span class="checkmark"></span>' +
+        "</div>" +
+        "<label>" +
+        opt.name +
+        "</label>" +
+        '<span class="dropdown-group__arrow">&#8250;</span>' +
+        "</div>" +
+        '<div class="dropdown-group__sub">';
+
+      children.forEach(function (child) {
+        dropdownHtml +=
+          '<div class="dropdown-item" data-checkbox="' +
+          child.id +
+          '">' +
+          '<div class="checkbox-wrapper">' +
+          '<input type="checkbox" class="option-checkbox" id="' +
+          child.id +
+          '" />' +
+          '<span class="checkmark"></span>' +
+          "</div>" +
+          "<label>" +
+          child.name +
+          "</label>" +
+          "</div>";
+      });
+
+      dropdownHtml += "</div></div>";
+    } else {
+      // Top-level term with no children
+      dropdownHtml +=
+        '<div class="dropdown-item" data-checkbox="' +
+        opt.id +
+        '">' +
+        '<div class="checkbox-wrapper">' +
+        '<input type="checkbox" class="option-checkbox" id="' +
+        opt.id +
+        '" />' +
+        '<span class="checkmark"></span>' +
+        "</div>" +
+        "<label>" +
+        opt.name +
+        "</label>" +
+        "</div>";
+    }
   });
 
   dropdownHtml += `
@@ -43,118 +110,145 @@ MultiSelect.prototype._render = function () {
     </div>
   `;
 
-  var uiHtml = '<div class="select-label">' +
-    '<span>' + this.labelText + '</span>' +
+  var uiHtml =
+    '<div class="select-label">' +
+    "<span>" +
+    this.labelText +
+    "</span>" +
     '<span style="display:flex; align-items:center;">' +
     '<span class="count" style="display:none">0</span>' +
     '<span class="arrow">&#9013;</span>' +
-    '</span>' +
-    '</div>' + dropdownHtml;
+    "</span>" +
+    "</div>" +
+    dropdownHtml;
 
-  const uiContainer = document.createElement('div');
-  uiContainer.className = 'multiselect-ui';
+  const uiContainer = document.createElement("div");
+  uiContainer.className = "multiselect-ui";
   uiContainer.innerHTML = uiHtml;
   this.container.appendChild(uiContainer);
 
-  this.labelEl = this.container.querySelector('.select-label');
-  this.countEl = this.labelEl.querySelector('.count');
-  this.dropdownEl = this.container.querySelector('.dropdown');
-  this.selectAllEl = this.container.querySelector('#selectAll');
-  this.optionEls = Array.from(this.container.querySelectorAll('.option-checkbox'));
-  this.itemsEl = Array.from(this.container.querySelectorAll('.dropdown-item'));
+  this.labelEl = this.container.querySelector(".select-label");
+  this.countEl = this.labelEl.querySelector(".count");
+  this.dropdownEl = this.container.querySelector(".dropdown");
+  this.selectAllEl = this.container.querySelector("#selectAll");
+  this.optionEls = Array.from(
+    this.container.querySelectorAll(".option-checkbox"),
+  );
+  this.itemsEl = Array.from(this.container.querySelectorAll(".dropdown-item"));
 };
 
 MultiSelect.prototype._attachEvents = function () {
   var self = this;
 
-  this.labelEl.addEventListener('click', function () {
-    self.labelEl.classList.toggle('open');
-    self.dropdownEl.classList.toggle('open');
+  this.labelEl.addEventListener("click", function () {
+    self.labelEl.classList.toggle("open");
+    self.dropdownEl.classList.toggle("open");
   });
 
   this.itemsEl.forEach(function (item) {
-    item.addEventListener('click', function (e) {
-      if (e.target.tagName !== 'INPUT') {
+    item.addEventListener("click", function (e) {
+      if (e.target.tagName !== "INPUT") {
         var cb = item.querySelector('input[type="checkbox"]');
         cb.checked = !cb.checked;
-        cb.dispatchEvent(new Event('change'));
+        cb.dispatchEvent(new Event("change"));
       }
     });
   });
 
   this.optionEls.forEach(function (cb) {
-    cb.addEventListener('change', function () {
+    cb.addEventListener("change", function () {
       if (self.originalSelect) {
-        var targetOption = self.originalSelect.querySelector('option[value="' + cb.id + '"]');
+        var targetOption = self.originalSelect.querySelector(
+          'option[value="' + cb.id + '"]',
+        );
         if (targetOption) {
           targetOption.selected = cb.checked;
-          self.originalSelect.dispatchEvent(new Event('change', { bubbles: true }));
+          self.originalSelect.dispatchEvent(
+            new Event("change", { bubbles: true }),
+          );
         }
       }
 
       if (self.selectAllEl) {
-        self.selectAllEl.checked = self.optionEls.every(function (c) { return c.checked; });
+        self.selectAllEl.checked = self.optionEls.every(function (c) {
+          return c.checked;
+        });
       }
       self._updateCount();
     });
   });
 
   if (this.selectAllEl) {
-    this.selectAllEl.addEventListener('change', function () {
+    this.selectAllEl.addEventListener("change", function () {
       var isChecked = self.selectAllEl.checked;
       self.optionEls.forEach(function (c) {
         if (c.checked !== isChecked) {
           c.checked = isChecked;
-          c.dispatchEvent(new Event('change'));
+          c.dispatchEvent(new Event("change"));
         }
       });
     });
   }
 
-  document.addEventListener('click', function (e) {
+  // Sub-menu toggle on arrow click (touch/mobile; desktop handled by CSS hover)
+  var groupEls = Array.from(this.container.querySelectorAll(".dropdown-group"));
+  groupEls.forEach(function (group) {
+    var arrow = group.querySelector(".dropdown-group__arrow");
+    if (arrow) {
+      arrow.addEventListener("click", function (e) {
+        e.stopPropagation();
+        group.classList.toggle("is-open");
+      });
+    }
+  });
+
+  document.addEventListener("click", function (e) {
     if (!self.container.contains(e.target)) {
-      self.dropdownEl.classList.remove('open');
+      self.dropdownEl.classList.remove("open");
     }
   });
 };
 
 MultiSelect.prototype._updateCount = function () {
-  var selectedCount = this.optionEls.filter(function (c) { return c.checked; }).length;
+  var selectedCount = this.optionEls.filter(function (c) {
+    return c.checked;
+  }).length;
   if (selectedCount > 0) {
     this.countEl.textContent = selectedCount;
-    this.countEl.style.display = 'inline';
-    this.labelEl.classList.add('has-selection');
+    this.countEl.style.display = "inline";
+    this.labelEl.classList.add("has-selection");
   } else {
-    this.countEl.style.display = 'none';
-    this.labelEl.classList.remove('has-selection');
+    this.countEl.style.display = "none";
+    this.labelEl.classList.remove("has-selection");
   }
 };
 
-
 // Initialisation
-const customMultiselects = document.querySelectorAll('.js-custom-multiselect');
+const customMultiselects = document.querySelectorAll(".js-custom-multiselect");
 
 customMultiselects.forEach(function (container) {
-  const select = container.querySelector('select');
+  const select = container.querySelector("select");
   if (!select) return;
 
-  Array.from(select.options).forEach(opt => opt.selected = false);
+  Array.from(select.options).forEach((opt) => (opt.selected = false));
 
-  const label = container.getAttribute('data-label') || 'Select';
+  const label = container.getAttribute("data-label") || "Select";
   const options = [];
 
-  select.querySelectorAll('option').forEach(function (opt) {
+  select.querySelectorAll("option").forEach(function (opt) {
     options.push({
       id: opt.value,
-      name: opt.textContent
+      name: opt.textContent.trim(),
+      termId: opt.dataset.termId,
+      parentId: opt.dataset.parentId || null,
     });
   });
 
-  select.style.display = 'none';
+  select.style.display = "none";
 
   new MultiSelect({
     container: container,
     label: label,
-    options: options
+    options: options,
   });
 });

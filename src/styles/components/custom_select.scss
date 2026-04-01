@@ -1,24 +1,24 @@
 @import "../common/variable";
 @import "../common/mixins";
 
-  .custom-select {
-    position: relative;
-    width: 250px;
-  }
+.custom-select {
+  position: relative;
+  width: 250px;
+}
 
-  .select-label {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    cursor: pointer;
-    user-select: none;
-    border: 1px solid var(--color-grey-700);
-    padding: 0px 16px 0px 20px;
-    min-width: 200px;
-    height: 54px;
-    background: var(--color-grey-800);
-    color: white;
-  }
+.select-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid var(--color-grey-700);
+  padding: 0px 16px 0px 20px;
+  min-width: 200px;
+  height: 54px;
+  background: var(--color-grey-800);
+  color: white;
+}
 
   .count {
     margin-left: 10px;
@@ -30,12 +30,12 @@
     padding: 2px 10px;
   }
 
-  .arrow {
-    margin-left: 10px;
-    color: var(--color-grey-500);
-    font-size: 18px;
-    margin-bottom: 8px;
-  }
+.arrow {
+  margin-left: 10px;
+  color: var(--color-grey-500);
+  font-size: 18px;
+  margin-bottom: 8px;
+}
 
   .dropdown {
     @include scroll-fade-overlay(30px);
@@ -80,7 +80,7 @@
     min-height: 40px;
     color: var(--color-text-grey);
 
-    @include text-body-small;
+  @include text-body-small;
 
     &:hover {
       color: var(--color-white);
@@ -91,58 +91,115 @@
     }
   }
 
-  /* castom checkbox */
-  .checkbox-wrapper {
-    position: relative;
-    display: inline-block;
-    width: 18px;
-    height: 18px;
-    margin-right: 16px;
+/* castom checkbox */
+.checkbox-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-right: 16px;
+}
+
+.checkbox-wrapper input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: transparent;
+  transition: all 0.2s;
+}
+
+.checkbox-wrapper input:checked ~ .checkmark {
+  background: $primary-gradient;
+  border: none;
+}
+
+/* check mark */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  color: white;
+}
+
+.checkbox-wrapper input:checked ~ .checkmark:after {
+  display: block;
+  left: 5px;
+  top: 1px;
+  width: 8px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  color: white;
+}
+
+label {
+  flex: 1;
+  cursor: pointer;
+}
+
+.dropdown-group {
+  position: relative;
+
+  &__parent {
+    padding-right: 36px;
   }
 
-  .checkbox-wrapper input {
-    opacity: 0;
-    width: 0;
-    height: 0;
+  &__arrow {
     position: absolute;
-  }
-
-  .checkmark {
-    position: absolute;
-    top: 0; left: 0;
-    width: 18px; height: 18px;
-    border: 1px solid white;
-    border-radius: 5px;
-    background-color: transparent;
-    transition: all 0.2s;
-  }
-
-  .checkbox-wrapper input:checked ~ .checkmark {
-    background: $primary-gradient;
-    border: none;
-  }
-
-  /* check mark */
-  .checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-    color: white;
-  }
-
-  .checkbox-wrapper input:checked ~ .checkmark:after {
-    display: block;
-    left: 5px;
-    top: 1px;
-    width: 8px;
-    height: 10px;
-    border: solid white;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-    color: white;
-  }
-
-  label {
-    flex: 1;
+    right: 14px;
+    top: 15px;
+    font-size: 20px;
+    line-height: 1;
+    color: var(--color-grey-500);
+    transition:
+      transform 0.2s,
+      color 0.2s;
     cursor: pointer;
+    padding: 4px;
+    pointer-events: all;
   }
+
+  &__sub {
+    display: none;
+    background: rgba(255, 255, 255, 0.04);
+
+    .dropdown-item {
+      padding-left: 32px;
+      min-height: 48px;
+    }
+  }
+
+  // Desktop: show sub on hover
+  @media (hover: hover) {
+    &:hover > .dropdown-group__sub {
+      display: block;
+    }
+
+    &:hover .dropdown-group__arrow {
+      transform: rotate(90deg);
+      color: var(--color-white);
+    }
+  }
+
+  // Mobile: show sub when toggled via JS
+  &.is-open > .dropdown-group__sub {
+    display: block;
+  }
+
+  &.is-open .dropdown-group__arrow {
+    transform: rotate(90deg);
+    color: var(--color-white);
+  }
+}
