@@ -140,11 +140,13 @@ MultiSelect.prototype._render = function () {
 MultiSelect.prototype._attachEvents = function () {
   var self = this;
 
+  // Toggle dropdown
   this.labelEl.addEventListener("click", function () {
     self.labelEl.classList.toggle("open");
     self.dropdownEl.classList.toggle("open");
   });
 
+  // Toggle checkbox by clicking on item
   this.itemsEl.forEach(function (item) {
     item.addEventListener("click", function (e) {
       if (e.target.tagName !== "INPUT") {
@@ -155,29 +157,35 @@ MultiSelect.prototype._attachEvents = function () {
     });
   });
 
+  // Option change handler
   this.optionEls.forEach(function (cb) {
     cb.addEventListener("change", function () {
+      // Update original select
       if (self.originalSelect) {
         var targetOption = self.originalSelect.querySelector(
-          'option[value="' + cb.id + '"]',
+          'option[value="' + cb.id + '"]'
         );
         if (targetOption) {
           targetOption.selected = cb.checked;
           self.originalSelect.dispatchEvent(
-            new Event("change", { bubbles: true }),
+            new Event("change", { bubbles: true })
           );
         }
       }
 
+      // Update Select All
       if (self.selectAllEl) {
-        self.selectAllEl.checked = self.optionEls.every(function (c) {
-          return c.checked;
-        });
+        self.selectAllEl.checked = self.optionEls.every(c => c.checked);
       }
+
       self._updateCount();
+
+      // Update parent group state if child changed
+      self._updateParentState(cb);
     });
   });
 
+  // Select All handler
   if (this.selectAllEl) {
     this.selectAllEl.addEventListener("change", function () {
       var isChecked = self.selectAllEl.checked;
@@ -190,18 +198,34 @@ MultiSelect.prototype._attachEvents = function () {
     });
   }
 
-  // Sub-menu toggle on arrow click (touch/mobile; desktop handled by CSS hover)
+  // Sub-menu toggle on arrow click (for touch/mobile)
   var groupEls = Array.from(this.container.querySelectorAll(".dropdown-group"));
   groupEls.forEach(function (group) {
     var arrow = group.querySelector(".dropdown-group__arrow");
+    var parentCheckbox = group.querySelector(".dropdown-group__parent input[type='checkbox']");
+
     if (arrow) {
       arrow.addEventListener("click", function (e) {
         e.stopPropagation();
         group.classList.toggle("is-open");
       });
     }
+
+    // Parent checkbox controls all children
+    if (parentCheckbox) {
+      parentCheckbox.addEventListener("change", function () {
+        var childCheckboxes = Array.from(
+          group.querySelectorAll(".dropdown-group__sub .option-checkbox")
+        );
+        childCheckboxes.forEach(c => {
+          c.checked = parentCheckbox.checked;
+          c.dispatchEvent(new Event("change"));
+        });
+      });
+    }
   });
 
+  // Close dropdown on outside click
   document.addEventListener("click", function (e) {
     if (!self.container.contains(e.target)) {
       self.dropdownEl.classList.remove("open");
@@ -210,9 +234,7 @@ MultiSelect.prototype._attachEvents = function () {
 };
 
 MultiSelect.prototype._updateCount = function () {
-  var selectedCount = this.optionEls.filter(function (c) {
-    return c.checked;
-  }).length;
+  var selectedCount = this.optionEls.filter(c => c.checked).length;
   if (selectedCount > 0) {
     this.countEl.textContent = selectedCount;
     this.countEl.style.display = "inline";
@@ -223,6 +245,30 @@ MultiSelect.prototype._updateCount = function () {
   }
 };
 
+// New method: update parent checkbox state
+MultiSelect.prototype._updateParentState = function (changedCheckbox) {
+  var group = changedCheckbox.closest(".dropdown-group");
+  if (!group) return;
+
+  var parentCheckbox = group.querySelector(".dropdown-group__parent input[type='checkbox']");
+  var childCheckboxes = Array.from(group.querySelectorAll(".dropdown-group__sub .option-checkbox"));
+
+  if (!parentCheckbox || childCheckboxes.length === 0) return;
+
+  var checkedCount = childCheckboxes.filter(c => c.checked).length;
+
+  if (checkedCount === 0) {
+    parentCheckbox.checked = false;
+    parentCheckbox.indeterminate = false;
+  } else if (checkedCount === childCheckboxes.length) {
+    parentCheckbox.checked = true;
+    parentCheckbox.indeterminate = false;
+  } else {
+    parentCheckbox.checked = false;
+    parentCheckbox.indeterminate = true; // intermediate state
+  }
+};
+
 // Initialisation
 const customMultiselects = document.querySelectorAll(".js-custom-multiselect");
 
@@ -230,7 +276,7 @@ customMultiselects.forEach(function (container) {
   const select = container.querySelector("select");
   if (!select) return;
 
-  Array.from(select.options).forEach((opt) => (opt.selected = false));
+  Array.from(select.options).forEach(opt => (opt.selected = false));
 
   const label = container.getAttribute("data-label") || "Select";
   const options = [];
