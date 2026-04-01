@@ -341,7 +341,6 @@
 
 div.block-filter-form .filter-form .choices {
   .choices__list--dropdown {
-    @include scroll-fade-overlay(30px);
     position: absolute;
     margin-top: 4px;
     top: 100%;

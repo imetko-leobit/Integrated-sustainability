@@ -40,6 +40,17 @@ include_once(__DIR__ . '/../helpers/heading.php');
         <option value="ammonia-removal">Ammonia Removal</option>
         <option value="breakpoint-chlorination">Breakpoint Chlorination</option>
         <option value="detailed-design">Detailed Design</option>
+        <option value="engineering">Engineering</option>
+        <option value="feasibility-studies">Feasibility Studies</option>
+        <option value="pilot-testing">Pilot Testing</option>
+        <option value="process-optimization">Process Optimization</option>
+        <option value="processes">Processes</option>
+        <option value="wastewater-treatment">Wastewater Treatment</option>
+        <option value="water-treatment">Water Treatment</option>
+        <option value="water-resources">Water Resources</option>
+        <option value="other">Other</option>
+        <option value="none">None</option>
+        <option value="unknown">Unknown</option>
       </select>
     </div>
     <div class='form-item'>
