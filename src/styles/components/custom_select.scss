@@ -115,6 +115,7 @@
   transition: all 0.2s;
 }
 
+.dropdown-group__parent input:indeterminate + .checkmark,
 .checkbox-wrapper input:checked ~ .checkmark {
   background: $primary-gradient;
   border: none;
@@ -140,20 +141,13 @@
   color: white;
 }
 
-.dropdown-group__parent input[type="checkbox"]:indeterminate + .checkmark {
-  background-color: #ffeb3b;
-  border-color: #fbc02d;
-  position: relative;
-}
-
 .dropdown-group__parent input[type="checkbox"]:indeterminate + .checkmark::after {
-  content: "";
-  position: absolute;
+  display: block;
   top: 50%;
   left: 20%;
   width: 60%;
   height: 2px;
-  background-color: black;
+  background-color: white;
   transform: translateY(-50%);
 }
 
