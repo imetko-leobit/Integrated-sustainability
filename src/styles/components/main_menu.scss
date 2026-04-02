@@ -313,7 +313,7 @@
       overflow-y: auto;
       scrollbar-width: none;
       position: relative;
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(30px);
 
       &::-webkit-scrollbar {
         display: none;
@@ -338,7 +338,8 @@
     }
 
     .main-menu__col.active-level {
-      background-color: rgba(04, 04, 04, 0.8);
+      background-color: rgba(13, 13, 13, 0.6);
+
       flex-basis: calc(25% - var(--wp--style--global--padding-size-large) / 4 + 0.5rem);
 
       @media (max-width: 1599px) {

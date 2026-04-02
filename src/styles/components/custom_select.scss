@@ -176,9 +176,9 @@ label {
   }
 
   &__sub {
-    transition: height 0.3s ease;
+    transition: max-height 0.6s ease;
     overflow: hidden;
-    height: 0;
+    max-height: 0;
 
     .dropdown-item {
       padding-left: 32px;
@@ -195,8 +195,7 @@ label {
   // Desktop: show sub on hover
   @media (hover: hover) {
     &:hover > .dropdown-group__sub {
-      height: 200px;
-      max-height: max-content;
+      max-height: 300px;
     }
 
     &:hover .dropdown-group__arrow {

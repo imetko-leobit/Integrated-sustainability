@@ -53,6 +53,10 @@
       flex-direction: column;
       justify-content: space-between;
     }
+
+    p {
+      @include text-body-base;
+    }
   }
 
   &__media {
