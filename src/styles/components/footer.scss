@@ -4,20 +4,10 @@
 .footer {
   width: 100%;
   position: relative;
-  max-width: var(--wp--style--global--content-size-large);
   margin-left: auto !important;
   margin-right: auto !important;
 
-  @media (max-width: 1599px) {
-    max-width: var(--wp--style--global--content-size-medium);
-  }
-  @media (max-width: 1199px) {
-    max-width: var(--wp--style--global--content-size-small);
-  }
-  @media (max-width: 991px) {
-    max-width: 100%;
-    padding: 0 24px;
-  }
+  @include responsive-container;
 }
 
 .footer-logo {

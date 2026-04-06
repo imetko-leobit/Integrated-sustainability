@@ -22,6 +22,9 @@
         include('../components/sections/block-hero.php')
     ?>
     <?php
+        include('../components/sections/block-mini-navigation-sticky.php')
+    ?>
+    <?php
         $section_title = "drive performance accountability <br> across your asset life-cycle";
         $custom_icon = "../assets/img/linkIconCircles.svg";
         include('../components/sections/block-section-heading.php');

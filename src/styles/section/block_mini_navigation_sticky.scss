@@ -1,0 +1,154 @@
+@import "../common/variable";
+@import "../common/mixins";
+
+.mini-nav-sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 80px;
+  z-index: 100;
+  padding: 0;
+
+  max-width: 100% !important;
+  margin: 0 !important;
+
+  @include bg-image;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8)),
+    url(../../assets/img/overlay.svg);
+  background-size: 100% 100%;
+
+  &__inner {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include container;
+    @include responsive-container;
+    gap: 24px;
+    padding: 0 3rem;
+  }
+
+  &__col {
+    display: flex;
+    align-items: center;
+
+    &--left {
+      flex: 1;
+      gap: 1rem;
+      justify-content: flex-start;
+    }
+
+    &--center {
+      flex: 2;
+      justify-content: center;
+    }
+
+    &--right {
+      flex: 1;
+      gap: 1rem;
+      justify-content: flex-end;
+    }
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    color: var(--color-grey-100);
+    transition: color 0.3s ease;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__label,
+  &__menu-link {
+    @include text-body-small;
+    color: var(--color-grey-300);
+    transition: color 0.3s ease;
+  }
+
+  &__col--left:hover,
+  &__col--right:hover {
+    .mini-nav-sticky__icon,
+    .mini-nav-sticky__label {
+      color: white;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__menu-item {
+    display: flex;
+    align-items: center;
+  }
+
+  &__menu-link {
+    text-decoration: none;
+    padding: 4px 14px;
+    white-space: nowrap;
+
+    @include text-body-small;
+    color: var(--color-grey-300);
+    transition: color 0.3s ease;
+
+    &:hover,
+    &.is-active {
+      color: white;
+    }
+  }
+
+  &__divider {
+    color: var(--color-grey-300);
+    font-size: 14px;
+    line-height: 1;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  @include max-tablet {
+    height: auto;
+    padding: 14px 0;
+
+    &__inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      height: auto;
+    }
+
+    &__col {
+      width: 100%;
+
+      &--left {
+        justify-content: flex-start;
+      }
+
+      &--center {
+        justify-content: flex-start;
+        flex: none;
+      }
+
+      &--right {
+        justify-content: flex-start;
+      }
+    }
+
+    &__menu {
+      flex-wrap: wrap;
+      gap: 4px 0;
+    }
+  }
+}
