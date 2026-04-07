@@ -58,7 +58,7 @@ $projects_data = [
 <link rel="stylesheet" href="../assets/css/section-block_post_cards.css" />
 
 <section class="block-posts-cards">
-  <?php include('../components/elements/filter_form.php'); ?>
+  <?php include('../components/elements/floating-filter-menu.php'); ?>
 
   <div class="publications js-publications-timer" id="publications">
     <?php foreach ($projects_data as $project) : ?>
