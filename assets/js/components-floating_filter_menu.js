@@ -12,8 +12,12 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
  * FloatingFilterMenu
  *
  * Implements the floating filter trigger button and the side-drawer filter
- * panel.  The panel's level-navigation logic mirrors menu_controller.js so
- * the two interactions feel identical to the user.
+ * panel.  The panel's level-navigation logic mirrors menu_controller.js:
+ *
+ *  – Desktop (> 992 px): hover opens sub-columns displayed side-by-side,
+ *    matching the desktop mega-menu behaviour (no sliding, no back button).
+ *  – Mobile  (≤ 992 px): tap navigates into a sub-column with a slide
+ *    animation and a back button, matching the mobile menu behaviour.
  */
 document.addEventListener("DOMContentLoaded", function () {
   var panel = document.querySelector(".floating-filter-panel");
@@ -31,43 +35,66 @@ document.addEventListener("DOMContentLoaded", function () {
   var CLASS_OPEN = "is-open";
   var CLASS_ACTIVE_LEVEL = "active-level";
   var CLASS_ACTIVE = "active";
+
+  /** Mirrors the isMobile() helper in menu_controller.js. */
+  var isMobile = function isMobile() {
+    return window.innerWidth <= 992;
+  };
   var allCols = panel.querySelectorAll(".filter-menu__col");
 
   /**
-   * Show the correct column by level id.
-   * Mirrors goToLevel() in menu_controller.js.
+   * Navigate to a filter level column.
+   *
+   * Mirrors the goToLevel() logic in menu_controller.js:
+   *
+   *  – On desktop: both the root column (filter-level-0) and the target
+   *    column are marked active-level so they sit side-by-side.  The
+   *    "has-sub-panel" class is toggled on the drawer so CSS can widen it.
+   *    data-current-level is NOT updated (no slide animation on desktop).
+   *
+   *  – On mobile: root + target column are both marked active-level (so
+   *    the CSS slide works), and data-current-level is updated to trigger
+   *    the translateX slide animation that reveals the target column.
    */
   function goToLevel(targetId, activeItem, isForward) {
-    // Remove active from previous item in the current column
-    if (activeItem) {
-      var currentCol = activeItem.closest(".filter-menu__col");
-      if (currentCol) {
-        currentCol.querySelectorAll(".".concat(CLASS_ACTIVE)).forEach(function (el) {
-          return el.classList.remove(CLASS_ACTIVE);
-        });
-      }
-    }
+    // Clear active state across all columns
+    allCols.forEach(function (col) {
+      col.querySelectorAll(".".concat(CLASS_ACTIVE)).forEach(function (el) {
+        return el.classList.remove(CLASS_ACTIVE);
+      });
+    });
 
-    // Mark active nav item
+    // Mark the clicked nav item as active
     if (activeItem && isForward) {
       activeItem.classList.add(CLASS_ACTIVE);
     }
 
-    // Toggle column visibility
+    // Show the root column (filter-level-0) alongside the target column.
+    // On desktop both are visible side-by-side; on mobile the CSS slide
+    // hides the root column via the data-current-level transform.
     allCols.forEach(function (col) {
       var colId = col.getAttribute("id");
-      if (colId === targetId) {
+      if (colId === targetId || colId === "filter-level-0") {
         col.classList.add(CLASS_ACTIVE_LEVEL);
       } else {
         col.classList.remove(CLASS_ACTIVE_LEVEL);
       }
     });
 
-    // Slide the content wrapper to reveal the target level
-    var targetCol = panel.querySelector("#".concat(CSS.escape(targetId)));
-    if (targetCol && content) {
-      var level = parseInt(targetCol.getAttribute("data-level") || "0", 10);
-      content.setAttribute("data-current-level", level);
+    // Desktop: expand the drawer when a sub-column is shown (like the
+    // desktop menu revealing a second column on hover).
+    if (drawer) {
+      drawer.classList.toggle("has-sub-panel", targetId !== "filter-level-0");
+    }
+
+    // Mobile only: update the slide animation via data-current-level
+    // (mirrors the main-menu__content[data-current-level] pattern).
+    if (isMobile() && content) {
+      var targetCol = panel.querySelector("#".concat(CSS.escape(targetId)));
+      if (targetCol) {
+        var level = parseInt(targetCol.getAttribute("data-level") || "0", 10);
+        content.setAttribute("data-current-level", level);
+      }
     }
   }
 
@@ -78,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
     triggerBtn.classList.add("is-active");
     triggerBtn.setAttribute("aria-expanded", "true");
     document.body.style.overflow = "hidden";
-    // Always start at level-0
+    // Always start at the root level
     goToLevel("filter-level-0", null, false);
   }
   function closePanel() {
@@ -86,6 +113,8 @@ document.addEventListener("DOMContentLoaded", function () {
     triggerBtn.classList.remove("is-active");
     triggerBtn.setAttribute("aria-expanded", "false");
     document.body.style.overflow = "";
+    // Reset to root level so the panel is ready on next open
+    goToLevel("filter-level-0", null, false);
   }
   triggerBtn.addEventListener("click", function () {
     var isOpen = panel.classList.contains(CLASS_OPEN);
@@ -103,16 +132,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // ── Level navigation ─────────────────────────────────────────────────────────
 
-  // Forward: clicking a filter group navigates into its submenu
+  // Desktop: hover over a filter group opens its sub-column (mirrors the
+  // mouseenter behaviour of .nav-item in menu_controller.js).
+  panel.querySelectorAll(".filter-nav-item[data-target]").forEach(function (navItem) {
+    navItem.addEventListener("mouseenter", function () {
+      if (!isMobile()) {
+        var targetId = navItem.getAttribute("data-target");
+        goToLevel(targetId, navItem, true);
+      }
+    });
+  });
+
+  // Click handler:
+  //  – Mobile: tap on a filter group navigates into its sub-column.
+  //  – Desktop: click also navigates (mirrors accessible click on desktop menu).
+  //  – Back button: always restores the parent level (button is hidden on
+  //    desktop via CSS so it only appears on mobile).
   panel.addEventListener("click", function (e) {
     var navItem = e.target.closest(".filter-nav-item[data-target]");
     if (navItem) {
-      var targetId = navItem.getAttribute("data-target");
-      goToLevel(targetId, navItem, true);
+      if (isMobile()) {
+        // Mobile: tap navigates forward into the sub-column
+        var targetId = navItem.getAttribute("data-target");
+        goToLevel(targetId, navItem, true);
+      }
       return;
     }
 
-    // Backward: clicking the submenu header (back button) returns to parent
+    // Backward: clicking the back button returns to the parent level
     var subHeader = e.target.closest(".filter-submenu-header[data-prev-target]");
     if (subHeader) {
       var prevId = subHeader.getAttribute("data-prev-target");
