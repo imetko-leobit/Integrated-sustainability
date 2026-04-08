@@ -1,6 +1,8 @@
 @import "../common/variable";
 @import "../common/mixins";
 
+// ── Floating trigger button ────────────────────────────────────────────────
+
 .floating-filter-btn {
   position: fixed;
   left: 0;
@@ -77,6 +79,8 @@
   }
 }
 
+// ── Panel, backdrop, drawer ────────────────────────────────────────────────
+
 .floating-filter-panel {
   position: fixed;
   top: 0;
@@ -110,20 +114,36 @@
   top: 115px;
   height: calc(100% - 115px);
   left: 0;
-  width: 360px;
+  width: 280px;
   max-width: 90vw;
   background-color: rgba(13, 13, 13, 0.97);
   backdrop-filter: blur(30px);
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   overflow: hidden;
   transform: translateX(-100%);
-  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 
   .floating-filter-panel.is-open & {
     transform: translateX(0);
   }
+
+  &.has-sub-panel {
+    width: 560px;
+  }
 }
+
+.floating-filter-panel__drawer-inner {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  flex-shrink: 0;
+}
+
+// ── Content column container (handles mobile slide animation) ──────────────
 
 .floating-filter-panel__content {
   display: flex;
@@ -134,63 +154,160 @@
   transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.filter-menu__col {
-  min-width: 100%;
-  height: 100%;
-  display: none;
-  flex-direction: column;
-  overflow-y: auto;
-  scrollbar-width: none;
+// ── Main-menu-identical styles scoped to the filter drawer ─────────────────
+// These rules replicate the relevant main_menu.scss rules (which are scoped to
+// .header .header-wrapper) so the filter panel columns look and behave
+// identically to the real main menu columns.
 
-  &::-webkit-scrollbar { display: none; }
+.floating-filter-panel__drawer {
 
-  &.active-level {
-    display: flex;
+  // ── Columns ───────────────────────────────────────────────────────────────
+
+  .main-menu__col {
+    min-width: 280px;
+    width: 280px;
+    height: 100%;
+    flex-shrink: 0;
+    display: none;
+    flex-direction: column;
+    overflow-y: auto;
+    scrollbar-width: none;
+    backdrop-filter: blur(30px);
+    position: relative;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &.active-level {
+      display: flex;
+    }
   }
-}
 
-.filter-menu__col--level-0 {
-  .filter-menu__list {
+  .main-menu__col--level-0 {
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 2rem 0 0;
+
+    .main-menu__title {
+      margin: 15px 0 25px;
+      @include text-h5;
+      padding-left: 2rem;
+      padding-right: 2rem;
+      color: white;
+    }
+  }
+
+  .main-menu__col.active-level {
+    background-color: rgba(13, 13, 13, 0.6);
+  }
+
+  // ── Nav list ──────────────────────────────────────────────────────────────
+
+  .navbar-nav {
+    list-style: none;
     padding: 0;
     margin: 0;
-    list-style: none;
     width: 100%;
-  }
-}
-
-.filter-nav-item {
-  display: grid;
-  grid-template-columns: 1fr 30px;
-  align-items: center;
-  gap: 1rem;
-  padding: 14px 24px;
-  cursor: pointer;
-  position: relative;
-  transition: background 0.2s ease;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-  min-height: 52px;
-
-  &:hover,
-  &.active {
-    background: $primary-gradient-5;
+    overflow: auto;
   }
 
-  .filter-nav-item__label {
-    @include text-body-small;
-    color: var(--color-grey-200);
-    text-transform: capitalize;
-    transition: color 0.2s ease;
-    display: flex;
+  // ── Nav items (identical to main menu .nav-item) ───────────────────────
+
+  .nav-item {
+    display: grid;
+    grid-template-columns: 1fr 30px;
+    justify-content: space-between;
     align-items: center;
-    gap: 8px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    @include text-body-small;
+    min-height: 50px;
+    gap: 1rem;
+    padding: 12px 2rem;
+
+    &.top-margin {
+      margin-top: 40px;
+    }
+
+    // Option items (level 1) without a submenu button use a single column
+    &:not(.has-submenu) {
+      grid-template-columns: 1fr;
+    }
+
+    .nav-link {
+      transition: all 0.3s ease;
+      color: var(--color-grey-200);
+      @include text-body-small;
+      text-transform: capitalize;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+
+      &:hover {
+        color: white;
+      }
+    }
+
+    &:hover,
+    &.active {
+      background: $primary-gradient-5;
+      font-family: $font-medium;
+
+      .nav-link {
+        color: white;
+        font-family: inherit;
+      }
+
+      .submenu-button {
+        transform: rotate(90deg);
+        color: white;
+      }
+    }
+
+    // Checked option item
+    &:has(.filter-checkbox:checked) {
+      .nav-link {
+        color: white;
+      }
+    }
+
+    .submenu-button {
+      width: 26px;
+      height: 26px;
+      padding: 6px;
+      background: none;
+      border: none;
+      transition: all 0.3s ease;
+      color: var(--color-grey-200);
+      cursor: pointer;
+
+      &:hover {
+        color: white;
+      }
+
+      .arrow-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+          width: 14px;
+          height: 14px;
+        }
+      }
+    }
+
+    &:not(.has-submenu) .submenu-button {
+      display: none;
+    }
   }
 
-  &:hover .filter-nav-item__label,
-  &.active .filter-nav-item__label {
-    color: white;
-  }
+  // ── Active filter count badge (inside nav-link on level-0 items) ──────────
 
-  .filter-nav-item__count {
+  .filter-count {
     display: none;
     width: 18px;
     height: 18px;
@@ -203,111 +320,79 @@
     font-weight: 600;
     flex-shrink: 0;
 
-    &.is-visible { display: flex; }
-  }
-
-  .filter-nav-item__arrow {
-    width: 22px;
-    height: 22px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-grey-200);
-    transition: transform 0.25s ease, color 0.2s ease;
-    flex-shrink: 0;
-
-    svg {
-      width: 14px;
-      height: 14px;
+    &.is-visible {
+      display: flex;
     }
   }
 
-  &:hover .filter-nav-item__arrow,
-  &.active .filter-nav-item__arrow {
-    transform: rotate(90deg);
-    color: white;
-  }
-}
+  // ── Submenu header / back button (identical to main menu .submenu-header) ──
 
-.filter-submenu-header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 0 24px;
-  background: $primary-gradient-5;
-  border: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  cursor: pointer;
-  width: 100%;
-  min-height: 72px;
-  gap: 10px;
-  flex-shrink: 0;
-  text-align: left;
-
-  .filter-submenu-header__back {
+  .submenu-header {
     display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
     align-items: center;
-    justify-content: center;
-    color: var(--color-primary-green);
-    flex-shrink: 0;
-  }
-
-  .filter-submenu-header__title {
-    @include text-body-small;
-    background: $primary-gradient;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-transform: capitalize;
-    margin: 0;
-  }
-}
-
-.filter-menu__col--level-1 {
-  .filter-options-list {
-    padding: 8px 0;
-    margin: 0;
-    list-style: none;
-    width: 100%;
-    overflow-y: auto;
-    flex: 1;
-  }
-}
-
-.filter-option-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 24px;
-  cursor: pointer;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-  transition: background 0.2s ease;
-  min-height: 48px;
-
-  &:hover {
+    padding: 12px 24px;
     background: $primary-gradient-5;
-  }
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    cursor: pointer;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    backdrop-filter: blur(60px);
+    height: 80px;
+    min-height: 80px;
+    gap: 0.5rem;
+    width: 100%;
+    text-align: left;
 
-  .filter-option-item__checkbox {
+    .back-arrow {
+      margin-top: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .submenu-title {
+      width: auto;
+      margin: 0;
+      @include text-body-small;
+      background: $primary-gradient;
+      background-clip: text;
+      color: transparent;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-transform: capitalize;
+    }
+  }
+}
+
+// ── Custom checkbox / radio styles ─────────────────────────────────────────
+
+.floating-filter-panel__drawer {
+
+  .filter-checkbox {
     appearance: none;
     -webkit-appearance: none;
-    width: 18px;
-    height: 18px;
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 3px;
     background: transparent;
     cursor: pointer;
-    flex-shrink: 0;
     position: relative;
     transition: border-color 0.2s ease, background 0.2s ease;
 
     &::after {
       content: "";
       position: absolute;
-      top: 2px;
-      left: 5px;
-      width: 6px;
-      height: 10px;
+      top: 1px;
+      left: 4px;
+      width: 5px;
+      height: 9px;
       border: 2px solid transparent;
       border-top: none;
       border-left: none;
@@ -323,57 +408,46 @@
         border-color: #000;
       }
     }
-  }
 
-  .filter-option-item__label {
-    @include text-body-small;
-    color: var(--color-grey-200);
-    cursor: pointer;
-    text-transform: capitalize;
-    transition: color 0.2s ease;
-    flex: 1;
-  }
+    // Radio buttons get pill shape
+    &[type="radio"] {
+      border-radius: 50%;
 
-  &:hover .filter-option-item__label {
-    color: white;
-  }
+      &::after {
+        top: 3px;
+        left: 3px;
+        width: 8px;
+        height: 8px;
+        border: none;
+        border-radius: 50%;
+        transform: none;
+        background: transparent;
+        transition: background 0.2s ease;
+      }
 
-  &:has(.filter-option-item__checkbox:checked) .filter-option-item__label {
-    color: white;
-  }
-}
+      &:checked {
+        background: transparent;
+        border-color: rgba(129, 254, 229, 0.8);
 
-.floating-filter-panel__drawer {
-  .floating-filter-panel__content {
-    flex: 1;
-    overflow: visible;
-    min-height: 0;
-  }
-}
-
-.floating-filter-panel__drawer-inner {
-  display: flex;
-  flex-direction: column;
-  width: 360px;
-  max-width: 90vw;
-  height: 100%;
-  flex-shrink: 0;
-  position: relative;
-}
-
-.floating-filter-panel__drawer {
-  flex-direction: column;
-  width: auto;
-
-  .floating-filter-panel__drawer-inner {
-    flex-shrink: 0;
+        &::after {
+          background: $primary-gradient;
+        }
+      }
+    }
   }
 }
+
+// ── Mobile: slide animation via data-current-level ─────────────────────────
 
 @media (max-width: 992px) {
-  .filter-menu__col {
-    min-width: 100%;
-    flex-shrink: 0;
+  .floating-filter-panel__drawer {
+    width: 100%;
+    max-width: 360px;
+
+    &.has-sub-panel {
+      width: 100%;
+      max-width: 360px;
+    }
   }
 
   .floating-filter-panel__content[data-current-level="0"] {
@@ -383,7 +457,14 @@
   .floating-filter-panel__content[data-current-level="1"] {
     transform: translateX(-100%);
   }
+
+  .floating-filter-panel__drawer .main-menu__col {
+    min-width: 100%;
+    width: 100%;
+  }
 }
+
+// ── Desktop: side-by-side columns ─────────────────────────────────────────
 
 @media (min-width: 993px) {
   .floating-filter-panel__content {
@@ -393,33 +474,8 @@
     width: auto;
   }
 
-  .filter-menu__col {
-    min-width: 280px;
-    width: 280px;
-    flex-shrink: 0;
-  }
-
-  .filter-menu__col--level-0 {
-    border-right: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  .floating-filter-panel__drawer {
-    width: 280px;
-    max-width: 90vw;
-    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-                width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-
-    &.has-sub-panel {
-      width: 560px;
-    }
-  }
-
-  .floating-filter-panel__drawer-inner {
-    width: 100%;
-    max-width: none;
-  }
-
-  .filter-submenu-header {
+  // Back button is hidden on desktop (hover-driven navigation, same as main menu)
+  .floating-filter-panel__drawer .submenu-header {
     display: none;
   }
 }

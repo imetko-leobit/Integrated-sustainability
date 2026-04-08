@@ -21,8 +21,9 @@ document.addEventListener('DOMContentLoaded', function () {
   var clickTimer = null;
   var clickCount = 0;
 
-  // Select all menu columns (now statically rendered in HTML)
-  var allLevels = document.querySelectorAll('.main-menu__col');
+  // Select all menu columns scoped to the main menu so that filter panel
+  // columns (which also use .main-menu__col) are not affected.
+  var allLevels = megaMenuContent ? megaMenuContent.querySelectorAll('.main-menu__col') : document.querySelectorAll('.main-menu__col');
 
   /**
    * Level navigation logic
@@ -60,7 +61,9 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // --- DESKTOP HOVER ---
-  document.querySelectorAll('.nav-item').forEach(function (item) {
+  // Scoped to main menu to avoid attaching to filter panel nav-items.
+  var menuNavItems = megaMenuContent ? megaMenuContent.querySelectorAll('.nav-item') : document.querySelectorAll('.nav-item');
+  menuNavItems.forEach(function (item) {
     item.addEventListener('mouseenter', function () {
       if (!isMobile()) {
         var hasSubmenu = item.classList.contains(CLASS_HAS_SUBMENU);
@@ -81,6 +84,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // --- CLICK LOGIC ---
   document.addEventListener('click', function (e) {
+    // Ignore clicks from the floating filter panel — handled by floating_filter_menu.js.
+    var floatingPanel = document.querySelector('.floating-filter-panel');
+    if (floatingPanel && floatingPanel.contains(e.target)) return;
+
     var item = e.target.closest('.nav-item');
     var link = e.target.closest('a');
     var backButton = e.target.closest('.submenu-header');
