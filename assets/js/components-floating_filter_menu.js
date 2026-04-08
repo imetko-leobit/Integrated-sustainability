@@ -251,10 +251,12 @@ document.addEventListener("DOMContentLoaded", () => {
   function buildChip(cb) {
     // Derive a human-readable label from the associated <label> element or
     // fall back to the checkbox value.
-    const labelEl = cb.closest("label") || panel.querySelector(`label[for="${cb.id}"]`);
+    const labelEl =
+      cb.closest("label") ||
+      (cb.id ? panel.querySelector(`label[for="${cb.id}"]`) : null);
     const labelText = labelEl
       ? labelEl.textContent.trim()
-      : cb.value.replace(/-/g, " ");
+      : cb.value.replace(/[-_]/g, " ");
 
     const chip = document.createElement("span");
     chip.className = "filter-summary-bar__chip";
