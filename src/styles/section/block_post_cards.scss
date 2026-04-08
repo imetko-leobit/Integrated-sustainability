@@ -2,6 +2,7 @@
 @import "../common/mixins";
 
 .block-posts-cards {
+  position: relative;
   padding: 0 0 60px;
 
   @media (max-width: 991px) {

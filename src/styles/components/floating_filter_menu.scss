@@ -2,11 +2,10 @@
 @import "../common/mixins";
 
 .floating-filter-btn {
-  position: fixed;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  position: absolute;
+  top: 0;
   z-index: 900;
+  transform: translateX(-50%);
 
   display: flex;
   flex-direction: column;
@@ -14,67 +13,43 @@
   justify-content: center;
   gap: 6px;
 
-  background: rgba(13, 13, 13, 0.85);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-left: none;
-  border-radius: 0 8px 8px 0;
+  height: 60px;
+  width: 60px;
 
-  padding: 16px 10px;
+  border-radius: 50%;
+  border: none;
+
   cursor: pointer;
-  color: var(--color-grey-200);
-  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  @include bg-image;
+  background-position: bottom right;
 
-  &:hover,
-  &.is-active {
-    background: $primary-gradient-20;
-    color: white;
-    border-color: rgba(129, 254, 229, 0.3);
+  left: calc(var(--wp--style--global--padding-size-large) / -2);
+
+  @media (max-width: 1599px) {
+    left: calc(var(--wp--style--global--padding-size-medium) / -2);
+  }
+
+  @media (max-width: 1199px) {
+    left: calc(var(--wp--style--global--padding-size-small) / -2);
+  }
+
+  @media (max-width: 991px) {
+    left: 0;
   }
 
   .floating-filter-btn__icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 20px;
-    height: 20px;
 
     svg {
-      width: 18px;
-      height: 18px;
       fill: currentColor;
     }
   }
+}
 
-  .floating-filter-btn__label {
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    transform: rotate(180deg);
-    @include text-body-small;
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: inherit;
-    white-space: nowrap;
-  }
-
-  .floating-filter-btn__badge {
-    display: none;
-    width: 18px;
-    height: 18px;
-    background: $primary-gradient;
-    border-radius: 50%;
-    @include text-body-small;
-    font-size: 10px;
-    color: #000;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-
-    &.is-visible {
-      display: flex;
-    }
-  }
+.floating-filter-btn-request-credentials {
+  top: 80px;
 }
 
 .floating-filter-panel {
