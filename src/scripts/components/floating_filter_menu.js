@@ -2,12 +2,17 @@
  * FloatingFilterMenu
  *
  * Implements the floating filter trigger button and the side-drawer filter
- * panel.  The panel's level-navigation logic mirrors menu_controller.js:
+ * panel. The panel's level-navigation logic is identical to menu_controller.js:
  *
  *  – Desktop (> 992 px): hover opens sub-columns displayed side-by-side,
  *    matching the desktop mega-menu behaviour (no sliding, no back button).
  *  – Mobile  (≤ 992 px): tap navigates into a sub-column with a slide
  *    animation and a back button, matching the mobile menu behaviour.
+ *
+ * Uses the same HTML class names as the main menu (nav-item, navbar-nav,
+ * submenu-header, main-menu__col, etc.) so the visual output is identical.
+ * All queries are scoped to the filter panel to avoid interfering with the
+ * main menu controller.
  */
 document.addEventListener("DOMContentLoaded", () => {
   const panel = document.querySelector(".floating-filter-panel");
@@ -26,11 +31,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const CLASS_OPEN = "is-open";
   const CLASS_ACTIVE_LEVEL = "active-level";
   const CLASS_ACTIVE = "active";
+  const CLASS_HAS_SUBMENU = "has-submenu";
 
   /** Mirrors the isMobile() helper in menu_controller.js. */
   const isMobile = () => window.innerWidth <= 992;
 
-  const allCols = panel.querySelectorAll(".filter-menu__col");
+  // All columns are scoped to the filter panel (same class as main menu).
+  const allCols = panel.querySelectorAll(".main-menu__col");
 
   /**
    * Navigate to a filter level column.
@@ -60,8 +67,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Show the root column (filter-level-0) alongside the target column.
-    // On desktop both are visible side-by-side; on mobile the CSS slide
-    // hides the root column via the data-current-level transform.
     allCols.forEach((col) => {
       const colId = col.getAttribute("id");
       if (colId === targetId || colId === "filter-level-0") {
@@ -71,14 +76,12 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    // Desktop: expand the drawer when a sub-column is shown (like the
-    // desktop menu revealing a second column on hover).
+    // Desktop: expand the drawer when a sub-column is shown.
     if (drawer) {
       drawer.classList.toggle("has-sub-panel", targetId !== "filter-level-0");
     }
 
-    // Mobile only: update the slide animation via data-current-level
-    // (mirrors the main-menu__content[data-current-level] pattern).
+    // Mobile only: update the slide animation via data-current-level.
     if (isMobile() && content) {
       const targetCol = panel.querySelector(`#${CSS.escape(targetId)}`);
       if (targetCol) {
@@ -129,37 +132,37 @@ document.addEventListener("DOMContentLoaded", () => {
   // ── Level navigation ─────────────────────────────────────────────────────────
 
   // Desktop: hover over a filter group opens its sub-column (mirrors the
-  // mouseenter behaviour of .nav-item in menu_controller.js).
-  panel.querySelectorAll(".filter-nav-item[data-target]").forEach((navItem) => {
+  // mouseenter behaviour of .nav-item in menu_controller.js, but scoped to
+  // the filter panel).
+  panel.querySelectorAll(`.nav-item.${CLASS_HAS_SUBMENU}`).forEach((navItem) => {
     navItem.addEventListener("mouseenter", () => {
       if (!isMobile()) {
         const targetId = navItem.getAttribute("data-target");
-        goToLevel(targetId, navItem, true);
+        if (targetId) goToLevel(targetId, navItem, true);
       }
     });
   });
 
-  // Click handler:
+  // Click handler (scoped to the filter panel – mirrors menu_controller.js):
   //  – Mobile: tap on a filter group navigates into its sub-column.
-  //  – Desktop: click also navigates (mirrors accessible click on desktop menu).
+  //  – Desktop: click also navigates.
   //  – Back button: always restores the parent level (button is hidden on
   //    desktop via CSS so it only appears on mobile).
   panel.addEventListener("click", (e) => {
-    const navItem = e.target.closest(".filter-nav-item[data-target]");
-    if (navItem) {
+    // Forward: clicking a group item (has-submenu) opens its sub-column
+    const navItem = e.target.closest(`.nav-item.${CLASS_HAS_SUBMENU}`);
+    if (navItem && panel.contains(navItem)) {
       if (isMobile()) {
-        // Mobile: tap navigates forward into the sub-column
+        e.preventDefault();
         const targetId = navItem.getAttribute("data-target");
-        goToLevel(targetId, navItem, true);
+        if (targetId) goToLevel(targetId, navItem, true);
       }
       return;
     }
 
     // Backward: clicking the back button returns to the parent level
-    const subHeader = e.target.closest(
-      ".filter-submenu-header[data-prev-target]"
-    );
-    if (subHeader) {
+    const subHeader = e.target.closest(".submenu-header[data-prev-target]");
+    if (subHeader && panel.contains(subHeader)) {
       const prevId = subHeader.getAttribute("data-prev-target");
       goToLevel(prevId, null, false);
       return;
@@ -169,19 +172,19 @@ document.addEventListener("DOMContentLoaded", () => {
   // ── Active filter badge counter ───────────────────────────────────────────────
 
   function updateBadges() {
-    // Per-group badges (shown in level-0 list)
+    // Per-group badges (shown in level-0 list, inside the nav-link span)
     allCols.forEach((col) => {
       const colId = col.getAttribute("id");
       if (!colId || colId === "filter-level-0") return;
 
-      const checkboxes = col.querySelectorAll(".filter-option-item__checkbox:checked");
+      const checkboxes = col.querySelectorAll(".filter-checkbox:checked");
       const count = checkboxes.length;
 
       // Find the nav-item in level-0 that points to this column
-      const navItem = panel.querySelector(`.filter-nav-item[data-target="${colId}"]`);
+      const navItem = panel.querySelector(`.nav-item[data-target="${colId}"]`);
       if (!navItem) return;
 
-      const badge = navItem.querySelector(".filter-nav-item__count");
+      const badge = navItem.querySelector(".filter-count");
       if (badge) {
         badge.textContent = count;
         badge.classList.toggle("is-visible", count > 0);
@@ -189,9 +192,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Global badge on the trigger button
-    const totalChecked = panel.querySelectorAll(
-      ".filter-option-item__checkbox:checked"
-    ).length;
+    const totalChecked = panel.querySelectorAll(".filter-checkbox:checked").length;
     const globalBadge = triggerBtn.querySelector(".floating-filter-btn__badge");
     if (globalBadge) {
       globalBadge.textContent = totalChecked;
@@ -200,7 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   panel.addEventListener("change", (e) => {
-    if (e.target.classList.contains("filter-option-item__checkbox")) {
+    if (e.target.classList.contains("filter-checkbox")) {
       updateBadges();
       dispatchFilterChange();
     }
@@ -211,7 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (clearBtn) {
     clearBtn.addEventListener("click", () => {
       panel
-        .querySelectorAll(".filter-option-item__checkbox:checked")
+        .querySelectorAll(".filter-checkbox:checked")
         .forEach((cb) => {
           cb.checked = false;
         });
@@ -241,7 +242,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!filterKey) return;
 
       const checked = Array.from(
-        col.querySelectorAll(".filter-option-item__checkbox:checked")
+        col.querySelectorAll(".filter-checkbox:checked")
       ).map((cb) => cb.value);
 
       if (checked.length > 0) {
