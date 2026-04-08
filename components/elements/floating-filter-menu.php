@@ -84,27 +84,13 @@
   <div class="floating-filter-panel__drawer" role="document">
     <div class="floating-filter-panel__drawer-inner">
 
-      <!-- Panel header -->
-      <div class="floating-filter-panel__header">
-        <h2 class="floating-filter-panel__title">Filters</h2>
-        <button
-          class="floating-filter-panel__close"
-          aria-label="Close filters"
-        >
-          <!-- Close (×) icon -->
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            xmlns="http://www.w3.org/2000/svg">
-            <line x1="18" y1="6" x2="6" y2="18"/>
-            <line x1="6"  y1="6" x2="18" y2="18"/>
-          </svg>
-        </button>
-      </div>
-
       <!-- Panel content (two-level menu) -->
       <div class="floating-filter-panel__content" data-current-level="0">
 
         <!-- ── Level 0 – filter group list ─────────────────────────────── -->
         <div id="filter-level-0" class="filter-menu__col filter-menu__col--level-0 active-level" data-level="0">
+          <h5 class="main-menu__title">Lifecycle Accountability for Industrial Water Assets</h5>
+
           <ul class="filter-menu__list" role="list">
 
             <!-- Locations -->
@@ -445,12 +431,6 @@
         </div><!-- /filter-level-rank -->
 
       </div><!-- /floating-filter-panel__content -->
-
-      <!-- Panel footer -->
-      <div class="floating-filter-panel__footer">
-        <button class="btn filter-clear-btn" type="button">Clear All</button>
-        <button class="btn filter-apply-btn" type="button">Apply</button>
-      </div>
 
     </div><!-- /floating-filter-panel__drawer-inner -->
   </div><!-- /floating-filter-panel__drawer -->
