@@ -51,6 +51,7 @@
     "cheerio": "^1.0.0-rc.12",
     "choices.js": "^11.0.3",
     "jquery": "^3.7.1",
+    "sass": "^1.99.0",
     "sticky-sidebar": "^3.3.1",
     "swiper": "^11.1.15"
   }

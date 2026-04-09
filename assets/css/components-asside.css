@@ -7,31 +7,34 @@
   top: 80px;
   -ms-flex-item-align: start;
   align-self: start;
-  z-index: 10; }
-  .asside .card {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column; }
-    .asside .card--center {
-      background-image: url(../../assets/img/overlay.svg);
-      background-blend-mode: normal, overlay;
-      background-size: cover;
-      background-position: right top;
-      background-repeat: no-repeat;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      align-items: center;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      justify-content: center;
-      padding: 56px 66px;
-      gap: 26px; }
-      .asside .card--center .btn {
-        margin-top: 24px; }
-
+  z-index: 10;
+}
+.asside .card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+.asside .card--center {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' preserveAspectRatio='none'><filter id='noise'><feTurbulence type='fractalNoise' baseFrequency='3' numOctaves='6' result='noise'/><feColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0'/></filter><rect width='200' height='200' filter='url(%23noise)' opacity='0.3'/></svg>"), url(../../assets/img/overlay.svg);
+  background-blend-mode: normal, overlay;
+  background-size: cover;
+  background-position: right top;
+  background-repeat: no-repeat;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 56px 66px;
+  gap: 26px;
+}
+.asside .card--center .btn {
+  margin-top: 24px;
+}
 
 /*# sourceMappingURL=components-asside.css.map*/

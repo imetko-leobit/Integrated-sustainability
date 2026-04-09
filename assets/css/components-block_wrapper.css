@@ -3,30 +3,38 @@
   \*************************************************************************************************************************************************************************************************************************************/
 /*images*/
 .block-wrapper {
-  padding: 0 0 140px; }
-  @media (max-width: 991px) {
-    .block-wrapper {
-      padding: 0; } }
+  padding: 0 0 140px;
+}
+@media (max-width: 991px) {
+  .block-wrapper {
+    padding: 0;
+  }
+}
+.block-wrapper--grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+@media (max-width: 991px) {
   .block-wrapper--grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px; }
-    @media (max-width: 991px) {
-      .block-wrapper--grid {
-        grid-template-columns: 1fr;
-        gap: 0; } }
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+.block-wrapper--flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 60px;
+}
+@media (max-width: 1199px) {
   .block-wrapper--flex {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    gap: 60px; }
-    @media (max-width: 1199px) {
-      .block-wrapper--flex {
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column;
-        gap: 32px; } }
-
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 32px;
+  }
+}
 
 /*# sourceMappingURL=components-block_wrapper.css.map*/

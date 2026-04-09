@@ -5,13 +5,14 @@
   max-width: 1600px;
   margin-left: auto;
   margin-right: auto;
-  width: 100%; }
+  width: 100%;
+}
 
 /*-- for full width --*/
 .alignfull {
   max-width: 100vw;
   margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw); }
-
+  margin-right: calc(50% - 50vw);
+}
 
 /*# sourceMappingURL=layout-container.css.map*/

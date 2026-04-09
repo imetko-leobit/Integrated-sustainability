@@ -113,7 +113,7 @@
   <div class="floating-filter-panel__drawer" role="document">
     <div class="floating-filter-panel__drawer-inner">
       <button
-        class="floating-filter-btn floating-filter-panel-btn"
+        class="floating-filter-btn floating-filter-panel-btn floating-filter-panel__close"
         aria-label="Close filters"
         aria-expanded="true"
         aria-controls="floating-filter-panel"
