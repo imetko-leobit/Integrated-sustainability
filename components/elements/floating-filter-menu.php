@@ -459,4 +459,12 @@
   </div><!-- /floating-filter-panel__drawer -->
 </div><!-- /floating-filter-panel -->
 
+<!-- ─── Bottom sticky filter summary bar ─────────────────────────────────── -->
+<div class="filter-summary-bar" role="region" aria-label="Applied filters" aria-live="polite">
+  <div class="filter-summary-bar__inner">
+    <h5 class="filter-summary-bar__label">Filters applied:</h5>
+    <div class="filter-summary-bar__chips" role="list"></div>
+  </div>
+</div>
+
 <script src="../assets/js/components-floating_filter_menu.js"></script>

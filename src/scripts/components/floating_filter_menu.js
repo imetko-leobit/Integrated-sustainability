@@ -23,6 +23,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const content = document.querySelector(".floating-filter-panel__content");
   const clearBtn = document.querySelector(".filter-clear-btn");
   const applyBtn = document.querySelector(".filter-apply-btn");
+  const summaryBar = document.querySelector(".filter-summary-bar");
+  const summaryChips = document.querySelector(".filter-summary-bar__chips");
 
   if (!panel || !triggerBtn) return;
 
@@ -103,6 +105,8 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.style.overflow = "hidden";
     // Always start at the root level
     goToLevel("filter-level-0", null, false);
+    // Hide the summary bar while the filter panel is open
+    if (summaryBar) summaryBar.classList.remove("is-visible");
   }
 
   function closePanel() {
@@ -112,6 +116,8 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.style.overflow = "";
     // Reset to root level so the panel is ready on next open
     goToLevel("filter-level-0", null, false);
+    // Show the summary bar if there are active filters
+    updateSummaryBar();
   }
 
   triggerBtn.addEventListener("click", () => {
@@ -207,6 +213,76 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // ── Filter summary bar ───────────────────────────────────────────────────────
+
+  /**
+   * Build chips for all currently checked filter checkboxes and toggle the
+   * visibility of the summary bar.  The bar is only shown when:
+   *   – the filter panel is closed, AND
+   *   – at least one filter is checked.
+   */
+  function updateSummaryBar() {
+    if (!summaryBar || !summaryChips) return;
+
+    const checkedBoxes = Array.from(
+      panel.querySelectorAll(".filter-checkbox:checked")
+    );
+
+    // Rebuild chip list
+    summaryChips.innerHTML = "";
+    checkedBoxes.forEach((cb) => {
+      const chip = buildChip(cb);
+      summaryChips.appendChild(chip);
+    });
+
+    // Show bar only when panel is closed and there are active filters
+    const panelIsOpen = panel.classList.contains(CLASS_OPEN);
+    summaryBar.classList.toggle(
+      "is-visible",
+      !panelIsOpen && checkedBoxes.length > 0
+    );
+  }
+
+  /**
+   * Create a single chip element for a given checkbox input.
+   * Clicking the close button unchecks the box, updates badges and
+   * dispatches a filter change.
+   */
+  function buildChip(cb) {
+    // Derive a human-readable label from the associated <label> element or
+    // fall back to the checkbox value.
+    const labelEl =
+      cb.closest("label") ||
+      (cb.id ? panel.querySelector(`label[for="${cb.id}"]`) : null);
+    const labelText = labelEl
+      ? labelEl.textContent.trim()
+      : cb.value.replace(/[-_]/g, " ");
+
+    const chip = document.createElement("span");
+    chip.className = "filter-summary-bar__chip";
+    chip.setAttribute("role", "listitem");
+
+    const text = document.createElement("span");
+    text.textContent = labelText;
+
+    const closeBtn = document.createElement("button");
+    closeBtn.className = "filter-summary-bar__chip-close";
+    closeBtn.setAttribute("aria-label", `Remove filter: ${labelText}`);
+    closeBtn.innerHTML =
+      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1l8 8M9 1l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>';
+
+    closeBtn.addEventListener("click", () => {
+      cb.checked = false;
+      updateBadges();
+      dispatchFilterChange();
+      updateSummaryBar();
+    });
+
+    chip.appendChild(text);
+    chip.appendChild(closeBtn);
+    return chip;
+  }
+
   // ── Clear all ────────────────────────────────────────────────────────────────
 
   if (clearBtn) {
@@ -218,6 +294,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       updateBadges();
       dispatchFilterChange();
+      updateSummaryBar();
     });
   }
 
@@ -291,6 +368,7 @@ document.addEventListener("DOMContentLoaded", () => {
     filterForm.dispatchEvent(new Event("change", { bubbles: true }));
   });
 
-  // Initialise badges
+  // Initialise badges and summary bar
   updateBadges();
+  updateSummaryBar();
 });
