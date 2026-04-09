@@ -37,7 +37,8 @@
   }
 
   @media (max-width: 991px) {
-    left: 0;
+    position: relative;
+    left: 1.5rem;
   }
 
   .floating-filter-btn__icon {
@@ -58,9 +59,20 @@
 .floating-filter-btn-request-credentials {
   top: 80px;
 
+  @media (max-width: 991px) {
+    position: absolute;
+    left: auto;
+    right: 0;
+    top: 0;
+  }
+
   &.floating-filter-panel-btn {
     bottom: 90px;
     top: auto;
+
+    @media (max-width: 991px) {
+      display: none;
+    }
   }
 }
 
@@ -76,7 +88,10 @@
   }
 
   @media (max-width: 991px) {
-    left: 0;
+    top: 1rem !important;
+    position: absolute;
+    left: auto;
+    right: -1rem;
   }
 }
 
@@ -121,6 +136,11 @@
   transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
               width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 
+  @media (max-width: 991px) {
+    top: 80px;
+    height: calc(100% - 80px);
+  }
+
   .floating-filter-panel.is-open & {
     transform: translateX(0);
   }
@@ -142,6 +162,10 @@
   height: 100%;
   overflow: visible;
   transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media (max-width: 991px) {
+    position: absolute;
+  }
 }
 
 .floating-filter-panel__drawer {
@@ -164,6 +188,10 @@
     background-position: bottom right;
     background-size: cover;
 
+    @media (max-width: 991px) {
+      padding: 0;
+    }
+
     &::-webkit-scrollbar {
       display: none;
     }
@@ -177,12 +205,20 @@
     flex-basis: calc(var(--wp--style--global--padding-size-large) - 1.5rem + calc(25% - var(--wp--style--global--padding-size-large) / 4));
     padding-bottom: 90px;
 
+    @media (max-width: 991px) {
+      padding: 2rem 0;
+    }
+
     .main-menu__title {
       margin: 1.5rem 0 46px;
       @include text-h5;
       padding-left: 2rem;
       padding-right: 2rem;
       color: white;
+
+      @media (max-width: 991px) {
+        margin-top: 0;
+      }
     }
 
     .main-menu__title,
@@ -439,11 +475,13 @@
 @media (max-width: 992px) {
   .floating-filter-panel__drawer {
     width: 100%;
-    max-width: 360px;
 
     &.has-sub-panel {
       width: 100%;
-      max-width: 360px;
+
+      .floating-filter-panel-btn {
+        display: none;
+      }
     }
   }
 
