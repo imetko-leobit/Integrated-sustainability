@@ -522,7 +522,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  gap: 0.5rem;
+  gap: 1.5rem;
   overflow-x: auto;
   scrollbar-width: none;
 
@@ -532,6 +532,10 @@
 }
 
 .filter-summary-bar__chip {
+  &::before {
+    background: $primary-gradient-5;
+  }
+
   &::after {
     content: none;
   }
