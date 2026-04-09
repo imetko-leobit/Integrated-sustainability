@@ -8,218 +8,276 @@
   margin: 0 auto;
   overflow-y: auto;
   scrollbar-width: none;
-  scroll-behavior: smooth; }
-  @media (max-width: 991px) {
-    .accordion-scroll {
-      width: 100%;
-      height: auto; } }
-  .accordion-scroll .accordion-scroll::-webkit-scrollbar {
-    display: none; }
+  scroll-behavior: smooth;
+}
+@media (max-width: 991px) {
+  .accordion-scroll {
+    width: 100%;
+    height: auto;
+  }
+}
+.accordion-scroll .accordion-scroll::-webkit-scrollbar {
+  display: none;
+}
+.accordion-scroll .item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 30px;
+  border-left: 3px solid rgba(255, 255, 255, 0.19);
+  padding-left: 52px;
+  margin-left: 80px;
+  position: relative;
+  -webkit-transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease;
+}
+@media (max-width: 991px) {
   .accordion-scroll .item {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    gap: 30px;
-    border-left: 3px solid rgba(255, 255, 255, 0.19);
-    padding-left: 52px;
-    margin-left: 80px;
-    position: relative;
-    -webkit-transition: border-color 0.3s ease;
-    transition: border-color 0.3s ease; }
-    @media (max-width: 991px) {
-      .accordion-scroll .item {
-        border-left: none;
-        padding-left: 0;
-        padding-top: 24px;
-        margin-left: 0;
-        border-top: 1px solid var(--color-grey-600); }
-        .accordion-scroll .item:first-child {
-          border-top: none; } }
+    border-left: none;
+    padding-left: 0;
+    padding-top: 24px;
+    margin-left: 0;
+    border-top: 1px solid var(--color-grey-600);
+  }
+  .accordion-scroll .item:first-child {
+    border-top: none;
+  }
+}
+.accordion-scroll .item.is-open {
+  border-left: 3px solid white;
+}
+@media (max-width: 991px) {
   .accordion-scroll .item.is-open {
-    border-left: 3px solid white; }
-    @media (max-width: 991px) {
-      .accordion-scroll .item.is-open {
-        border-left: none; } }
+    border-left: none;
+  }
+}
+.accordion-scroll .arrow-container {
+  position: absolute;
+  left: -82px;
+  top: 14px;
+}
+@media (max-width: 991px) {
   .accordion-scroll .arrow-container {
-    position: absolute;
-    left: -82px;
-    top: 14px; }
-    @media (max-width: 991px) {
-      .accordion-scroll .arrow-container {
-        left: auto;
-        top: 24px;
-        right: 0; } }
+    left: auto;
+    top: 24px;
+    right: 0;
+  }
+}
+.accordion-scroll .nav-btn {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  color: white;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.accordion-scroll .nav-btn svg {
+  width: 16px;
+  height: 16px;
+  margin-top: 4px;
+}
+@media (max-width: 991px) {
   .accordion-scroll .nav-btn {
-    background: none;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     padding: 8px;
-    color: white;
-    cursor: pointer;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-transition: all 0.3s ease;
-    transition: all 0.3s ease; }
-    .accordion-scroll .nav-btn svg {
-      width: 16px;
-      height: 16px;
-      margin-top: 4px; }
-    @media (max-width: 991px) {
-      .accordion-scroll .nav-btn {
-        width: 32px;
-        height: 32px;
-        padding: 8px; }
-        .accordion-scroll .nav-btn svg {
-          width: 12px;
-          height: 12px; } }
-  .accordion-scroll .item.is-open .nav-btn {
-    border-color: white;
-    color: black;
-    background: white; }
+  }
+  .accordion-scroll .nav-btn svg {
+    width: 12px;
+    height: 12px;
+  }
+}
+.accordion-scroll .item.is-open .nav-btn {
+  border-color: white;
+  color: black;
+  background: white;
+}
+.accordion-scroll .content-wrap {
+  padding-bottom: 24px;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+@media (max-width: 1199px) {
   .accordion-scroll .content-wrap {
-    padding-bottom: 24px;
-    -webkit-box-flex: 1;
-    -ms-flex: 1;
-    flex: 1; }
-    @media (max-width: 1199px) {
-      .accordion-scroll .content-wrap {
-        padding-bottom: 0px; } }
+    padding-bottom: 0px;
+  }
+}
+.accordion-scroll .title {
+  font-family: "PoppinsMedium", "Roboto", "Arial", sans-serif;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+@media (max-width: 991px) {
+  .accordion-scroll .title {
+    font-size: 18px;
+    line-height: 26px;
+  }
+}
+.accordion-scroll .title {
+  color: var(--color-text-grey);
+  text-transform: lowercase;
+  cursor: pointer;
+  margin: 0;
+  padding-top: 12px;
+  padding-bottom: 20px;
+}
+@media (max-width: 1199px) {
   .accordion-scroll .title {
     font-family: "PoppinsMedium", "Roboto", "Arial", sans-serif;
     font-style: normal;
     font-size: 20px;
     line-height: 1.5;
     font-weight: 500;
-    color: white;
-    text-transform: lowercase;
-    cursor: pointer;
-    margin: 0;
-    padding-top: 12px;
-    padding-bottom: 20px; }
-    @media (max-width: 991px) {
-      .accordion-scroll .title {
-        font-size: 18px;
-        line-height: 26px; } }
-    @media (max-width: 1199px) {
-      .accordion-scroll .title {
-        font-family: "PoppinsMedium", "Roboto", "Arial", sans-serif;
-        font-style: normal;
-        font-size: 20px;
-        line-height: 1.5;
-        font-weight: 500; } }
-  @media (max-width: 1199px) and (max-width: 991px) {
-    .accordion-scroll .title {
-      font-size: 18px;
-      line-height: 26px; } }
-    @media (max-width: 991px) {
-      .accordion-scroll .title {
-        font-family: "Poppins", "Roboto", "Arial", sans-serif;
-        font-style: normal;
-        font-size: 14px;
-        line-height: 28px;
-        font-weight: 400;
-        padding-top: 0px;
-        padding-right: 64px; } }
-  @media (max-width: 991px) and (max-width: 991px) {
-    .accordion-scroll .title {
-      font-family: "PoppinsSBold", "Roboto", "Arial", sans-serif;
-      font-size: 16px;
-      line-height: 24px;
-      font-weight: 600; } }
-  .accordion-scroll .desc-box {
-    max-height: 0;
-    overflow: hidden;
-    -webkit-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-    color: var(--color-gray-200); }
-  .accordion-scroll .item.is-open .title {
-    font-family: "PoppinsSBold", "Roboto", "Arial", sans-serif;
+  }
+}
+@media (max-width: 1199px) and (max-width: 991px) {
+  .accordion-scroll .title {
+    font-size: 18px;
+    line-height: 26px;
+  }
+}
+@media (max-width: 991px) {
+  .accordion-scroll .title {
+    font-family: "Poppins", "Roboto", "Arial", sans-serif;
     font-style: normal;
-    font-size: 32px;
-    line-height: 1.375;
-    font-weight: 600; }
-    @media (max-width: 991px) {
-      .accordion-scroll .item.is-open .title {
-        font-size: 18px;
-        line-height: 26px; } }
-  .accordion-scroll .item.is-open .desc-box {
-    max-height: 600px;
-    padding-bottom: 24px; }
-    .accordion-scroll .item.is-open .desc-box p {
-      margin-bottom: 20px; }
+    font-size: 14px;
+    line-height: 28px;
+    font-weight: 400;
+    padding-top: 0px;
+    padding-right: 64px;
+  }
+}
+@media (max-width: 991px) and (max-width: 991px) {
+  .accordion-scroll .title {
+    font-family: "PoppinsSBold", "Roboto", "Arial", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+  }
+}
+.accordion-scroll .desc-box {
+  max-height: 0;
+  overflow: hidden;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  color: var(--color-grey-200);
+}
+.accordion-scroll .item.is-open .title {
+  color: var(--color-white);
+  font-family: "PoppinsSBold", "Roboto", "Arial", sans-serif;
+  font-style: normal;
+  font-size: 32px;
+  line-height: 1.375;
+  font-weight: 600;
+}
+@media (max-width: 991px) {
+  .accordion-scroll .item.is-open .title {
+    font-size: 18px;
+    line-height: 26px;
+  }
+}
+.accordion-scroll .item.is-open .desc-box {
+  max-height: 600px;
+  padding-bottom: 24px;
+}
+.accordion-scroll .item.is-open .desc-box p {
+  margin-bottom: 20px;
+}
+.accordion-scroll .desc-box ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 30px;
+}
+@media (max-width: 991px) {
   .accordion-scroll .desc-box ul {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 30px; }
-    @media (max-width: 991px) {
-      .accordion-scroll .desc-box ul {
-        gap: 12px; } }
-    .accordion-scroll .desc-box ul li {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      -webkit-box-pack: start;
-      -ms-flex-pack: start;
-      justify-content: flex-start;
-      -webkit-box-align: start;
-      -ms-flex-align: start;
-      align-items: flex-start;
-      gap: 22px;
-      position: relative;
-      padding-left: 60px;
-      min-height: 33px;
-      color: white;
-      font-family: "Poppins", "Roboto", "Arial", sans-serif;
-      font-weight: 400;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      font-style: normal;
-      font-size: 16px;
-      line-height: 29px; }
-      @media (max-width: 991px) {
-        .accordion-scroll .desc-box ul li {
-          font-size: 14px;
-          line-height: 22px; } }
-      @media (max-width: 991px) {
-        .accordion-scroll .desc-box ul li {
-          padding-left: 38px; } }
-      .accordion-scroll .desc-box ul li::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 2px;
-        width: 30px;
-        height: 30px;
-        background-image: url("../../assets/img/mark.svg");
-        background-size: contain;
-        background-repeat: no-repeat; }
-        @media (max-width: 991px) {
-          .accordion-scroll .desc-box ul li::before {
-            width: 22px;
-            height: 22px; } }
-      @media (max-width: 991px) {
-        .accordion-scroll .desc-box ul li {
-          gap: 12px; } }
+    gap: 12px;
+  }
+}
+.accordion-scroll .desc-box ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  gap: 22px;
+  position: relative;
+  padding-left: 60px;
+  min-height: 33px;
+  color: white;
+  font-family: "Poppins", "Roboto", "Arial", sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 29px;
+}
+@media (max-width: 991px) {
+  .accordion-scroll .desc-box ul li {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+@media (max-width: 991px) {
+  .accordion-scroll .desc-box ul li {
+    padding-left: 38px;
+  }
+}
+.accordion-scroll .desc-box ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 30px;
+  height: 30px;
+  background-image: url("../../assets/img/mark.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+@media (max-width: 991px) {
+  .accordion-scroll .desc-box ul li::before {
+    width: 22px;
+    height: 22px;
+  }
+}
+@media (max-width: 991px) {
+  .accordion-scroll .desc-box ul li {
+    gap: 12px;
+  }
+}
+.accordion-scroll .btn--gradient {
+  margin-top: 36px;
+}
+@media (max-width: 991px) {
   .accordion-scroll .btn--gradient {
-    margin-top: 36px; }
-    @media (max-width: 991px) {
-      .accordion-scroll .btn--gradient {
-        margin-top: 18px; } }
-
+    margin-top: 18px;
+  }
+}
 
 /*# sourceMappingURL=components-accordion_scroll.css.map*/

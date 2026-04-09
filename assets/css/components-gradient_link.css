@@ -10,7 +10,15 @@
   font-style: normal;
   font-size: 16px;
   line-height: 29px;
-  background: linear-gradient(90deg, #81FEE5 0%, #818FFE 100%);
+}
+@media (max-width: 991px) {
+  .gradient-link {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+.gradient-link {
+  background: linear-gradient(90deg, #81fee5 0%, #818ffe 100%);
   background-clip: text;
   color: transparent;
   -webkit-background-clip: text;
@@ -22,75 +30,81 @@
   display: flex;
   width: -webkit-fit-content;
   width: -moz-fit-content;
-  width: fit-content; }
-  @media (max-width: 991px) {
-    .gradient-link {
-      font-size: 14px;
-      line-height: 22px; } }
+  width: fit-content;
+}
+.gradient-link--large {
+  font-family: "Poppins", "Roboto", "Arial", sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 29px;
+}
+@media (max-width: 991px) {
   .gradient-link--large {
-    font-family: "Poppins", "Roboto", "Arial", sans-serif;
-    font-weight: 400;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-style: normal;
-    font-size: 16px;
-    line-height: 29px; }
-    @media (max-width: 991px) {
-      .gradient-link--large {
-        font-size: 14px;
-        line-height: 22px; } }
-  .gradient-link a {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    gap: 10px; }
-  .gradient-link .gradient-link__text {
-    display: block;
-    background: linear-gradient(90deg, #81FEE5 0%, #818FFE 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; }
-  .gradient-link .arrow-icon {
-    width: 24px;
-    height: 24px;
-    padding: 4px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-transition: -webkit-transform 0.3s ease;
-    transition: -webkit-transform 0.3s ease;
-    transition: transform 0.3s ease;
-    transition: transform 0.3s ease, -webkit-transform 0.3s ease; }
-    .gradient-link .arrow-icon svg .icon-arrow {
-      fill: var(--color-primary-violet);
-      -webkit-transition: fill 0.3s ease;
-      transition: fill 0.3s ease; }
-  .gradient-link:hover {
-    color: white;
-    -webkit-text-fill-color: white;
-    background: none; }
-    .gradient-link:hover .arrow-icon {
-      -webkit-transform: translate(3px, -3px);
-      -ms-transform: translate(3px, -3px);
-      transform: translate(3px, -3px); }
-      .gradient-link:hover .arrow-icon svg .icon-arrow {
-        fill: white; }
-
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+.gradient-link a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  gap: 10px;
+}
+.gradient-link .gradient-link__text {
+  display: block;
+  background: linear-gradient(90deg, #81fee5 0%, #818ffe 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.gradient-link .arrow-icon {
+  width: 24px;
+  height: 24px;
+  padding: 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+.gradient-link .arrow-icon svg .icon-arrow {
+  fill: var(--color-primary-violet);
+  -webkit-transition: fill 0.3s ease;
+  transition: fill 0.3s ease;
+}
+.gradient-link:hover {
+  color: white;
+  -webkit-text-fill-color: white;
+  background: none;
+}
+.gradient-link:hover .arrow-icon {
+  -webkit-transform: translate(3px, -3px);
+  -ms-transform: translate(3px, -3px);
+  transform: translate(3px, -3px);
+}
+.gradient-link:hover .arrow-icon svg .icon-arrow {
+  fill: white;
+}
 
 /*# sourceMappingURL=components-gradient_link.css.map*/

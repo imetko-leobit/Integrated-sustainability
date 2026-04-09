@@ -3,44 +3,56 @@
   \*****************************************************************************************************************************************************************************************************************************/
 /*images*/
 .quote {
-  padding: 12px 0 48px; }
-  .quote .quote__wrapper {
-    border-left: 1px solid var(--color-grey-200);
-    padding: 10px 48px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    gap: 32px; }
-    .quote .quote__wrapper p {
-      margin: 0; }
+  padding: 12px 0 48px;
+}
+.quote .quote__wrapper {
+  border-left: 1px solid var(--color-grey-200);
+  padding: 10px 48px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 32px;
+}
+.quote .quote__wrapper p {
+  margin: 0;
+}
+.quote .quote__text {
+  font-family: "PoppinsMedium", "Roboto", "Arial", sans-serif;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+@media (max-width: 991px) {
   .quote .quote__text {
-    font-family: "PoppinsMedium", "Roboto", "Arial", sans-serif;
-    font-style: normal;
-    font-size: 20px;
-    line-height: 1.5;
-    font-weight: 500;
-    color: white; }
-    @media (max-width: 991px) {
-      .quote .quote__text {
-        font-size: 18px;
-        line-height: 26px; } }
+    font-size: 18px;
+    line-height: 26px;
+  }
+}
+.quote .quote__text {
+  color: white;
+}
+.quote .quote__author {
+  font-family: "Poppins", "Roboto", "Arial", sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 29px;
+}
+@media (max-width: 991px) {
   .quote .quote__author {
-    font-family: "Poppins", "Roboto", "Arial", sans-serif;
-    font-weight: 400;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-style: normal;
-    font-size: 16px;
-    line-height: 29px;
-    color: var(--color-grey-200); }
-    @media (max-width: 991px) {
-      .quote .quote__author {
-        font-size: 14px;
-        line-height: 22px; } }
-
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+.quote .quote__author {
+  color: var(--color-grey-200);
+}
 
 /*# sourceMappingURL=components-quote.css.map*/
