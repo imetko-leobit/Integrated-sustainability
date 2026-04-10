@@ -12,20 +12,20 @@
   <?php include('../components/header/_header.php'); ?>
 
   <main class="main">
-    <?php 
+    <?php
         $hero_title = "Sustainable infrastructure built <br> for long-term performance";
         $hero_button_name = "Latest Milestone Projects";
         $hero_link_name = "project Library";
         $hero_img = "../assets/img/hero-bg-projects.png";
         include('../components/sections/block-hero.php')
     ?>
-    <?php 
+    <?php
         $section_title = "translating environmental data into <br> engineered performance";
         $link_url = "#pillar1";
         $link_direction = "down";
         $link_text = "";
         $custom_icon = "../assets/img/linkIconArrowDown.svg";
-        include('../components/sections/block-section-heading.php'); 
+        include('../components/sections/block-section-heading.php');
     ?>
     <?php
 
@@ -78,23 +78,25 @@
       'id' => 5,
     ],
 ];
-        include('../components/sections/block-project-cards.php'); 
+        include('../components/sections/block-project-cards.php');
     ?>
-    <?php 
+    <?php
         $section_title = "project library";
         $custom_icon = null;
         $link_url = null;
-        include('../components/sections/block-section-heading.php'); 
+        $custom_icon_class = "floating-filter-trigger-btn";
+        $custom_icon = "../assets/img/filters-toggle-icon.svg";
+        include('../components/sections/block-section-heading.php');
     ?>
     <?php
-        include('../components/sections/block-post-cards.php'); 
+        include('../components/sections/block-post-cards.php');
     ?>
-    <?php 
+    <?php
         $layout = 'center'; // 'center' or 'right'
         $title = 'request a tailored <br> credentials package';
         $description = 'Achieve cost control and on-time delivery with accountable infrastructure designed for high-consequence operations.';
         $button_text = 'Book a Call';
-        include('../components/sections/block-cta.php') 
+        include('../components/sections/block-cta.php')
     ?>
   </main>
 

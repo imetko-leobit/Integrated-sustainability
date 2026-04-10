@@ -56,7 +56,7 @@
 
 <!-- ─── Floating trigger button ──────────────────────────────────────────── -->
 <button
-  class="floating-filter-btn"
+  class="floating-filter-btn floating-filter-trigger-btn"
   aria-label="Open filters"
   aria-expanded="false"
   aria-controls="floating-filter-panel"

@@ -17,7 +17,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const panel = document.querySelector(".floating-filter-panel");
   const drawer = document.querySelector(".floating-filter-panel__drawer");
-  const triggerBtn = document.querySelector(".floating-filter-btn");
+  const triggerBtn = document.querySelector(".floating-filter-trigger-btn");
   const closeBtn = document.querySelector(".floating-filter-panel__close");
   const backdrop = document.querySelector(".floating-filter-panel__backdrop");
   const content = document.querySelector(".floating-filter-panel__content");

@@ -11,6 +11,7 @@
     $link_text = $link_text ?? null;
     $link_direction = $link_direction ?? 'down'; // 'down' or 'right'
     $custom_icon = $custom_icon ?? null;
+    $custom_icon_class = $custom_icon_class ?? null;
     $is_title_h1 = $is_title_h1 ?? false;
     $section_title = $section_title ?? '';
 
@@ -57,7 +58,7 @@
                     </a>
                 <?php elseif ($custom_icon): ?>
                     <span class="icon icon--simple">
-                        <img class="icon-img" src="<?php echo $custom_icon; ?>" alt="Heading Icon">
+                        <img class="icon-img <?php echo $custom_icon_class ?? ''; ?>" src="<?php echo $custom_icon; ?>" alt="Heading Icon">
                     </span>
                 <?php elseif ($person_photo): ?>
                     <div class='person-card'>
