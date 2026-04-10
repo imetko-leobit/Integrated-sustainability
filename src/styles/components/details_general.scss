@@ -1,13 +1,25 @@
 @import "../common/variable";
 @import "../common/mixins";
 
-.details-general {  
+.main .details-general {
   display: flex;
   flex-direction: column;
   gap: 36px;
-  
+
   @media (max-width: 991px) {
     gap: 24px;
+  }
+
+  .tagline + .heading{
+    margin-top: -36px;
+
+    @media (max-width: 991px) {
+      margin-top: 0;
+    }
+  }
+
+  h2:not([class]):not(:last-child) {
+    margin-bottom: 0;
   }
 
   h3:not(:first-of-type) {
@@ -18,7 +30,7 @@
       padding-top: 24px;
     }
   }
-  
+
   p {
     @include text-body-base;
     color: var(--color-grey-200);
@@ -26,39 +38,33 @@
 
   ul {
     @include ul-main;
+    gap: 10px;
 
-    @media (max-width: 991px) {
-      gap: 12px;
+    @media (max-width: 1199px) {
+      gap: 16px;
     }
-  
+
     li {
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       align-items: flex-start;
-      gap: 22px;
-      @include item-marked;
+      gap: 10px;
+      @include item-marked-alt;
 
-      @media (max-width: 991px) {
-        gap: 12px;
+      @media (max-width: 1199px) {
+        gap: 16px;
       }
     }
-
-  }
-  
-  a {
-    @include gradient-button;
-    width: fit-content;
-    padding: 12px 52px; 
   }
 
-  .gallery-wrapper{
-    display:grid;
+  .gallery-wrapper {
+    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 24px; 
+    gap: 24px;
   }
 
-  .gallery-wrapper figcaption{
-      display:none;
+  .gallery-wrapper figcaption {
+    display: none;
   }
 }

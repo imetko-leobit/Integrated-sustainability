@@ -2,13 +2,13 @@
 @import "../common/mixins";
 
 .block-details-author {
-  padding: 0 0 60px ;
+  padding: 0 0 60px;
 
   @media (max-width: 991px) {
-    padding: 0 0 60px ;
+    padding: 0 0 60px;
 
     .details-general,
-    .block-author{
+    .block-author {
       padding-left: 24px;
       padding-right: 24px;
     }
@@ -22,8 +22,12 @@
     gap: 56px;
 
     @media (max-width: 1199px) {
-      grid-template-columns: 1fr; 
+      grid-template-columns: 1fr;
       gap: 40px;
+    }
+
+    .details-content__wrapper {
+      max-width: 896px;
     }
   }
 
@@ -35,14 +39,18 @@
     }
   }
 
-  .gallery-wrapper{
-    display:grid;
+  .gallery-wrapper {
+    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 24px; 
+    gap: 24px;
   }
 
-  .gallery-wrapper figcaption{
-      display:none;
+  .gallery-wrapper figcaption {
+    display: none;
   }
-
+}
+.block-insight-leadgen {
+  .block-details-author__wrapper {
+    margin-bottom: 140px;
+  }
 }

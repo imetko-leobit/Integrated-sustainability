@@ -7,6 +7,10 @@
   align-self: start;
   z-index: 10;
 
+  .single-insight & {
+    top: 160px;
+  }
+
   .card {
     display: flex;
     flex-direction: column;
@@ -18,8 +22,12 @@
       padding: 56px 66px;
       gap: 26px;
 
+      .asside_description {
+        text-align: center;
+      }
+
       .btn {
-        margin-top: 24px
+        margin-top: 24px;
       }
     }
   }
