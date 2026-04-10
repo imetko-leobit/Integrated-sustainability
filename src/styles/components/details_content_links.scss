@@ -9,7 +9,12 @@
   h2,
   .heading__title {
     margin-bottom: 48px;
+
+    @media (max-width: 991px) {
+      margin-bottom: 20px;
+    }
   }
+
   h3:not(.accordion-item__title):not(.card__title):not(.heading__title),
   h4:not(.accordion-item__title):not(.card__title):not(.heading__title) {
     padding: 0 0 36px;
@@ -18,7 +23,7 @@
 
     @media (max-width: 1199px) {
       padding: 36px 0 24px;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
   }
   .tagline + .heading h3,

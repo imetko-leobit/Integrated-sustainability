@@ -179,26 +179,36 @@
 }
 
 .accordion.insight-accordion {
-  .accordion-item.is-open {
-    padding-bottom: 5px;
-
-    .accordion-item__header .accordion-item__icon {
-      display: none;
+  .accordion-item {
+    &:first-of-type {
+      @media (max-width: 991px) {
+        margin-top: 0;
+      }
     }
 
-    .accordion-item__title {
-      @include text-h4;
-      margin: 0;
+    &.is-open {
+      padding-bottom: 5px;
+
+      .accordion-item__header .accordion-item__icon {
+        display: none;
+      }
+
+      .accordion-item__title {
+        @include text-h4;
+        margin: 0;
+      }
+
+      .accordion-item__content {
+        .accordion-item__divider {
+          display: none;
+        }
+      }
     }
 
-    .accordion-item__divider {
-      visibility: hidden;
-    }
-  }
-
-  .accordion-item:not(.is-open) {
-    .accordion-item__title {
-      text-transform: capitalize;
+    &:not(.is-open) {
+      .accordion-item__title {
+        text-transform: capitalize;
+      }
     }
   }
 }

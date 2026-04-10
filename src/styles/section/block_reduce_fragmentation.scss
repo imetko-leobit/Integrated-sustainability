@@ -9,7 +9,7 @@
   padding: 0 0 140px;
 
   @media (max-width: 991px) {
-    padding: 0 24px 2rem;
+    padding: 0 24px 3rem;
   }
 
   &__col {
@@ -50,14 +50,10 @@
   }
 
   .text-content {
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
     display: flex;
     flex-direction: column;
     gap: 20px;
-
-    h3 {
-      margin-bottom: 40px;
-    }
   }
 
   .btn {
