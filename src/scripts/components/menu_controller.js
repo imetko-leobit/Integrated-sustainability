@@ -182,6 +182,15 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function toggleMenu() {
+    // If the floating filter panel is open, close it instead of toggling the
+    // main menu. This lets the header X button dismiss the filter panel on
+    // mobile, consistent with how it dismisses the navigation menu.
+    const floatingPanel = document.querySelector(".floating-filter-panel");
+    if (floatingPanel && floatingPanel.classList.contains("is-open")) {
+      document.dispatchEvent(new CustomEvent("requestFilterClose"));
+      return;
+    }
+
     const isOpen = body.classList.toggle(CLASS_OPEN);
     if (menuToggle) menuToggle.classList.toggle("open", isOpen);
     if (megaMenu) megaMenu.style.display = isOpen ? "block" : "none";
