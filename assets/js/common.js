@@ -1,18 +1,18 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/scripts/components/breadcrumb_observer.js":
+/***/ "./src/scripts/components/breadcrumb_observer.js"
 /*!*******************************************************!*\
   !*** ./src/scripts/components/breadcrumb_observer.js ***!
   \*******************************************************/
-/***/ (() => {
+() {
 
 document.addEventListener('DOMContentLoaded', function () {
   var breadcrumbs = document.querySelector('.header-subheader');
-  var heroSection = document.querySelector('.block-hero');
+  var triggerElement = document.querySelector('h1');
 
   // Only initialize if both breadcrumbs and hero section exist
-  if (!breadcrumbs || !heroSection) {
+  if (!breadcrumbs || !triggerElement) {
     return;
   }
 
@@ -33,20 +33,20 @@ document.addEventListener('DOMContentLoaded', function () {
     // Use viewport as root
     root: null,
     // No margin
-    rootMargin: '0px'
+    rootMargin: '-300px'
   });
 
   // Start observing the hero section
-  observer.observe(heroSection);
+  observer.observe(triggerElement);
 });
 
-/***/ }),
+/***/ },
 
-/***/ "./src/scripts/components/cta_form.js":
+/***/ "./src/scripts/components/cta_form.js"
 /*!********************************************!*\
   !*** ./src/scripts/components/cta_form.js ***!
   \********************************************/
-/***/ (() => {
+() {
 
 /** @module cta-form */
 var ctaFormContainers = [];
@@ -105,13 +105,13 @@ window.addEventListener('load', function () {
   });
 });
 
-/***/ }),
+/***/ },
 
-/***/ "./src/scripts/components/header_controller.js":
+/***/ "./src/scripts/components/header_controller.js"
 /*!*****************************************************!*\
   !*** ./src/scripts/components/header_controller.js ***!
   \*****************************************************/
-/***/ (() => {
+() {
 
 document.addEventListener('DOMContentLoaded', function () {
   var header = document.querySelector('.header');
@@ -125,13 +125,13 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('scroll', handleScroll);
 });
 
-/***/ }),
+/***/ },
 
-/***/ "./src/scripts/components/search.js":
+/***/ "./src/scripts/components/search.js"
 /*!******************************************!*\
   !*** ./src/scripts/components/search.js ***!
   \******************************************/
-/***/ (() => {
+() {
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _regeneratorRuntime() { "use strict"; var r = _regenerator(), e = r.m(_regeneratorRuntime), t = (Object.getPrototypeOf ? Object.getPrototypeOf(e) : e.__proto__).constructor; function n(r) { var e = "function" == typeof r && r.constructor; return !!e && (e === t || "GeneratorFunction" === (e.displayName || e.name)); } var o = { "throw": 1, "return": 2, "break": 3, "continue": 3 }; function a(r) { var e, t; return function (n) { e || (e = { stop: function stop() { return t(n.a, 2); }, "catch": function _catch() { return n.v; }, abrupt: function abrupt(r, e) { return t(n.a, o[r], e); }, delegateYield: function delegateYield(r, o, a) { return e.resultName = o, t(n.d, _regeneratorValues(r), a); }, finish: function finish(r) { return t(n.f, r); } }, t = function t(r, _t, o) { n.p = e.prev, n.n = e.next; try { return r(_t, o); } finally { e.next = n.n; } }), e.resultName && (e[e.resultName] = n.v, e.resultName = void 0), e.sent = n.v, e.next = n.n; try { return r.call(this, e); } finally { n.p = e.prev, n.n = e.next; } }; } return (_regeneratorRuntime = function _regeneratorRuntime() { return { wrap: function wrap(e, t, n, o) { return r.w(a(e), t, n, o && o.reverse()); }, isGeneratorFunction: n, mark: r.m, awrap: function awrap(r, e) { return new _OverloadYield(r, e); }, AsyncIterator: _regeneratorAsyncIterator, async: function async(r, e, t, o, u) { return (n(e) ? _regeneratorAsyncGen : _regeneratorAsync)(a(r), e, t, o, u); }, keys: _regeneratorKeys, values: _regeneratorValues }; })(); }
@@ -378,13 +378,13 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-/***/ }),
+/***/ },
 
-/***/ "./src/scripts/modules/Accordion.js":
+/***/ "./src/scripts/modules/Accordion.js"
 /*!******************************************!*\
   !*** ./src/scripts/modules/Accordion.js ***!
   \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -451,13 +451,13 @@ function initInsightAccordion() {
   });
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./src/scripts/modules/popup.js":
+/***/ "./src/scripts/modules/popup.js"
 /*!**************************************!*\
   !*** ./src/scripts/modules/popup.js ***!
   \**************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -562,7 +562,7 @@ function initPopup() {
   };
 }
 
-/***/ })
+/***/ }
 
 /******/ 	});
 /************************************************************************/
@@ -584,6 +584,12 @@ function initPopup() {
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
+/******/ 		if (!(moduleId in __webpack_modules__)) {
+/******/ 			delete __webpack_module_cache__[moduleId];
+/******/ 			var e = new Error("Cannot find module '" + moduleId + "'");
+/******/ 			e.code = 'MODULE_NOT_FOUND';
+/******/ 			throw e;
+/******/ 		}
 /******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
 /******/ 	
 /******/ 		// Return the exports of the module
