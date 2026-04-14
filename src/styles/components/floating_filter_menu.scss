@@ -466,6 +466,27 @@
   }
 }
 
+// Subcategory title row with select-all checkbox (level-2 mobile screens)
+.submenu-subcategory-title {
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  margin-top: 1rem;
+  min-height: 50px;
+
+  &__label {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    color: white;
+    @include text-body-small;
+    font-family: $font-semibold;
+    text-transform: capitalize;
+    cursor: pointer;
+  }
+}
+
 .floating-filter-panel__drawer {
 
   .filter-checkbox {
@@ -665,6 +686,33 @@
     }
   }
 
+  // Subcategory nav-items inside level-1 (mobile drill-down) share the same
+  // state-checkbox grid behaviour as the level-0 category nav-items.
+  .floating-filter-panel__drawer .main-menu__col--level-1 {
+    .nav-item.has-submenu {
+      grid-template-columns: 1fr 30px;
+
+      .category-state-checkbox {
+        display: none;
+        pointer-events: none;
+      }
+    }
+
+    .nav-item.has-submenu[data-filter-state="checked"],
+    .nav-item.has-submenu[data-filter-state="indeterminate"] {
+      grid-template-columns: 1fr 1rem 30px;
+
+      .category-state-checkbox {
+        display: block;
+      }
+    }
+  }
+
+  // Hide the desktop-only inline subcategory sections on mobile
+  .desktop-subcategory {
+    display: none;
+  }
+
   .floating-filter-panel__drawer .submenu-header {
     display: grid;
     grid-template-columns: 1fr 30px;
@@ -733,6 +781,16 @@
   .mobile-applied-chips-item,
   .mobile-applied-chips,
   .category-state-checkbox {
+    display: none !important;
+  }
+
+  // Mobile-only elements hidden on desktop
+  .mobile-subcategory-nav {
+    display: none !important;
+  }
+
+  // Level-2 subcategory columns are mobile-only; never shown on desktop
+  .main-menu__col--level-2 {
     display: none !important;
   }
 }
