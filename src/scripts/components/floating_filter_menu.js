@@ -31,8 +31,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // ── Helpers ─────────────────────────────────────────────────────────────────
 
   const menuToggle = document.querySelector(".menu-toggle");
+  const headerWrapper = document.querySelector(".header-wrapper");
 
   const CLASS_OPEN = "is-open";
+  const CLASS_FILTERS_OPEN = "is-filters-open";
   const CLASS_ACTIVE_LEVEL = "active-level";
   const CLASS_ACTIVE = "active";
   const CLASS_HAS_SUBMENU = "has-submenu";
@@ -141,9 +143,14 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.style.overflow = "hidden";
     // On mobile: switch the header hamburger button to its X (open) state so
     // the user can close the filter panel via the same header control.
-    if (isMobile() && menuToggle) {
-      menuToggle.classList.add("open");
-      menuToggle.setAttribute("aria-expanded", "true");
+    // Also add a modifier class to the header wrapper so styles can reflect
+    // that the filters are open.
+    if (isMobile()) {
+      if (menuToggle) {
+        menuToggle.classList.add("open");
+        menuToggle.setAttribute("aria-expanded", "true");
+      }
+      if (headerWrapper) headerWrapper.classList.add(CLASS_FILTERS_OPEN);
     }
     // Always start at the root level
     goToLevel("filter-level-0", null, false);
@@ -162,10 +169,12 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.style.overflow = "";
     // Restore the header hamburger button to its default state (in case it was
     // switched to the X state when the filter panel was opened on mobile).
+    // Also remove the mobile-filters modifier class from the header wrapper.
     if (menuToggle) {
       menuToggle.classList.remove("open");
       menuToggle.setAttribute("aria-expanded", "false");
     }
+    if (headerWrapper) headerWrapper.classList.remove(CLASS_FILTERS_OPEN);
     // Reset to root level so the panel is ready on next open
     goToLevel("filter-level-0", null, false);
     // Show the summary bar if there are active filters
