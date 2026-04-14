@@ -44,6 +44,33 @@ document.addEventListener("DOMContentLoaded", () => {
   const allCols = panel.querySelectorAll(".main-menu__col");
 
   /**
+   * Build the ordered list of column IDs that must be visible (active-level)
+   * to reach a target column, walking up via data-parent-id attributes.
+   *
+   * Examples:
+   *   "filter-level-0"                        → ["filter-level-0"]
+   *   "filter-level-industries"               → ["filter-level-0", "filter-level-industries"]
+   *   "filter-level-industries-metals-mining" →
+   *     ["filter-level-0", "filter-level-industries", "filter-level-industries-metals-mining"]
+   */
+  function getAncestorChain(targetId) {
+    const chain = [];
+    let currentId = targetId;
+    while (currentId) {
+      chain.unshift(currentId);
+      if (currentId === "filter-level-0") break;
+      const col = panel.querySelector(`#${CSS.escape(currentId)}`);
+      const parentId = col ? col.getAttribute("data-parent-id") : null;
+      // Default parent is the root when no data-parent-id is set
+      currentId = parentId || "filter-level-0";
+      // Safety: stop if we've already added this id (prevents infinite loops)
+      if (chain.includes(currentId)) break;
+    }
+    if (!chain.includes("filter-level-0")) chain.unshift("filter-level-0");
+    return chain;
+  }
+
+  /**
    * Navigate to a filter level column.
    *
    * Mirrors the goToLevel() logic in menu_controller.js:
@@ -53,9 +80,10 @@ document.addEventListener("DOMContentLoaded", () => {
    *    "has-sub-panel" class is toggled on the drawer so CSS can widen it.
    *    data-current-level is NOT updated (no slide animation on desktop).
    *
-   *  – On mobile: root + target column are both marked active-level (so
-   *    the CSS slide works), and data-current-level is updated to trigger
-   *    the translateX slide animation that reveals the target column.
+   *  – On mobile: the full ancestor chain of columns is marked active-level
+   *    (so each slide position is occupied) and data-current-level is updated
+   *    to trigger the translateX slide animation that reveals the target column.
+   *    Level 2 columns slide to translateX(-200%).
    */
   function goToLevel(targetId, activeItem, isForward) {
     // Clear active state across all columns
@@ -70,10 +98,14 @@ document.addEventListener("DOMContentLoaded", () => {
       activeItem.classList.add(CLASS_ACTIVE);
     }
 
-    // Show the root column (filter-level-0) alongside the target column.
+    // Determine which columns to show: the full ancestor chain from root to target.
+    // On mobile this ensures each slide position (0, 1, 2…) is occupied so the
+    // translateX animation reveals the correct column.
+    const colsToShow = new Set(getAncestorChain(targetId));
+
     allCols.forEach((col) => {
       const colId = col.getAttribute("id");
-      if (colId === targetId || colId === "filter-level-0") {
+      if (colsToShow.has(colId)) {
         col.classList.add(CLASS_ACTIVE_LEVEL);
       } else {
         col.classList.remove(CLASS_ACTIVE_LEVEL);
@@ -204,18 +236,53 @@ document.addEventListener("DOMContentLoaded", () => {
   // ── Active filter badge counter ───────────────────────────────────────────────
 
   function updateBadges() {
-    // Per-group state indicators (shown in level-0 list on mobile)
+    // Sync subcategory-all-checkboxes (level-2 screens) to reflect child state
+    allCols.forEach((col) => {
+      const allCb = col.querySelector(".subcategory-all-checkbox");
+      if (!allCb) return;
+      const childCbs = Array.from(
+        col.querySelectorAll(".filter-checkbox:not(.subcategory-all-checkbox)")
+      );
+      if (childCbs.length === 0) return;
+      const checkedCount = childCbs.filter((cb) => cb.checked).length;
+      allCb.checked = checkedCount === childCbs.length;
+      allCb.indeterminate = checkedCount > 0 && checkedCount < childCbs.length;
+    });
+
+    // Per-group state indicators (shown in parent level list on mobile)
     allCols.forEach((col) => {
       const colId = col.getAttribute("id");
       if (!colId || colId === "filter-level-0") return;
 
-      const checkboxes = Array.from(col.querySelectorAll(".filter-checkbox"));
-      const checkedCount = checkboxes.filter((cb) => cb.checked).length;
-      const totalCount = checkboxes.length;
-
-      // Find the nav-item in level-0 that points to this column
+      // Find the nav-item that opens this column
       const navItem = panel.querySelector(`.nav-item[data-target="${colId}"]`);
       if (!navItem) return;
+
+      // On mobile, if this column has level-2 children, aggregate their
+      // checkboxes instead of this column's own desktop checkboxes.
+      const childCols = Array.from(allCols).filter(
+        (c) => c.getAttribute("data-parent-id") === colId
+      );
+
+      let checkboxes;
+      if (childCols.length > 0 && isMobile()) {
+        checkboxes = childCols.flatMap((c) =>
+          Array.from(
+            c.querySelectorAll(
+              ".filter-checkbox:not(.subcategory-all-checkbox)"
+            )
+          )
+        );
+      } else {
+        checkboxes = Array.from(
+          col.querySelectorAll(
+            ".filter-checkbox:not(.category-state-checkbox):not(.subcategory-all-checkbox)"
+          )
+        );
+      }
+
+      const checkedCount = checkboxes.filter((cb) => cb.checked).length;
+      const totalCount = checkboxes.length;
 
       // Determine state: unchecked / indeterminate / checked
       let state = "unchecked";
@@ -252,6 +319,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   panel.addEventListener("change", (e) => {
     if (e.target.classList.contains("filter-checkbox")) {
+      // Subcategory "select all" checkbox: propagate to all child checkboxes
+      if (e.target.classList.contains("subcategory-all-checkbox")) {
+        const col = e.target.closest(".main-menu__col");
+        if (col) {
+          col
+            .querySelectorAll(".filter-checkbox:not(.subcategory-all-checkbox)")
+            .forEach((cb) => {
+              cb.checked = e.target.checked;
+            });
+        }
+      }
       updateBadges();
       dispatchFilterChange();
     }
@@ -270,7 +348,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!mobileChipsEl) return;
 
     const checkedBoxes = Array.from(
-      panel.querySelectorAll(".filter-checkbox:checked:not(.category-state-checkbox)")
+      panel.querySelectorAll(".filter-checkbox:checked:not(.category-state-checkbox):not(.subcategory-all-checkbox)")
     );
 
     // Rebuild chip list
@@ -330,7 +408,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!summaryBar || !summaryChips) return;
 
     const checkedBoxes = Array.from(
-      panel.querySelectorAll(".filter-checkbox:checked:not(.category-state-checkbox)")
+      panel.querySelectorAll(".filter-checkbox:checked:not(.category-state-checkbox):not(.subcategory-all-checkbox)")
     );
 
     // Rebuild chip list
@@ -393,7 +471,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (clearBtn) {
     clearBtn.addEventListener("click", () => {
       panel
-        .querySelectorAll(".filter-checkbox:checked:not(.category-state-checkbox)")
+        .querySelectorAll(".filter-checkbox:checked:not(.category-state-checkbox):not(.subcategory-all-checkbox)")
         .forEach((cb) => {
           cb.checked = false;
         });
@@ -424,11 +502,19 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!filterKey) return;
 
       const checked = Array.from(
-        col.querySelectorAll(".filter-checkbox:checked")
+        col.querySelectorAll(
+          ".filter-checkbox:not(.subcategory-all-checkbox):checked"
+        )
       ).map((cb) => cb.value);
 
       if (checked.length > 0) {
-        data[filterKey] = checked;
+        if (data[filterKey]) {
+          // Merge values from multiple columns sharing the same filter key
+          // (e.g. level-1 desktop checkboxes + level-2 mobile checkboxes)
+          data[filterKey] = [...new Set([...data[filterKey], ...checked])];
+        } else {
+          data[filterKey] = checked;
+        }
       }
     });
     return data;
