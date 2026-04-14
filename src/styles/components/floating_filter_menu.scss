@@ -596,7 +596,7 @@
 .floating-filter-panel__drawer .main-menu__col--level-0,
 .floating-filter-panel__drawer .main-menu__col--level-1 {
   .nav-item.has-submenu {
-    grid-template-columns: 1fr 1rem max-content;
+    grid-template-columns: 1fr max-content;
 
     .category-state-checkbox {
       display: none;
@@ -702,7 +702,7 @@
 
   .floating-filter-panel__drawer .submenu-header {
     display: grid;
-    grid-template-columns: 1fr 1rem max-content;
+    grid-template-columns: 1fr max-content;
     align-items: center;
     min-height: 50px;
     height: auto;
