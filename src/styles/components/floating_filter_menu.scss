@@ -486,6 +486,21 @@
       }
     }
 
+    &:indeterminate {
+      border-color: rgba(129, 254, 229, 0.8);
+
+      &::after {
+        top: 5px;
+        left: 1px;
+        width: 10px;
+        height: 2px;
+        border: none;
+        border-radius: 1px;
+        background: rgba(129, 254, 229, 0.8);
+        transform: none;
+      }
+    }
+
     &[type="radio"] {
       border-radius: 50%;
 
@@ -543,12 +558,31 @@
     width: 100%;
   }
 
+  // Mobile applied chips section – shown below filter categories, above Rank By
+  .mobile-applied-chips-item {
+    display: none;
+    padding: 0;
+    list-style: none;
+
+    &:has(.mobile-applied-chips:not(:empty)) {
+      display: block;
+      padding: 12px 24px 4px;
+    }
+  }
+
+  .mobile-applied-chips-label {
+    display: block;
+    @include text-body-small;
+    color: var(--color-grey-200);
+    text-transform: lowercase;
+    margin-bottom: 8px;
+  }
+
   .mobile-applied-chips {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 8px;
-    padding: 0 24px 16px;
 
     &:empty {
       display: none;
@@ -594,39 +628,88 @@
     }
   }
 
+  // Category rows with selected child filters: show checkbox on the right (before the arrow)
   .floating-filter-panel__drawer .main-menu__col--level-0 {
-    .nav-item.has-submenu[data-filter-state] {
-      grid-template-columns: 26px 1fr 30px;
+    .nav-item.has-submenu {
+      // Default: two columns (label, arrow). Checkbox is hidden.
+      grid-template-columns: 1fr 30px;
 
-      &::before {
-        content: "";
+      .category-state-checkbox {
+        display: none;
+        pointer-events: none;
+      }
+    }
+
+    // When filters are selected: show checkbox to the right of the label, left of the arrow
+    .nav-item.has-submenu[data-filter-state="checked"],
+    .nav-item.has-submenu[data-filter-state="indeterminate"] {
+      grid-template-columns: 1fr 26px 30px;
+
+      .category-state-checkbox {
         display: block;
-        width: 16px;
-        height: 16px;
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        border-radius: 3px;
-        align-self: center;
-        flex-shrink: 0;
-        position: relative;
-        transition: border-color 0.2s ease, background-color 0.2s ease;
+      }
+    }
+  }
+
+  // Back navigation rows: match regular nav-item styling with left-pointing arrow
+  .floating-filter-panel__drawer .submenu-header {
+    display: grid;
+    grid-template-columns: 1fr 30px;
+    align-items: center;
+    min-height: 50px;
+    height: auto;
+    padding: 12px 24px;
+    background: none;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    gap: 1rem;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    color: var(--color-grey-200);
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: $primary-gradient-5;
+
+      .submenu-header__title {
+        color: white;
       }
 
-      &[data-filter-state="checked"]::before {
-        background-color: #80f7e6;
-        border-color: transparent;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23000' stroke='%23000' stroke-width='0.5' d='M2 8l4 4 8-8'/%3E%3C/svg%3E");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 10px;
+      .back-arrow {
+        color: white;
       }
+    }
 
-      &[data-filter-state="indeterminate"]::before {
-        border-color: rgba(129, 254, 229, 0.8);
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='3' y='7' width='10' height='2' rx='1' fill='%2380f7e6'/%3E%3C/svg%3E");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 12px;
+    .submenu-header__title {
+      @include text-body-small;
+      color: inherit;
+      margin: 0;
+      font-family: inherit;
+      text-transform: capitalize;
+    }
+
+    .back-arrow {
+      width: 26px;
+      height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--color-grey-200);
+
+      svg {
+        width: 14px;
+        height: 14px;
       }
+    }
+
+    // Hide unused gradient title style
+    .submenu-title {
+      display: none;
     }
   }
 }
@@ -644,7 +727,9 @@
   }
 
   .submenu-category-row,
-  .mobile-applied-chips {
+  .mobile-applied-chips-item,
+  .mobile-applied-chips,
+  .category-state-checkbox {
     display: none !important;
   }
 }
