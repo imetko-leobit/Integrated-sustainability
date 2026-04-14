@@ -113,6 +113,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     // Always start at the root level
     goToLevel("filter-level-0", null, false);
+    // Update mobile chips and hide the summary bar while panel is open
+    updateMobileChips();
     // Hide the summary bar while the filter panel is open
     if (summaryBar) summaryBar.classList.remove("is-visible");
   }
@@ -201,8 +203,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const colId = col.getAttribute("id");
       if (!colId || colId === "filter-level-0") return;
 
-      const checkboxes = col.querySelectorAll(".filter-checkbox:checked");
-      const count = checkboxes.length;
+      const checkboxes = Array.from(col.querySelectorAll(".filter-checkbox"));
+      const checkedCount = checkboxes.filter((cb) => cb.checked).length;
+      const totalCount = checkboxes.length;
 
       // Find the nav-item in level-0 that points to this column
       const navItem = panel.querySelector(`.nav-item[data-target="${colId}"]`);
@@ -210,9 +213,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const badge = navItem.querySelector(".filter-count");
       if (badge) {
-        badge.textContent = count;
-        badge.classList.toggle("is-visible", count > 0);
+        badge.textContent = checkedCount;
+        badge.classList.toggle("is-visible", checkedCount > 0);
       }
+
+      // Update checkbox state indicator (mobile: checked / indeterminate / unchecked)
+      let state = "unchecked";
+      if (totalCount > 0) {
+        if (checkedCount === totalCount) {
+          state = "checked";
+        } else if (checkedCount > 0) {
+          state = "indeterminate";
+        }
+      }
+      navItem.setAttribute("data-filter-state", state);
     });
 
     // Global badge on the trigger button
@@ -222,6 +236,9 @@ document.addEventListener("DOMContentLoaded", () => {
       globalBadge.textContent = totalChecked;
       globalBadge.classList.toggle("is-visible", totalChecked > 0);
     }
+
+    // Update the mobile chips inside the panel (level-0 main screen)
+    updateMobileChips();
   }
 
   panel.addEventListener("change", (e) => {
@@ -230,6 +247,67 @@ document.addEventListener("DOMContentLoaded", () => {
       dispatchFilterChange();
     }
   });
+
+  // ── Mobile applied chips (inside the level-0 main screen) ────────────────
+
+  /**
+   * Populate the .mobile-applied-chips container inside the panel's level-0
+   * screen.  Only relevant on mobile — on desktop the element is hidden via CSS.
+   * Each chip mirrors the filter-summary-bar chip and lets the user remove a
+   * filter without leaving the main screen.
+   */
+  function updateMobileChips() {
+    const mobileChipsEl = panel.querySelector(".mobile-applied-chips");
+    if (!mobileChipsEl) return;
+
+    const checkedBoxes = Array.from(
+      panel.querySelectorAll(".filter-checkbox:checked")
+    );
+
+    // Rebuild chip list
+    mobileChipsEl.innerHTML = "";
+    checkedBoxes.forEach((cb) => {
+      const chip = buildMobileChip(cb);
+      mobileChipsEl.appendChild(chip);
+    });
+  }
+
+  /**
+   * Create a single chip element for the mobile chips container.
+   * Clicking the close button unchecks the box and refreshes state.
+   */
+  function buildMobileChip(cb) {
+    const labelEl =
+      cb.closest("label") ||
+      (cb.id ? panel.querySelector(`label[for="${cb.id}"]`) : null);
+    const labelText = labelEl
+      ? labelEl.textContent.trim()
+      : cb.value.replace(/[-_]/g, " ");
+
+    const chip = document.createElement("span");
+    chip.className = "mobile-applied-chips__chip";
+    chip.setAttribute("role", "listitem");
+
+    const text = document.createElement("span");
+    text.textContent = labelText;
+
+    const closeBtn = document.createElement("button");
+    closeBtn.className = "mobile-applied-chips__chip-close";
+    closeBtn.setAttribute("aria-label", `Remove filter: ${labelText}`);
+    closeBtn.innerHTML =
+      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1l8 8M9 1l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>';
+
+    closeBtn.addEventListener("click", () => {
+      cb.checked = false;
+      updateBadges();
+      dispatchFilterChange();
+      updateSummaryBar();
+    });
+
+    chip.appendChild(text);
+    chip.appendChild(closeBtn);
+    return chip;
+  }
 
   // ── Filter summary bar ───────────────────────────────────────────────────────
 
