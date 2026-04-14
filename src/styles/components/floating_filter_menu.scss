@@ -572,9 +572,11 @@
       padding: 4px 10px;
       border-radius: 20px;
       background: $primary-gradient-5;
-      @include text-body-small;
       color: white;
+      font-family: "Poppins", "Roboto", "Arial", sans-serif;
       font-size: 12px;
+      line-height: 20px;
+      font-weight: 400;
     }
 
     .mobile-applied-chips__chip-close {

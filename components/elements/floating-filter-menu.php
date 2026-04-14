@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="../assets/css/components-floating_filter_menu.css" />
 
 <!-- Hidden filter form kept for JS compatibility with FilterHandler.js -->
-<form class="filter-form" data-post-type="projects" style="display:none;" aria-hidden="true">
+<form class="filter-form" data-post-type="projects" style="display:none;">
   <select name="locations[]" multiple="">
     <option value="canada">Canada</option>
     <option value="yukon">Yukon</option>
@@ -62,7 +62,7 @@
   aria-controls="floating-filter-panel"
 >
   <!-- Filter icon -->
-  <span class="floating-filter-btn__icon" aria-hidden="true">
+  <span class="floating-filter-btn__icon">
       <!-- Filter icon -->
     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
     <mask id="mask0_11316_50674" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="3" y="3" width="24" height="26">
@@ -83,7 +83,7 @@
   aria-controls="floating-filter-panel"
 >
   <!-- Filter icon -->
-  <span class="floating-filter-btn__icon" aria-hidden="true">
+  <span class="floating-filter-btn__icon">
       <!-- Filter icon -->
     <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33" fill="none">
     <path d="M18.6684 10.9647L15.701 13.9321L14.3818 12.6129C14.338 12.5708 14.2882 12.5382 14.2315 12.5158C14.1747 12.4935 14.1163 12.4823 14.0553 12.4832C13.9943 12.4832 13.9358 12.4952 13.8791 12.5193C13.8232 12.5425 13.7734 12.576 13.7304 12.619C13.6875 12.6619 13.654 12.7118 13.6299 12.7685C13.6067 12.8243 13.5947 12.8828 13.5938 12.9438C13.5929 13.0048 13.6041 13.0632 13.6265 13.12C13.6497 13.1767 13.6815 13.2274 13.7236 13.2712L15.3718 14.9195C15.4157 14.9625 15.4655 14.996 15.5231 15.0192C15.5798 15.0432 15.6391 15.0544 15.701 15.0544C15.7629 15.0544 15.8222 15.0432 15.8789 15.0192C15.9356 14.996 15.9863 14.9625 16.0301 14.9195L19.3267 11.6229C19.3688 11.5791 19.4015 11.5284 19.4238 11.4717C19.4461 11.415 19.4573 11.3565 19.4573 11.2955C19.4565 11.2345 19.4444 11.1761 19.4204 11.1193C19.3972 11.0635 19.3636 11.0136 19.3207 10.9707C19.2777 10.9277 19.2279 10.8942 19.1711 10.8701C19.1153 10.8469 19.0568 10.8349 18.9958 10.834C18.9348 10.8332 18.8755 10.8443 18.8188 10.8675C18.7621 10.8899 18.7122 10.9225 18.6684 10.9647Z" fill="white"/>
@@ -107,7 +107,7 @@
   aria-label="Filter panel"
 >
   <!-- Backdrop -->
-  <div class="floating-filter-panel__backdrop" aria-hidden="true"></div>
+  <div class="floating-filter-panel__backdrop"></div>
 
   <!-- Drawer -->
   <div class="floating-filter-panel__drawer" role="document">
@@ -119,7 +119,7 @@
         aria-controls="floating-filter-panel"
       >
         <!-- Filter icon -->
-        <span class="floating-filter-btn__icon" aria-hidden="true">
+        <span class="floating-filter-btn__icon">
             <!-- Filter icon -->
           <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34" fill="none">
           <mask id="mask0_11301_47900" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="3" y="3" width="28" height="28">
@@ -140,7 +140,7 @@
         aria-controls="floating-filter-panel"
       >
         <!-- Filter icon -->
-        <span class="floating-filter-btn__icon" aria-hidden="true">
+        <span class="floating-filter-btn__icon">
             <!-- Filter icon -->
           <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33" fill="none">
           <path d="M18.6684 10.9647L15.701 13.9321L14.3818 12.6129C14.338 12.5708 14.2882 12.5382 14.2315 12.5158C14.1747 12.4935 14.1163 12.4823 14.0553 12.4832C13.9943 12.4832 13.9358 12.4952 13.8791 12.5193C13.8232 12.5425 13.7734 12.576 13.7304 12.619C13.6875 12.6619 13.654 12.7118 13.6299 12.7685C13.6067 12.8243 13.5947 12.8828 13.5938 12.9438C13.5929 13.0048 13.6041 13.0632 13.6265 13.12C13.6497 13.1767 13.6815 13.2274 13.7236 13.2712L15.3718 14.9195C15.4157 14.9625 15.4655 14.996 15.5231 15.0192C15.5798 15.0432 15.6391 15.0544 15.701 15.0544C15.7629 15.0544 15.8222 15.0432 15.8789 15.0192C15.9356 14.996 15.9863 14.9625 16.0301 14.9195L19.3267 11.6229C19.3688 11.5791 19.4015 11.5284 19.4238 11.4717C19.4461 11.415 19.4573 11.3565 19.4573 11.2955C19.4565 11.2345 19.4444 11.1761 19.4204 11.1193C19.3972 11.0635 19.3636 11.0136 19.3207 10.9707C19.2777 10.9277 19.2279 10.8942 19.1711 10.8701C19.1153 10.8469 19.0568 10.8349 18.9958 10.834C18.9348 10.8332 18.8755 10.8443 18.8188 10.8675C18.7621 10.8899 18.7122 10.9225 18.6684 10.9647Z" fill="white"/>
@@ -266,13 +266,13 @@
         <!-- ── Level 1 – Locations ──────────────────────────────────────── -->
         <!-- Identical structure to main-menu level-1 submenu -->
         <div id="filter-level-locations" class="main-menu__col main-menu__col--level-1 submenu" data-level="1" data-filter-key="locations">
-          <button class="submenu-header" data-prev-target="filter-level-0" aria-label="Go back to main filters">
+          <button class="submenu-header" data-prev-target="filter-level-0" aria-label="Go back to Filters">
             <h3 class="submenu-header__title">Filters</h3>
             <span class="back-arrow">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><mask id="mfilt-loc" width="24" height="24" x="0" y="0" maskUnits="userSpaceOnUse" style="mask-type:alpha"><path fill="#D9D9D9" d="M0 0h24v24H0z"/></mask><g mask="url(#mfilt-loc)"><path fill="#80F7E6" d="M10 22 0 12 10 2l1.775 1.775L3.55 12l8.225 8.225L10 22Z"/></g></svg>
             </span>
           </button>
-          <div class="submenu-category-row" aria-hidden="true">
+          <div class="submenu-category-row">
             <span class="submenu-category-name">locations</span>
             <span class="submenu-category-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"><path fill="#80F7E6" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg></span>
           </div>
@@ -294,13 +294,13 @@
 
         <!-- ── Level 1 – Industries ─────────────────────────────────────── -->
         <div id="filter-level-industries" class="main-menu__col main-menu__col--level-1 submenu" data-level="1" data-filter-key="industries">
-          <button class="submenu-header" data-prev-target="filter-level-0" aria-label="Go back to main filters">
+          <button class="submenu-header" data-prev-target="filter-level-0" aria-label="Go back to Filters">
             <h3 class="submenu-header__title">Filters</h3>
             <span class="back-arrow">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><mask id="mfilt-ind" width="24" height="24" x="0" y="0" maskUnits="userSpaceOnUse" style="mask-type:alpha"><path fill="#D9D9D9" d="M0 0h24v24H0z"/></mask><g mask="url(#mfilt-ind)"><path fill="#80F7E6" d="M10 22 0 12 10 2l1.775 1.775L3.55 12l8.225 8.225L10 22Z"/></g></svg>
             </span>
           </button>
-          <div class="submenu-category-row" aria-hidden="true">
+          <div class="submenu-category-row">
             <span class="submenu-category-name">industries</span>
             <span class="submenu-category-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"><path fill="#80F7E6" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg></span>
           </div>
@@ -322,13 +322,13 @@
 
         <!-- ── Level 1 – Project Services ──────────────────────────────── -->
         <div id="filter-level-services" class="main-menu__col main-menu__col--level-1 submenu" data-level="1" data-filter-key="project_services">
-          <button class="submenu-header" data-prev-target="filter-level-0" aria-label="Go back to main filters">
+          <button class="submenu-header" data-prev-target="filter-level-0" aria-label="Go back to Filters">
             <h3 class="submenu-header__title">Filters</h3>
             <span class="back-arrow">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><mask id="mfilt-svc" width="24" height="24" x="0" y="0" maskUnits="userSpaceOnUse" style="mask-type:alpha"><path fill="#D9D9D9" d="M0 0h24v24H0z"/></mask><g mask="url(#mfilt-svc)"><path fill="#80F7E6" d="M10 22 0 12 10 2l1.775 1.775L3.55 12l8.225 8.225L10 22Z"/></g></svg>
             </span>
           </button>
-          <div class="submenu-category-row" aria-hidden="true">
+          <div class="submenu-category-row">
             <span class="submenu-category-name">project services</span>
             <span class="submenu-category-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"><path fill="#80F7E6" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg></span>
           </div>
@@ -350,13 +350,13 @@
 
         <!-- ── Level 1 – Tags ───────────────────────────────────────────── -->
         <div id="filter-level-tags" class="main-menu__col main-menu__col--level-1 submenu" data-level="1" data-filter-key="project_tags">
-          <button class="submenu-header" data-prev-target="filter-level-0" aria-label="Go back to main filters">
+          <button class="submenu-header" data-prev-target="filter-level-0" aria-label="Go back to Filters">
             <h3 class="submenu-header__title">Filters</h3>
             <span class="back-arrow">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><mask id="mfilt-tag" width="24" height="24" x="0" y="0" maskUnits="userSpaceOnUse" style="mask-type:alpha"><path fill="#D9D9D9" d="M0 0h24v24H0z"/></mask><g mask="url(#mfilt-tag)"><path fill="#80F7E6" d="M10 22 0 12 10 2l1.775 1.775L3.55 12l8.225 8.225L10 22Z"/></g></svg>
             </span>
           </button>
-          <div class="submenu-category-row" aria-hidden="true">
+          <div class="submenu-category-row">
             <span class="submenu-category-name">tags</span>
             <span class="submenu-category-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"><path fill="#80F7E6" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg></span>
           </div>
@@ -438,13 +438,13 @@
 
         <!-- ── Level 1 – Rank By ────────────────────────────────────────── -->
         <div id="filter-level-rank" class="main-menu__col main-menu__col--level-1 submenu" data-level="1" data-filter-key="rank">
-          <button class="submenu-header" data-prev-target="filter-level-0" aria-label="Go back to main filters">
+          <button class="submenu-header" data-prev-target="filter-level-0" aria-label="Go back to Filters">
             <h3 class="submenu-header__title">Filters</h3>
             <span class="back-arrow">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><mask id="mfilt-rank" width="24" height="24" x="0" y="0" maskUnits="userSpaceOnUse" style="mask-type:alpha"><path fill="#D9D9D9" d="M0 0h24v24H0z"/></mask><g mask="url(#mfilt-rank)"><path fill="#80F7E6" d="M10 22 0 12 10 2l1.775 1.775L3.55 12l8.225 8.225L10 22Z"/></g></svg>
             </span>
           </button>
-          <div class="submenu-category-row" aria-hidden="true">
+          <div class="submenu-category-row">
             <span class="submenu-category-name">rank by</span>
             <span class="submenu-category-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"><path fill="#80F7E6" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg></span>
           </div>
