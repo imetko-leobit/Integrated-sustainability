@@ -198,7 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ── Active filter badge counter ───────────────────────────────────────────────
 
   function updateBadges() {
-    // Per-group badges (shown in level-0 list, inside the nav-link span)
+    // Per-group state indicators (shown in level-0 list on mobile)
     allCols.forEach((col) => {
       const colId = col.getAttribute("id");
       if (!colId || colId === "filter-level-0") return;
@@ -211,13 +211,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const navItem = panel.querySelector(`.nav-item[data-target="${colId}"]`);
       if (!navItem) return;
 
-      const badge = navItem.querySelector(".filter-count");
-      if (badge) {
-        badge.textContent = checkedCount;
-        badge.classList.toggle("is-visible", checkedCount > 0);
-      }
-
-      // Update checkbox state indicator (mobile: checked / indeterminate / unchecked)
+      // Determine state: unchecked / indeterminate / checked
       let state = "unchecked";
       if (totalCount > 0) {
         if (checkedCount === totalCount) {
@@ -227,10 +221,17 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
       navItem.setAttribute("data-filter-state", state);
+
+      // Update the real checkbox input to reflect category state
+      const stateCheckbox = navItem.querySelector(".category-state-checkbox");
+      if (stateCheckbox) {
+        stateCheckbox.checked = state === "checked";
+        stateCheckbox.indeterminate = state === "indeterminate";
+      }
     });
 
     // Global badge on the trigger button
-    const totalChecked = panel.querySelectorAll(".filter-checkbox:checked").length;
+    const totalChecked = panel.querySelectorAll(".filter-checkbox:not(.category-state-checkbox):checked").length;
     const globalBadge = triggerBtn.querySelector(".floating-filter-btn__badge");
     if (globalBadge) {
       globalBadge.textContent = totalChecked;
@@ -261,7 +262,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!mobileChipsEl) return;
 
     const checkedBoxes = Array.from(
-      panel.querySelectorAll(".filter-checkbox:checked")
+      panel.querySelectorAll(".filter-checkbox:checked:not(.category-state-checkbox)")
     );
 
     // Rebuild chip list
@@ -321,7 +322,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!summaryBar || !summaryChips) return;
 
     const checkedBoxes = Array.from(
-      panel.querySelectorAll(".filter-checkbox:checked")
+      panel.querySelectorAll(".filter-checkbox:checked:not(.category-state-checkbox)")
     );
 
     // Rebuild chip list
@@ -384,7 +385,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (clearBtn) {
     clearBtn.addEventListener("click", () => {
       panel
-        .querySelectorAll(".filter-checkbox:checked")
+        .querySelectorAll(".filter-checkbox:checked:not(.category-state-checkbox)")
         .forEach((cb) => {
           cb.checked = false;
         });
