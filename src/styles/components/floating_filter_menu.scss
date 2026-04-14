@@ -190,7 +190,7 @@
     background-size: cover;
 
     @media (max-width: 991px) {
-      padding: 0;
+      padding: 1.5rem 0 0;
     }
 
     &::-webkit-scrollbar {
@@ -207,7 +207,7 @@
     padding-bottom: 90px;
 
     @media (max-width: 991px) {
-      padding: 2rem 0;
+      padding-bottom: 2rem;
     }
 
     .main-menu__title {
@@ -219,8 +219,11 @@
       text-transform: capitalize;
 
       @media (max-width: 991px) {
+        height: 50px;
+        display: flex;
+        align-items: center;
         margin-top: 0;
-        margin-bottom: 2.5rem;
+        margin-bottom: 1.5rem;
         @include text-body-small;
       }
     }
@@ -429,9 +432,9 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 14px 24px;
-    background: $primary-gradient-5;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 0 24px;
+    margin-top: 1.5rem;
+    height: 50px;
 
     .submenu-category-name {
       @include text-body-small;
@@ -466,8 +469,8 @@
     &::after {
       content: "";
       position: absolute;
-      top: 1px;
-      left: 4px;
+      top: 2px;
+      left: 6px;
       width: 5px;
       height: 9px;
       border: 2px solid transparent;
@@ -479,7 +482,7 @@
 
     &:checked {
       background: $primary-gradient;
-      border-color: transparent;
+      border: none;
 
       &::after {
         border-color: #000;
@@ -639,7 +642,7 @@
 
     .nav-item.has-submenu[data-filter-state="checked"],
     .nav-item.has-submenu[data-filter-state="indeterminate"] {
-      grid-template-columns: 1fr 26px 30px;
+      grid-template-columns: 1fr 1rem 30px;
 
       .category-state-checkbox {
         display: block;
@@ -653,10 +656,9 @@
     align-items: center;
     min-height: 50px;
     height: auto;
-    padding: 12px 24px;
+    padding: 0 1.5rem;
     background: none;
     border: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     gap: 1rem;
     width: 100%;
     text-align: left;
@@ -688,18 +690,10 @@
     }
 
     .back-arrow {
-      width: 26px;
-      height: 26px;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-end;
       flex-shrink: 0;
-      color: var(--color-grey-200);
-
-      svg {
-        width: 14px;
-        height: 14px;
-      }
     }
 
     .submenu-title {

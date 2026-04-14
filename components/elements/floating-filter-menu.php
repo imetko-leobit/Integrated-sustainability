@@ -248,14 +248,30 @@
         <!-- Identical structure to main-menu level-1 submenu -->
         <div id="filter-level-locations" class="main-menu__col main-menu__col--level-1 submenu" data-level="1" data-filter-key="locations">
           <button class="submenu-header" data-prev-target="filter-level-0" aria-label="Go back to Filters">
-            <h3 class="submenu-header__title">Filters</h3>
+            <h3 class="submenu-header__title">Project Filter Menu</h3>
             <span class="back-arrow">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><mask id="mfilt-loc" width="24" height="24" x="0" y="0" maskUnits="userSpaceOnUse" style="mask-type:alpha"><path fill="#D9D9D9" d="M0 0h24v24H0z"/></mask><g mask="url(#mfilt-loc)"><path fill="#80F7E6" d="M10 22 0 12 10 2l1.775 1.775L3.55 12l8.225 8.225L10 22Z"/></g></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <mask id="mask0_11565_48723" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+              <rect width="24" height="24" fill="#D9D9D9"/>
+              </mask>
+              <g mask="url(#mask0_11565_48723)">
+              <path d="M16 22L6 12L16 2L17.775 3.775L9.55 12L17.775 20.225L16 22Z" fill="white"/>
+              </g>
+              </svg>
             </span>
           </button>
           <div class="submenu-category-row">
             <span class="submenu-category-name">locations</span>
-            <span class="submenu-category-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"><path fill="#80F7E6" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg></span>
+            <span class="submenu-category-arrow">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <mask id="mask0_11632_47943" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+              <rect y="24" width="24" height="24" transform="rotate(-90 0 24)" fill="#D9D9D9"/>
+              </mask>
+              <g mask="url(#mask0_11632_47943)">
+              <path d="M22 8L12 18L2 8L3.775 6.225L12 14.45L20.225 6.225L22 8Z" fill="white"/>
+              </g>
+              </svg>
+            </span>
           </div>
           <ul class="navbar-nav">
             <li class="nav-item">
