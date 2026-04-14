@@ -378,7 +378,7 @@
   .submenu-header {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     padding: 12px 24px;
     background: $primary-gradient-5;
@@ -395,13 +395,22 @@
     text-align: left;
 
     .back-arrow {
-      margin-top: 5px;
+      margin-top: 0;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
     }
 
+    .submenu-header__title {
+      width: auto;
+      margin: 0;
+      @include text-body-small;
+      color: white;
+      text-transform: capitalize;
+    }
+
+    // Legacy submenu-title kept for any remaining instances
     .submenu-title {
       width: auto;
       margin: 0;
@@ -412,6 +421,37 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       text-transform: capitalize;
+    }
+  }
+}
+
+// ── Submenu category row (shown on mobile below level-1 header) ────────────
+// Hidden on desktop; visible on mobile to display the selected category name.
+.submenu-category-row {
+  display: none;
+}
+
+@media (max-width: 992px) {
+  .submenu-category-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 24px;
+    background: $primary-gradient-5;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    .submenu-category-name {
+      @include text-body-small;
+      color: white;
+      text-transform: capitalize;
+    }
+
+    .submenu-category-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
     }
   }
 }
@@ -502,9 +542,107 @@
     transform: translateX(-100%);
   }
 
+  // Level-2 (subcategory) support
+  .floating-filter-panel__content[data-current-level="2"] {
+    transform: translateX(-200%);
+  }
+
   .floating-filter-panel__drawer .main-menu__col {
     min-width: 100%;
     width: 100%;
+  }
+
+  // ── Mobile applied filter chips inside level-0 main screen ────────────────
+  .mobile-applied-chips {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0 24px 16px;
+
+    &:empty {
+      display: none;
+    }
+
+    // Reuse the summary-bar chip style
+    .mobile-applied-chips__chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: $primary-gradient-5;
+      color: white;
+      font-family: "Poppins", "Roboto", "Arial", sans-serif;
+      font-size: 12px;
+      line-height: 20px;
+      font-weight: 400;
+    }
+
+    .mobile-applied-chips__chip-close {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 14px;
+      height: 14px;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      color: var(--color-grey-200);
+      transition: color 0.2s ease;
+      flex-shrink: 0;
+
+      &:hover {
+        color: white;
+      }
+
+      svg {
+        width: 8px;
+        height: 8px;
+        fill: currentColor;
+      }
+    }
+  }
+
+  // ── Checkbox state indicators on level-0 category items ───────────────────
+  // These show checked / indeterminate / unchecked state for each category.
+  .floating-filter-panel__drawer .main-menu__col--level-0 {
+    .nav-item.has-submenu[data-filter-state] {
+      grid-template-columns: 26px 1fr 30px;
+
+      &::before {
+        content: "";
+        display: block;
+        width: 16px;
+        height: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 3px;
+        align-self: center;
+        flex-shrink: 0;
+        position: relative;
+        transition: border-color 0.2s ease, background-color 0.2s ease;
+      }
+
+      // Checked: all child values selected — solid fill + checkmark icon
+      &[data-filter-state="checked"]::before {
+        background-color: #80f7e6;
+        border-color: transparent;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23000' stroke='%23000' stroke-width='0.5' d='M2 8l4 4 8-8'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 10px;
+      }
+
+      // Indeterminate: some child values selected — dash icon
+      &[data-filter-state="indeterminate"]::before {
+        border-color: rgba(129, 254, 229, 0.8);
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='3' y='7' width='10' height='2' rx='1' fill='%2380f7e6'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 12px;
+      }
+    }
   }
 }
 
@@ -518,6 +656,12 @@
 
   .floating-filter-panel__drawer .submenu-header {
     display: none;
+  }
+
+  // Hide mobile-only elements on desktop
+  .submenu-category-row,
+  .mobile-applied-chips {
+    display: none !important;
   }
 }
 
