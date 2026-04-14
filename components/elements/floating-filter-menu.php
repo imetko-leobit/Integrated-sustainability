@@ -174,7 +174,7 @@
                 id="filter-cant-find-toggle"
                 class="filter-toggle__input"
                 name="show_credentials"
-                aria-label="Show credentials request"
+                aria-label="Toggle visibility of tailored credentials package request form"
               />
             </li>
 
