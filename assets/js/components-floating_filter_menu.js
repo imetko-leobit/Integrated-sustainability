@@ -1,3 +1,13 @@
+/******/ (() => { // webpackBootstrap
+/*!********************************************************!*\
+  !*** ./src/scripts/components/floating_filter_menu.js ***!
+  \********************************************************/
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 /**
  * FloatingFilterMenu
  *
@@ -14,34 +24,34 @@
  * All queries are scoped to the filter panel to avoid interfering with the
  * main menu controller.
  */
-document.addEventListener("DOMContentLoaded", () => {
-  const panel = document.querySelector(".floating-filter-panel");
-  const drawer = document.querySelector(".floating-filter-panel__drawer");
-  const triggerBtns = document.querySelectorAll(".floating-filter-trigger-btn");
-  const closeBtn = document.querySelector(".floating-filter-panel__btn-close");
-  const backdrop = document.querySelector(".floating-filter-panel__backdrop");
-  const content = document.querySelector(".floating-filter-panel__content");
-  const clearBtn = document.querySelector(".filter-clear-btn");
-  const applyBtn = document.querySelector(".filter-apply-btn");
-  const summaryBar = document.querySelector(".filter-summary-bar");
-  const summaryChips = document.querySelector(".filter-summary-bar__chips");
-
+document.addEventListener("DOMContentLoaded", function () {
+  var panel = document.querySelector(".floating-filter-panel");
+  var drawer = document.querySelector(".floating-filter-panel__drawer");
+  var triggerBtns = document.querySelectorAll(".floating-filter-trigger-btn");
+  var closeBtn = document.querySelector(".floating-filter-panel__btn-close");
+  var backdrop = document.querySelector(".floating-filter-panel__backdrop");
+  var content = document.querySelector(".floating-filter-panel__content");
+  var clearBtn = document.querySelector(".filter-clear-btn");
+  var applyBtn = document.querySelector(".filter-apply-btn");
+  var summaryBar = document.querySelector(".filter-summary-bar");
+  var summaryChips = document.querySelector(".filter-summary-bar__chips");
   if (!panel || !triggerBtns.length) return;
 
   // ── Helpers ─────────────────────────────────────────────────────────────────
 
-  const menuToggle = document.querySelector(".menu-toggle");
-
-  const CLASS_OPEN = "is-open";
-  const CLASS_ACTIVE_LEVEL = "active-level";
-  const CLASS_ACTIVE = "active";
-  const CLASS_HAS_SUBMENU = "has-submenu";
+  var menuToggle = document.querySelector(".menu-toggle");
+  var CLASS_OPEN = "is-open";
+  var CLASS_ACTIVE_LEVEL = "active-level";
+  var CLASS_ACTIVE = "active";
+  var CLASS_HAS_SUBMENU = "has-submenu";
 
   /** Mirrors the isMobile() helper in menu_controller.js. */
-  const isMobile = () => window.innerWidth <= 992;
+  var isMobile = function isMobile() {
+    return window.innerWidth <= 992;
+  };
 
   // All columns are scoped to the filter panel (same class as main menu).
-  const allCols = panel.querySelectorAll(".main-menu__col");
+  var allCols = panel.querySelectorAll(".main-menu__col");
 
   /**
    * Navigate to a filter level column.
@@ -59,10 +69,10 @@ document.addEventListener("DOMContentLoaded", () => {
    */
   function goToLevel(targetId, activeItem, isForward) {
     // Clear active state across all columns
-    allCols.forEach((col) => {
-      col
-        .querySelectorAll(`.${CLASS_ACTIVE}`)
-        .forEach((el) => el.classList.remove(CLASS_ACTIVE));
+    allCols.forEach(function (col) {
+      col.querySelectorAll(".".concat(CLASS_ACTIVE)).forEach(function (el) {
+        return el.classList.remove(CLASS_ACTIVE);
+      });
     });
 
     // Mark the clicked nav item as active
@@ -71,8 +81,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Show the root column (filter-level-0) alongside the target column.
-    allCols.forEach((col) => {
-      const colId = col.getAttribute("id");
+    allCols.forEach(function (col) {
+      var colId = col.getAttribute("id");
       if (colId === targetId || colId === "filter-level-0") {
         col.classList.add(CLASS_ACTIVE_LEVEL);
       } else {
@@ -87,12 +97,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Mobile only: update the slide animation via data-current-level.
     if (isMobile() && content) {
-      const targetCol = panel.querySelector(`#${CSS.escape(targetId)}`);
+      var targetCol = panel.querySelector("#".concat(CSS.escape(targetId)));
       if (targetCol) {
-        const level = parseInt(
-          targetCol.getAttribute("data-level") || "0",
-          10
-        );
+        var level = parseInt(targetCol.getAttribute("data-level") || "0", 10);
         content.setAttribute("data-current-level", level);
       }
     }
@@ -102,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function openPanel() {
     panel.classList.add(CLASS_OPEN);
-    triggerBtns.forEach((btn) => {
+    triggerBtns.forEach(function (btn) {
       btn.classList.add("is-active");
       btn.setAttribute("aria-expanded", "true");
     });
@@ -120,10 +127,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // Hide the summary bar while the filter panel is open
     if (summaryBar) summaryBar.classList.remove("is-visible");
   }
-
   function closePanel() {
     panel.classList.remove(CLASS_OPEN);
-    triggerBtns.forEach((btn) => {
+    triggerBtns.forEach(function (btn) {
       btn.classList.remove("is-active");
       btn.setAttribute("aria-expanded", "false");
     });
@@ -139,14 +145,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // Show the summary bar if there are active filters
     updateSummaryBar();
   }
-
-  triggerBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const isOpen = panel.classList.contains(CLASS_OPEN);
+  triggerBtns.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var isOpen = panel.classList.contains(CLASS_OPEN);
       isOpen ? closePanel() : openPanel();
     });
   });
-
   if (closeBtn) closeBtn.addEventListener("click", closePanel);
   if (backdrop) backdrop.addEventListener("click", closePanel);
 
@@ -155,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("requestFilterClose", closePanel);
 
   // Keyboard: Escape closes the panel
-  document.addEventListener("keydown", (e) => {
+  document.addEventListener("keydown", function (e) {
     if (e.key === "Escape" && panel.classList.contains(CLASS_OPEN)) {
       closePanel();
     }
@@ -166,10 +170,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // Desktop: hover over a filter group opens its sub-column (mirrors the
   // mouseenter behaviour of .nav-item in menu_controller.js, but scoped to
   // the filter panel).
-  panel.querySelectorAll(`.nav-item.${CLASS_HAS_SUBMENU}`).forEach((navItem) => {
-    navItem.addEventListener("mouseenter", () => {
+  panel.querySelectorAll(".nav-item.".concat(CLASS_HAS_SUBMENU)).forEach(function (navItem) {
+    navItem.addEventListener("mouseenter", function () {
       if (!isMobile()) {
-        const targetId = navItem.getAttribute("data-target");
+        var targetId = navItem.getAttribute("data-target");
         if (targetId) goToLevel(targetId, navItem, true);
       }
     });
@@ -180,22 +184,22 @@ document.addEventListener("DOMContentLoaded", () => {
   //  – Desktop: click also navigates.
   //  – Back button: always restores the parent level (button is hidden on
   //    desktop via CSS so it only appears on mobile).
-  panel.addEventListener("click", (e) => {
+  panel.addEventListener("click", function (e) {
     // Forward: clicking a group item (has-submenu) opens its sub-column
-    const navItem = e.target.closest(`.nav-item.${CLASS_HAS_SUBMENU}`);
+    var navItem = e.target.closest(".nav-item.".concat(CLASS_HAS_SUBMENU));
     if (navItem && panel.contains(navItem)) {
       if (isMobile()) {
         e.preventDefault();
-        const targetId = navItem.getAttribute("data-target");
+        var targetId = navItem.getAttribute("data-target");
         if (targetId) goToLevel(targetId, navItem, true);
       }
       return;
     }
 
     // Backward: clicking the back button returns to the parent level
-    const subHeader = e.target.closest(".submenu-header[data-prev-target]");
+    var subHeader = e.target.closest(".submenu-header[data-prev-target]");
     if (subHeader && panel.contains(subHeader)) {
-      const prevId = subHeader.getAttribute("data-prev-target");
+      var prevId = subHeader.getAttribute("data-prev-target");
       goToLevel(prevId, null, false);
       return;
     }
@@ -205,20 +209,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function updateBadges() {
     // Per-group state indicators (shown in level-0 list on mobile)
-    allCols.forEach((col) => {
-      const colId = col.getAttribute("id");
+    allCols.forEach(function (col) {
+      var colId = col.getAttribute("id");
       if (!colId || colId === "filter-level-0") return;
-
-      const checkboxes = Array.from(col.querySelectorAll(".filter-checkbox"));
-      const checkedCount = checkboxes.filter((cb) => cb.checked).length;
-      const totalCount = checkboxes.length;
+      var checkboxes = Array.from(col.querySelectorAll(".filter-checkbox"));
+      var checkedCount = checkboxes.filter(function (cb) {
+        return cb.checked;
+      }).length;
+      var totalCount = checkboxes.length;
 
       // Find the nav-item in level-0 that points to this column
-      const navItem = panel.querySelector(`.nav-item[data-target="${colId}"]`);
+      var navItem = panel.querySelector(".nav-item[data-target=\"".concat(colId, "\"]"));
       if (!navItem) return;
 
       // Determine state: unchecked / indeterminate / checked
-      let state = "unchecked";
+      var state = "unchecked";
       if (totalCount > 0) {
         if (checkedCount === totalCount) {
           state = "checked";
@@ -229,7 +234,7 @@ document.addEventListener("DOMContentLoaded", () => {
       navItem.setAttribute("data-filter-state", state);
 
       // Update the real checkbox input to reflect category state
-      const stateCheckbox = navItem.querySelector(".category-state-checkbox");
+      var stateCheckbox = navItem.querySelector(".category-state-checkbox");
       if (stateCheckbox) {
         stateCheckbox.checked = state === "checked";
         stateCheckbox.indeterminate = state === "indeterminate";
@@ -237,9 +242,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Global badge on the trigger button(s)
-    const totalChecked = panel.querySelectorAll(".filter-checkbox:not(.category-state-checkbox):checked").length;
-    triggerBtns.forEach((btn) => {
-      const globalBadge = btn.querySelector(".floating-filter-btn__badge");
+    var totalChecked = panel.querySelectorAll(".filter-checkbox:not(.category-state-checkbox):checked").length;
+    triggerBtns.forEach(function (btn) {
+      var globalBadge = btn.querySelector(".floating-filter-btn__badge");
       if (globalBadge) {
         globalBadge.textContent = totalChecked;
         globalBadge.classList.toggle("is-visible", totalChecked > 0);
@@ -249,8 +254,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Update the mobile chips inside the panel (level-0 main screen)
     updateMobileChips();
   }
-
-  panel.addEventListener("change", (e) => {
+  panel.addEventListener("change", function (e) {
     if (e.target.classList.contains("filter-checkbox")) {
       updateBadges();
       dispatchFilterChange();
@@ -266,17 +270,14 @@ document.addEventListener("DOMContentLoaded", () => {
    * filter without leaving the main screen.
    */
   function updateMobileChips() {
-    const mobileChipsEl = panel.querySelector(".mobile-applied-chips");
+    var mobileChipsEl = panel.querySelector(".mobile-applied-chips");
     if (!mobileChipsEl) return;
-
-    const checkedBoxes = Array.from(
-      panel.querySelectorAll(".filter-checkbox:checked:not(.category-state-checkbox)")
-    );
+    var checkedBoxes = Array.from(panel.querySelectorAll(".filter-checkbox:checked:not(.category-state-checkbox)"));
 
     // Rebuild chip list
     mobileChipsEl.innerHTML = "";
-    checkedBoxes.forEach((cb) => {
-      const chip = buildMobileChip(cb);
+    checkedBoxes.forEach(function (cb) {
+      var chip = buildMobileChip(cb);
       mobileChipsEl.appendChild(chip);
     });
   }
@@ -286,33 +287,23 @@ document.addEventListener("DOMContentLoaded", () => {
    * Clicking the close button unchecks the box and refreshes state.
    */
   function buildMobileChip(cb) {
-    const labelEl =
-      cb.closest("label") ||
-      (cb.id ? panel.querySelector(`label[for="${cb.id}"]`) : null);
-    const labelText = labelEl
-      ? labelEl.textContent.trim()
-      : cb.value.replace(/[-_]/g, " ");
-
-    const chip = document.createElement("span");
+    var labelEl = cb.closest("label") || (cb.id ? panel.querySelector("label[for=\"".concat(cb.id, "\"]")) : null);
+    var labelText = labelEl ? labelEl.textContent.trim() : cb.value.replace(/[-_]/g, " ");
+    var chip = document.createElement("span");
     chip.className = "mobile-applied-chips__chip";
     chip.setAttribute("role", "listitem");
-
-    const text = document.createElement("span");
+    var text = document.createElement("span");
     text.textContent = labelText;
-
-    const closeBtn = document.createElement("button");
+    var closeBtn = document.createElement("button");
     closeBtn.className = "mobile-applied-chips__chip-close";
-    closeBtn.setAttribute("aria-label", `Remove filter: ${labelText}`);
-    closeBtn.innerHTML =
-      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1l8 8M9 1l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>';
-
-    closeBtn.addEventListener("click", () => {
+    closeBtn.setAttribute("aria-label", "Remove filter: ".concat(labelText));
+    closeBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1l8 8M9 1l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>';
+    closeBtn.addEventListener("click", function () {
       cb.checked = false;
       updateBadges();
       dispatchFilterChange();
       updateSummaryBar();
     });
-
     chip.appendChild(text);
     chip.appendChild(closeBtn);
     return chip;
@@ -328,24 +319,18 @@ document.addEventListener("DOMContentLoaded", () => {
    */
   function updateSummaryBar() {
     if (!summaryBar || !summaryChips) return;
-
-    const checkedBoxes = Array.from(
-      panel.querySelectorAll(".filter-checkbox:checked:not(.category-state-checkbox)")
-    );
+    var checkedBoxes = Array.from(panel.querySelectorAll(".filter-checkbox:checked:not(.category-state-checkbox)"));
 
     // Rebuild chip list
     summaryChips.innerHTML = "";
-    checkedBoxes.forEach((cb) => {
-      const chip = buildChip(cb);
+    checkedBoxes.forEach(function (cb) {
+      var chip = buildChip(cb);
       summaryChips.appendChild(chip);
     });
 
     // Show bar only when panel is closed and there are active filters
-    const panelIsOpen = panel.classList.contains(CLASS_OPEN);
-    summaryBar.classList.toggle(
-      "is-visible",
-      !panelIsOpen && checkedBoxes.length > 0
-    );
+    var panelIsOpen = panel.classList.contains(CLASS_OPEN);
+    summaryBar.classList.toggle("is-visible", !panelIsOpen && checkedBoxes.length > 0);
   }
 
   /**
@@ -356,33 +341,23 @@ document.addEventListener("DOMContentLoaded", () => {
   function buildChip(cb) {
     // Derive a human-readable label from the associated <label> element or
     // fall back to the checkbox value.
-    const labelEl =
-      cb.closest("label") ||
-      (cb.id ? panel.querySelector(`label[for="${cb.id}"]`) : null);
-    const labelText = labelEl
-      ? labelEl.textContent.trim()
-      : cb.value.replace(/[-_]/g, " ");
-
-    const chip = document.createElement("span");
+    var labelEl = cb.closest("label") || (cb.id ? panel.querySelector("label[for=\"".concat(cb.id, "\"]")) : null);
+    var labelText = labelEl ? labelEl.textContent.trim() : cb.value.replace(/[-_]/g, " ");
+    var chip = document.createElement("span");
     chip.className = "filter-summary-bar__chip";
     chip.setAttribute("role", "listitem");
-
-    const text = document.createElement("span");
+    var text = document.createElement("span");
     text.textContent = labelText;
-
-    const closeBtn = document.createElement("button");
+    var closeBtn = document.createElement("button");
     closeBtn.className = "filter-summary-bar__chip-close";
-    closeBtn.setAttribute("aria-label", `Remove filter: ${labelText}`);
-    closeBtn.innerHTML =
-      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1l8 8M9 1l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>';
-
-    closeBtn.addEventListener("click", () => {
+    closeBtn.setAttribute("aria-label", "Remove filter: ".concat(labelText));
+    closeBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1l8 8M9 1l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>';
+    closeBtn.addEventListener("click", function () {
       cb.checked = false;
       updateBadges();
       dispatchFilterChange();
       updateSummaryBar();
     });
-
     chip.appendChild(text);
     chip.appendChild(closeBtn);
     return chip;
@@ -391,12 +366,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // ── Clear all ────────────────────────────────────────────────────────────────
 
   if (clearBtn) {
-    clearBtn.addEventListener("click", () => {
-      panel
-        .querySelectorAll(".filter-checkbox:checked:not(.category-state-checkbox)")
-        .forEach((cb) => {
-          cb.checked = false;
-        });
+    clearBtn.addEventListener("click", function () {
+      panel.querySelectorAll(".filter-checkbox:checked:not(.category-state-checkbox)").forEach(function (cb) {
+        cb.checked = false;
+      });
       updateBadges();
       dispatchFilterChange();
       updateSummaryBar();
@@ -406,7 +379,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ── Apply ────────────────────────────────────────────────────────────────────
 
   if (applyBtn) {
-    applyBtn.addEventListener("click", () => {
+    applyBtn.addEventListener("click", function () {
       dispatchFilterChange();
       closePanel();
     });
@@ -415,29 +388,27 @@ document.addEventListener("DOMContentLoaded", () => {
   // ── Dispatch filter change event ─────────────────────────────────────────────
 
   function getFilterData() {
-    const data = {};
-    allCols.forEach((col) => {
-      const colId = col.getAttribute("id");
+    var data = {};
+    allCols.forEach(function (col) {
+      var colId = col.getAttribute("id");
       if (!colId || colId === "filter-level-0") return;
-
-      const filterKey = col.getAttribute("data-filter-key");
+      var filterKey = col.getAttribute("data-filter-key");
       if (!filterKey) return;
-
-      const checked = Array.from(
-        col.querySelectorAll(".filter-checkbox:checked")
-      ).map((cb) => cb.value);
-
+      var checked = Array.from(col.querySelectorAll(".filter-checkbox:checked")).map(function (cb) {
+        return cb.value;
+      });
       if (checked.length > 0) {
         data[filterKey] = checked;
       }
     });
     return data;
   }
-
   function dispatchFilterChange() {
-    const event = new CustomEvent("floatingFilterChange", {
+    var event = new CustomEvent("floatingFilterChange", {
       bubbles: true,
-      detail: { filters: getFilterData() },
+      detail: {
+        filters: getFilterData()
+      }
     });
     document.dispatchEvent(event);
   }
@@ -447,33 +418,38 @@ document.addEventListener("DOMContentLoaded", () => {
   // into the corresponding <select> elements so existing FilterHandler.js
   // continues to work without modification.
 
-  document.addEventListener("floatingFilterChange", (e) => {
-    const filterForm = document.querySelector(".filter-form");
+  document.addEventListener("floatingFilterChange", function (e) {
+    var filterForm = document.querySelector(".filter-form");
     if (!filterForm) return;
-
-    const filters = e.detail.filters;
+    var filters = e.detail.filters;
 
     // Reset all multiselects in the form
-    filterForm.querySelectorAll("select[multiple]").forEach((sel) => {
-      Array.from(sel.options).forEach((opt) => {
+    filterForm.querySelectorAll("select[multiple]").forEach(function (sel) {
+      Array.from(sel.options).forEach(function (opt) {
         opt.selected = false;
       });
     });
-
-    Object.entries(filters).forEach(([key, values]) => {
-      const sel = filterForm.querySelector(`select[name="${key}[]"]`);
+    Object.entries(filters).forEach(function (_ref) {
+      var _ref2 = _slicedToArray(_ref, 2),
+        key = _ref2[0],
+        values = _ref2[1];
+      var sel = filterForm.querySelector("select[name=\"".concat(key, "[]\"]"));
       if (!sel) return;
-      values.forEach((val) => {
-        const opt = sel.querySelector(`option[value="${val}"]`);
+      values.forEach(function (val) {
+        var opt = sel.querySelector("option[value=\"".concat(val, "\"]"));
         if (opt) opt.selected = true;
       });
     });
 
     // Trigger a change event on the form so FilterHandler picks it up
-    filterForm.dispatchEvent(new Event("change", { bubbles: true }));
+    filterForm.dispatchEvent(new Event("change", {
+      bubbles: true
+    }));
   });
 
   // Initialise badges and summary bar
   updateBadges();
   updateSummaryBar();
 });
+/******/ })()
+;
