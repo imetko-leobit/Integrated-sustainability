@@ -505,17 +505,17 @@
     }
 
     &:indeterminate {
-      border-color: rgba(129, 254, 229, 0.8);
+      background: $primary-gradient;
+      border: none;
 
       &::after {
-        top: 5px;
-        left: 1px;
-        width: 10px;
+        display: block;
+        top: 50%;
+        left: 20%;
+        width: 60%;
         height: 2px;
-        border: none;
-        border-radius: 1px;
-        background: rgba(129, 254, 229, 0.8);
-        transform: none;
+        background-color: var(--color-black);
+        transform: translateY(-50%);
       }
     }
 
