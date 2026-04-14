@@ -124,7 +124,7 @@
               <input type="checkbox" class="filter-checkbox category-state-checkbox" tabindex="-1" aria-label="Filter selection state">
               <button class="submenu-button" aria-label="Open Industries filter">
                 <span class="arrow-icon">
-                  <img src="../assets/img/filter-arrow-right.svg" alt="" aria-hidden="true" width="24" height="24" />
+                  <img src="../assets/img/filter-arrow-next.svg" alt="" aria-hidden="true" width="24" height="24" />
                 </span>
               </button>
             </li>
@@ -135,7 +135,7 @@
               <input type="checkbox" class="filter-checkbox category-state-checkbox" tabindex="-1" aria-label="Filter selection state">
               <button class="submenu-button" aria-label="Open Locations filter">
                 <span class="arrow-icon">
-                  <img src="../assets/img/filter-arrow-right.svg" alt="" aria-hidden="true" width="24" height="24" />
+                  <img src="../assets/img/filter-arrow-next.svg" alt="" aria-hidden="true" width="24" height="24" />
                 </span>
               </button>
             </li>
@@ -182,7 +182,7 @@
           <div class="submenu-category-row">
             <span class="submenu-category-name">industries</span>
             <span class="submenu-category-arrow">
-              <img src="../assets/img/filter-arrow-expand.svg" alt="" aria-hidden="true" width="20" height="20" />
+              <img src="../assets/img/filter-arrow-expand.svg" alt="" aria-hidden="true" width="24" height="24" />
             </span>
           </div>
 
@@ -193,7 +193,7 @@
               <input type="checkbox" class="filter-checkbox category-state-checkbox" tabindex="-1" aria-label="Metals &amp; Mining selection state">
               <button class="submenu-button" aria-label="Open Metals &amp; Mining filter">
                 <span class="arrow-icon">
-                  <img src="../assets/img/filter-arrow-right.svg" alt="" aria-hidden="true" width="24" height="24" />
+                  <img src="../assets/img/filter-arrow-next.svg" alt="" aria-hidden="true" width="24" height="24" />
                 </span>
               </button>
             </li>
@@ -202,7 +202,7 @@
               <input type="checkbox" class="filter-checkbox category-state-checkbox" tabindex="-1" aria-label="Environmental selection state">
               <button class="submenu-button" aria-label="Open Environmental filter">
                 <span class="arrow-icon">
-                  <img src="../assets/img/filter-arrow-right.svg" alt="" aria-hidden="true" width="24" height="24" />
+                  <img src="../assets/img/filter-arrow-next.svg" alt="" aria-hidden="true" width="24" height="24" />
                 </span>
               </button>
             </li>
