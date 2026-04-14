@@ -201,9 +201,14 @@
     height: 100%;
 
     @media (max-width: 991px) {
-      aspect-ratio: 1 / 1;
       max-height: 400px;
       gap: 1.5rem;
+    }
+
+    &.block-projects__slide-image {
+      @media (max-width: 991px) {
+        aspect-ratio: 1 / 1;
+      }
     }
   }
 

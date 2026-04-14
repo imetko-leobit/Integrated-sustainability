@@ -113,7 +113,7 @@
   <div class="floating-filter-panel__drawer" role="document">
     <div class="floating-filter-panel__drawer-inner">
       <button
-        class="floating-filter-btn floating-filter-panel-btn floating-filter-panel__close"
+        class="floating-filter-btn floating-filter-panel-btn floating-filter-panel__btn-close"
         aria-label="Close filters"
         aria-expanded="true"
         aria-controls="floating-filter-panel"
@@ -163,7 +163,7 @@
         <!-- ── Level 0 – filter group list ─────────────────────────────── -->
         <!-- Identical structure to main-menu level-0 column -->
         <div id="filter-level-0" class="main-menu__col main-menu__col--level-0 active-level" data-level="0">
-          <h5 class="main-menu__title">library Filter</h5>
+          <h5 class="main-menu__title">Project Filter</h5>
 
           <ul class="navbar-nav">
 

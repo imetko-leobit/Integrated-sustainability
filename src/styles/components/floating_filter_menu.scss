@@ -109,6 +109,12 @@
     pointer-events: auto;
     visibility: visible;
   }
+
+  &__btn-close {
+    @media (max-width: 991px) {
+      display: none;
+    }
+  }
 }
 
 .floating-filter-panel__backdrop {
@@ -215,9 +221,12 @@
       padding-left: 2rem;
       padding-right: 2rem;
       color: white;
+      text-transform: capitalize;
 
       @media (max-width: 991px) {
         margin-top: 0;
+        margin-bottom: 2.5rem;
+        @include text-body-small;
       }
     }
 

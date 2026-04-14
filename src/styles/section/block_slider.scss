@@ -214,6 +214,7 @@
       .pillar-carousel-card__desc {
         margin-bottom: 0;
         -webkit-line-clamp: 5;
+        min-height: max-content;
       }
     }
 
@@ -308,7 +309,7 @@
       color: var(--color-grey-300);
       opacity: 0;
       transition: opacity 0.3s ease;
-      min-height: 70px;
+      min-height: 85px;
       @include text-body-base;
 
       display: -webkit-box;
