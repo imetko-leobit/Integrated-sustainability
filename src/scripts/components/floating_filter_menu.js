@@ -30,6 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ── Helpers ─────────────────────────────────────────────────────────────────
 
+  const menuToggle = document.querySelector(".menu-toggle");
+
   const CLASS_OPEN = "is-open";
   const CLASS_ACTIVE_LEVEL = "active-level";
   const CLASS_ACTIVE = "active";
@@ -103,6 +105,12 @@ document.addEventListener("DOMContentLoaded", () => {
     triggerBtn.classList.add("is-active");
     triggerBtn.setAttribute("aria-expanded", "true");
     document.body.style.overflow = "hidden";
+    // On mobile: switch the header hamburger button to its X (open) state so
+    // the user can close the filter panel via the same header control.
+    if (isMobile() && menuToggle) {
+      menuToggle.classList.add("open");
+      menuToggle.setAttribute("aria-expanded", "true");
+    }
     // Always start at the root level
     goToLevel("filter-level-0", null, false);
     // Hide the summary bar while the filter panel is open
@@ -114,6 +122,12 @@ document.addEventListener("DOMContentLoaded", () => {
     triggerBtn.classList.remove("is-active");
     triggerBtn.setAttribute("aria-expanded", "false");
     document.body.style.overflow = "";
+    // Restore the header hamburger button to its default state (in case it was
+    // switched to the X state when the filter panel was opened on mobile).
+    if (menuToggle) {
+      menuToggle.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+    }
     // Reset to root level so the panel is ready on next open
     goToLevel("filter-level-0", null, false);
     // Show the summary bar if there are active filters
@@ -127,6 +141,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (closeBtn) closeBtn.addEventListener("click", closePanel);
   if (backdrop) backdrop.addEventListener("click", closePanel);
+
+  // Allow the header menu toggle (menu_controller.js) to close this panel
+  // when the user taps the X button while the filter is open on mobile.
+  document.addEventListener("requestFilterClose", closePanel);
 
   // Keyboard: Escape closes the panel
   document.addEventListener("keydown", (e) => {
