@@ -37,11 +37,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const CLASS_ACTIVE = "active";
   const CLASS_HAS_SUBMENU = "has-submenu";
 
+  const SEL_FILTER_COL = ".main-menu__col";
+  const SEL_CLOSE_BTN = ".floating-filter-panel__btn-close";
+  const SEL_CREDENTIALS_BTN = ".floating-filter-btn-request-credentials";
+
   /** Mirrors the isMobile() helper in menu_controller.js. */
   const isMobile = () => window.innerWidth <= 992;
 
   // All columns are scoped to the filter panel (same class as main menu).
-  const allCols = panel.querySelectorAll(".main-menu__col");
+  const allCols = panel.querySelectorAll(SEL_FILTER_COL);
 
   /**
    * Build the ordered list of column IDs that must be visible (active-level)
@@ -209,16 +213,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Click handler (scoped to the filter panel – mirrors menu_controller.js):
   //  – Mobile: tap on a filter group navigates into its sub-column.
-  //  – Desktop: click also navigates.
+  //  – Desktop: click toggles the sub-column open/closed.
   //  – Back button: always restores the parent level (button is hidden on
   //    desktop via CSS so it only appears on mobile).
   panel.addEventListener("click", (e) => {
     // Forward: clicking a group item (has-submenu) opens its sub-column
     const navItem = e.target.closest(`.nav-item.${CLASS_HAS_SUBMENU}`);
     if (navItem && panel.contains(navItem)) {
+      e.preventDefault();
+      const targetId = navItem.getAttribute("data-target");
       if (isMobile()) {
-        e.preventDefault();
-        const targetId = navItem.getAttribute("data-target");
         if (targetId) goToLevel(targetId, navItem, true);
       }
       return;
@@ -230,6 +234,17 @@ document.addEventListener("DOMContentLoaded", () => {
       const prevId = subHeader.getAttribute("data-prev-target");
       goToLevel(prevId, null, false);
       return;
+    }
+
+    // Desktop backdrop: close the panel when clicking outside the filter columns
+    if (!isMobile()) {
+      if (
+        !e.target.closest(SEL_FILTER_COL) &&
+        !e.target.closest(SEL_CLOSE_BTN) &&
+        !e.target.closest(SEL_CREDENTIALS_BTN)
+      ) {
+        closePanel();
+      }
     }
   });
 
