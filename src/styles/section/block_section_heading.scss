@@ -35,6 +35,10 @@
     margin-bottom: 50px;
   }
 
+  & + * {
+    padding-top: 0 !important;
+  }
+
   &--center {
     text-align: center;
   }

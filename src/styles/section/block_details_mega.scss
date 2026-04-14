@@ -94,9 +94,23 @@
   }
 
   &-content-sidebar {
-    [data-block="media"] {
+    &[data-block="media"] {
       @media (max-width: 991px) {
         padding-top: $mobile-block-margin;
+      }
+    }
+
+    &[data-block="service-details"] {
+      .details-content-links {
+        > .text-content {
+          &:not(:first-child) {
+            margin-top: $mobile-block-margin;
+          }
+
+          &:not(:last-child) {
+            margin-bottom: $mobile-block-margin;
+          }
+        }
       }
     }
   }
@@ -195,18 +209,6 @@
     @media (max-width: 991px) {
       grid-column: 1;
       overflow: hidden;
-    }
-  }
-
-  .details-content-links {
-    > .text-content {
-      &:not(:first-child) {
-        margin-top: $mobile-block-margin;
-      }
-
-      &:not(:last-child) {
-        margin-bottom: $mobile-block-margin;
-      }
     }
   }
 
