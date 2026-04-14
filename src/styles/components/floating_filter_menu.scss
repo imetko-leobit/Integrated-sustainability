@@ -219,7 +219,7 @@
       text-transform: capitalize;
 
       @media (max-width: 991px) {
-        height: 50px;
+        min-height: 50px;
         display: flex;
         align-items: center;
         margin-top: 0;
@@ -690,7 +690,7 @@
 
   .floating-filter-panel__drawer .main-menu__col--level-0 {
     .nav-item.has-submenu {
-      grid-template-columns: 1fr 30px;
+      grid-template-columns: 1fr max-content;
 
       .category-state-checkbox {
         display: none;
@@ -700,7 +700,7 @@
 
     .nav-item.has-submenu[data-filter-state="checked"],
     .nav-item.has-submenu[data-filter-state="indeterminate"] {
-      grid-template-columns: 1fr 1rem 30px;
+      grid-template-columns: 1fr 1rem max-content;
 
       .category-state-checkbox {
         display: block;
@@ -710,7 +710,7 @@
 
   .floating-filter-panel__drawer .main-menu__col--level-1 {
     .nav-item.has-submenu {
-      grid-template-columns: 1fr 30px;
+      grid-template-columns: 1fr max-content;
 
       .category-state-checkbox {
         display: none;
@@ -720,7 +720,7 @@
 
     .nav-item.has-submenu[data-filter-state="checked"],
     .nav-item.has-submenu[data-filter-state="indeterminate"] {
-      grid-template-columns: 1fr 1rem 30px;
+      grid-template-columns: 1fr 1rem max-content;
 
       .category-state-checkbox {
         display: block;
@@ -730,7 +730,7 @@
 
   .floating-filter-panel__drawer .submenu-header {
     display: grid;
-    grid-template-columns: 1fr 30px;
+    grid-template-columns: 1fr max-content;
     align-items: center;
     min-height: 50px;
     height: auto;
