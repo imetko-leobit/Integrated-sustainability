@@ -167,7 +167,7 @@
             <!-- Locations -->
             <li class="nav-item has-submenu" data-target="filter-level-locations">
               <a href="#" class="nav-link">locations</a>
-              <input type="checkbox" class="filter-checkbox category-state-checkbox" tabindex="-1" aria-hidden="true">
+              <input type="checkbox" class="filter-checkbox category-state-checkbox" tabindex="-1" aria-label="Filter selection state">
               <button class="submenu-button" aria-label="Open Locations filter">
                 <span class="arrow-icon">
                   <svg viewBox="0 0 24 24"><path class="icon-arrow" fill="currentColor" d="M22.32 21.729 22.5 0C17.059.053 6.212.128.771.18L.725 2.901c4.897-.049 11.394-.088 17.111-.14L0 20.595 1.903 22.5 19.74 4.664l-.154 17.098 2.734-.03v-.003Z"/></svg>
@@ -178,7 +178,7 @@
             <!-- Industries -->
             <li class="nav-item has-submenu" data-target="filter-level-industries">
               <a href="#" class="nav-link">industries</a>
-              <input type="checkbox" class="filter-checkbox category-state-checkbox" tabindex="-1" aria-hidden="true">
+              <input type="checkbox" class="filter-checkbox category-state-checkbox" tabindex="-1" aria-label="Filter selection state">
               <button class="submenu-button" aria-label="Open Industries filter">
                 <span class="arrow-icon">
                   <svg viewBox="0 0 24 24"><path class="icon-arrow" fill="currentColor" d="M22.32 21.729 22.5 0C17.059.053 6.212.128.771.18L.725 2.901c4.897-.049 11.394-.088 17.111-.14L0 20.595 1.903 22.5 19.74 4.664l-.154 17.098 2.734-.03v-.003Z"/></svg>
@@ -189,7 +189,7 @@
             <!-- Project Services -->
             <li class="nav-item has-submenu" data-target="filter-level-services">
               <a href="#" class="nav-link">project services</a>
-              <input type="checkbox" class="filter-checkbox category-state-checkbox" tabindex="-1" aria-hidden="true">
+              <input type="checkbox" class="filter-checkbox category-state-checkbox" tabindex="-1" aria-label="Filter selection state">
               <button class="submenu-button" aria-label="Open Project Services filter">
                 <span class="arrow-icon">
                   <svg viewBox="0 0 24 24"><path class="icon-arrow" fill="currentColor" d="M22.32 21.729 22.5 0C17.059.053 6.212.128.771.18L.725 2.901c4.897-.049 11.394-.088 17.111-.14L0 20.595 1.903 22.5 19.74 4.664l-.154 17.098 2.734-.03v-.003Z"/></svg>
@@ -200,7 +200,7 @@
             <!-- Tags -->
             <li class="nav-item has-submenu" data-target="filter-level-tags">
               <a href="#" class="nav-link">tags</a>
-              <input type="checkbox" class="filter-checkbox category-state-checkbox" tabindex="-1" aria-hidden="true">
+              <input type="checkbox" class="filter-checkbox category-state-checkbox" tabindex="-1" aria-label="Filter selection state">
               <button class="submenu-button" aria-label="Open Tags filter">
                 <span class="arrow-icon">
                   <svg viewBox="0 0 24 24"><path class="icon-arrow" fill="currentColor" d="M22.32 21.729 22.5 0C17.059.053 6.212.128.771.18L.725 2.901c4.897-.049 11.394-.088 17.111-.14L0 20.595 1.903 22.5 19.74 4.664l-.154 17.098 2.734-.03v-.003Z"/></svg>
