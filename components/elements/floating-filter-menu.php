@@ -255,10 +255,10 @@
             </span>
           </button>
           <div class="submenu-category-row">
-            <span class="submenu-category-name">locations</span>
-            <span class="submenu-category-arrow">
-              <img src="../assets/img/filter-arrow-expand.svg" alt="" aria-hidden="true" width="24" height="24" />
-            </span>
+            <label class="submenu-category-row__label" for="filter-loc-cat-all">
+              <input type="checkbox" id="filter-loc-cat-all" class="filter-checkbox subcategory-all-checkbox" tabindex="-1">
+              locations
+            </label>
           </div>
           <ul class="navbar-nav">
             <li class="nav-item">
