@@ -265,7 +265,7 @@ document.addEventListener("DOMContentLoaded", () => {
       );
 
       let checkboxes;
-      if (childCols.length > 0 && isMobile()) {
+      if (childCols.length > 0) {
         checkboxes = childCols.flatMap((c) =>
           Array.from(
             c.querySelectorAll(
