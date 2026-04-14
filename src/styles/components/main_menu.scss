@@ -73,6 +73,11 @@
     position: relative;
     background-image: url(../../assets/img/bg-header.png);
 
+    &.is-filters-open {
+      background: transparent;
+      border-bottom: 0.5px solid var(--color-grey-400);
+    }
+
     .header-top {
       display: flex;
       justify-content: space-between;
