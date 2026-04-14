@@ -162,17 +162,12 @@
         <div id="filter-level-0" class="main-menu__col main-menu__col--level-0 active-level" data-level="0">
           <h5 class="main-menu__title">Project Filter</h5>
 
-          <!-- Mobile applied-filter chips (shown only on mobile while panel is open) -->
-          <div class="mobile-applied-chips" role="list" aria-label="Applied filters" aria-live="polite"></div>
-
           <ul class="navbar-nav">
 
             <!-- Locations -->
             <li class="nav-item has-submenu" data-target="filter-level-locations">
-              <a href="#" class="nav-link">
-                locations
-                <span class="filter-count" aria-live="polite"></span>
-              </a>
+              <a href="#" class="nav-link">locations</a>
+              <input type="checkbox" class="filter-checkbox category-state-checkbox" tabindex="-1" aria-hidden="true">
               <button class="submenu-button" aria-label="Open Locations filter">
                 <span class="arrow-icon">
                   <svg viewBox="0 0 24 24"><path class="icon-arrow" fill="currentColor" d="M22.32 21.729 22.5 0C17.059.053 6.212.128.771.18L.725 2.901c4.897-.049 11.394-.088 17.111-.14L0 20.595 1.903 22.5 19.74 4.664l-.154 17.098 2.734-.03v-.003Z"/></svg>
@@ -182,10 +177,8 @@
 
             <!-- Industries -->
             <li class="nav-item has-submenu" data-target="filter-level-industries">
-              <a href="#" class="nav-link">
-                industries
-                <span class="filter-count" aria-live="polite"></span>
-              </a>
+              <a href="#" class="nav-link">industries</a>
+              <input type="checkbox" class="filter-checkbox category-state-checkbox" tabindex="-1" aria-hidden="true">
               <button class="submenu-button" aria-label="Open Industries filter">
                 <span class="arrow-icon">
                   <svg viewBox="0 0 24 24"><path class="icon-arrow" fill="currentColor" d="M22.32 21.729 22.5 0C17.059.053 6.212.128.771.18L.725 2.901c4.897-.049 11.394-.088 17.111-.14L0 20.595 1.903 22.5 19.74 4.664l-.154 17.098 2.734-.03v-.003Z"/></svg>
@@ -195,10 +188,8 @@
 
             <!-- Project Services -->
             <li class="nav-item has-submenu" data-target="filter-level-services">
-              <a href="#" class="nav-link">
-                project services
-                <span class="filter-count" aria-live="polite"></span>
-              </a>
+              <a href="#" class="nav-link">project services</a>
+              <input type="checkbox" class="filter-checkbox category-state-checkbox" tabindex="-1" aria-hidden="true">
               <button class="submenu-button" aria-label="Open Project Services filter">
                 <span class="arrow-icon">
                   <svg viewBox="0 0 24 24"><path class="icon-arrow" fill="currentColor" d="M22.32 21.729 22.5 0C17.059.053 6.212.128.771.18L.725 2.901c4.897-.049 11.394-.088 17.111-.14L0 20.595 1.903 22.5 19.74 4.664l-.154 17.098 2.734-.03v-.003Z"/></svg>
@@ -208,10 +199,8 @@
 
             <!-- Tags -->
             <li class="nav-item has-submenu" data-target="filter-level-tags">
-              <a href="#" class="nav-link">
-                tags
-                <span class="filter-count" aria-live="polite"></span>
-              </a>
+              <a href="#" class="nav-link">tags</a>
+              <input type="checkbox" class="filter-checkbox category-state-checkbox" tabindex="-1" aria-hidden="true">
               <button class="submenu-button" aria-label="Open Tags filter">
                 <span class="arrow-icon">
                   <svg viewBox="0 0 24 24"><path class="icon-arrow" fill="currentColor" d="M22.32 21.729 22.5 0C17.059.053 6.212.128.771.18L.725 2.901c4.897-.049 11.394-.088 17.111-.14L0 20.595 1.903 22.5 19.74 4.664l-.154 17.098 2.734-.03v-.003Z"/></svg>
@@ -219,12 +208,15 @@
               </button>
             </li>
 
+            <!-- Mobile applied-filter chips – shown only on mobile, between categories and Rank By -->
+            <li class="mobile-applied-chips-item">
+              <span class="mobile-applied-chips-label">Filters applied</span>
+              <div class="mobile-applied-chips" role="list" aria-label="Applied filters" aria-live="polite"></div>
+            </li>
+
             <!-- Rank By -->
             <li class="nav-item has-submenu nav-item-bottom" data-target="filter-level-rank">
-              <a href="#" class="nav-link">
-                rank by
-                <span class="filter-count" aria-live="polite"></span>
-              </a>
+              <a href="#" class="nav-link">rank by</a>
               <button class="submenu-button" aria-label="Open Rank By filter">
                 <span class="arrow-icon">
                   <svg viewBox="0 0 24 24"><path class="icon-arrow" fill="currentColor" d="M22.32 21.729 22.5 0C17.059.053 6.212.128.771.18L.725 2.901c4.897-.049 11.394-.088 17.111-.14L0 20.595 1.903 22.5 19.74 4.664l-.154 17.098 2.734-.03v-.003Z"/></svg>
@@ -234,15 +226,7 @@
 
             <!-- Switch to Insights -->
             <li class="nav-item has-submenu" data-target="filter-level-insights">
-              <a href="#" class="nav-link">
-                Switch to Insights
-                <span class="filter-count" aria-live="polite"></span>
-              </a>
-              <!-- <button class="submenu-button" aria-label="Open Switch to Insights filter">
-                <span class="arrow-icon">
-                  <svg viewBox="0 0 24 24"><path class="icon-arrow" fill="currentColor" d="M22.32 21.729 22.5 0C17.059.053 6.212.128.771.18L.725 2.901c4.897-.049 11.394-.088 17.111-.14L0 20.595 1.903 22.5 19.74 4.664l-.154 17.098 2.734-.03v-.003Z"/></svg>
-                </span>
-              </button> -->
+              <a href="#" class="nav-link">Switch to Insights</a>
             </li>
 
             <!-- Request a Tailored Credentials Package -->
