@@ -294,7 +294,7 @@ document.addEventListener("DOMContentLoaded", () => {
       : cb.value.replace(/[-_]/g, " ");
 
     const chip = document.createElement("span");
-    chip.className = "mobile-applied-chips__chip";
+    chip.className = "mobile-applied-chips__chip filter-summary-bar__chip";
     chip.setAttribute("role", "listitem");
 
     const text = document.createElement("span");

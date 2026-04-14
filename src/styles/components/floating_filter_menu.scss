@@ -580,10 +580,11 @@
     display: none;
     padding: 0;
     list-style: none;
+    margin-top: 1.5rem;
 
     &:has(.mobile-applied-chips:not(:empty)) {
       display: block;
-      padding: 12px 24px 4px;
+      padding: 0.5rem 24px 4px;
     }
   }
 
@@ -591,7 +592,7 @@
     display: block;
     @include text-body-small;
     color: var(--color-grey-200);
-    text-transform: lowercase;
+    text-transform: capitalize;
     margin-bottom: 8px;
   }
 
@@ -606,17 +607,6 @@
     }
 
     .mobile-applied-chips__chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 10px;
-      border-radius: 20px;
-      background: $primary-gradient-5;
-      color: white;
-      font-family: "Poppins", "Roboto", "Arial", sans-serif;
-      font-size: 12px;
-      line-height: 20px;
-      font-weight: 400;
     }
 
     .mobile-applied-chips__chip-close {
