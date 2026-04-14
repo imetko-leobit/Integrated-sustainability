@@ -17,7 +17,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const panel = document.querySelector(".floating-filter-panel");
   const drawer = document.querySelector(".floating-filter-panel__drawer");
-  const triggerBtn = document.querySelector(".floating-filter-trigger-btn");
+  const triggerBtns = document.querySelectorAll(".floating-filter-trigger-btn");
   const closeBtn = document.querySelector(".floating-filter-panel__btn-close");
   const backdrop = document.querySelector(".floating-filter-panel__backdrop");
   const content = document.querySelector(".floating-filter-panel__content");
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const summaryBar = document.querySelector(".filter-summary-bar");
   const summaryChips = document.querySelector(".filter-summary-bar__chips");
 
-  if (!panel || !triggerBtn) return;
+  if (!panel || !triggerBtns.length) return;
 
   // ── Helpers ─────────────────────────────────────────────────────────────────
 
@@ -102,8 +102,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function openPanel() {
     panel.classList.add(CLASS_OPEN);
-    triggerBtn.classList.add("is-active");
-    triggerBtn.setAttribute("aria-expanded", "true");
+    triggerBtns.forEach((btn) => {
+      btn.classList.add("is-active");
+      btn.setAttribute("aria-expanded", "true");
+    });
     document.body.style.overflow = "hidden";
     // On mobile: switch the header hamburger button to its X (open) state so
     // the user can close the filter panel via the same header control.
@@ -121,8 +123,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function closePanel() {
     panel.classList.remove(CLASS_OPEN);
-    triggerBtn.classList.remove("is-active");
-    triggerBtn.setAttribute("aria-expanded", "false");
+    triggerBtns.forEach((btn) => {
+      btn.classList.remove("is-active");
+      btn.setAttribute("aria-expanded", "false");
+    });
     document.body.style.overflow = "";
     // Restore the header hamburger button to its default state (in case it was
     // switched to the X state when the filter panel was opened on mobile).
@@ -136,9 +140,11 @@ document.addEventListener("DOMContentLoaded", () => {
     updateSummaryBar();
   }
 
-  triggerBtn.addEventListener("click", () => {
-    const isOpen = panel.classList.contains(CLASS_OPEN);
-    isOpen ? closePanel() : openPanel();
+  triggerBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const isOpen = panel.classList.contains(CLASS_OPEN);
+      isOpen ? closePanel() : openPanel();
+    });
   });
 
   if (closeBtn) closeBtn.addEventListener("click", closePanel);
@@ -230,13 +236,15 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    // Global badge on the trigger button
+    // Global badge on the trigger button(s)
     const totalChecked = panel.querySelectorAll(".filter-checkbox:not(.category-state-checkbox):checked").length;
-    const globalBadge = triggerBtn.querySelector(".floating-filter-btn__badge");
-    if (globalBadge) {
-      globalBadge.textContent = totalChecked;
-      globalBadge.classList.toggle("is-visible", totalChecked > 0);
-    }
+    triggerBtns.forEach((btn) => {
+      const globalBadge = btn.querySelector(".floating-filter-btn__badge");
+      if (globalBadge) {
+        globalBadge.textContent = totalChecked;
+        globalBadge.classList.toggle("is-visible", totalChecked > 0);
+      }
+    });
 
     // Update the mobile chips inside the panel (level-0 main screen)
     updateMobileChips();
