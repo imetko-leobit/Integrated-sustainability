@@ -841,6 +841,96 @@
   }
 }
 
+// ── Toggle switch for "Can't find what you're looking for?" ─────────────────
+
+.nav-item-toggle {
+  grid-template-columns: 1fr max-content;
+
+  .nav-link--toggle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    color: var(--color-grey-200);
+    @include text-body-small;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: white;
+    }
+
+    .nav-link__text {
+      flex: 1;
+    }
+  }
+
+  &:hover .nav-link--toggle {
+    color: white;
+  }
+}
+
+.filter-toggle__input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.filter-toggle {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 24px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+  position: relative;
+  transition: background 0.25s ease, border-color 0.25s ease;
+  cursor: pointer;
+
+  .filter-toggle__knob {
+    position: absolute;
+    left: 3px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transition: left 0.25s ease, background 0.25s ease;
+  }
+}
+
+// Checked state: label contains the toggle, checkbox is a sibling
+.nav-item-toggle:has(.filter-toggle__input:checked) {
+  .filter-toggle {
+    background: $primary-gradient;
+    border-color: transparent;
+
+    .filter-toggle__knob {
+      left: calc(100% - 19px);
+      background: #000;
+    }
+  }
+
+  .nav-link--toggle {
+    color: white;
+  }
+}
+
+// Focus styling for accessibility
+.nav-item-toggle:has(.filter-toggle__input:focus-visible) .filter-toggle {
+  outline: 2px solid rgba(129, 254, 229, 0.8);
+  outline-offset: 2px;
+}
+
 .filter-summary-bar__chip-close {
   display: inline-flex;
   align-items: center;

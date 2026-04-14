@@ -162,10 +162,20 @@
             </li>
 
             <!-- Request a Tailored Credentials Package -->
-            <li class="nav-item has-submenu" data-target="filter-level-insights">
-              <a href="#" class="nav-link">
-                Can't find what you're looking for? <br> Request a Tailored Credentials Package
-              </a>
+            <li class="nav-item nav-item-toggle">
+              <label class="nav-link nav-link--toggle" for="filter-cant-find-toggle">
+                <span class="nav-link__text">Can't find what you're looking for? <br> Request a Tailored Credentials Package</span>
+                <span class="filter-toggle" aria-hidden="true">
+                  <span class="filter-toggle__knob"></span>
+                </span>
+              </label>
+              <input
+                type="checkbox"
+                id="filter-cant-find-toggle"
+                class="filter-toggle__input"
+                name="show_credentials"
+                aria-label="Show credentials request"
+              />
             </li>
 
           </ul>
