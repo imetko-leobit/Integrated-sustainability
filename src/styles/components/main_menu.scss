@@ -703,12 +703,104 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 24px 24px 32px;
-        gap: 16px;
+        padding: 0 0 32px;
+        gap: 0;
         border-top: 1px solid rgba(44, 44, 44, 1);
         @include bg-image;
         min-height: fit-content;
         margin-top: auto;
+        overflow: visible;
+      }
+
+      .mobile-language-selector {
+        position: relative;
+        width: 100%;
+
+        .mobile-language-options {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          position: absolute;
+          bottom: 100%;
+          left: 0;
+          right: 0;
+          background: rgba(13, 13, 13, 0.97);
+          border-top: 1px solid rgba(44, 44, 44, 1);
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.3s ease;
+
+          li {
+            border-bottom: 1px solid rgba(44, 44, 44, 0.5);
+
+            &:last-child {
+              border-bottom: none;
+            }
+          }
+
+          .mobile-language-option {
+            width: 100%;
+            text-align: left;
+            padding: 12px 24px;
+            background: none;
+            border: none;
+            color: var(--color-grey-200);
+            cursor: pointer;
+            @include text-body-small;
+            display: block;
+            font-size: 14px;
+
+            &:hover {
+              color: white;
+              background: $primary-gradient-5;
+            }
+          }
+        }
+
+        &.is-open {
+          .mobile-language-options {
+            max-height: 200px;
+          }
+
+          .mobile-language-toggle__icon {
+            transform: rotate(180deg);
+          }
+        }
+
+        .mobile-language-toggle {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 12px 24px;
+          background: none;
+          border: none;
+          border-bottom: 1px solid rgba(44, 44, 44, 0.5);
+          color: var(--color-grey-200);
+          cursor: pointer;
+          font-size: 14px;
+          @include text-body-small;
+
+          &__label {
+            text-transform: capitalize;
+          }
+
+          &__icon {
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+          }
+
+          &:hover {
+            color: white;
+          }
+        }
+      }
+
+      .main-menu__bottom--mobile .search-container {
+        margin-top: 16px;
+        margin-bottom: 0;
+        padding: 0 24px;
       }
     }
   }
