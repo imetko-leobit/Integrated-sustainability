@@ -61,6 +61,28 @@
     </ul>
 
     <div class="main-menu__bottom--mobile">
+      <div class="mobile-language-selector">
+        <ul class="mobile-language-options" id="mobile-lang-options" aria-hidden="true">
+          <li>
+            <button class="mobile-language-option" data-lang="en">English</button>
+          </li>
+          <li>
+            <button class="mobile-language-option" data-lang="fr">Français</button>
+          </li>
+          <li>
+            <button class="mobile-language-option" data-lang="es">Español</button>
+          </li>
+        </ul>
+        <button class="mobile-language-toggle" aria-expanded="false" aria-controls="mobile-lang-options">
+          <span class="mobile-language-toggle__label">Language</span>
+          <span class="mobile-language-toggle__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path fill="currentColor" d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14l-6-6z"/>
+            </svg>
+          </span>
+        </button>
+      </div>
+
       <div class="search-container" id="header-search-container-mobile">
         <button class="search-toggle" aria-label="Toggle Search">
           <svg viewBox="0 0 28 24" fill="none">
@@ -71,14 +93,6 @@
         <form action="/search" method="get" class="search-form">
           <input type="search" name="q" placeholder="Search..." class="search-input" aria-label="Search site content">
         </form>
-      </div>
-
-      <div class="language-select">
-        <select name="language" class="regular-select">
-          <option value="en">English</option>
-          <option value="fr">French</option>
-          <option value="es">Spanish</option>
-        </select>
       </div>
     </div>
   </div>
