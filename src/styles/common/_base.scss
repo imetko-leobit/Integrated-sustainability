@@ -500,6 +500,7 @@ h6 {
   color: var(--color-text-grey);
   text-decoration: none;
   transition: all 0.3s ease;
+  text-transform: capitalize;
   border-radius: 100px;
   @include tag-border;
   @include text-body-small;

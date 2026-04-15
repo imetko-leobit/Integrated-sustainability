@@ -393,6 +393,10 @@
         @include text-body-small;
         text-transform: capitalize;
 
+        @media (max-width: 991px) {
+          font-size: 14px;
+        }
+
         &:hover {
           color: white;
         }

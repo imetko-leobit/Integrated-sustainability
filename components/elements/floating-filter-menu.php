@@ -82,30 +82,6 @@
   <!-- Drawer -->
   <div class="floating-filter-panel__drawer" role="document">
     <div class="floating-filter-panel__drawer-inner">
-      <button
-        class="floating-filter-btn floating-filter-panel-btn floating-filter-panel__btn-close"
-        aria-label="Close filters"
-        aria-expanded="true"
-        aria-controls="floating-filter-panel"
-      >
-        <!-- Close icon -->
-        <span class="floating-filter-btn__icon">
-          <img src="../assets/img/filter-close-icon.svg" alt="" aria-hidden="true" width="34" height="34" />
-        </span>
-      </button>
-
-      <button
-        class="floating-filter-btn floating-filter-panel-btn floating-filter-btn-request-credentials"
-        aria-label="Open filters"
-        aria-expanded="false"
-        aria-controls="floating-filter-panel"
-      >
-        <!-- Credentials icon -->
-        <span class="floating-filter-btn__icon">
-          <img src="../assets/img/filter-credentials-icon.svg" alt="" aria-hidden="true" width="33" height="33" />
-        </span>
-      </button>
-
       <!-- Panel content: mirrors main-menu__content structure for identical
            level-slide behaviour. Uses floating-filter-panel__content class
            to keep slide transforms scoped away from the main menu. -->

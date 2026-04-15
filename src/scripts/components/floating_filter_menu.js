@@ -585,4 +585,49 @@ document.addEventListener("DOMContentLoaded", () => {
   // Initialise badges and summary bar
   updateBadges();
   updateSummaryBar();
+
+  // ── Scroll-triggered reveal of floating buttons ──────────────────────────────
+  // On desktop the two standalone floating buttons are hidden by default (via CSS)
+  // and are revealed once the user scrolls past the top filter option (the
+  // .block-section-heading that contains the floating-filter-trigger-btn icon).
+  // The .is-scrolled-visible class triggers the CSS fade/slide-in animation.
+
+  const floatingBtnsToReveal = [
+    document.querySelector(".floating-filter-btn.floating-filter-trigger-btn"),
+    document.querySelector(".floating-filter-btn.floating-filter-btn-request-credentials"),
+  ].filter(Boolean);
+
+  if (floatingBtnsToReveal.length > 0) {
+    const filterIconInHeading = document.querySelector(
+      ".block-section-heading .floating-filter-trigger-btn"
+    );
+
+    const triggerSection = filterIconInHeading
+      ? filterIconInHeading.closest(".block-section-heading")
+      : document.querySelector(".block-section-heading");
+
+    if (triggerSection) {
+      const REVEAL_OFFSET = 250; // increase this value to show earlier
+
+      const updateFloatingButtonsVisibility = () => {
+        const rect = triggerSection.getBoundingClientRect();
+        const shouldShow = rect.top <= REVEAL_OFFSET;
+
+        floatingBtnsToReveal.forEach((btn) => {
+          btn.classList.toggle("is-scrolled-visible", shouldShow);
+        });
+      };
+
+      updateFloatingButtonsVisibility();
+
+      window.addEventListener("scroll", updateFloatingButtonsVisibility, {
+        passive: true,
+      });
+      window.addEventListener("resize", updateFloatingButtonsVisibility);
+    } else {
+      floatingBtnsToReveal.forEach((btn) =>
+        btn.classList.add("is-scrolled-visible")
+      );
+    }
+  }
 });
