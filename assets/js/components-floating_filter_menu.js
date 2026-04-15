@@ -1,3 +1,7 @@
+/******/ (() => { // webpackBootstrap
+/*!********************************************************!*\
+  !*** ./src/scripts/components/floating_filter_menu.js ***!
+  \********************************************************/
 /**
  * FloatingFilterMenu
  *
@@ -632,3 +636,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
+/******/ })()
+;

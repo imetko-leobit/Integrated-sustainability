@@ -73,6 +73,35 @@
   }
 }
 
+// ── Scroll-triggered reveal animation for floating buttons ────────────────────
+@keyframes floatingBtnSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(calc(-50% - 70px));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%);
+  }
+}
+
+// On desktop only: hide the two standalone floating buttons by default and
+// reveal them (with a left-to-right fade/slide) once the user scrolls past
+// the top filter option (.is-scrolled-visible is toggled by JS).
+.floating-filter-btn.floating-filter-trigger-btn,
+.floating-filter-btn.floating-filter-btn-request-credentials:not(.floating-filter-panel-btn) {
+  @media (min-width: 992px) {
+    opacity: 0;
+    pointer-events: none;
+
+    &.is-scrolled-visible {
+      opacity: 1;
+      pointer-events: auto;
+      animation: floatingBtnSlideIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
+    }
+  }
+}
+
 .floating-filter-panel-btn {
   left: calc(var(--wp--style--global--padding-size-large) / 2);
 
