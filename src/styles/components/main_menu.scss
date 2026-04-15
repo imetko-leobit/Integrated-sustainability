@@ -311,6 +311,13 @@
 
       @media (max-width: 991px) {
         padding-top: calc(1rem + 80px) !important;
+
+        @include bg-image;
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+          url(../../assets/img/overlay.svg);
+        background-position: bottom right;
+        background-size: cover;
       }
 
       &::-webkit-scrollbar {
