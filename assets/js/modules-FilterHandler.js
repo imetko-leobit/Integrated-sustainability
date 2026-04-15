@@ -44,9 +44,10 @@ __webpack_require__.r(__webpack_exports__);
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
 function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
 function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+function _createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t["return"] || t["return"](); } finally { if (u) throw o; } } }; }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
 function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
@@ -104,9 +105,28 @@ var PostsFilter = /*#__PURE__*/function () {
           });
         }
       });
+      this.hasFilters = this.checkIfFiltersActive();
 
       // Load initial posts (title will be updated in handleSuccess)
       this.loadPosts(true);
+    }
+  }, {
+    key: "getFilterSelects",
+    value: function getFilterSelects() {
+      return this.form.querySelectorAll(".filter-select");
+    }
+  }, {
+    key: "getCurrentInsightContext",
+    value: function getCurrentInsightContext() {
+      var termId = this.form.dataset.currentInsightTermId;
+      var taxonomy = this.form.dataset.currentInsightTaxonomy;
+      if (!termId || taxonomy !== "insights_categories") {
+        return null;
+      }
+      return {
+        termId: termId,
+        taxonomy: taxonomy
+      };
     }
 
     /**
@@ -234,15 +254,24 @@ var PostsFilter = /*#__PURE__*/function () {
       var searchValue = formData.get("s");
       if (searchValue && searchValue.trim()) return true;
 
-      // Check taxonomies
-      var taxonomies = ["locations", "industry_categories", "service_categories", "project_tags"];
-      for (var _i = 0, _taxonomies = taxonomies; _i < _taxonomies.length; _i++) {
-        var tax = _taxonomies[_i];
-        var values = formData.getAll("".concat(tax, "[]")).filter(function (v) {
-          return v && v.trim();
-        });
-        if (values.length > 0) return true;
+      // Check taxonomy filters
+      var filterSelects = this.getFilterSelects();
+      var _iterator = _createForOfIteratorHelper(filterSelects),
+        _step;
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var selectElement = _step.value;
+          var values = formData.getAll(selectElement.name).filter(function (value) {
+            return value && value.trim();
+          });
+          if (values.length > 0) return true;
+        }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
       }
+      if (this.getCurrentInsightContext()) return true;
 
       // Check sort (ensure it's not empty string)
       var rankValue = formData.get("rank");
@@ -260,6 +289,7 @@ var PostsFilter = /*#__PURE__*/function () {
       this.isLoading = true;
       this.showLoader();
       var formData = new FormData(this.form);
+      var currentInsightContext = this.getCurrentInsightContext();
 
       // Prepare data object
       var data = {
@@ -283,6 +313,10 @@ var PostsFilter = /*#__PURE__*/function () {
       params.append("has_filters", data.has_filters);
       params.append("s", data.s);
       params.append("rank", data.rank);
+      if (currentInsightContext) {
+        params.append("current_insight_term_id", currentInsightContext.termId);
+        params.append("current_insight_taxonomy", currentInsightContext.taxonomy);
+      }
 
       // Add excluded IDs array
       this.excludedIds.forEach(function (id) {
@@ -290,29 +324,13 @@ var PostsFilter = /*#__PURE__*/function () {
       });
 
       // Add taxonomy arrays
-      var locations = formData.getAll("locations[]").filter(function (v) {
-        return v;
-      });
-      locations.forEach(function (val) {
-        return params.append("locations[]", val);
-      });
-      var industries = formData.getAll("industry_categories[]").filter(function (v) {
-        return v;
-      });
-      industries.forEach(function (val) {
-        return params.append("industry_categories[]", val);
-      });
-      var services = formData.getAll("service_categories[]").filter(function (v) {
-        return v;
-      });
-      services.forEach(function (val) {
-        return params.append("service_categories[]", val);
-      });
-      var tags = formData.getAll("project_tags[]").filter(function (v) {
-        return v;
-      });
-      tags.forEach(function (val) {
-        return params.append("project_tags[]", val);
+      this.getFilterSelects().forEach(function (selectElement) {
+        var values = formData.getAll(selectElement.name).filter(function (value) {
+          return value;
+        });
+        values.forEach(function (value) {
+          return params.append(selectElement.name, value);
+        });
       });
       fetch(((_window$filterPostsDa2 = window.filterPostsData) === null || _window$filterPostsDa2 === void 0 ? void 0 : _window$filterPostsDa2.ajaxUrl) || "/wp-admin/admin-ajax.php", {
         method: "POST",
