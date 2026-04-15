@@ -578,3 +578,17 @@ h6 {
 .block-tags-text-only-no-link {
   margin: 36px 0;
 }
+.page-404 {
+  &__content {
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 16px;
+    padding-top: 100px;
+  }
+  &__actions {
+    margin-top: 32px;
+  }
+}

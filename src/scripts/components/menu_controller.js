@@ -15,11 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const isMobile = () => window.innerWidth <= 992;
 
-  // Double-tap logic: delay submenu open so the nav-item doesn't slide away
-  // before the second tap registers on the same element.
-  let singleTapTimer = null;
-  let lastTappedItem = null;
-
   // Select all menu columns scoped to the main menu element so that filter
   // panel columns (which also use .main-menu__col) are not affected.
   const allLevels = megaMenuContent
@@ -106,12 +101,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const item = e.target.closest(".nav-item");
     const link = e.target.closest("a");
-    const backButton = e.target.closest(".submenu-header");
+    const returnButton = e.target.closest(".main-menu-return");
+    const backItem = e.target.closest(".submenu-back-item");
 
-    // 1. Back button (Mobile)
-    if (backButton) {
+    // 1. Navigation controls (Mobile)
+    if (returnButton) {
       e.preventDefault();
-      const prevTargetId = backButton.getAttribute(ATTR_PREV_TARGET);
+      goToLevel(0, null, "level-0", false);
+      return;
+    }
+
+    if (backItem) {
+      e.preventDefault();
+      const prevTargetId = backItem.getAttribute(ATTR_PREV_TARGET);
       const prevCol = document.getElementById(prevTargetId);
       goToLevel(
         parseInt(prevCol.getAttribute(ATTR_LEVEL)),
@@ -130,34 +132,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (isMobile() && hasSubmenu) {
         e.preventDefault();
-
-        if (singleTapTimer !== null && lastTappedItem === item) {
-          // Second tap arrived before timer fired — double-tap confirmed.
-          clearTimeout(singleTapTimer);
-          singleTapTimer = null;
-          lastTappedItem = null;
-          if (href && href !== "#") {
-            // Respect target attribute (_blank etc).
-            if (link && link.target === "_blank") {
-              window.open(href, "_blank", "noopener");
-            } else {
-              window.location.href = href;
-            }
-          }
-          return;
-        }
-
-        // First tap: wait 300 ms before opening the submenu.
-        // Delaying keeps the nav-item in place so the second tap can land on it.
-        lastTappedItem = item;
         const levelNum = parseInt(
           item.closest(".main-menu__col").getAttribute(ATTR_LEVEL),
         );
-        singleTapTimer = setTimeout(() => {
-          singleTapTimer = null;
-          lastTappedItem = null;
-          goToLevel(levelNum + 1, item, targetId, true);
-        }, 300);
+        goToLevel(levelNum + 1, item, targetId, true);
         return;
       }
 
@@ -207,11 +185,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function resetNavigation() {
     body.classList.remove(CLASS_OPEN);
-    if (singleTapTimer !== null) {
-      clearTimeout(singleTapTimer);
-      singleTapTimer = null;
-    }
-    lastTappedItem = null;
     if (menuToggle) {
       menuToggle.classList.remove("open");
       menuToggle.setAttribute("aria-expanded", "false");

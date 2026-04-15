@@ -49,8 +49,28 @@ class PostsFilter {
       }
     });
 
+    this.hasFilters = this.checkIfFiltersActive();
+
     // Load initial posts (title will be updated in handleSuccess)
     this.loadPosts(true);
+  }
+
+  getFilterSelects() {
+    return this.form.querySelectorAll(".filter-select");
+  }
+
+  getCurrentInsightContext() {
+    const termId = this.form.dataset.currentInsightTermId;
+    const taxonomy = this.form.dataset.currentInsightTaxonomy;
+
+    if (!termId || taxonomy !== "insights_categories") {
+      return null;
+    }
+
+    return {
+      termId,
+      taxonomy,
+    };
   }
 
   /**
@@ -169,17 +189,16 @@ class PostsFilter {
     const searchValue = formData.get("s");
     if (searchValue && searchValue.trim()) return true;
 
-    // Check taxonomies
-    const taxonomies = [
-      "locations",
-      "industry_categories",
-      "service_categories",
-      "project_tags",
-    ];
-    for (const tax of taxonomies) {
-      const values = formData.getAll(`${tax}[]`).filter((v) => v && v.trim());
+    // Check taxonomy filters
+    const filterSelects = this.getFilterSelects();
+    for (const selectElement of filterSelects) {
+      const values = formData
+        .getAll(selectElement.name)
+        .filter((value) => value && value.trim());
       if (values.length > 0) return true;
     }
+
+    if (this.getCurrentInsightContext()) return true;
 
     // Check sort (ensure it's not empty string)
     const rankValue = formData.get("rank");
@@ -195,6 +214,7 @@ class PostsFilter {
     this.showLoader();
 
     const formData = new FormData(this.form);
+    const currentInsightContext = this.getCurrentInsightContext();
 
     // Prepare data object
     const data = {
@@ -219,23 +239,23 @@ class PostsFilter {
     params.append("s", data.s);
     params.append("rank", data.rank);
 
+    if (currentInsightContext) {
+      params.append("current_insight_term_id", currentInsightContext.termId);
+      params.append("current_insight_taxonomy", currentInsightContext.taxonomy);
+    }
+
     // Add excluded IDs array
     this.excludedIds.forEach((id) => {
       params.append("excluded_ids[]", id);
     });
 
     // Add taxonomy arrays
-    const locations = formData.getAll("locations[]").filter((v) => v);
-    locations.forEach((val) => params.append("locations[]", val));
-
-    const industries = formData.getAll("industry_categories[]").filter((v) => v);
-    industries.forEach((val) => params.append("industry_categories[]", val));
-
-    const services = formData.getAll("service_categories[]").filter((v) => v);
-    services.forEach((val) => params.append("service_categories[]", val));
-
-    const tags = formData.getAll("project_tags[]").filter((v) => v);
-    tags.forEach((val) => params.append("project_tags[]", val));
+    this.getFilterSelects().forEach((selectElement) => {
+      const values = formData
+        .getAll(selectElement.name)
+        .filter((value) => value);
+      values.forEach((value) => params.append(selectElement.name, value));
+    });
 
     fetch(window.filterPostsData?.ajaxUrl || "/wp-admin/admin-ajax.php", {
       method: "POST",
