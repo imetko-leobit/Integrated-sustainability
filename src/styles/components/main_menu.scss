@@ -75,9 +75,15 @@
     position: relative;
     background-image: url(../../assets/img/bg-header.png);
 
-    &.is-filters-open {
-      background: transparent;
-      border-bottom: 0.5px solid var(--color-grey-400);
+    @media (max-width: 991px) {
+      &.is-filters-open,
+      &.is-menu-open {
+        background: transparent;
+
+        .header-top {
+          border-bottom: 0.5px solid var(--color-grey-400);
+        }
+      }
     }
 
     .header-top {
@@ -89,6 +95,8 @@
       display: flex;
       align-items: center;
       transition: all 0.3 ease;
+      position: inherit;
+      z-index: 1111;
 
       margin-left: auto !important;
       margin-right: auto !important;
@@ -301,6 +309,10 @@
       position: relative;
       backdrop-filter: blur(30px);
 
+      @media (max-width: 991px) {
+        padding-top: calc(1rem + 80px) !important;
+      }
+
       &::-webkit-scrollbar {
         display: none;
       }
@@ -392,10 +404,6 @@
       margin: 0;
       width: 100%;
       overflow: auto;
-
-      @media (max-width: 991px) {
-        margin-top: 22px;
-      }
     }
 
     .nav-item {
@@ -563,10 +571,10 @@
 
       .main-menu {
         position: fixed;
-        top: 80px;
+        top: 0;
         left: 0;
         width: 100vw;
-        height: calc(100vh - 80px);
+        height: 100vh;
         padding: 0;
         overflow: hidden;
       }
@@ -591,7 +599,7 @@
         overflow-y: auto;
         height: 100%;
         padding: 0;
-        padding: 0;
+        padding-top: 80px;
 
         &.active-level:first-of-type {
           .nav-item {

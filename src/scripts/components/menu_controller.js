@@ -3,12 +3,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuToggle = document.querySelector(".menu-toggle");
   const menuCloseToggle = document.querySelector(".menu-close-toggle");
   const megaMenu = document.getElementById("main-menu");
+  const headerWrapper = document.querySelector(".header-wrapper");
   const body = document.body;
 
   const CLASS_OPEN = "menu-is-open";
   const CLASS_ACTIVE = "active";
   const CLASS_ACTIVE_LEVEL = "active-level";
   const CLASS_HAS_SUBMENU = "has-submenu";
+  const CLASS_MENU_OPEN = "is-menu-open";
   const ATTR_TARGET = "data-target";
   const ATTR_PREV_TARGET = "data-prev-target";
   const ATTR_LEVEL = "data-level";
@@ -173,10 +175,14 @@ document.addEventListener("DOMContentLoaded", () => {
     if (menuToggle) menuToggle.classList.toggle("open", isOpen);
     if (megaMenu) megaMenu.style.display = isOpen ? "block" : "none";
 
-    if (!isOpen) {
-      resetNavigation();
-    } else {
+    if (isOpen) {
+      body.style.overflow = "hidden";
+      if (isMobile() && headerWrapper) {
+        headerWrapper.classList.add(CLASS_MENU_OPEN);
+      }
       goToLevel(0, null, "level-0", "forward");
+    } else {
+      resetNavigation();
     }
   }
 
@@ -185,6 +191,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function resetNavigation() {
     body.classList.remove(CLASS_OPEN);
+    body.style.overflow = "";
+    if (headerWrapper) headerWrapper.classList.remove(CLASS_MENU_OPEN);
     if (menuToggle) {
       menuToggle.classList.remove("open");
       menuToggle.setAttribute("aria-expanded", "false");
