@@ -62,7 +62,7 @@
 
     <div class="main-menu__bottom--mobile">
       <div class="mobile-language-selector">
-        <ul class="mobile-language-options" aria-hidden="true">
+        <ul class="mobile-language-options" id="mobile-lang-options" aria-hidden="true">
           <li>
             <button class="mobile-language-option" data-lang="en">English</button>
           </li>
