@@ -200,5 +200,36 @@ document.addEventListener("DOMContentLoaded", () => {
     goToLevel(0, null, "level-0", "backward");
     if (megaMenuContent) megaMenuContent.setAttribute("data-current-level", 0);
     if (megaMenu) megaMenu.style.display = "none";
+
+    // Close mobile language selector if open
+    const mobileLangSelector = document.querySelector(
+      ".mobile-language-selector",
+    );
+    const mobileLangToggle = document.querySelector(".mobile-language-toggle");
+    if (mobileLangSelector) mobileLangSelector.classList.remove("is-open");
+    if (mobileLangToggle)
+      mobileLangToggle.setAttribute("aria-expanded", "false");
+  }
+
+  // --- MOBILE LANGUAGE SELECTOR ---
+  const mobileLangSelector = document.querySelector(".mobile-language-selector");
+  const mobileLangToggle = document.querySelector(".mobile-language-toggle");
+
+  if (mobileLangToggle && mobileLangSelector) {
+    mobileLangToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isOpen = mobileLangSelector.classList.toggle("is-open");
+      mobileLangToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+
+    mobileLangSelector
+      .querySelectorAll(".mobile-language-option")
+      .forEach((option) => {
+        option.addEventListener("click", (e) => {
+          e.stopPropagation();
+          mobileLangSelector.classList.remove("is-open");
+          mobileLangToggle.setAttribute("aria-expanded", "false");
+        });
+      });
   }
 });
