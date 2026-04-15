@@ -75,7 +75,8 @@
     position: relative;
     background-image: url(../../assets/img/bg-header.png);
 
-    &.is-filters-open {
+    &.is-filters-open,
+    &.is-menu-open {
       background: transparent;
       border-bottom: 0.5px solid var(--color-grey-400);
     }
@@ -563,10 +564,10 @@
 
       .main-menu {
         position: fixed;
-        top: 80px;
+        top: 0;
         left: 0;
         width: 100vw;
-        height: calc(100vh - 80px);
+        height: 100vh;
         padding: 0;
         overflow: hidden;
       }
@@ -591,7 +592,7 @@
         overflow-y: auto;
         height: 100%;
         padding: 0;
-        padding: 0;
+        padding-top: 80px;
 
         &.active-level:first-of-type {
           .nav-item {
