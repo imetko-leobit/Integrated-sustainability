@@ -9,6 +9,8 @@
   margin: 0 auto;
 
   &.header--scrolled .header-wrapper {
+    box-shadow: 0 4px 100px rgba(255, 255, 255, 0.05);
+
     .header-top {
       height: 105px;
 
