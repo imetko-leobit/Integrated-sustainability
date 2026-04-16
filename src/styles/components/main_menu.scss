@@ -386,6 +386,10 @@
       .main-menu__title {
         margin: 15px 0 25px;
         @include text-h5;
+
+        @media (max-width: 991px) {
+          margin-bottom: 0;
+        }
       }
 
       .main-menu__title,
@@ -427,6 +431,10 @@
       margin: 0;
       width: 100%;
       overflow: auto;
+
+      @media (max-width: 991px) {
+        margin-top: 1.5rem;
+      }
     }
 
     .nav-item {
