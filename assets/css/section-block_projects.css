@@ -268,8 +268,7 @@
     -ms-flex-align: start;
     align-items: flex-start;
     height: 100%;
-    gap: 0;
-    margin-left: 1px; }
+    gap: 0; }
   .block-projects .swiper-slide {
     display: -webkit-box;
     display: -ms-flexbox;
