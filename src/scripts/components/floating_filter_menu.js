@@ -607,7 +607,7 @@ document.addEventListener("DOMContentLoaded", () => {
       : document.querySelector(".block-section-heading");
 
     if (triggerSection) {
-      const REVEAL_OFFSET = 250; // increase this value to show earlier
+      const REVEAL_OFFSET = 0; // increase this value to show earlier
 
       const updateFloatingButtonsVisibility = () => {
         const rect = triggerSection.getBoundingClientRect();
