@@ -161,7 +161,7 @@
       @media (max-width: 1199px) {
         display: flex;
         flex-direction: column;
-        gap: 3rem;
+        gap: 100px;
       }
 
       @media (max-width: 991px) {
@@ -667,8 +667,10 @@
     }
     @media (min-width: 992px) and (max-width: 1199px) {
       .block-details-mega__wrapper {
-        grid-template-columns: 1fr 1fr;
+        display: flex;
+        flex-direction: column;
       }
+
       .block-details-mega .details-content__wrapper {
         grid-column: 1;
       }
@@ -680,14 +682,25 @@
     &[data-block="service-details"] {
       .block-details-mega__wrapper {
         grid-template-columns: minmax(0, 839px) minmax(0, 550px);
-        gap: 56px;
+        gap: 100px;
         justify-content: space-between;
+
+        @media (max-width: 991px) {
+          gap: 56px;
+        }
       }
+
       .details-content__wrapper {
         grid-column: 1;
       }
       .info-card-wrapper:not(.no-bg) {
         margin-bottom: 56px;
+        margin-right: 56px;
+
+        @media (max-width: 991px) {
+          margin-right: 0;
+        }
+
         img {
           width: 100%;
           height: 100%;

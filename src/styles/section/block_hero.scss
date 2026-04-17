@@ -77,9 +77,13 @@
       z-index: 1;
       gap: 3rem;
 
+      @media (max-width: 1499px) {
+        max-width: 1000px;
+        padding: 0 24px;
+      }
+
       @media (max-width: 1199px) {
         max-width: 900px;
-        padding: 0 24px;
         margin-bottom: 60px;
       }
   }
