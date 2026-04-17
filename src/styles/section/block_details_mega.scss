@@ -158,9 +158,14 @@
         "b c";
       grid-template-rows: min-content 1fr;
 
-      @media (max-width: 991px) {
+      @media (max-width: 1199px) {
         display: flex;
         flex-direction: column;
+        gap: 3rem;
+      }
+
+      @media (max-width: 991px) {
+        gap: 2rem;
       }
 
       .details-content__wrapper {
@@ -180,7 +185,7 @@
           padding-left: 200px;
 
           @media (max-width: 1199px) {
-            padding-left: 0;
+            padding-left: 0 !important;
           }
 
           @media (max-width: 1599px) {
@@ -294,7 +299,7 @@
       margin-bottom: 100px;
 
       &:first-child {
-        margin-top: -60px !important;
+        margin-top: -1rem !important;
 
         @media (max-width: 991px) {
           margin-top: 0 !important;

@@ -90,7 +90,7 @@
     &-inner {
       padding: 56px;
       flex-grow: 1;
-      overflow: auto;
+      overflow: hidden;
       @include scroll-fade-overlay(60px);
 
       @media (max-width: 1199px) {
@@ -106,7 +106,9 @@
   }
 
   .accordion {
+    overflow: auto;
     padding: 0;
+    height: calc(100% + 56px);
 
     .accordion-item.is-open {
       .accordion-item__divider {
