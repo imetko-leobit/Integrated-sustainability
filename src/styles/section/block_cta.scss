@@ -36,12 +36,6 @@
       width: 100%;
       background-position: center;
       min-width: min-content;
-
-      @media (max-width: 991px) {
-        height: 100%;
-        width: max-content;
-        max-width: max-content;
-      }
     }
   }
 
