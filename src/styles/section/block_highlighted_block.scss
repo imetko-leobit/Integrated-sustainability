@@ -12,9 +12,9 @@
     padding: 80px;
     background-size: cover;
     display: grid;
-    grid-template-columns: minmax(0, 815px) minmax(0, 460px);
+    grid-template-columns: minmax(0, 815px) minmax(0, 642px);
     justify-content: space-between;
-    gap: 40px;
+    gap: 130px;
     @include bg-image();
 
     @media (max-width: 1199px) {

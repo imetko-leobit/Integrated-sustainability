@@ -46,7 +46,6 @@
     overflow-y: auto;
 
     @include bg-image;
-    background-color: #000;
     color: var(--color-grey-100);
     scrollbar-width: thin;
     scrollbar-color: rgba(0, 0, 0, 0.2) transparent;

@@ -12,10 +12,10 @@ document.addEventListener("DOMContentLoaded", () => {
     new InfiniteScroll(".scroll-trigger", filter);
   }
 
-  const container = document.querySelector('.js-publications-timer');
+  const container = document.querySelector(".js-publications-timer");
   if (!container) return;
 
-  let cards = Array.from(container.querySelectorAll('.post-card'));
+  let cards = Array.from(container.querySelectorAll(".post-card"));
 
   let currentIndex = -1;
   let timer = null;
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const INTERVAL_TIME = 5000;
 
   const refreshCards = () => {
-    cards = Array.from(container.querySelectorAll('.post-card'));
+    cards = Array.from(container.querySelectorAll(".post-card"));
     if (cards.length === 0) {
       stopTimer();
       currentIndex = -1;
@@ -35,14 +35,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
+  const getVisibleCards = () => {
+    return cards.filter((card) => {
+      const rect = card.getBoundingClientRect();
+      return rect.top >= 0 && rect.bottom <= window.innerHeight;
+    });
+  };
+
   const showNextCard = () => {
-    if (cards.length === 0) return;
+    const visibleCards = getVisibleCards();
+    if (visibleCards.length === 0) return;
 
-    cards.forEach(card => card.classList.remove('is-active'));
+    cards.forEach((card) => card.classList.remove("is-active"));
 
-    currentIndex = (currentIndex + 1) % cards.length;
+    currentIndex = (currentIndex + 1) % visibleCards.length;
 
-    cards[currentIndex].classList.add('is-active');
+    visibleCards[currentIndex].classList.add("is-active");
   };
 
   const startTimer = () => {
@@ -54,15 +62,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const stopTimer = () => {
     clearInterval(timer);
     timer = null;
-    cards.forEach(card => card.classList.remove('is-active'));
+    cards.forEach((card) => card.classList.remove("is-active"));
   };
 
   const observerOptions = {
-    threshold: 0.3
+    threshold: 0.3,
   };
 
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
         isInView = true;
         startTimer();
@@ -76,11 +84,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
   observer.observe(container);
 
-  container.addEventListener('mouseenter', stopTimer);
+  container.addEventListener("mouseenter", stopTimer);
 
-  container.addEventListener('mouseleave', startTimer);
+  container.addEventListener("mouseleave", startTimer);
 
-  document.addEventListener('postsLoaded', () => {
+  window.addEventListener("scroll", () => {
+    const visibleCards = getVisibleCards();
+    if (!visibleCards.includes(cards[currentIndex])) {
+      currentIndex = -1;
+      showNextCard();
+    }
+  });
+
+  document.addEventListener("postsLoaded", () => {
     refreshCards();
     if (isInView && currentIndex === -1) {
       showNextCard();

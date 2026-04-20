@@ -95,8 +95,13 @@
 
   &-content-sidebar {
     &[data-block="media"] {
+      margin-bottom: 180px;
       @media (max-width: 991px) {
         padding-top: $mobile-block-margin;
+      }
+
+      .acf-innerblocks-container:not(:first-child) {
+        margin-top: 60px;
       }
     }
 
