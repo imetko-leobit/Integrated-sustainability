@@ -11,6 +11,12 @@ class PostsFilter {
     this.container = document.querySelector(".publications");
     this.loader = document.querySelector(".loader");
     this.postType = this.form.dataset.postType;
+    this.projectPostType = this.form.dataset.projectPostType || "projects";
+    this.insightPostType = this.form.dataset.insightPostType || "insight";
+    this.initialInsightTermId =
+      this.form.dataset.initialCurrentInsightTermId || "";
+    this.initialInsightTaxonomy =
+      this.form.dataset.initialCurrentInsightTaxonomy || "";
     this.searchResultsTitle = document.querySelector(
       ".js-search-results-title",
     );
@@ -27,6 +33,7 @@ class PostsFilter {
     this.totalResults = 0;
     this.searchQuery = "";
     this.choicesInstances = [];
+    this.pendingReload = false;
 
     this.init();
   }
@@ -41,12 +48,26 @@ class PostsFilter {
     // Listen to all form inputs
     const inputs = this.form.querySelectorAll("input, select");
     inputs.forEach((input) => {
+      if (input.classList.contains("filter-toggle__input")) {
+        return;
+      }
+
       // Use 'input' for text fields, 'change' for selects
       if (input.tagName === "SELECT") {
         input.addEventListener("change", () => this.handleFilterChange());
       } else {
         input.addEventListener("input", () => this.handleFilterChange());
       }
+    });
+
+    document.addEventListener("filterPostTypeChange", (event) => {
+      const nextPostType = event.detail?.postType || "";
+
+      if (!nextPostType || nextPostType === this.postType) {
+        return;
+      }
+
+      this.switchPostType(nextPostType);
     });
 
     this.hasFilters = this.checkIfFiltersActive();
@@ -163,12 +184,63 @@ class PostsFilter {
     }, 2000);
   }
 
+  resetFormControls() {
+    const searchInput = this.form.querySelector('input[name="s"]');
+    if (searchInput) {
+      searchInput.value = "";
+    }
+
+    this.getFilterSelects().forEach((selectElement) => {
+      Array.from(selectElement.options).forEach((option) => {
+        option.selected = false;
+      });
+    });
+
+    const rankSelect = this.form.querySelector('select[name="rank"]');
+    if (rankSelect) {
+      rankSelect.value = "";
+    }
+
+    this.choicesInstances.forEach((choicesInstance) => {
+      if (typeof choicesInstance.removeActiveItems === "function") {
+        choicesInstance.removeActiveItems();
+      }
+    });
+  }
+
+  updateInsightContext(postType) {
+    if (
+      postType === this.insightPostType &&
+      this.initialInsightTermId &&
+      this.initialInsightTaxonomy
+    ) {
+      this.form.dataset.currentInsightTermId = this.initialInsightTermId;
+      this.form.dataset.currentInsightTaxonomy = this.initialInsightTaxonomy;
+      return;
+    }
+
+    delete this.form.dataset.currentInsightTermId;
+    delete this.form.dataset.currentInsightTaxonomy;
+  }
+
+  switchPostType(postType) {
+    clearTimeout(this.filterTimeout);
+
+    this.postType = postType;
+    this.form.dataset.postType = postType;
+
+    this.updateInsightContext(postType);
+    this.resetFormControls();
+    this.applyFilters();
+  }
+
   applyFilters() {
     // Reset state
     this.excludedIds = [];
     this.currentPage = 1;
     this.hasMore = true;
     this.totalResults = 0;
+    this.pendingReload = false;
 
     // Clear container
     if (this.container) {
@@ -190,8 +262,13 @@ class PostsFilter {
     if (searchValue && searchValue.trim()) return true;
 
     // Check taxonomy filters
-    const filterSelects = this.getFilterSelects();
-    for (const selectElement of filterSelects) {
+    const filterSelects = Array.from(this.getFilterSelects());
+    for (let i = 0; i < filterSelects.length; i++) {
+      const selectElement = filterSelects[i];
+      if (!selectElement || !selectElement.name) {
+        continue;
+      }
+
       const values = formData
         .getAll(selectElement.name)
         .filter((value) => value && value.trim());
@@ -208,7 +285,14 @@ class PostsFilter {
   }
 
   loadPosts(isInitial = false) {
-    if (this.isLoading || !this.hasMore) return;
+    // Allow initial/reload requests to run regardless of previous pagination state.
+    if (!isInitial && !this.hasMore) return;
+
+    // If request is already in flight, queue one fresh reload with latest form state.
+    if (this.isLoading) {
+      this.pendingReload = true;
+      return;
+    }
 
     this.isLoading = true;
     this.showLoader();
@@ -251,6 +335,10 @@ class PostsFilter {
 
     // Add taxonomy arrays
     this.getFilterSelects().forEach((selectElement) => {
+      if (!selectElement || !selectElement.name) {
+        return;
+      }
+
       const values = formData
         .getAll(selectElement.name)
         .filter((value) => value);
@@ -278,18 +366,31 @@ class PostsFilter {
       .finally(() => {
         this.isLoading = false;
         this.hideLoader();
+
+        if (this.pendingReload) {
+          this.pendingReload = false;
+          this.loadPosts(true);
+        }
       });
   }
 
   handleSuccess(data) {
+    const postIds = Array.isArray(data.post_ids)
+      ? data.post_ids
+      : data.post_ids
+        ? [data.post_ids]
+        : [];
+
     // Append new posts
     if (this.container && data.html) {
       this.container.insertAdjacentHTML("beforeend", data.html);
     }
 
     // Update excluded IDs
-    if (data.post_ids && data.post_ids.length > 0) {
-      this.excludedIds.push(...data.post_ids);
+    if (postIds.length > 0) {
+      postIds.forEach((id) => {
+        this.excludedIds.push(id);
+      });
     }
 
     // Update pagination state
@@ -299,9 +400,9 @@ class PostsFilter {
     if (this.currentPage === 1) {
       if (typeof data.total_results !== "undefined") {
         this.totalResults = data.total_results;
-      } else if (data.post_ids && data.post_ids.length > 0) {
+      } else if (postIds.length > 0) {
         // If server doesn't return total_results, count from post_ids on first page
-        this.totalResults = data.post_ids.length;
+        this.totalResults = postIds.length;
       }
       console.log("Total results:", this.totalResults, "Data:", data);
     }

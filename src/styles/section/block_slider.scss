@@ -104,8 +104,12 @@
 
     @media (max-width: 1199px) {
       position: relative;
-      height: 400px;
+      height: 560px;
       margin: 0;
+    }
+
+    @media (max-width: 991px) {
+      height: 460px;
     }
 
     &::after {
@@ -197,15 +201,13 @@
     max-width: 18%;
 
     @media (max-width: 1199px) {
-      flex: 0 0 350px;
-      width: 350px;
+      flex: 0 0 auto;
       max-width: 100%;
       padding: 0;
     }
 
-    @media (max-width: 767px) {
-      flex: 0 0 250px;
-      width: 250px;
+    @media (max-width: 991px) {
+      flex: 0 0 80%;
       max-width: 100%;
       padding: 0;
     }
@@ -221,8 +223,11 @@
     &.is-active {
       padding: 0;
       max-width: 22.45%;
+
       .pillar-carousel-card__image-bg {
-        filter: grayscale(0%);
+        @media (max-width: 991px) {
+          filter: grayscale(0%);
+        }
       }
 
       @media (max-width: 1199px) {
@@ -366,11 +371,11 @@
 
     &__title {
       text-transform: lowercase;
-      margin-bottom: 20px;
+      margin-bottom: 1rem;
       color: white;
 
       @media (max-width: 991px) {
-        margin-bottom: 0.25rem;
+        margin-bottom: 0.75rem;
       }
     }
 

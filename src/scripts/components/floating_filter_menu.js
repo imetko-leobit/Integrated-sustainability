@@ -25,6 +25,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const applyBtn = document.querySelector(".filter-apply-btn");
   const summaryBar = document.querySelector(".filter-summary-bar");
   const summaryChips = document.querySelector(".filter-summary-bar__chips");
+  const filterForm = document.querySelector(".filter-form");
+  const postTypeToggle = panel.querySelector("#filter-cant-find-toggle");
+  const postTypeToggleText = panel.querySelector(
+    ".nav-item-toggle .nav-link__text",
+  );
 
   if (!panel || !triggerBtns.length) return;
 
@@ -127,10 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (isMobile() && content) {
       const targetCol = panel.querySelector(`#${CSS.escape(targetId)}`);
       if (targetCol) {
-        const level = parseInt(
-          targetCol.getAttribute("data-level") || "0",
-          10
-        );
+        const level = parseInt(targetCol.getAttribute("data-level") || "0", 10);
         content.setAttribute("data-current-level", level);
       }
     }
@@ -184,6 +186,23 @@ document.addEventListener("DOMContentLoaded", () => {
     updateSummaryBar();
   }
 
+  function updatePostTypeToggle(activePostType) {
+    if (!postTypeToggle || !postTypeToggleText) return;
+
+    const insightPostType = filterForm?.dataset.insightPostType || "insight";
+    const switchToInsightLabel =
+      postTypeToggleText.dataset.switchToInsightLabel || "Switch to Insights";
+    const switchToProjectsLabel =
+      postTypeToggleText.dataset.switchToProjectsLabel || "Switch to Projects";
+
+    postTypeToggle.checked = activePostType === insightPostType;
+    postTypeToggleText.textContent =
+      activePostType === insightPostType
+        ? switchToProjectsLabel
+        : switchToInsightLabel;
+    postTypeToggle.setAttribute("aria-label", postTypeToggleText.textContent);
+  }
+
   triggerBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
       const isOpen = panel.classList.contains(CLASS_OPEN);
@@ -193,6 +212,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (closeBtn) closeBtn.addEventListener("click", closePanel);
   if (backdrop) backdrop.addEventListener("click", closePanel);
+
+  // Allow the .icon inside #library to open the filter panel
+  const libraryIcon = document.querySelector("#library .icon");
+  if (libraryIcon) {
+    libraryIcon.style.cursor = "pointer";
+    libraryIcon.addEventListener("click", openPanel);
+  }
 
   // Allow the header menu toggle (menu_controller.js) to close this panel
   // when the user taps the X button while the filter is open on mobile.
@@ -210,14 +236,16 @@ document.addEventListener("DOMContentLoaded", () => {
   // Desktop: hover over a filter group opens its sub-column (mirrors the
   // mouseenter behaviour of .nav-item in menu_controller.js, but scoped to
   // the filter panel).
-  panel.querySelectorAll(`.nav-item.${CLASS_HAS_SUBMENU}`).forEach((navItem) => {
-    navItem.addEventListener("mouseenter", () => {
-      if (!isMobile()) {
-        const targetId = navItem.getAttribute("data-target");
-        if (targetId) goToLevel(targetId, navItem, true);
-      }
+  panel
+    .querySelectorAll(`.nav-item.${CLASS_HAS_SUBMENU}`)
+    .forEach((navItem) => {
+      navItem.addEventListener("mouseenter", () => {
+        if (!isMobile()) {
+          const targetId = navItem.getAttribute("data-target");
+          if (targetId) goToLevel(targetId, navItem, true);
+        }
+      });
     });
-  });
 
   // Click handler (scoped to the filter panel – mirrors menu_controller.js):
   //  – Mobile: tap on a filter group navigates into its sub-column.
@@ -264,7 +292,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const allCb = col.querySelector(".subcategory-all-checkbox");
       if (!allCb) return;
       const childCbs = Array.from(
-        col.querySelectorAll(".filter-checkbox:not(.subcategory-all-checkbox)")
+        col.querySelectorAll(".filter-checkbox:not(.subcategory-all-checkbox)"),
       );
       if (childCbs.length === 0) return;
       const checkedCount = childCbs.filter((cb) => cb.checked).length;
@@ -284,7 +312,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // On mobile, if this column has level-2 children, aggregate their
       // checkboxes instead of this column's own desktop checkboxes.
       const childCols = Array.from(allCols).filter(
-        (c) => c.getAttribute("data-parent-id") === colId
+        (c) => c.getAttribute("data-parent-id") === colId,
       );
 
       let checkboxes;
@@ -292,15 +320,15 @@ document.addEventListener("DOMContentLoaded", () => {
         checkboxes = childCols.flatMap((c) =>
           Array.from(
             c.querySelectorAll(
-              ".filter-checkbox:not(.subcategory-all-checkbox)"
-            )
-          )
+              ".filter-checkbox:not(.subcategory-all-checkbox)",
+            ),
+          ),
         );
       } else {
         checkboxes = Array.from(
           col.querySelectorAll(
-            ".filter-checkbox:not(.category-state-checkbox):not(.subcategory-all-checkbox)"
-          )
+            ".filter-checkbox:not(.category-state-checkbox):not(.subcategory-all-checkbox)",
+          ),
         );
       }
 
@@ -327,7 +355,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Global badge on the trigger button(s)
-    const totalChecked = panel.querySelectorAll(".filter-checkbox:not(.category-state-checkbox):checked").length;
+    const totalChecked = panel.querySelectorAll(
+      ".filter-checkbox:not(.category-state-checkbox):checked",
+    ).length;
     triggerBtns.forEach((btn) => {
       const globalBadge = btn.querySelector(".floating-filter-btn__badge");
       if (globalBadge) {
@@ -342,6 +372,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   panel.addEventListener("change", (e) => {
     if (e.target.classList.contains("filter-checkbox")) {
+      // Rank single-select enforcement: deselect other rank items when one is selected
+      if (e.target.name === "rank") {
+        const rankCol = panel.querySelector('[data-filter-key="rank"]');
+        if (rankCol && e.target.checked) {
+          rankCol
+            .querySelectorAll(
+              'input[name="rank"]:not(#' + CSS.escape(e.target.id) + ")",
+            )
+            .forEach((cb) => {
+              cb.checked = false;
+            });
+        }
+      }
+
       // Subcategory "select all" checkbox: propagate to all child checkboxes
       if (e.target.classList.contains("subcategory-all-checkbox")) {
         const col = e.target.closest(".main-menu__col");
@@ -371,7 +415,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!mobileChipsEl) return;
 
     const checkedBoxes = Array.from(
-      panel.querySelectorAll(".filter-checkbox:checked:not(.category-state-checkbox):not(.subcategory-all-checkbox)")
+      panel.querySelectorAll(
+        ".filter-checkbox:checked:not(.category-state-checkbox):not(.subcategory-all-checkbox)",
+      ),
     );
 
     // Rebuild chip list
@@ -431,7 +477,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!summaryBar || !summaryChips) return;
 
     const checkedBoxes = Array.from(
-      panel.querySelectorAll(".filter-checkbox:checked:not(.category-state-checkbox):not(.subcategory-all-checkbox)")
+      panel.querySelectorAll(
+        ".filter-checkbox:checked:not(.category-state-checkbox):not(.subcategory-all-checkbox)",
+      ),
     );
 
     // Rebuild chip list
@@ -445,8 +493,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const panelIsOpen = panel.classList.contains(CLASS_OPEN);
     summaryBar.classList.toggle(
       "is-visible",
-      !panelIsOpen && checkedBoxes.length > 0
+      !panelIsOpen && checkedBoxes.length > 0,
     );
+  }
+
+  function clearFloatingSelections(shouldSync = true) {
+    panel.querySelectorAll(".filter-checkbox").forEach((checkbox) => {
+      checkbox.checked = false;
+      checkbox.indeterminate = false;
+    });
+
+    updateBadges();
+    updateSummaryBar();
+
+    if (shouldSync) {
+      dispatchFilterChange();
+    }
   }
 
   /**
@@ -493,14 +555,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (clearBtn) {
     clearBtn.addEventListener("click", () => {
-      panel
-        .querySelectorAll(".filter-checkbox:checked:not(.category-state-checkbox):not(.subcategory-all-checkbox)")
-        .forEach((cb) => {
-          cb.checked = false;
-        });
-      updateBadges();
-      dispatchFilterChange();
-      updateSummaryBar();
+      clearFloatingSelections();
     });
   }
 
@@ -526,17 +581,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const checked = Array.from(
         col.querySelectorAll(
-          ".filter-checkbox:not(.subcategory-all-checkbox):checked"
-        )
+          ".filter-checkbox:not(.subcategory-all-checkbox):not(.category-state-checkbox):checked",
+        ),
       ).map((cb) => cb.value);
 
       if (checked.length > 0) {
-        if (data[filterKey]) {
-          // Merge values from multiple columns sharing the same filter key
-          // (e.g. level-1 desktop checkboxes + level-2 mobile checkboxes)
-          data[filterKey] = [...new Set([...data[filterKey], ...checked])];
+        // Rank is single-select: store as single value, not array
+        if (filterKey === "rank") {
+          data[filterKey] = checked[0] || "";
         } else {
-          data[filterKey] = checked;
+          // Multi-select taxonomies: store as array, merge if multiple columns share key
+          if (data[filterKey]) {
+            data[filterKey] = [...new Set([...data[filterKey], ...checked])];
+          } else {
+            data[filterKey] = checked;
+          }
         }
       }
     });
@@ -551,40 +610,80 @@ document.addEventListener("DOMContentLoaded", () => {
     document.dispatchEvent(event);
   }
 
+  if (postTypeToggle && filterForm) {
+    postTypeToggle.addEventListener("change", () => {
+      const activePostType = filterForm.dataset.postType || "";
+      const projectPostType = filterForm.dataset.projectPostType || "projects";
+      const insightPostType = filterForm.dataset.insightPostType || "insight";
+      const nextPostType =
+        activePostType === insightPostType ? projectPostType : insightPostType;
+
+      clearFloatingSelections(false);
+      updatePostTypeToggle(nextPostType);
+
+      document.dispatchEvent(
+        new CustomEvent("filterPostTypeChange", {
+          bubbles: true,
+          detail: { postType: nextPostType },
+        }),
+      );
+    });
+  }
+
   // ── Sync with hidden filter form (if present) ────────────────────────────────
   // Keep backward-compat: when a .filter-form exists, mirror checkbox values
   // into the corresponding <select> elements so existing FilterHandler.js
   // continues to work without modification.
 
   document.addEventListener("floatingFilterChange", (e) => {
-    const filterForm = document.querySelector(".filter-form");
     if (!filterForm) return;
 
     const filters = e.detail.filters;
+    const changedSelects = new Set();
 
     // Reset all multiselects in the form
     filterForm.querySelectorAll("select[multiple]").forEach((sel) => {
       Array.from(sel.options).forEach((opt) => {
         opt.selected = false;
       });
+      changedSelects.add(sel);
     });
+
+    // Reset rank select
+    const rankSelect = filterForm.querySelector('select[name="rank"]');
+    if (rankSelect) {
+      rankSelect.value = "";
+      changedSelects.add(rankSelect);
+    }
 
     Object.entries(filters).forEach(([key, values]) => {
-      const sel = filterForm.querySelector(`select[name="${key}[]"]`);
-      if (!sel) return;
-      values.forEach((val) => {
-        const opt = sel.querySelector(`option[value="${val}"]`);
-        if (opt) opt.selected = true;
-      });
+      // Handle rank separately (single value, not array)
+      if (key === "rank") {
+        if (rankSelect) {
+          rankSelect.value = values || "";
+        }
+      } else {
+        // Multi-select taxonomy logic
+        const sel = filterForm.querySelector(`select[name="${key}[]"]`);
+        if (!sel) return;
+        changedSelects.add(sel);
+        (Array.isArray(values) ? values : []).forEach((val) => {
+          const opt = sel.querySelector(`option[value="${val}"]`);
+          if (opt) opt.selected = true;
+        });
+      }
     });
 
-    // Trigger a change event on the form so FilterHandler picks it up
-    filterForm.dispatchEvent(new Event("change", { bubbles: true }));
+    // Trigger change on selects because FilterHandler listens on input/select elements.
+    changedSelects.forEach((selectEl) => {
+      selectEl.dispatchEvent(new Event("change", { bubbles: true }));
+    });
   });
 
   // Initialise badges and summary bar
   updateBadges();
   updateSummaryBar();
+  updatePostTypeToggle(filterForm?.dataset.postType || "");
 
   // ── Scroll-triggered reveal of floating buttons ──────────────────────────────
   // On desktop the two standalone floating buttons are hidden by default (via CSS)
@@ -594,17 +693,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const floatingBtnsToReveal = [
     document.querySelector(".floating-filter-btn.floating-filter-trigger-btn"),
-    document.querySelector(".floating-filter-btn.floating-filter-btn-request-credentials"),
+    document.querySelector(
+      ".floating-filter-btn.floating-filter-btn-request-credentials",
+    ),
   ].filter(Boolean);
 
   if (floatingBtnsToReveal.length > 0) {
-    const filterIconInHeading = document.querySelector(
-      ".block-section-heading .floating-filter-trigger-btn"
-    );
+    const filterIconInHeading = document.querySelector("#library .icon");
 
     const triggerSection = filterIconInHeading
-      ? filterIconInHeading.closest(".block-section-heading")
-      : document.querySelector(".block-section-heading");
+      ? filterIconInHeading.closest("#library")
+      : document.querySelector("#library");
 
     if (triggerSection) {
       const REVEAL_OFFSET = 0; // increase this value to show earlier
@@ -626,7 +725,7 @@ document.addEventListener("DOMContentLoaded", () => {
       window.addEventListener("resize", updateFloatingButtonsVisibility);
     } else {
       floatingBtnsToReveal.forEach((btn) =>
-        btn.classList.add("is-scrolled-visible")
+        btn.classList.add("is-scrolled-visible"),
       );
     }
   }

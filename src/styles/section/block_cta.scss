@@ -27,7 +27,7 @@
     @include bg-overlay();
 
     @media (max-width: 991px) {
-      max-height: 590px !important;
+      max-height: 600px !important;
     }
 
     .block-cta__image {
@@ -38,9 +38,7 @@
       min-width: min-content;
 
       @media (max-width: 991px) {
-        width: 100%;
-        height: auto;
-        min-height: 100%;
+        height: 600px;
       }
     }
   }
