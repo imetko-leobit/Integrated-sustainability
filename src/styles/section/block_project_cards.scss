@@ -316,6 +316,7 @@
     height: 40%;
     width: 100%;
     overflow: hidden;
+    max-height: 400px;
 
     @media (max-width: 1199px) {
       height: 100%;
