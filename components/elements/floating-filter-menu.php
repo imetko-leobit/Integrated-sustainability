@@ -201,44 +201,6 @@
             </li>
           </ul>
 
-          <!-- Desktop-only: subcategory sections with items inline -->
-          <div class="submenu-subcategory desktop-subcategory">
-            <div class="submenu-subcategory__header">Metals &amp; Mining</div>
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <label class="nav-link" for="filter-ind-gold">
-                  <input type="checkbox" id="filter-ind-gold" name="industries[]" value="gold-mining" class="filter-checkbox">
-                  gold mining
-                </label>
-              </li>
-              <li class="nav-item">
-                <label class="nav-link" for="filter-ind-metals-mining">
-                  <input type="checkbox" id="filter-ind-metals-mining" name="industries[]" value="metals-mining" class="filter-checkbox">
-                  metals &amp; mining
-                </label>
-              </li>
-            </ul>
-          </div>
-
-          <div class="submenu-subcategory desktop-subcategory">
-            <div class="submenu-subcategory__header">Environmental</div>
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <label class="nav-link" for="filter-ind-environmental">
-                  <input type="checkbox" id="filter-ind-environmental" name="industries[]" value="environmental" class="filter-checkbox">
-                  environmental
-                </label>
-              </li>
-              <li class="nav-item">
-                <label class="nav-link" for="filter-ind-water-treatment">
-                  <input type="checkbox" id="filter-ind-water-treatment" name="industries[]" value="water-treatment" class="filter-checkbox">
-                  water treatment
-                </label>
-              </li>
-            </ul>
-          </div>
-        </div><!-- /filter-level-industries -->
-
         <!-- ── Level 1 – Locations (flat: items directly) ──────────────── -->
         <div id="filter-level-locations" class="main-menu__col main-menu__col--level-1 submenu" data-level="1" data-filter-key="locations">
           <button class="submenu-header" data-prev-target="filter-level-0" aria-label="Go back to Filters">
