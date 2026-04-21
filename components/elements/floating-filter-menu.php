@@ -254,7 +254,7 @@
 
           <ul class="navbar-nav">
             <li class="nav-item has-submenu" data-target="filter-level-industries-metals-mining-gold">
-              <a href="#" class="nav-link">Gold Mining</a>
+              <a href="#" class="nav-link">gold mining</a>
               <input type="checkbox" class="filter-checkbox category-state-checkbox" tabindex="-1" aria-label="Gold Mining selection state">
               <button class="submenu-button" aria-label="Open Gold Mining filter">
                 <span class="arrow-icon">
@@ -334,7 +334,7 @@
           <div class="submenu-subcategory-title">
             <label class="submenu-subcategory-title__label" for="filter-ind-m-gold-all">
               <input type="checkbox" id="filter-ind-m-gold-all" class="filter-checkbox subcategory-all-checkbox" tabindex="-1">
-              Gold Mining
+              gold mining
             </label>
           </div>
 

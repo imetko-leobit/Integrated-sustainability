@@ -809,6 +809,10 @@
     transform: none !important;
     transition: none;
     overflow: visible;
+    // Use 100% (not auto) so the flex container fills the full drawer width and
+    // the padding-right below creates a gap identical to main-menu__content.
+    // With width:auto the container would shrink-wrap its columns and there
+    // would be no room for the right-side spacing.
     width: 100%;
 
     // Mirror main-menu__content padding-right so the rightmost column's
