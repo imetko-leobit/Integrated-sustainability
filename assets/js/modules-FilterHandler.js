@@ -42,12 +42,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
 function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
 function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
@@ -65,6 +59,10 @@ var PostsFilter = /*#__PURE__*/function () {
     this.container = document.querySelector(".publications");
     this.loader = document.querySelector(".loader");
     this.postType = this.form.dataset.postType;
+    this.projectPostType = this.form.dataset.projectPostType || "projects";
+    this.insightPostType = this.form.dataset.insightPostType || "insight";
+    this.initialInsightTermId = this.form.dataset.initialCurrentInsightTermId || "";
+    this.initialInsightTaxonomy = this.form.dataset.initialCurrentInsightTaxonomy || "";
     this.searchResultsTitle = document.querySelector(".js-search-results-title");
     this.filterFormWrapper = document.querySelector(".block-filter-form");
     this.btnOpen = document.querySelector(".filter-button--open");
@@ -78,6 +76,7 @@ var PostsFilter = /*#__PURE__*/function () {
     this.totalResults = 0;
     this.searchQuery = "";
     this.choicesInstances = [];
+    this.pendingReload = false;
     this.init();
   }
   return _createClass(PostsFilter, [{
@@ -93,6 +92,10 @@ var PostsFilter = /*#__PURE__*/function () {
       // Listen to all form inputs
       var inputs = this.form.querySelectorAll("input, select");
       inputs.forEach(function (input) {
+        if (input.classList.contains("filter-toggle__input")) {
+          return;
+        }
+
         // Use 'input' for text fields, 'change' for selects
         if (input.tagName === "SELECT") {
           input.addEventListener("change", function () {
@@ -104,9 +107,36 @@ var PostsFilter = /*#__PURE__*/function () {
           });
         }
       });
+      document.addEventListener("filterPostTypeChange", function (event) {
+        var _event$detail;
+        var nextPostType = ((_event$detail = event.detail) === null || _event$detail === void 0 ? void 0 : _event$detail.postType) || "";
+        if (!nextPostType || nextPostType === _this.postType) {
+          return;
+        }
+        _this.switchPostType(nextPostType);
+      });
+      this.hasFilters = this.checkIfFiltersActive();
 
       // Load initial posts (title will be updated in handleSuccess)
       this.loadPosts(true);
+    }
+  }, {
+    key: "getFilterSelects",
+    value: function getFilterSelects() {
+      return this.form.querySelectorAll(".filter-select");
+    }
+  }, {
+    key: "getCurrentInsightContext",
+    value: function getCurrentInsightContext() {
+      var termId = this.form.dataset.currentInsightTermId;
+      var taxonomy = this.form.dataset.currentInsightTaxonomy;
+      if (!termId || taxonomy !== "insights_categories") {
+        return null;
+      }
+      return {
+        termId: termId,
+        taxonomy: taxonomy
+      };
     }
 
     /**
@@ -206,6 +236,49 @@ var PostsFilter = /*#__PURE__*/function () {
       }, 2000);
     }
   }, {
+    key: "resetFormControls",
+    value: function resetFormControls() {
+      var searchInput = this.form.querySelector('input[name="s"]');
+      if (searchInput) {
+        searchInput.value = "";
+      }
+      this.getFilterSelects().forEach(function (selectElement) {
+        Array.from(selectElement.options).forEach(function (option) {
+          option.selected = false;
+        });
+      });
+      var rankSelect = this.form.querySelector('select[name="rank"]');
+      if (rankSelect) {
+        rankSelect.value = "";
+      }
+      this.choicesInstances.forEach(function (choicesInstance) {
+        if (typeof choicesInstance.removeActiveItems === "function") {
+          choicesInstance.removeActiveItems();
+        }
+      });
+    }
+  }, {
+    key: "updateInsightContext",
+    value: function updateInsightContext(postType) {
+      if (postType === this.insightPostType && this.initialInsightTermId && this.initialInsightTaxonomy) {
+        this.form.dataset.currentInsightTermId = this.initialInsightTermId;
+        this.form.dataset.currentInsightTaxonomy = this.initialInsightTaxonomy;
+        return;
+      }
+      delete this.form.dataset.currentInsightTermId;
+      delete this.form.dataset.currentInsightTaxonomy;
+    }
+  }, {
+    key: "switchPostType",
+    value: function switchPostType(postType) {
+      clearTimeout(this.filterTimeout);
+      this.postType = postType;
+      this.form.dataset.postType = postType;
+      this.updateInsightContext(postType);
+      this.resetFormControls();
+      this.applyFilters();
+    }
+  }, {
     key: "applyFilters",
     value: function applyFilters() {
       // Reset state
@@ -213,6 +286,7 @@ var PostsFilter = /*#__PURE__*/function () {
       this.currentPage = 1;
       this.hasMore = true;
       this.totalResults = 0;
+      this.pendingReload = false;
 
       // Clear container
       if (this.container) {
@@ -234,15 +308,19 @@ var PostsFilter = /*#__PURE__*/function () {
       var searchValue = formData.get("s");
       if (searchValue && searchValue.trim()) return true;
 
-      // Check taxonomies
-      var taxonomies = ["locations", "industry_categories", "service_categories", "project_tags"];
-      for (var _i = 0, _taxonomies = taxonomies; _i < _taxonomies.length; _i++) {
-        var tax = _taxonomies[_i];
-        var values = formData.getAll("".concat(tax, "[]")).filter(function (v) {
-          return v && v.trim();
+      // Check taxonomy filters
+      var filterSelects = Array.from(this.getFilterSelects());
+      for (var i = 0; i < filterSelects.length; i++) {
+        var selectElement = filterSelects[i];
+        if (!selectElement || !selectElement.name) {
+          continue;
+        }
+        var values = formData.getAll(selectElement.name).filter(function (value) {
+          return value && value.trim();
         });
         if (values.length > 0) return true;
       }
+      if (this.getCurrentInsightContext()) return true;
 
       // Check sort (ensure it's not empty string)
       var rankValue = formData.get("rank");
@@ -256,10 +334,18 @@ var PostsFilter = /*#__PURE__*/function () {
         _window$filterPostsDa2,
         _this5 = this;
       var isInitial = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
-      if (this.isLoading || !this.hasMore) return;
+      // Allow initial/reload requests to run regardless of previous pagination state.
+      if (!isInitial && !this.hasMore) return;
+
+      // If request is already in flight, queue one fresh reload with latest form state.
+      if (this.isLoading) {
+        this.pendingReload = true;
+        return;
+      }
       this.isLoading = true;
       this.showLoader();
       var formData = new FormData(this.form);
+      var currentInsightContext = this.getCurrentInsightContext();
 
       // Prepare data object
       var data = {
@@ -283,6 +369,10 @@ var PostsFilter = /*#__PURE__*/function () {
       params.append("has_filters", data.has_filters);
       params.append("s", data.s);
       params.append("rank", data.rank);
+      if (currentInsightContext) {
+        params.append("current_insight_term_id", currentInsightContext.termId);
+        params.append("current_insight_taxonomy", currentInsightContext.taxonomy);
+      }
 
       // Add excluded IDs array
       this.excludedIds.forEach(function (id) {
@@ -290,29 +380,16 @@ var PostsFilter = /*#__PURE__*/function () {
       });
 
       // Add taxonomy arrays
-      var locations = formData.getAll("locations[]").filter(function (v) {
-        return v;
-      });
-      locations.forEach(function (val) {
-        return params.append("locations[]", val);
-      });
-      var industries = formData.getAll("industry_categories[]").filter(function (v) {
-        return v;
-      });
-      industries.forEach(function (val) {
-        return params.append("industry_categories[]", val);
-      });
-      var services = formData.getAll("service_categories[]").filter(function (v) {
-        return v;
-      });
-      services.forEach(function (val) {
-        return params.append("service_categories[]", val);
-      });
-      var tags = formData.getAll("project_tags[]").filter(function (v) {
-        return v;
-      });
-      tags.forEach(function (val) {
-        return params.append("project_tags[]", val);
+      this.getFilterSelects().forEach(function (selectElement) {
+        if (!selectElement || !selectElement.name) {
+          return;
+        }
+        var values = formData.getAll(selectElement.name).filter(function (value) {
+          return value;
+        });
+        values.forEach(function (value) {
+          return params.append(selectElement.name, value);
+        });
       });
       fetch(((_window$filterPostsDa2 = window.filterPostsData) === null || _window$filterPostsDa2 === void 0 ? void 0 : _window$filterPostsDa2.ajaxUrl) || "/wp-admin/admin-ajax.php", {
         method: "POST",
@@ -334,20 +411,28 @@ var PostsFilter = /*#__PURE__*/function () {
       })["finally"](function () {
         _this5.isLoading = false;
         _this5.hideLoader();
+        if (_this5.pendingReload) {
+          _this5.pendingReload = false;
+          _this5.loadPosts(true);
+        }
       });
     }
   }, {
     key: "handleSuccess",
     value: function handleSuccess(data) {
+      var _this6 = this;
+      var postIds = Array.isArray(data.post_ids) ? data.post_ids : data.post_ids ? [data.post_ids] : [];
+
       // Append new posts
       if (this.container && data.html) {
         this.container.insertAdjacentHTML("beforeend", data.html);
       }
 
       // Update excluded IDs
-      if (data.post_ids && data.post_ids.length > 0) {
-        var _this$excludedIds;
-        (_this$excludedIds = this.excludedIds).push.apply(_this$excludedIds, _toConsumableArray(data.post_ids));
+      if (postIds.length > 0) {
+        postIds.forEach(function (id) {
+          _this6.excludedIds.push(id);
+        });
       }
 
       // Update pagination state
@@ -357,9 +442,9 @@ var PostsFilter = /*#__PURE__*/function () {
       if (this.currentPage === 1) {
         if (typeof data.total_results !== "undefined") {
           this.totalResults = data.total_results;
-        } else if (data.post_ids && data.post_ids.length > 0) {
+        } else if (postIds.length > 0) {
           // If server doesn't return total_results, count from post_ids on first page
-          this.totalResults = data.post_ids.length;
+          this.totalResults = postIds.length;
         }
         console.log("Total results:", this.totalResults, "Data:", data);
       }

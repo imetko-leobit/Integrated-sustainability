@@ -520,6 +520,18 @@
     letter-spacing: 0.08em;
     color: var(--color-grey-400, #80F7E6);
     opacity: 0.7;
+
+    &:has(.subcategory-all-checkbox) {
+      opacity: 1;
+    }
+  }
+
+  &__header-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    width: 100%;
   }
 }
 
@@ -801,8 +813,16 @@
   }
 }
 
-.desktop-subcategory {
-  display: none !important;
+@media (min-width: 993px) {
+  .mobile-subcategory-nav {
+    display: none !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .desktop-subcategory {
+    display: none !important;
+  }
 }
 
 .filter-summary-bar {

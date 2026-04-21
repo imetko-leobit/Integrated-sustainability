@@ -1,3 +1,17 @@
+/******/ (() => { // webpackBootstrap
+/*!********************************************************!*\
+  !*** ./src/scripts/components/floating_filter_menu.js ***!
+  \********************************************************/
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 /**
  * FloatingFilterMenu
  *
@@ -14,45 +28,42 @@
  * All queries are scoped to the filter panel to avoid interfering with the
  * main menu controller.
  */
-document.addEventListener("DOMContentLoaded", () => {
-  const panel = document.querySelector(".floating-filter-panel");
-  const drawer = document.querySelector(".floating-filter-panel__drawer");
-  const triggerBtns = document.querySelectorAll(".floating-filter-trigger-btn");
-  const closeBtn = document.querySelector(".floating-filter-panel__btn-close");
-  const backdrop = document.querySelector(".floating-filter-panel__backdrop");
-  const content = document.querySelector(".floating-filter-panel__content");
-  const clearBtn = document.querySelector(".filter-clear-btn");
-  const applyBtn = document.querySelector(".filter-apply-btn");
-  const summaryBar = document.querySelector(".filter-summary-bar");
-  const summaryChips = document.querySelector(".filter-summary-bar__chips");
-  const filterForm = document.querySelector(".filter-form");
-  const postTypeToggle = panel.querySelector("#filter-cant-find-toggle");
-  const postTypeToggleText = panel.querySelector(
-    ".nav-item-toggle .nav-link__text",
-  );
-
+document.addEventListener("DOMContentLoaded", function () {
+  var panel = document.querySelector(".floating-filter-panel");
+  var drawer = document.querySelector(".floating-filter-panel__drawer");
+  var triggerBtns = document.querySelectorAll(".floating-filter-trigger-btn");
+  var closeBtn = document.querySelector(".floating-filter-panel__btn-close");
+  var backdrop = document.querySelector(".floating-filter-panel__backdrop");
+  var content = document.querySelector(".floating-filter-panel__content");
+  var clearBtn = document.querySelector(".filter-clear-btn");
+  var applyBtn = document.querySelector(".filter-apply-btn");
+  var summaryBar = document.querySelector(".filter-summary-bar");
+  var summaryChips = document.querySelector(".filter-summary-bar__chips");
+  var filterForm = document.querySelector(".filter-form");
+  var postTypeToggle = panel.querySelector("#filter-cant-find-toggle");
+  var postTypeToggleText = panel.querySelector(".nav-item-toggle .nav-link__text");
   if (!panel || !triggerBtns.length) return;
 
   // ── Helpers ─────────────────────────────────────────────────────────────────
 
-  const menuToggle = document.querySelector(".menu-toggle");
-  const headerWrapper = document.querySelector(".header-wrapper");
-
-  const CLASS_OPEN = "is-open";
-  const CLASS_FILTERS_OPEN = "is-filters-open";
-  const CLASS_ACTIVE_LEVEL = "active-level";
-  const CLASS_ACTIVE = "active";
-  const CLASS_HAS_SUBMENU = "has-submenu";
-
-  const SEL_FILTER_COL = ".main-menu__col";
-  const SEL_CLOSE_BTN = ".floating-filter-panel__btn-close";
-  const SEL_CREDENTIALS_BTN = ".floating-filter-btn-request-credentials";
+  var menuToggle = document.querySelector(".menu-toggle");
+  var headerWrapper = document.querySelector(".header-wrapper");
+  var CLASS_OPEN = "is-open";
+  var CLASS_FILTERS_OPEN = "is-filters-open";
+  var CLASS_ACTIVE_LEVEL = "active-level";
+  var CLASS_ACTIVE = "active";
+  var CLASS_HAS_SUBMENU = "has-submenu";
+  var SEL_FILTER_COL = ".main-menu__col";
+  var SEL_CLOSE_BTN = ".floating-filter-panel__btn-close";
+  var SEL_CREDENTIALS_BTN = ".floating-filter-btn-request-credentials";
 
   /** Mirrors the isMobile() helper in menu_controller.js. */
-  const isMobile = () => window.innerWidth <= 992;
+  var isMobile = function isMobile() {
+    return window.innerWidth <= 992;
+  };
 
   // All columns are scoped to the filter panel (same class as main menu).
-  const allCols = panel.querySelectorAll(SEL_FILTER_COL);
+  var allCols = panel.querySelectorAll(SEL_FILTER_COL);
 
   /**
    * Build the ordered list of column IDs that must be visible (active-level)
@@ -65,13 +76,13 @@ document.addEventListener("DOMContentLoaded", () => {
    *     ["filter-level-0", "filter-level-industries", "filter-level-industries-metals-mining"]
    */
   function getAncestorChain(targetId) {
-    const chain = [];
-    let currentId = targetId;
+    var chain = [];
+    var currentId = targetId;
     while (currentId) {
       chain.unshift(currentId);
       if (currentId === "filter-level-0") break;
-      const col = panel.querySelector(`#${CSS.escape(currentId)}`);
-      const parentId = col ? col.getAttribute("data-parent-id") : null;
+      var col = panel.querySelector("#".concat(CSS.escape(currentId)));
+      var parentId = col ? col.getAttribute("data-parent-id") : null;
       // Default parent is the root when no data-parent-id is set
       currentId = parentId || "filter-level-0";
       // Safety: stop if we've already added this id (prevents infinite loops)
@@ -98,10 +109,10 @@ document.addEventListener("DOMContentLoaded", () => {
    */
   function goToLevel(targetId, activeItem, isForward) {
     // Clear active state across all columns
-    allCols.forEach((col) => {
-      col
-        .querySelectorAll(`.${CLASS_ACTIVE}`)
-        .forEach((el) => el.classList.remove(CLASS_ACTIVE));
+    allCols.forEach(function (col) {
+      col.querySelectorAll(".".concat(CLASS_ACTIVE)).forEach(function (el) {
+        return el.classList.remove(CLASS_ACTIVE);
+      });
     });
 
     // Mark the clicked nav item as active
@@ -112,10 +123,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // Determine which columns to show: the full ancestor chain from root to target.
     // On mobile this ensures each slide position (0, 1, 2…) is occupied so the
     // translateX animation reveals the correct column.
-    const colsToShow = new Set(getAncestorChain(targetId));
-
-    allCols.forEach((col) => {
-      const colId = col.getAttribute("id");
+    var colsToShow = new Set(getAncestorChain(targetId));
+    allCols.forEach(function (col) {
+      var colId = col.getAttribute("id");
       if (colsToShow.has(colId)) {
         col.classList.add(CLASS_ACTIVE_LEVEL);
       } else {
@@ -130,9 +140,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Mobile only: update the slide animation via data-current-level.
     if (isMobile() && content) {
-      const targetCol = panel.querySelector(`#${CSS.escape(targetId)}`);
+      var targetCol = panel.querySelector("#".concat(CSS.escape(targetId)));
       if (targetCol) {
-        const level = parseInt(targetCol.getAttribute("data-level") || "0", 10);
+        var level = parseInt(targetCol.getAttribute("data-level") || "0", 10);
         content.setAttribute("data-current-level", level);
       }
     }
@@ -142,7 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function openPanel() {
     panel.classList.add(CLASS_OPEN);
-    triggerBtns.forEach((btn) => {
+    triggerBtns.forEach(function (btn) {
       btn.classList.add("is-active");
       btn.setAttribute("aria-expanded", "true");
     });
@@ -165,10 +175,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // Hide the summary bar while the filter panel is open
     if (summaryBar) summaryBar.classList.remove("is-visible");
   }
-
   function closePanel() {
     panel.classList.remove(CLASS_OPEN);
-    triggerBtns.forEach((btn) => {
+    triggerBtns.forEach(function (btn) {
       btn.classList.remove("is-active");
       btn.setAttribute("aria-expanded", "false");
     });
@@ -185,36 +194,26 @@ document.addEventListener("DOMContentLoaded", () => {
     // Show the summary bar if there are active filters
     updateSummaryBar();
   }
-
   function updatePostTypeToggle(activePostType) {
     if (!postTypeToggle || !postTypeToggleText) return;
-
-    const insightPostType = filterForm?.dataset.insightPostType || "insight";
-    const switchToInsightLabel =
-      postTypeToggleText.dataset.switchToInsightLabel || "Switch to Insights";
-    const switchToProjectsLabel =
-      postTypeToggleText.dataset.switchToProjectsLabel || "Switch to Projects";
-
+    var insightPostType = (filterForm === null || filterForm === void 0 ? void 0 : filterForm.dataset.insightPostType) || "insight";
+    var switchToInsightLabel = postTypeToggleText.dataset.switchToInsightLabel || "Switch to Insights";
+    var switchToProjectsLabel = postTypeToggleText.dataset.switchToProjectsLabel || "Switch to Projects";
     postTypeToggle.checked = activePostType === insightPostType;
-    postTypeToggleText.textContent =
-      activePostType === insightPostType
-        ? switchToProjectsLabel
-        : switchToInsightLabel;
+    postTypeToggleText.textContent = activePostType === insightPostType ? switchToProjectsLabel : switchToInsightLabel;
     postTypeToggle.setAttribute("aria-label", postTypeToggleText.textContent);
   }
-
-  triggerBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const isOpen = panel.classList.contains(CLASS_OPEN);
+  triggerBtns.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var isOpen = panel.classList.contains(CLASS_OPEN);
       isOpen ? closePanel() : openPanel();
     });
   });
-
   if (closeBtn) closeBtn.addEventListener("click", closePanel);
   if (backdrop) backdrop.addEventListener("click", closePanel);
 
   // Allow the .icon inside #library to open the filter panel
-  const libraryIcon = document.querySelector("#library .icon");
+  var libraryIcon = document.querySelector("#library .icon");
   if (libraryIcon) {
     libraryIcon.style.cursor = "pointer";
     libraryIcon.addEventListener("click", openPanel);
@@ -225,7 +224,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("requestFilterClose", closePanel);
 
   // Keyboard: Escape closes the panel
-  document.addEventListener("keydown", (e) => {
+  document.addEventListener("keydown", function (e) {
     if (e.key === "Escape" && panel.classList.contains(CLASS_OPEN)) {
       closePanel();
     }
@@ -236,28 +235,26 @@ document.addEventListener("DOMContentLoaded", () => {
   // Desktop: hover over a filter group opens its sub-column (mirrors the
   // mouseenter behaviour of .nav-item in menu_controller.js, but scoped to
   // the filter panel).
-  panel
-    .querySelectorAll(`.nav-item.${CLASS_HAS_SUBMENU}`)
-    .forEach((navItem) => {
-      navItem.addEventListener("mouseenter", () => {
-        if (!isMobile()) {
-          const targetId = navItem.getAttribute("data-target");
-          if (targetId) goToLevel(targetId, navItem, true);
-        }
-      });
+  panel.querySelectorAll(".nav-item.".concat(CLASS_HAS_SUBMENU)).forEach(function (navItem) {
+    navItem.addEventListener("mouseenter", function () {
+      if (!isMobile()) {
+        var targetId = navItem.getAttribute("data-target");
+        if (targetId) goToLevel(targetId, navItem, true);
+      }
     });
+  });
 
   // Click handler (scoped to the filter panel – mirrors menu_controller.js):
   //  – Mobile: tap on a filter group navigates into its sub-column.
   //  – Desktop: click toggles the sub-column open/closed.
   //  – Back button: always restores the parent level (button is hidden on
   //    desktop via CSS so it only appears on mobile).
-  panel.addEventListener("click", (e) => {
+  panel.addEventListener("click", function (e) {
     // Forward: clicking a group item (has-submenu) opens its sub-column
-    const navItem = e.target.closest(`.nav-item.${CLASS_HAS_SUBMENU}`);
+    var navItem = e.target.closest(".nav-item.".concat(CLASS_HAS_SUBMENU));
     if (navItem && panel.contains(navItem)) {
       e.preventDefault();
-      const targetId = navItem.getAttribute("data-target");
+      var targetId = navItem.getAttribute("data-target");
       if (isMobile()) {
         if (targetId) goToLevel(targetId, navItem, true);
       }
@@ -265,20 +262,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Backward: clicking the back button returns to the parent level
-    const subHeader = e.target.closest(".submenu-header[data-prev-target]");
+    var subHeader = e.target.closest(".submenu-header[data-prev-target]");
     if (subHeader && panel.contains(subHeader)) {
-      const prevId = subHeader.getAttribute("data-prev-target");
+      var prevId = subHeader.getAttribute("data-prev-target");
       goToLevel(prevId, null, false);
       return;
     }
 
     // Desktop backdrop: close the panel when clicking outside the filter columns
     if (!isMobile()) {
-      if (
-        !e.target.closest(SEL_FILTER_COL) &&
-        !e.target.closest(SEL_CLOSE_BTN) &&
-        !e.target.closest(SEL_CREDENTIALS_BTN)
-      ) {
+      if (!e.target.closest(SEL_FILTER_COL) && !e.target.closest(SEL_CLOSE_BTN) && !e.target.closest(SEL_CREDENTIALS_BTN)) {
         closePanel();
       }
     }
@@ -291,57 +284,47 @@ document.addEventListener("DOMContentLoaded", () => {
     // For desktop subcategory headers (inside .submenu-subcategory) the scope is
     // the nearest .submenu-subcategory; for mobile level-2 / flat category headers
     // the scope falls back to the enclosing .main-menu__col.
-    panel.querySelectorAll(".subcategory-all-checkbox").forEach((allCb) => {
-      const scope =
-        allCb.closest(".submenu-subcategory") ||
-        allCb.closest(".main-menu__col");
+    panel.querySelectorAll(".subcategory-all-checkbox").forEach(function (allCb) {
+      var scope = allCb.closest(".submenu-subcategory") || allCb.closest(".main-menu__col");
       if (!scope) return;
-      const childCbs = Array.from(
-        scope.querySelectorAll(".filter-checkbox:not(.subcategory-all-checkbox)"),
-      );
+      var childCbs = Array.from(scope.querySelectorAll(".filter-checkbox:not(.subcategory-all-checkbox)"));
       if (childCbs.length === 0) return;
-      const checkedCount = childCbs.filter((cb) => cb.checked).length;
+      var checkedCount = childCbs.filter(function (cb) {
+        return cb.checked;
+      }).length;
       allCb.checked = checkedCount === childCbs.length;
       allCb.indeterminate = checkedCount > 0 && checkedCount < childCbs.length;
     });
 
     // Per-group state indicators (shown in parent level list on mobile)
-    allCols.forEach((col) => {
-      const colId = col.getAttribute("id");
+    allCols.forEach(function (col) {
+      var colId = col.getAttribute("id");
       if (!colId || colId === "filter-level-0") return;
 
       // Find the nav-item that opens this column
-      const navItem = panel.querySelector(`.nav-item[data-target="${colId}"]`);
+      var navItem = panel.querySelector(".nav-item[data-target=\"".concat(colId, "\"]"));
       if (!navItem) return;
 
       // On mobile, if this column has level-2 children, aggregate their
       // checkboxes instead of this column's own desktop checkboxes.
-      const childCols = Array.from(allCols).filter(
-        (c) => c.getAttribute("data-parent-id") === colId,
-      );
-
-      let checkboxes;
+      var childCols = Array.from(allCols).filter(function (c) {
+        return c.getAttribute("data-parent-id") === colId;
+      });
+      var checkboxes;
       if (childCols.length > 0) {
-        checkboxes = childCols.flatMap((c) =>
-          Array.from(
-            c.querySelectorAll(
-              ".filter-checkbox:not(.subcategory-all-checkbox)",
-            ),
-          ),
-        );
+        checkboxes = childCols.flatMap(function (c) {
+          return Array.from(c.querySelectorAll(".filter-checkbox:not(.subcategory-all-checkbox)"));
+        });
       } else {
-        checkboxes = Array.from(
-          col.querySelectorAll(
-            ".filter-checkbox:not(.category-state-checkbox):not(.subcategory-all-checkbox)",
-          ),
-        );
+        checkboxes = Array.from(col.querySelectorAll(".filter-checkbox:not(.category-state-checkbox):not(.subcategory-all-checkbox)"));
       }
-
-      const checkedCount = checkboxes.filter((cb) => cb.checked).length;
-      const totalCount = checkboxes.length;
+      var checkedCount = checkboxes.filter(function (cb) {
+        return cb.checked;
+      }).length;
+      var totalCount = checkboxes.length;
 
       // Determine state: unchecked / indeterminate / checked
-      let state = "unchecked";
+      var state = "unchecked";
       if (totalCount > 0) {
         if (checkedCount === totalCount) {
           state = "checked";
@@ -352,7 +335,7 @@ document.addEventListener("DOMContentLoaded", () => {
       navItem.setAttribute("data-filter-state", state);
 
       // Update the real checkbox input to reflect category state
-      const stateCheckbox = navItem.querySelector(".category-state-checkbox");
+      var stateCheckbox = navItem.querySelector(".category-state-checkbox");
       if (stateCheckbox) {
         stateCheckbox.checked = state === "checked";
         stateCheckbox.indeterminate = state === "indeterminate";
@@ -360,11 +343,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Global badge on the trigger button(s)
-    const totalChecked = panel.querySelectorAll(
-      ".filter-checkbox:not(.category-state-checkbox):checked",
-    ).length;
-    triggerBtns.forEach((btn) => {
-      const globalBadge = btn.querySelector(".floating-filter-btn__badge");
+    var totalChecked = panel.querySelectorAll(".filter-checkbox:not(.category-state-checkbox):checked").length;
+    triggerBtns.forEach(function (btn) {
+      var globalBadge = btn.querySelector(".floating-filter-btn__badge");
       if (globalBadge) {
         globalBadge.textContent = totalChecked;
         globalBadge.classList.toggle("is-visible", totalChecked > 0);
@@ -374,20 +355,15 @@ document.addEventListener("DOMContentLoaded", () => {
     // Update the mobile chips inside the panel (level-0 main screen)
     updateMobileChips();
   }
-
-  panel.addEventListener("change", (e) => {
+  panel.addEventListener("change", function (e) {
     if (e.target.classList.contains("filter-checkbox")) {
       // Rank single-select enforcement: deselect other rank items when one is selected
       if (e.target.name === "rank") {
-        const rankCol = panel.querySelector('[data-filter-key="rank"]');
+        var rankCol = panel.querySelector('[data-filter-key="rank"]');
         if (rankCol && e.target.checked) {
-          rankCol
-            .querySelectorAll(
-              'input[name="rank"]:not(#' + CSS.escape(e.target.id) + ")",
-            )
-            .forEach((cb) => {
-              cb.checked = false;
-            });
+          rankCol.querySelectorAll('input[name="rank"]:not(#' + CSS.escape(e.target.id) + ")").forEach(function (cb) {
+            cb.checked = false;
+          });
         }
       }
 
@@ -396,15 +372,11 @@ document.addEventListener("DOMContentLoaded", () => {
       // that section; for mobile level-2 / flat category headers fall back to
       // the enclosing .main-menu__col.
       if (e.target.classList.contains("subcategory-all-checkbox")) {
-        const scope =
-          e.target.closest(".submenu-subcategory") ||
-          e.target.closest(".main-menu__col");
+        var scope = e.target.closest(".submenu-subcategory") || e.target.closest(".main-menu__col");
         if (scope) {
-          scope
-            .querySelectorAll(".filter-checkbox:not(.subcategory-all-checkbox)")
-            .forEach((cb) => {
-              cb.checked = e.target.checked;
-            });
+          scope.querySelectorAll(".filter-checkbox:not(.subcategory-all-checkbox)").forEach(function (cb) {
+            cb.checked = e.target.checked;
+          });
         }
       }
       updateBadges();
@@ -421,19 +393,14 @@ document.addEventListener("DOMContentLoaded", () => {
    * filter without leaving the main screen.
    */
   function updateMobileChips() {
-    const mobileChipsEl = panel.querySelector(".mobile-applied-chips");
+    var mobileChipsEl = panel.querySelector(".mobile-applied-chips");
     if (!mobileChipsEl) return;
-
-    const checkedBoxes = Array.from(
-      panel.querySelectorAll(
-        ".filter-checkbox:checked:not(.category-state-checkbox):not(.subcategory-all-checkbox)",
-      ),
-    );
+    var checkedBoxes = Array.from(panel.querySelectorAll(".filter-checkbox:checked:not(.category-state-checkbox):not(.subcategory-all-checkbox)"));
 
     // Rebuild chip list
     mobileChipsEl.innerHTML = "";
-    checkedBoxes.forEach((cb) => {
-      const chip = buildMobileChip(cb);
+    checkedBoxes.forEach(function (cb) {
+      var chip = buildMobileChip(cb);
       mobileChipsEl.appendChild(chip);
     });
   }
@@ -443,33 +410,23 @@ document.addEventListener("DOMContentLoaded", () => {
    * Clicking the close button unchecks the box and refreshes state.
    */
   function buildMobileChip(cb) {
-    const labelEl =
-      cb.closest("label") ||
-      (cb.id ? panel.querySelector(`label[for="${cb.id}"]`) : null);
-    const labelText = labelEl
-      ? labelEl.textContent.trim()
-      : cb.value.replace(/[-_]/g, " ");
-
-    const chip = document.createElement("span");
+    var labelEl = cb.closest("label") || (cb.id ? panel.querySelector("label[for=\"".concat(cb.id, "\"]")) : null);
+    var labelText = labelEl ? labelEl.textContent.trim() : cb.value.replace(/[-_]/g, " ");
+    var chip = document.createElement("span");
     chip.className = "mobile-applied-chips__chip filter-summary-bar__chip";
     chip.setAttribute("role", "listitem");
-
-    const text = document.createElement("span");
+    var text = document.createElement("span");
     text.textContent = labelText;
-
-    const closeBtn = document.createElement("button");
+    var closeBtn = document.createElement("button");
     closeBtn.className = "mobile-applied-chips__chip-close";
-    closeBtn.setAttribute("aria-label", `Remove filter: ${labelText}`);
-    closeBtn.innerHTML =
-      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1l8 8M9 1l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>';
-
-    closeBtn.addEventListener("click", () => {
+    closeBtn.setAttribute("aria-label", "Remove filter: ".concat(labelText));
+    closeBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1l8 8M9 1l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>';
+    closeBtn.addEventListener("click", function () {
       cb.checked = false;
       updateBadges();
       dispatchFilterChange();
       updateSummaryBar();
     });
-
     chip.appendChild(text);
     chip.appendChild(closeBtn);
     return chip;
@@ -485,37 +442,27 @@ document.addEventListener("DOMContentLoaded", () => {
    */
   function updateSummaryBar() {
     if (!summaryBar || !summaryChips) return;
-
-    const checkedBoxes = Array.from(
-      panel.querySelectorAll(
-        ".filter-checkbox:checked:not(.category-state-checkbox):not(.subcategory-all-checkbox)",
-      ),
-    );
+    var checkedBoxes = Array.from(panel.querySelectorAll(".filter-checkbox:checked:not(.category-state-checkbox):not(.subcategory-all-checkbox)"));
 
     // Rebuild chip list
     summaryChips.innerHTML = "";
-    checkedBoxes.forEach((cb) => {
-      const chip = buildChip(cb);
+    checkedBoxes.forEach(function (cb) {
+      var chip = buildChip(cb);
       summaryChips.appendChild(chip);
     });
 
     // Show bar only when panel is closed and there are active filters
-    const panelIsOpen = panel.classList.contains(CLASS_OPEN);
-    summaryBar.classList.toggle(
-      "is-visible",
-      !panelIsOpen && checkedBoxes.length > 0,
-    );
+    var panelIsOpen = panel.classList.contains(CLASS_OPEN);
+    summaryBar.classList.toggle("is-visible", !panelIsOpen && checkedBoxes.length > 0);
   }
-
-  function clearFloatingSelections(shouldSync = true) {
-    panel.querySelectorAll(".filter-checkbox").forEach((checkbox) => {
+  function clearFloatingSelections() {
+    var shouldSync = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+    panel.querySelectorAll(".filter-checkbox").forEach(function (checkbox) {
       checkbox.checked = false;
       checkbox.indeterminate = false;
     });
-
     updateBadges();
     updateSummaryBar();
-
     if (shouldSync) {
       dispatchFilterChange();
     }
@@ -529,33 +476,23 @@ document.addEventListener("DOMContentLoaded", () => {
   function buildChip(cb) {
     // Derive a human-readable label from the associated <label> element or
     // fall back to the checkbox value.
-    const labelEl =
-      cb.closest("label") ||
-      (cb.id ? panel.querySelector(`label[for="${cb.id}"]`) : null);
-    const labelText = labelEl
-      ? labelEl.textContent.trim()
-      : cb.value.replace(/[-_]/g, " ");
-
-    const chip = document.createElement("span");
+    var labelEl = cb.closest("label") || (cb.id ? panel.querySelector("label[for=\"".concat(cb.id, "\"]")) : null);
+    var labelText = labelEl ? labelEl.textContent.trim() : cb.value.replace(/[-_]/g, " ");
+    var chip = document.createElement("span");
     chip.className = "filter-summary-bar__chip";
     chip.setAttribute("role", "listitem");
-
-    const text = document.createElement("span");
+    var text = document.createElement("span");
     text.textContent = labelText;
-
-    const closeBtn = document.createElement("button");
+    var closeBtn = document.createElement("button");
     closeBtn.className = "filter-summary-bar__chip-close";
-    closeBtn.setAttribute("aria-label", `Remove filter: ${labelText}`);
-    closeBtn.innerHTML =
-      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1l8 8M9 1l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>';
-
-    closeBtn.addEventListener("click", () => {
+    closeBtn.setAttribute("aria-label", "Remove filter: ".concat(labelText));
+    closeBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 1l8 8M9 1l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>';
+    closeBtn.addEventListener("click", function () {
       cb.checked = false;
       updateBadges();
       dispatchFilterChange();
       updateSummaryBar();
     });
-
     chip.appendChild(text);
     chip.appendChild(closeBtn);
     return chip;
@@ -564,7 +501,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ── Clear all ────────────────────────────────────────────────────────────────
 
   if (clearBtn) {
-    clearBtn.addEventListener("click", () => {
+    clearBtn.addEventListener("click", function () {
       clearFloatingSelections();
     });
   }
@@ -572,7 +509,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ── Apply ────────────────────────────────────────────────────────────────────
 
   if (applyBtn) {
-    applyBtn.addEventListener("click", () => {
+    applyBtn.addEventListener("click", function () {
       dispatchFilterChange();
       closePanel();
     });
@@ -581,20 +518,15 @@ document.addEventListener("DOMContentLoaded", () => {
   // ── Dispatch filter change event ─────────────────────────────────────────────
 
   function getFilterData() {
-    const data = {};
-    allCols.forEach((col) => {
-      const colId = col.getAttribute("id");
+    var data = {};
+    allCols.forEach(function (col) {
+      var colId = col.getAttribute("id");
       if (!colId || colId === "filter-level-0") return;
-
-      const filterKey = col.getAttribute("data-filter-key");
+      var filterKey = col.getAttribute("data-filter-key");
       if (!filterKey) return;
-
-      const checked = Array.from(
-        col.querySelectorAll(
-          ".filter-checkbox:not(.subcategory-all-checkbox):not(.category-state-checkbox):checked",
-        ),
-      ).map((cb) => cb.value);
-
+      var checked = Array.from(col.querySelectorAll(".filter-checkbox:not(.subcategory-all-checkbox):not(.category-state-checkbox):checked")).map(function (cb) {
+        return cb.value;
+      });
       if (checked.length > 0) {
         // Rank is single-select: store as single value, not array
         if (filterKey === "rank") {
@@ -602,7 +534,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
           // Multi-select taxonomies: store as array, merge if multiple columns share key
           if (data[filterKey]) {
-            data[filterKey] = [...new Set([...data[filterKey], ...checked])];
+            data[filterKey] = _toConsumableArray(new Set([].concat(_toConsumableArray(data[filterKey]), _toConsumableArray(checked))));
           } else {
             data[filterKey] = checked;
           }
@@ -611,32 +543,29 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     return data;
   }
-
   function dispatchFilterChange() {
-    const event = new CustomEvent("floatingFilterChange", {
+    var event = new CustomEvent("floatingFilterChange", {
       bubbles: true,
-      detail: { filters: getFilterData() },
+      detail: {
+        filters: getFilterData()
+      }
     });
     document.dispatchEvent(event);
   }
-
   if (postTypeToggle && filterForm) {
-    postTypeToggle.addEventListener("change", () => {
-      const activePostType = filterForm.dataset.postType || "";
-      const projectPostType = filterForm.dataset.projectPostType || "projects";
-      const insightPostType = filterForm.dataset.insightPostType || "insight";
-      const nextPostType =
-        activePostType === insightPostType ? projectPostType : insightPostType;
-
+    postTypeToggle.addEventListener("change", function () {
+      var activePostType = filterForm.dataset.postType || "";
+      var projectPostType = filterForm.dataset.projectPostType || "projects";
+      var insightPostType = filterForm.dataset.insightPostType || "insight";
+      var nextPostType = activePostType === insightPostType ? projectPostType : insightPostType;
       clearFloatingSelections(false);
       updatePostTypeToggle(nextPostType);
-
-      document.dispatchEvent(
-        new CustomEvent("filterPostTypeChange", {
-          bubbles: true,
-          detail: { postType: nextPostType },
-        }),
-      );
+      document.dispatchEvent(new CustomEvent("filterPostTypeChange", {
+        bubbles: true,
+        detail: {
+          postType: nextPostType
+        }
+      }));
     });
   }
 
@@ -645,28 +574,29 @@ document.addEventListener("DOMContentLoaded", () => {
   // into the corresponding <select> elements so existing FilterHandler.js
   // continues to work without modification.
 
-  document.addEventListener("floatingFilterChange", (e) => {
+  document.addEventListener("floatingFilterChange", function (e) {
     if (!filterForm) return;
-
-    const filters = e.detail.filters;
-    const changedSelects = new Set();
+    var filters = e.detail.filters;
+    var changedSelects = new Set();
 
     // Reset all multiselects in the form
-    filterForm.querySelectorAll("select[multiple]").forEach((sel) => {
-      Array.from(sel.options).forEach((opt) => {
+    filterForm.querySelectorAll("select[multiple]").forEach(function (sel) {
+      Array.from(sel.options).forEach(function (opt) {
         opt.selected = false;
       });
       changedSelects.add(sel);
     });
 
     // Reset rank select
-    const rankSelect = filterForm.querySelector('select[name="rank"]');
+    var rankSelect = filterForm.querySelector('select[name="rank"]');
     if (rankSelect) {
       rankSelect.value = "";
       changedSelects.add(rankSelect);
     }
-
-    Object.entries(filters).forEach(([key, values]) => {
+    Object.entries(filters).forEach(function (_ref) {
+      var _ref2 = _slicedToArray(_ref, 2),
+        key = _ref2[0],
+        values = _ref2[1];
       // Handle rank separately (single value, not array)
       if (key === "rank") {
         if (rankSelect) {
@@ -674,26 +604,28 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       } else {
         // Multi-select taxonomy logic
-        const sel = filterForm.querySelector(`select[name="${key}[]"]`);
+        var sel = filterForm.querySelector("select[name=\"".concat(key, "[]\"]"));
         if (!sel) return;
         changedSelects.add(sel);
-        (Array.isArray(values) ? values : []).forEach((val) => {
-          const opt = sel.querySelector(`option[value="${val}"]`);
+        (Array.isArray(values) ? values : []).forEach(function (val) {
+          var opt = sel.querySelector("option[value=\"".concat(val, "\"]"));
           if (opt) opt.selected = true;
         });
       }
     });
 
     // Trigger change on selects because FilterHandler listens on input/select elements.
-    changedSelects.forEach((selectEl) => {
-      selectEl.dispatchEvent(new Event("change", { bubbles: true }));
+    changedSelects.forEach(function (selectEl) {
+      selectEl.dispatchEvent(new Event("change", {
+        bubbles: true
+      }));
     });
   });
 
   // Initialise badges and summary bar
   updateBadges();
   updateSummaryBar();
-  updatePostTypeToggle(filterForm?.dataset.postType || "");
+  updatePostTypeToggle((filterForm === null || filterForm === void 0 ? void 0 : filterForm.dataset.postType) || "");
 
   // ── Scroll-triggered reveal of floating buttons ──────────────────────────────
   // On desktop the two standalone floating buttons are hidden by default (via CSS)
@@ -701,42 +633,31 @@ document.addEventListener("DOMContentLoaded", () => {
   // .block-section-heading that contains the floating-filter-trigger-btn icon).
   // The .is-scrolled-visible class triggers the CSS fade/slide-in animation.
 
-  const floatingBtnsToReveal = [
-    document.querySelector(".floating-filter-btn.floating-filter-trigger-btn"),
-    document.querySelector(
-      ".floating-filter-btn.floating-filter-btn-request-credentials",
-    ),
-  ].filter(Boolean);
-
+  var floatingBtnsToReveal = [document.querySelector(".floating-filter-btn.floating-filter-trigger-btn"), document.querySelector(".floating-filter-btn.floating-filter-btn-request-credentials")].filter(Boolean);
   if (floatingBtnsToReveal.length > 0) {
-    const filterIconInHeading = document.querySelector("#library .icon");
-
-    const triggerSection = filterIconInHeading
-      ? filterIconInHeading.closest("#library")
-      : document.querySelector("#library");
-
+    var filterIconInHeading = document.querySelector("#library .icon");
+    var triggerSection = filterIconInHeading ? filterIconInHeading.closest("#library") : document.querySelector("#library");
     if (triggerSection) {
-      const REVEAL_OFFSET = 0; // increase this value to show earlier
+      var REVEAL_OFFSET = 0; // increase this value to show earlier
 
-      const updateFloatingButtonsVisibility = () => {
-        const rect = triggerSection.getBoundingClientRect();
-        const shouldShow = rect.top <= REVEAL_OFFSET;
-
-        floatingBtnsToReveal.forEach((btn) => {
+      var updateFloatingButtonsVisibility = function updateFloatingButtonsVisibility() {
+        var rect = triggerSection.getBoundingClientRect();
+        var shouldShow = rect.top <= REVEAL_OFFSET;
+        floatingBtnsToReveal.forEach(function (btn) {
           btn.classList.toggle("is-scrolled-visible", shouldShow);
         });
       };
-
       updateFloatingButtonsVisibility();
-
       window.addEventListener("scroll", updateFloatingButtonsVisibility, {
-        passive: true,
+        passive: true
       });
       window.addEventListener("resize", updateFloatingButtonsVisibility);
     } else {
-      floatingBtnsToReveal.forEach((btn) =>
-        btn.classList.add("is-scrolled-visible"),
-      );
+      floatingBtnsToReveal.forEach(function (btn) {
+        return btn.classList.add("is-scrolled-visible");
+      });
     }
   }
 });
+/******/ })()
+;
