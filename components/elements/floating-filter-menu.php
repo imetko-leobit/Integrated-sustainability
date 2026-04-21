@@ -203,7 +203,12 @@
 
           <!-- Desktop-only: subcategory sections with items inline -->
           <div class="submenu-subcategory desktop-subcategory">
-            <div class="submenu-subcategory__header">Metals &amp; Mining</div>
+            <div class="submenu-subcategory__header">
+              <label class="submenu-subcategory__header-label" for="filter-ind-desktop-metals-all">
+                <input type="checkbox" id="filter-ind-desktop-metals-all" class="filter-checkbox desktop-subcategory-all-checkbox" tabindex="-1" aria-label="Select all Metals &amp; Mining">
+                Metals &amp; Mining
+              </label>
+            </div>
             <ul class="navbar-nav">
               <li class="nav-item">
                 <label class="nav-link" for="filter-ind-gold">
@@ -221,7 +226,12 @@
           </div>
 
           <div class="submenu-subcategory desktop-subcategory">
-            <div class="submenu-subcategory__header">Environmental</div>
+            <div class="submenu-subcategory__header">
+              <label class="submenu-subcategory__header-label" for="filter-ind-desktop-env-all">
+                <input type="checkbox" id="filter-ind-desktop-env-all" class="filter-checkbox desktop-subcategory-all-checkbox" tabindex="-1" aria-label="Select all Environmental">
+                Environmental
+              </label>
+            </div>
             <ul class="navbar-nav">
               <li class="nav-item">
                 <label class="nav-link" for="filter-ind-environmental">

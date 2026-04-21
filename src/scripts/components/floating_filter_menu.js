@@ -300,6 +300,21 @@ document.addEventListener("DOMContentLoaded", () => {
       allCb.indeterminate = checkedCount > 0 && checkedCount < childCbs.length;
     });
 
+    // Sync desktop-subcategory-all-checkboxes to reflect their child items
+    panel.querySelectorAll(".submenu-subcategory").forEach((subcat) => {
+      const allCb = subcat.querySelector(".desktop-subcategory-all-checkbox");
+      if (!allCb) return;
+      const childCbs = Array.from(
+        subcat.querySelectorAll(
+          ".filter-checkbox:not(.desktop-subcategory-all-checkbox)",
+        ),
+      );
+      if (childCbs.length === 0) return;
+      const checkedCount = childCbs.filter((cb) => cb.checked).length;
+      allCb.checked = checkedCount === childCbs.length;
+      allCb.indeterminate = checkedCount > 0 && checkedCount < childCbs.length;
+    });
+
     // Per-group state indicators (shown in parent level list on mobile)
     allCols.forEach((col) => {
       const colId = col.getAttribute("id");
@@ -320,14 +335,14 @@ document.addEventListener("DOMContentLoaded", () => {
         checkboxes = childCols.flatMap((c) =>
           Array.from(
             c.querySelectorAll(
-              ".filter-checkbox:not(.subcategory-all-checkbox)",
+              ".filter-checkbox:not(.subcategory-all-checkbox):not(.desktop-subcategory-all-checkbox)",
             ),
           ),
         );
       } else {
         checkboxes = Array.from(
           col.querySelectorAll(
-            ".filter-checkbox:not(.category-state-checkbox):not(.subcategory-all-checkbox)",
+            ".filter-checkbox:not(.category-state-checkbox):not(.subcategory-all-checkbox):not(.desktop-subcategory-all-checkbox)",
           ),
         );
       }
@@ -356,7 +371,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Global badge on the trigger button(s)
     const totalChecked = panel.querySelectorAll(
-      ".filter-checkbox:not(.category-state-checkbox):checked",
+      ".filter-checkbox:not(.category-state-checkbox):not(.subcategory-all-checkbox):not(.desktop-subcategory-all-checkbox):checked",
     ).length;
     triggerBtns.forEach((btn) => {
       const globalBadge = btn.querySelector(".floating-filter-btn__badge");
@@ -397,6 +412,20 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
       }
+
+      // Desktop subcategory "select all" checkbox: scope to the parent .submenu-subcategory
+      if (e.target.classList.contains("desktop-subcategory-all-checkbox")) {
+        const subcat = e.target.closest(".submenu-subcategory");
+        if (subcat) {
+          subcat
+            .querySelectorAll(
+              ".filter-checkbox:not(.desktop-subcategory-all-checkbox)",
+            )
+            .forEach((cb) => {
+              cb.checked = e.target.checked;
+            });
+        }
+      }
       updateBadges();
       dispatchFilterChange();
     }
@@ -416,7 +445,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const checkedBoxes = Array.from(
       panel.querySelectorAll(
-        ".filter-checkbox:checked:not(.category-state-checkbox):not(.subcategory-all-checkbox)",
+        ".filter-checkbox:checked:not(.category-state-checkbox):not(.subcategory-all-checkbox):not(.desktop-subcategory-all-checkbox)",
       ),
     );
 
@@ -478,7 +507,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const checkedBoxes = Array.from(
       panel.querySelectorAll(
-        ".filter-checkbox:checked:not(.category-state-checkbox):not(.subcategory-all-checkbox)",
+        ".filter-checkbox:checked:not(.category-state-checkbox):not(.subcategory-all-checkbox):not(.desktop-subcategory-all-checkbox)",
       ),
     );
 
@@ -581,7 +610,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const checked = Array.from(
         col.querySelectorAll(
-          ".filter-checkbox:not(.subcategory-all-checkbox):not(.category-state-checkbox):checked",
+          ".filter-checkbox:not(.subcategory-all-checkbox):not(.category-state-checkbox):not(.desktop-subcategory-all-checkbox):checked",
         ),
       ).map((cb) => cb.value);
 
