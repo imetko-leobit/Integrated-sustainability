@@ -164,7 +164,7 @@
           </ul>
         </div><!-- /filter-level-0 -->
 
-        <!-- ── Level 1 – Industries (nested: subcategories → items) ─────── -->
+        <!-- ── Level 1 – Industries (nested: subcategories → sub-subcategories → items) ─────── -->
         <div id="filter-level-industries" class="main-menu__col main-menu__col--level-1 submenu" data-level="1" data-filter-key="industries">
           <button class="submenu-header" data-prev-target="filter-level-0" aria-label="Go back to Filters">
             <h3 class="submenu-header__title">Project Filter Menu</h3>
@@ -179,8 +179,7 @@
             </span>
           </div>
 
-          <!-- Mobile-only: subcategories as navigable items (drill-down) -->
-          <ul class="navbar-nav mobile-subcategory-nav">
+          <ul class="navbar-nav">
             <li class="nav-item has-submenu" data-target="filter-level-industries-metals-mining">
               <a href="#" class="nav-link">Metals &amp; Mining</a>
               <input type="checkbox" class="filter-checkbox category-state-checkbox" tabindex="-1" aria-label="Metals &amp; Mining selection state">
@@ -200,6 +199,7 @@
               </button>
             </li>
           </ul>
+        </div><!-- /filter-level-industries -->
 
         <!-- ── Level 1 – Locations (flat: items directly) ──────────────── -->
         <div id="filter-level-locations" class="main-menu__col main-menu__col--level-1 submenu" data-level="1" data-filter-key="locations">
@@ -231,22 +231,13 @@
           </ul>
         </div><!-- /filter-level-locations -->
 
-        <!-- ── Level 2 – Metals & Mining (mobile subcategory screen) ──── -->
+        <!-- ── Level 2 – Metals & Mining (sub-subcategory navigation) ─────── -->
         <div id="filter-level-industries-metals-mining"
              class="main-menu__col main-menu__col--level-2 submenu"
              data-level="2"
              data-filter-key="industries"
              data-parent-id="filter-level-industries">
 
-          <!-- Back to main filters (level 0) -->
-          <button class="submenu-header" data-prev-target="filter-level-0" aria-label="Go back to Filters">
-            <h3 class="submenu-header__title">Project Filter Menu</h3>
-            <span class="back-arrow">
-              <img src="../assets/img/filter-arrow-back.svg" alt="" aria-hidden="true" width="24" height="24" />
-            </span>
-          </button>
-
-          <!-- Back to parent category (level 1) -->
           <button class="submenu-header" data-prev-target="filter-level-industries" aria-label="Go back to Industries">
             <h3 class="submenu-header__title">industries</h3>
             <span class="back-arrow">
@@ -254,15 +245,99 @@
             </span>
           </button>
 
-          <!-- Subcategory title with select-all checkbox -->
+          <div class="submenu-category-row">
+            <span class="submenu-category-name">Metals &amp; Mining</span>
+            <span class="submenu-category-arrow">
+              <img src="../assets/img/filter-arrow-expand.svg" alt="" aria-hidden="true" width="24" height="24" />
+            </span>
+          </div>
+
+          <ul class="navbar-nav">
+            <li class="nav-item has-submenu" data-target="filter-level-industries-metals-mining-gold">
+              <a href="#" class="nav-link">gold mining</a>
+              <input type="checkbox" class="filter-checkbox category-state-checkbox" tabindex="-1" aria-label="Gold Mining selection state">
+              <button class="submenu-button" aria-label="Open Gold Mining filter">
+                <span class="arrow-icon">
+                  <img src="../assets/img/filter-arrow-next.svg" alt="" aria-hidden="true" width="24" height="24" />
+                </span>
+              </button>
+            </li>
+            <li class="nav-item has-submenu" data-target="filter-level-industries-metals-mining-metals">
+              <a href="#" class="nav-link">metals &amp; mining</a>
+              <input type="checkbox" class="filter-checkbox category-state-checkbox" tabindex="-1" aria-label="Metals &amp; Mining selection state">
+              <button class="submenu-button" aria-label="Open Metals &amp; Mining filter">
+                <span class="arrow-icon">
+                  <img src="../assets/img/filter-arrow-next.svg" alt="" aria-hidden="true" width="24" height="24" />
+                </span>
+              </button>
+            </li>
+          </ul>
+        </div><!-- /filter-level-industries-metals-mining -->
+
+        <!-- ── Level 2 – Environmental (sub-subcategory navigation) ──────── -->
+        <div id="filter-level-industries-environmental"
+             class="main-menu__col main-menu__col--level-2 submenu"
+             data-level="2"
+             data-filter-key="industries"
+             data-parent-id="filter-level-industries">
+
+          <button class="submenu-header" data-prev-target="filter-level-industries" aria-label="Go back to Industries">
+            <h3 class="submenu-header__title">industries</h3>
+            <span class="back-arrow">
+              <img src="../assets/img/filter-arrow-back.svg" alt="" aria-hidden="true" width="24" height="24" />
+            </span>
+          </button>
+
+          <div class="submenu-category-row">
+            <span class="submenu-category-name">Environmental</span>
+            <span class="submenu-category-arrow">
+              <img src="../assets/img/filter-arrow-expand.svg" alt="" aria-hidden="true" width="24" height="24" />
+            </span>
+          </div>
+
+          <ul class="navbar-nav">
+            <li class="nav-item has-submenu" data-target="filter-level-industries-environmental-env">
+              <a href="#" class="nav-link">environmental</a>
+              <input type="checkbox" class="filter-checkbox category-state-checkbox" tabindex="-1" aria-label="Environmental selection state">
+              <button class="submenu-button" aria-label="Open Environmental filter">
+                <span class="arrow-icon">
+                  <img src="../assets/img/filter-arrow-next.svg" alt="" aria-hidden="true" width="24" height="24" />
+                </span>
+              </button>
+            </li>
+            <li class="nav-item has-submenu" data-target="filter-level-industries-environmental-water">
+              <a href="#" class="nav-link">water treatment</a>
+              <input type="checkbox" class="filter-checkbox category-state-checkbox" tabindex="-1" aria-label="Water Treatment selection state">
+              <button class="submenu-button" aria-label="Open Water Treatment filter">
+                <span class="arrow-icon">
+                  <img src="../assets/img/filter-arrow-next.svg" alt="" aria-hidden="true" width="24" height="24" />
+                </span>
+              </button>
+            </li>
+          </ul>
+        </div><!-- /filter-level-industries-environmental -->
+
+        <!-- ── Level 3 – Gold Mining (leaf: checkbox items) ──────────────── -->
+        <div id="filter-level-industries-metals-mining-gold"
+             class="main-menu__col main-menu__col--level-3 submenu"
+             data-level="3"
+             data-filter-key="industries"
+             data-parent-id="filter-level-industries-metals-mining">
+
+          <button class="submenu-header" data-prev-target="filter-level-industries-metals-mining" aria-label="Go back to Metals &amp; Mining">
+            <h3 class="submenu-header__title">Metals &amp; Mining</h3>
+            <span class="back-arrow">
+              <img src="../assets/img/filter-arrow-back.svg" alt="" aria-hidden="true" width="24" height="24" />
+            </span>
+          </button>
+
           <div class="submenu-subcategory-title">
-            <label class="submenu-subcategory-title__label" for="filter-ind-m-metals-all">
-              <input type="checkbox" id="filter-ind-m-metals-all" class="filter-checkbox subcategory-all-checkbox" tabindex="-1">
-              Metals &amp; Mining
+            <label class="submenu-subcategory-title__label" for="filter-ind-m-gold-all">
+              <input type="checkbox" id="filter-ind-m-gold-all" class="filter-checkbox subcategory-all-checkbox" tabindex="-1">
+              gold mining
             </label>
           </div>
 
-          <!-- Subcategory items -->
           <ul class="navbar-nav">
             <li class="nav-item">
               <label class="nav-link" for="filter-ind-m-gold">
@@ -270,6 +345,31 @@
                 gold mining
               </label>
             </li>
+          </ul>
+        </div><!-- /filter-level-industries-metals-mining-gold -->
+
+        <!-- ── Level 3 – Metals & Mining items (leaf: checkbox items) ───── -->
+        <div id="filter-level-industries-metals-mining-metals"
+             class="main-menu__col main-menu__col--level-3 submenu"
+             data-level="3"
+             data-filter-key="industries"
+             data-parent-id="filter-level-industries-metals-mining">
+
+          <button class="submenu-header" data-prev-target="filter-level-industries-metals-mining" aria-label="Go back to Metals &amp; Mining">
+            <h3 class="submenu-header__title">Metals &amp; Mining</h3>
+            <span class="back-arrow">
+              <img src="../assets/img/filter-arrow-back.svg" alt="" aria-hidden="true" width="24" height="24" />
+            </span>
+          </button>
+
+          <div class="submenu-subcategory-title">
+            <label class="submenu-subcategory-title__label" for="filter-ind-m-metals-all">
+              <input type="checkbox" id="filter-ind-m-metals-all" class="filter-checkbox subcategory-all-checkbox" tabindex="-1">
+              metals &amp; mining
+            </label>
+          </div>
+
+          <ul class="navbar-nav">
             <li class="nav-item">
               <label class="nav-link" for="filter-ind-m-metals">
                 <input type="checkbox" id="filter-ind-m-metals" name="industries[]" value="metals-mining" class="filter-checkbox">
@@ -277,32 +377,22 @@
               </label>
             </li>
           </ul>
-        </div><!-- /filter-level-industries-metals-mining -->
+        </div><!-- /filter-level-industries-metals-mining-metals -->
 
-        <!-- ── Level 2 – Environmental (mobile subcategory screen) ──────── -->
-        <div id="filter-level-industries-environmental"
-             class="main-menu__col main-menu__col--level-2 submenu"
-             data-level="2"
+        <!-- ── Level 3 – Environmental items (leaf: checkbox items) ───────── -->
+        <div id="filter-level-industries-environmental-env"
+             class="main-menu__col main-menu__col--level-3 submenu"
+             data-level="3"
              data-filter-key="industries"
-             data-parent-id="filter-level-industries">
+             data-parent-id="filter-level-industries-environmental">
 
-          <!-- Back to main filters (level 0) -->
-          <button class="submenu-header" data-prev-target="filter-level-0" aria-label="Go back to Filters">
-            <h3 class="submenu-header__title">Project Filter Menu</h3>
+          <button class="submenu-header" data-prev-target="filter-level-industries-environmental" aria-label="Go back to Environmental">
+            <h3 class="submenu-header__title">Environmental</h3>
             <span class="back-arrow">
               <img src="../assets/img/filter-arrow-back.svg" alt="" aria-hidden="true" width="24" height="24" />
             </span>
           </button>
 
-          <!-- Back to parent category (level 1) -->
-          <button class="submenu-header" data-prev-target="filter-level-industries" aria-label="Go back to Industries">
-            <h3 class="submenu-header__title">industries</h3>
-            <span class="back-arrow">
-              <img src="../assets/img/filter-arrow-back.svg" alt="" aria-hidden="true" width="24" height="24" />
-            </span>
-          </button>
-
-          <!-- Subcategory title with select-all checkbox -->
           <div class="submenu-subcategory-title">
             <label class="submenu-subcategory-title__label" for="filter-ind-m-env-all">
               <input type="checkbox" id="filter-ind-m-env-all" class="filter-checkbox subcategory-all-checkbox" tabindex="-1">
@@ -310,7 +400,6 @@
             </label>
           </div>
 
-          <!-- Subcategory items -->
           <ul class="navbar-nav">
             <li class="nav-item">
               <label class="nav-link" for="filter-ind-m-environmental">
@@ -318,6 +407,31 @@
                 environmental
               </label>
             </li>
+          </ul>
+        </div><!-- /filter-level-industries-environmental-env -->
+
+        <!-- ── Level 3 – Water Treatment items (leaf: checkbox items) ───── -->
+        <div id="filter-level-industries-environmental-water"
+             class="main-menu__col main-menu__col--level-3 submenu"
+             data-level="3"
+             data-filter-key="industries"
+             data-parent-id="filter-level-industries-environmental">
+
+          <button class="submenu-header" data-prev-target="filter-level-industries-environmental" aria-label="Go back to Environmental">
+            <h3 class="submenu-header__title">Environmental</h3>
+            <span class="back-arrow">
+              <img src="../assets/img/filter-arrow-back.svg" alt="" aria-hidden="true" width="24" height="24" />
+            </span>
+          </button>
+
+          <div class="submenu-subcategory-title">
+            <label class="submenu-subcategory-title__label" for="filter-ind-m-water-all">
+              <input type="checkbox" id="filter-ind-m-water-all" class="filter-checkbox subcategory-all-checkbox" tabindex="-1">
+              water treatment
+            </label>
+          </div>
+
+          <ul class="navbar-nav">
             <li class="nav-item">
               <label class="nav-link" for="filter-ind-m-water">
                 <input type="checkbox" id="filter-ind-m-water" name="industries[]" value="water-treatment" class="filter-checkbox">
@@ -325,7 +439,7 @@
               </label>
             </li>
           </ul>
-        </div><!-- /filter-level-industries-environmental -->
+        </div><!-- /filter-level-industries-environmental-water -->
 
       </div><!-- /floating-filter-panel__content -->
 

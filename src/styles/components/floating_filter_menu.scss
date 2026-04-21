@@ -165,8 +165,8 @@
 
 .floating-filter-panel__drawer {
   position: absolute;
-  top: 115px;
-  height: calc(100% - 115px);
+  top: 105px;
+  height: calc(100% - 105px);
   left: 0;
   width: 100%;
   display: flex;
@@ -209,6 +209,15 @@
 .floating-filter-panel__drawer {
   .main-menu__col {
     flex-basis: calc(25% - var(--wp--style--global--padding-size-large) / 4 + 0.5rem);
+
+    @media (max-width: 1599px) {
+      flex-basis: calc(25% - var(--wp--style--global--padding-size-medium) / 4 + 0.5rem);
+    }
+
+    @media (max-width: 1199px) {
+      flex-basis: calc(25% - var(--wp--style--global--padding-size-small) / 4 + 0.5rem);
+    }
+
     padding: 2rem 0 0;
 
     height: 100%;
@@ -241,6 +250,15 @@
 
   .main-menu__col--level-0 {
     flex-basis: calc(var(--wp--style--global--padding-size-large) - 1.5rem + calc(25% - var(--wp--style--global--padding-size-large) / 4));
+
+    @media (max-width: 1599px) {
+      flex-basis: calc(var(--wp--style--global--padding-size-medium) - 1.5rem + calc(25% - var(--wp--style--global--padding-size-medium) / 4));
+    }
+
+    @media (max-width: 1199px) {
+      flex-basis: calc(var(--wp--style--global--padding-size-small) - 1.5rem + calc(25% - var(--wp--style--global--padding-size-small) / 4));
+    }
+
     padding-bottom: 90px;
 
     @media (max-width: 991px) {
@@ -623,7 +641,8 @@
 }
 
 .floating-filter-panel__drawer .main-menu__col--level-0,
-.floating-filter-panel__drawer .main-menu__col--level-1 {
+.floating-filter-panel__drawer .main-menu__col--level-1,
+.floating-filter-panel__drawer .main-menu__col--level-2 {
   .nav-item.has-submenu {
     grid-template-columns: 1fr max-content;
 
@@ -666,6 +685,10 @@
 
   .floating-filter-panel__content[data-current-level="2"] {
     transform: translateX(-200%);
+  }
+
+  .floating-filter-panel__content[data-current-level="3"] {
+    transform: translateX(-300%);
   }
 
   .floating-filter-panel__drawer .main-menu__col {
@@ -786,7 +809,27 @@
     transform: none !important;
     transition: none;
     overflow: visible;
-    width: auto;
+    width: 100%;
+
+    padding-right: var(--wp--style--global--padding-size-large);
+
+    @media (max-width: 1599px) {
+      padding-right: var(--wp--style--global--padding-size-medium);
+    }
+
+    @media (max-width: 1199px) {
+      padding-right: var(--wp--style--global--padding-size-small);
+    }
+  }
+
+  .floating-filter-panel__drawer .main-menu__col {
+    flex-shrink: 1;
+  }
+
+  .floating-filter-panel__drawer .main-menu__col.active-level:last-of-type {
+    .nav-item {
+      padding-right: 90px;
+    }
   }
 
   .floating-filter-panel__drawer .submenu-header {
