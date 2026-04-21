@@ -286,8 +286,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ── Active filter badge counter ───────────────────────────────────────────────
 
+  /**
+   * Recursively collect all leaf-level filter checkboxes under a given column.
+   * Walks the data-parent-id ancestor chain downward: if a column has child
+   * columns (any column whose data-parent-id equals this colId), recurse into
+   * them; otherwise return the column's own filter checkboxes.
+   * This correctly handles arbitrary nesting depth (level 2, level 3, …).
+   */
+  function getColDescendantCheckboxes(col) {
+    const colId = col.getAttribute("id");
+    const childCols = Array.from(allCols).filter(
+      (c) => c.getAttribute("data-parent-id") === colId,
+    );
+    if (childCols.length > 0) {
+      return childCols.flatMap(getColDescendantCheckboxes);
+    }
+    return Array.from(
+      col.querySelectorAll(
+        ".filter-checkbox:not(.subcategory-all-checkbox):not(.category-state-checkbox)",
+      ),
+    );
+  }
+
   function updateBadges() {
-    // Sync subcategory-all-checkboxes (level-2 screens) to reflect child state
+    // Sync subcategory-all-checkboxes (leaf-level screens) to reflect child state
     allCols.forEach((col) => {
       const allCb = col.querySelector(".subcategory-all-checkbox");
       if (!allCb) return;
@@ -309,28 +331,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const navItem = panel.querySelector(`.nav-item[data-target="${colId}"]`);
       if (!navItem) return;
 
-      // On mobile, if this column has level-2 children, aggregate their
-      // checkboxes instead of this column's own desktop checkboxes.
-      const childCols = Array.from(allCols).filter(
-        (c) => c.getAttribute("data-parent-id") === colId,
-      );
-
-      let checkboxes;
-      if (childCols.length > 0) {
-        checkboxes = childCols.flatMap((c) =>
-          Array.from(
-            c.querySelectorAll(
-              ".filter-checkbox:not(.subcategory-all-checkbox)",
-            ),
-          ),
-        );
-      } else {
-        checkboxes = Array.from(
-          col.querySelectorAll(
-            ".filter-checkbox:not(.category-state-checkbox):not(.subcategory-all-checkbox)",
-          ),
-        );
-      }
+      // Recursively collect all leaf checkboxes under this column so that
+      // intermediate navigation columns (which have no own checkboxes) still
+      // reflect the state of their deepest descendants.
+      const checkboxes = getColDescendantCheckboxes(col);
 
       const checkedCount = checkboxes.filter((cb) => cb.checked).length;
       const totalCount = checkboxes.length;
