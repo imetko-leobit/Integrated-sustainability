@@ -802,6 +802,10 @@
       display: none;
     }
   }
+
+  .floating-filter-panel__drawer .submenu-header--injected {
+    position: static;
+  }
 }
 
 @media (min-width: 993px) {

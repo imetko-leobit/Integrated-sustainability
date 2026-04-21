@@ -136,6 +136,60 @@ document.addEventListener("DOMContentLoaded", () => {
         content.setAttribute("data-current-level", level);
       }
     }
+
+    // Mobile only: inject ancestor back-navigation buttons so the user can
+    // jump directly to any previous level, not only the immediate parent.
+    // The HTML already has one submenu-header pointing back to the immediate
+    // parent; we inject additional ones for every ancestor between the root
+    // and that parent (i.e. chain[1] … chain[chain.length - 3]).
+    if (isMobile()) {
+      panel
+        .querySelectorAll(".submenu-header--injected")
+        .forEach((el) => el.remove());
+
+      const targetCol = panel.querySelector(`#${CSS.escape(targetId)}`);
+      if (targetCol) {
+        const chain = getAncestorChain(targetId);
+        // chain = [root, ..., parent, target]
+
+        const existingHeader = targetCol.querySelector(
+          ".submenu-header[data-prev-target]:not(.submenu-header--injected)"
+        );
+
+        if (existingHeader && chain.length >= 3) {
+          // inject every previous level except the immediate parent and target
+          for (let i = 0; i < chain.length - 2; i++) {
+            const ancestorId = chain[i];
+
+            // skip if this ancestor is already the one used by existing header
+            if (ancestorId === existingHeader.getAttribute("data-prev-target")) {
+              continue;
+            }
+
+            const ancestorCol = panel.querySelector(`#${CSS.escape(ancestorId)}`);
+            const labelEl = ancestorCol?.querySelector(
+              ".submenu-category-name, .main-menu__title"
+            );
+            const label = labelEl?.textContent?.trim() || "";
+
+            const injected = existingHeader.cloneNode(true);
+            injected.classList.add("submenu-header--injected");
+            injected.setAttribute("data-prev-target", ancestorId);
+            injected.setAttribute(
+              "aria-label",
+              `Go back to ${label || ancestorId}`
+            );
+
+            const titleEl = injected.querySelector(".submenu-header__title");
+            if (titleEl && label) {
+              titleEl.textContent = label;
+            }
+
+            existingHeader.insertAdjacentElement("beforebegin", injected);
+          }
+        }
+      }
+    }
   }
 
   // ── Open / Close ─────────────────────────────────────────────────────────────
