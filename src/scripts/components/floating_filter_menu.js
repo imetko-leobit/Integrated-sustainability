@@ -303,7 +303,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     return Array.from(
       col.querySelectorAll(
-        ".filter-checkbox:not(.subcategory-all-checkbox):not(.category-state-checkbox)",
+        ".filter-checkbox:not(.subcategory-all-checkbox):not(.category-state-checkbox):not(.subcategory-desktop-all-cb)",
       ),
     );
   }
@@ -356,11 +356,18 @@ document.addEventListener("DOMContentLoaded", () => {
         stateCheckbox.checked = state === "checked";
         stateCheckbox.indeterminate = state === "indeterminate";
       }
+
+      // Sync the desktop subcategory "select all" checkbox (injected by JS)
+      const desktopAllCb = navItem.querySelector(".subcategory-desktop-all-cb");
+      if (desktopAllCb) {
+        desktopAllCb.checked = state === "checked";
+        desktopAllCb.indeterminate = state === "indeterminate";
+      }
     });
 
     // Global badge on the trigger button(s)
     const totalChecked = panel.querySelectorAll(
-      ".filter-checkbox:not(.category-state-checkbox):checked",
+      ".filter-checkbox:not(.category-state-checkbox):not(.subcategory-desktop-all-cb):checked",
     ).length;
     triggerBtns.forEach((btn) => {
       const globalBadge = btn.querySelector(".floating-filter-btn__badge");
@@ -401,6 +408,20 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
       }
+
+      // Desktop subcategory nav-item "select all": propagate to all leaf descendants
+      if (e.target.classList.contains("subcategory-desktop-all-cb")) {
+        const navItem = e.target.closest(".nav-item.has-submenu");
+        const targetId = navItem ? navItem.getAttribute("data-target") : null;
+        const targetCol = targetId
+          ? panel.querySelector(`#${CSS.escape(targetId)}`)
+          : null;
+        if (targetCol) {
+          getColDescendantCheckboxes(targetCol).forEach((cb) => {
+            cb.checked = e.target.checked;
+          });
+        }
+      }
       updateBadges();
       dispatchFilterChange();
     }
@@ -420,7 +441,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const checkedBoxes = Array.from(
       panel.querySelectorAll(
-        ".filter-checkbox:checked:not(.category-state-checkbox):not(.subcategory-all-checkbox)",
+        ".filter-checkbox:checked:not(.category-state-checkbox):not(.subcategory-all-checkbox):not(.subcategory-desktop-all-cb)",
       ),
     );
 
@@ -482,7 +503,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const checkedBoxes = Array.from(
       panel.querySelectorAll(
-        ".filter-checkbox:checked:not(.category-state-checkbox):not(.subcategory-all-checkbox)",
+        ".filter-checkbox:checked:not(.category-state-checkbox):not(.subcategory-all-checkbox):not(.subcategory-desktop-all-cb)",
       ),
     );
 
@@ -585,7 +606,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const checked = Array.from(
         col.querySelectorAll(
-          ".filter-checkbox:not(.subcategory-all-checkbox):not(.category-state-checkbox):checked",
+          ".filter-checkbox:not(.subcategory-all-checkbox):not(.category-state-checkbox):not(.subcategory-desktop-all-cb):checked",
         ),
       ).map((cb) => cb.value);
 
@@ -682,6 +703,46 @@ document.addEventListener("DOMContentLoaded", () => {
     changedSelects.forEach((selectEl) => {
       selectEl.dispatchEvent(new Event("change", { bubbles: true }));
     });
+  });
+
+  // ── Desktop subcategory "select all" – inject interactive checkboxes ─────────
+  // For each nav-item in Level 1+ columns that leads to a column with
+  // descendant filter items, inject a checkbox BEFORE the nav-link.  On
+  // desktop this checkbox becomes an interactive "select all" control; on
+  // mobile it is hidden via CSS so existing behaviour is unchanged.
+  panel.querySelectorAll(".nav-item.has-submenu[data-target]").forEach((navItem) => {
+    const col = navItem.closest(".main-menu__col");
+    // Skip Level-0 items (categories, not subcategories)
+    if (!col || col.getAttribute("data-level") === "0") return;
+
+    const targetId = navItem.getAttribute("data-target");
+    const targetCol = targetId
+      ? panel.querySelector(`#${CSS.escape(targetId)}`)
+      : null;
+    if (!targetCol) return;
+
+    // Only add for subcategories that have descendant filter items
+    if (getColDescendantCheckboxes(targetCol).length === 0) return;
+
+    const navLink = navItem.querySelector(".nav-link");
+    if (!navLink) return;
+
+    const cb = document.createElement("input");
+    cb.type = "checkbox";
+    cb.className = "filter-checkbox subcategory-desktop-all-cb";
+    cb.tabIndex = -1;
+    cb.setAttribute(
+      "aria-label",
+      `Select all ${navLink.textContent.trim()}`,
+    );
+
+    // Prevent the nav-item click handler from swallowing the checkbox click
+    // on desktop (it calls e.preventDefault() which blocks toggling).
+    cb.addEventListener("click", (e) => {
+      if (!isMobile()) e.stopPropagation();
+    });
+
+    navItem.insertBefore(cb, navLink);
   });
 
   // Initialise badges and summary bar

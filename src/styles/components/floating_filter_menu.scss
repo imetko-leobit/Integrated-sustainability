@@ -1018,3 +1018,27 @@
   outline: 2px solid rgba(129, 254, 229, 0.8);
   outline-offset: 2px;
 }
+
+// ── Desktop subcategory "select all" checkboxes ───────────────────────────────
+// The .subcategory-desktop-all-cb checkbox is injected by JS before each
+// subcategory nav-link in Level 1+ columns that have descendant filter items.
+// Hidden on mobile so existing behaviour is unchanged.
+
+.subcategory-desktop-all-cb {
+  display: none !important; // hidden on mobile; shown via override below
+}
+
+@media (min-width: 993px) {
+  .subcategory-desktop-all-cb {
+    display: block !important;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  // Expand nav-item grid to accommodate the prepended checkbox column.
+  // max-content (checkbox) | 1fr (label) | max-content (arrow)
+  .floating-filter-panel__drawer
+    .nav-item.has-submenu:has(.subcategory-desktop-all-cb) {
+    grid-template-columns: max-content 1fr max-content !important;
+  }
+}
