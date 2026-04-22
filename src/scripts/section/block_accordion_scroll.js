@@ -14,48 +14,62 @@ document.addEventListener('DOMContentLoaded', function () {
   <path d="M15.8716 15.4517L16 0C12.1306 0.0373402 4.41732 0.0910145 0.548268 0.128355L0.515595 2.06306C3.99757 2.02805 8.61815 2.00004 12.6838 1.9627L0 14.6464L1.35357 16L14.0373 3.31627L13.9277 15.4754L15.8717 15.4544L15.8716 15.4517Z" fill="#040404" />
 </svg>`;
 
-  function toggleItem(index) {
-    const targetItem = document.getElementById('item-' + index);
-    if (!targetItem) return;
+  let activeIndex = 0;
 
-    const isOpen = targetItem.classList.contains('is-open');
+  function setActive(index) {
+    if (index < 0 || index >= allItems.length) return;
+    activeIndex = index;
 
-    // Close all items
-    allItems.forEach((item) => {
-      item.classList.remove('is-open');
+    allItems.forEach((item, i) => {
       const icon = item.querySelector('.icon');
-      if (icon) {
+      if (i === index) {
+        item.classList.add('is-open');
+        icon.innerHTML = ARROW_UP;
+
+        const itemTop = item.offsetTop;
+        const itemBottom = itemTop + item.offsetHeight;
+        const scrollTop = container.scrollTop;
+        const containerHeight = container.clientHeight;
+
+        if (itemTop < scrollTop) {
+          container.scrollTo({ top: itemTop, behavior: 'smooth' });
+        } else if (itemBottom > scrollTop + containerHeight) {
+          container.scrollTo({ top: itemBottom - containerHeight, behavior: 'smooth' });
+        }
+      } else {
+        item.classList.remove('is-open');
         icon.innerHTML = ARROW_DOWN;
       }
     });
+  }
 
-    // Open current item if it wasn't open
-    if (!isOpen) {
-      targetItem.classList.add('is-open');
-      const icon = targetItem.querySelector('.icon');
-      if (icon) {
-        icon.innerHTML = ARROW_UP;
-      }
+  window.toggleItem = function (index) {
+    if (index !== activeIndex) setActive(index);
+  };
+
+  function onWheelStep(e) {
+    e.preventDefault();
+
+    const delta = e.deltaY;
+
+    if (delta > 0 && activeIndex < allItems.length - 1) {
+      setActive(activeIndex + 1);
+    } else if (delta < 0 && activeIndex > 0) {
+      setActive(activeIndex - 1);
     }
   }
 
-  // Add event listeners to all buttons and titles
-  allItems.forEach((item) => {
-    const button = item.querySelector('[data-toggle]');
-    const title = item.querySelector('.title[data-toggle]');
-    const index = item.dataset.index;
+  function throttle(fn, delay) {
+    let allow = true;
+    return function (...args) {
+      if (!allow) return;
+      allow = false;
+      fn.apply(this, args);
+      setTimeout(() => (allow = true), delay);
+    };
+  }
 
-    if (button) {
-      button.addEventListener('click', (e) => {
-        e.preventDefault();
-        toggleItem(index);
-      });
-    }
+  container.addEventListener('wheel', throttle(onWheelStep, 500), { passive: false });
 
-    if (title) {
-      title.addEventListener('click', () => {
-        toggleItem(index);
-      });
-    }
-  });
+  setActive(0);
 });
