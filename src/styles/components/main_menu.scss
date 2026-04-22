@@ -281,6 +281,10 @@
       z-index: 999;
       display: none;
 
+      @media (max-width: 991px) {
+        height: 100vh !important;
+      }
+
       &.menu-active {
         display: block;
       }
@@ -854,6 +858,7 @@
     width: 100%;
 
     @media (max-width: 991px) {
+      display: none;
       pointer-events: auto;
       opacity: 1;
       width: 100%;
