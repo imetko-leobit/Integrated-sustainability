@@ -91,7 +91,7 @@
       padding: 56px;
       flex-grow: 1;
       overflow: hidden;
-      @include scroll-fade-overlay(60px);
+      @include scroll-fade-overlay(120px);
 
       @media (max-width: 1199px) {
         padding: 2rem;

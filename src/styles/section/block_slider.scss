@@ -253,10 +253,6 @@
     }
 
     &:hover {
-      .pillar-carousel-card__image-bg {
-        filter: none;
-      }
-
       .pillar-carousel-card__title {
         color: white !important;
       }
@@ -338,10 +334,6 @@
       background-size: cover;
       background-position: center;
       filter: grayscale(100%);
-    }
-
-    &:hover .pillar-carousel-card__image-bg {
-      filter: none;
     }
 
     &__content-wrapper {
