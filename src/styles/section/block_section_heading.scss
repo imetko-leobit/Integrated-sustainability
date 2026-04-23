@@ -59,6 +59,33 @@
     display: none;
   }
 
+  .heading--with-action {
+    .icon-mobile-img {
+      display: none;
+    }
+
+    @media (max-width: 991px) {
+      flex-direction: row;
+      align-items: center;
+
+      .heading-action {
+        width: auto;
+      }
+
+      .icon--simple {
+        display: flex;
+      }
+
+      .icon-mobile-img {
+        display: flex;
+      }
+
+      .icon-img:has(+ .icon-mobile-img) {
+        display: none;
+      }
+    }
+  }
+
   .heading-icon--mobile {
     display: none;
   }

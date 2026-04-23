@@ -33,9 +33,7 @@
   }
 
   @media (max-width: 991px) {
-    position: relative;
-    transform: none;
-    left: 0;
+    display: none;
   }
 
   .floating-filter-btn__icon {

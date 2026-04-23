@@ -12,8 +12,10 @@
     $link_direction = $link_direction ?? 'down'; // 'down' or 'right'
     $custom_icon = $custom_icon ?? null;
     $custom_icon_class = $custom_icon_class ?? null;
+    $custom_mobile_icon = $custom_mobile_icon ?? null;
     $is_title_h1 = $is_title_h1 ?? false;
     $section_title = $section_title ?? '';
+    $heading_class = $heading_class ?? '';
 
     $person_name = $person_name ?? null;
     $person_degree = $person_degree ?? null;
@@ -25,7 +27,7 @@
 ?>
 
 <section class="block-section-heading">
-    <div class="heading heading-navigation">
+    <div class="heading heading-navigation <?php echo $heading_class ?? ''; ?>">
         <?php if (!$mobile_icon): ?>
             <?php render_heading($section_title, $block_section_heading_heading_level, 'title title--h1', [], true); ?>
         <?php endif; ?>
@@ -59,6 +61,7 @@
                 <?php elseif ($custom_icon): ?>
                     <span class="icon icon--simple">
                         <img class="icon-img <?php echo $custom_icon_class ?? ''; ?>" src="<?php echo $custom_icon; ?>" alt="Heading Icon">
+                        <img class="icon-mobile-img <?php echo $custom_icon_class ?? ''; ?>" src="<?php echo $custom_mobile_icon; ?>" alt="Heading Icon">
                     </span>
                 <?php elseif ($person_photo): ?>
                     <div class='person-card'>

@@ -82,10 +82,12 @@
     ?>
     <?php
         $section_title = "project library";
+        $heading_class = "heading--with-action";
         $custom_icon = null;
         $link_url = null;
         $custom_icon_class = "floating-filter-trigger-btn";
         $custom_icon = "../assets/img/filters-toggle-icon.svg";
+        $custom_mobile_icon = "../assets/img/filters-toggle-icon-mobile.svg";
         include('../components/sections/block-section-heading.php');
     ?>
     <?php
