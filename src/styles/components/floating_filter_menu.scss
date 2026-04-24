@@ -284,8 +284,8 @@
 
     .main-menu__title,
     .nav-item {
+      padding: 0.75rem 2rem 0.75rem 0;
       padding-left: calc(calc(100vw - var(--wp--style--global--content-size-large)) / 2);
-      padding-right: 2rem;
 
       @media (max-width: 1599px) {
         padding-left: 77px;
