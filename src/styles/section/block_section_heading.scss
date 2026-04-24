@@ -130,6 +130,7 @@
 
       @media (max-width: 991px) {
         justify-content: flex-start;
+        gap: 1rem;
       }
     }
 
@@ -164,6 +165,11 @@
       .card__name {
         @include text-h5;
         text-transform: capitalize;
+
+        @media (max-width: 991px) {
+          font-size: 14px;
+          line-height: 20px;
+        }
       }
 
       .card__credentials {
@@ -172,6 +178,7 @@
 
         @media (max-width: 991px) {
           margin-bottom: 12px;
+          font-size: 12px;
         }
       }
 
@@ -181,6 +188,10 @@
         font-weight: $w-light;
         line-height: 18px;
         font-size: 14px;
+
+        @media (max-width: 991px) {
+          font-size: 12px;
+        }
       }
     }
 
