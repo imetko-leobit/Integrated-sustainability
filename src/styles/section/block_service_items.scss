@@ -27,6 +27,12 @@
     }
   }
 
+  .post-card--simple {
+    .post-card__image-wrapper img {
+      filter: grayscale(100%);
+    }
+  }
+
   .post-card--action {
     color: var(--color-grey-200);
 

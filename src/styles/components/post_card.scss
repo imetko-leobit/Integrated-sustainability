@@ -201,7 +201,7 @@
   }
 
   @media (max-width: 767px) {
-    height: 270px;
+    height: 350px;
 
     .post-card__content {
       height: 100px;
@@ -224,7 +224,7 @@
 
     &.is-active,
     &:hover {
-      height: 450px;
+      height: 530px;
 
       .post-card__content {
         height: fit-content;
