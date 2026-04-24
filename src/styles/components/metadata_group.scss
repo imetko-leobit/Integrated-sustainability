@@ -21,4 +21,48 @@
     flex-wrap: wrap;
     gap: 12px;
   }
+
+  // Hidden metadata items on mobile (revealed via JS expand button)
+  .metadata-group__link--hidden {
+    display: none;
+
+    @media (min-width: 992px) {
+      display: initial;
+    }
+  }
+
+  // Expand button – mobile only, matches block-project-cards__button style
+  .metadata-group__expand-btn {
+    display: none;
+
+    @media (max-width: 991px) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: transparent;
+      color: var(--color-grey-500);
+      height: 56px;
+      border: 1px solid var(--color-grey-300);
+      width: 100%;
+      padding: 0;
+      gap: 0.5rem;
+      border-radius: 0;
+      cursor: pointer;
+      font-size: inherit;
+
+      span {
+        font-size: 0.875rem;
+        line-height: 1;
+      }
+
+      svg {
+        flex-shrink: 0;
+      }
+
+      &:hover {
+        border-color: var(--color-grey-400);
+        color: var(--color-grey-400);
+      }
+    }
+  }
 }
