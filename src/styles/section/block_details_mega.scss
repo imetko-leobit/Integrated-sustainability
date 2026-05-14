@@ -221,10 +221,21 @@
       overflow: hidden;
     }
   }
+  .details-content__contact-for{
+    margin-top: 40px;
+  }
+
+  .details-content__actions{
+    margin-top: 54px;
+  }
 
   .acf-innerblocks-container {
     &:not(:first-child) {
       margin-top: 100px;
+    }
+
+    &:empty{
+      display: none;
     }
 
     > :first-child {

@@ -209,3 +209,28 @@
     }
   }
 }
+.block-author-data {
+  max-width: 100% !important;
+  padding: 210px 0 0 0;
+  position: relative;
+  background-size: cover;
+  margin-bottom: 100px;
+
+  @media (max-width: 991px) {
+    padding-top: 40px;
+    margin-bottom: 32px;
+  }
+  @media (max-width: 991px) {
+    .divider {
+      left: 24px;
+      width: calc(100% - 48px);
+    }
+  }
+
+  &__content {
+    @include responsive-container;
+    margin: 0 auto;
+    position: relative;
+    padding-bottom: 60px !important;
+  }
+}

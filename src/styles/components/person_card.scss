@@ -122,4 +122,58 @@
       transform: translate(3px, -3px);
     }
   }
+
+  &--data {
+    .person-card__link {
+      padding: 0;
+    }
+    .person-card__image-container {
+      width: 370px;
+      height: 370px;
+      min-width: 370px;
+      border-radius: 0;
+
+      .person-card__image {
+        filter: none;
+      }
+
+      @media (max-width: 991px) {
+        width: 100%;
+        min-width: auto;
+        max-width: 370px;
+        height: auto;
+      }
+    }
+    .person-card__content {
+      @media (max-width: 991px) {
+        flex-direction: column;
+        gap: 24px;
+      }
+    }
+
+    .person-card__info {
+      width: 100%;
+
+      @media (max-width: 991px) {
+        max-width: 370px;
+        margin: 0 auto;
+      }
+
+      .tagline {
+        margin-bottom: 30px;
+      }
+      .card {
+        &__name {
+          @include text-h1;
+        }
+        &__credentials {
+          @include text-h2;
+          font-family: $semiboldFont;
+        }
+        &__title {
+          margin-top: 30px;
+        }
+      }
+    }
+  }
 }

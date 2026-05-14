@@ -18,6 +18,15 @@
     url(../../assets/img/overlay.svg);
   background-size: 100% 100%;
 
+  @media (max-width: 991px) {
+    display: none;
+  }
+
+  &.is-hidden {
+    visibility: hidden;
+    pointer-events: none;
+  }
+
   &__inner {
     height: 100%;
     display: flex;
