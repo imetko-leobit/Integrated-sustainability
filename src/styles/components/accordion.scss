@@ -214,8 +214,8 @@
     }
 
     &:not(.is-open) {
-      .accordion-item__title {
-        text-transform: capitalize;
+      .accordion-item__title::first-letter {
+        text-transform: uppercase;
       }
     }
   }
