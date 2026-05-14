@@ -1,4 +1,5 @@
 @import "../components/post_card";
+
 .block-service-items {
   padding-bottom: 240px;
 
@@ -30,6 +31,19 @@
   .post-card--simple {
     .post-card__image-wrapper img {
       filter: grayscale(100%);
+      transition: all 0.5s ease;
+    }
+
+    .post-card__content {
+      @include bg-image;
+      backdrop-filter: blur(5px);
+      background-color: transparent;
+    }
+
+    &:hover {
+      .post-card__image-wrapper img {
+        filter: grayscale(0);
+      }
     }
   }
 
