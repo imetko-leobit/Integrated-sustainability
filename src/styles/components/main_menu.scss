@@ -277,7 +277,7 @@
       left: 0;
       width: 100%;
       height: calc(100vh - 115px);
-      background-color: rgba(04, 04, 04, 0.6);
+      background-color: transparent;
       color: white;
       z-index: 999;
       display: none;
@@ -318,6 +318,28 @@
 
       @media (max-width: 991px) {
         padding-right: 0;
+      }
+
+      &::after {
+        content: '';
+        flex: 1 1 0%;
+        min-width: 0;
+        align-self: stretch;
+        background-color: rgba(04, 04, 04, 0.6);
+        margin-left: -1px;
+        margin-right: calc(-1 * var(--wp--style--global--padding-size-large));
+
+        @media (max-width: 1599px) {
+          margin-right: calc(-1 * var(--wp--style--global--padding-size-medium));
+        }
+
+        @media (max-width: 1199px) {
+          margin-right: calc(-1 * var(--wp--style--global--padding-size-small));
+        }
+
+        @media (max-width: 991px) {
+          display: none;
+        }
       }
     }
 
