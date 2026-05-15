@@ -71,12 +71,12 @@ $projects_data = [
             <div class="cards-navigation">
                 <button class="btn btn--arrow js-button-prev" aria-label="Previous Project">
                     <svg viewBox="0 0 27 15">
-                        <use xlink:href="#arrow-left"></use>
+                        <use href="#arrow-left"></use>
                     </svg>
                 </button>
                 <button class="btn btn--arrow js-button-next" aria-label="Next Project">
                     <svg viewBox="0 0 27 15">
-                        <use xlink:href="#arrow-right"></use>
+                        <use href="#arrow-right"></use>
                     </svg>
                 </button>
             </div>

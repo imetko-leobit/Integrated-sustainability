@@ -21,12 +21,12 @@ include_once(__DIR__ . '/../helpers/heading.php');
         <span class="accordion-item__icon">
           <span class="icon-plus">
             <svg>
-              <use xlink:href="#plus"></use>
+              <use href="#plus"></use>
             </svg>
           </span>
           <span class="icon-minus">
             <svg>
-              <use xlink:href="#minus"></use>
+              <use href="#minus"></use>
             </svg>
           </span>
         </span>

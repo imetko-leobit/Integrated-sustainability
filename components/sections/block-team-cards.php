@@ -173,12 +173,12 @@ $row_titles = [
             <div class="block-team-cards__mobile-nav">
                 <button class="btn btn--arrow js-team-prev-<?php echo $row_num; ?>" aria-label="Previous team member">
                     <svg viewBox="0 0 27 15">
-                        <use xlink:href="#arrow-left"></use>
+                        <use href="#arrow-left"></use>
                     </svg>
                 </button>
                 <button class="btn btn--arrow js-team-next-<?php echo $row_num; ?>" aria-label="Next team member">
                     <svg viewBox="0 0 27 15">
-                        <use xlink:href="#arrow-right"></use>
+                        <use href="#arrow-right"></use>
                     </svg>
                 </button>
             </div>

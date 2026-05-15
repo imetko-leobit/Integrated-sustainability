@@ -9,7 +9,7 @@
         <img src="<?php echo $member_photo; ?>" alt="<?php echo $member_name; ?>" class="team-member-card__image">
         <button class="team-member-card__action-btn" aria-label="View profile">
           <svg viewBox="0 0 27 15">
-            <use xlink:href="#arrow-right"></use>
+            <use href="#arrow-right"></use>
           </svg>
         </button>
     </div>

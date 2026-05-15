@@ -111,7 +111,7 @@ $modifier_class = $reverse ? ' block-approach-intro--reverse' : '';
           aria-label="<?php echo $approach_link_label; ?>">
           <span class="icon-arrow-down">
             <svg viewBox="0 0 27 15">
-              <use xlink:href="#arrow-down"></use>
+              <use href="#arrow-down"></use>
             </svg>
           </span>
         </a>

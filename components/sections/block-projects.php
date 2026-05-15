@@ -68,12 +68,12 @@ $wrapper_class = 'block-projects__wrapper' . ($text_below ? ' block-projects__wr
             <div class="projects-navigation">
               <button class="btn btn--arrow js-projects-prev" aria-label="Previous Project">
                 <svg viewBox="0 0 27 15">
-                  <use xlink:href="#arrow-left"></use>
+                  <use href="#arrow-left"></use>
                 </svg>
               </button>
               <button class="btn btn--arrow btn-next js-projects-next" aria-label="Next Project">
                 <svg viewBox="0 0 27 15">
-                  <use xlink:href="#arrow-right"></use>
+                  <use href="#arrow-right"></use>
                 </svg>
               </button>
             </div>

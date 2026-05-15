@@ -56,12 +56,12 @@ $total_slides = count($pillar_items);
       <div class="pillar-navigation">
         <button class="btn btn--arrow btn-prev js-pillar-prev" aria-label="Previous Slide">
           <svg viewBox="0 0 27 15">
-            <use xlink:href="#arrow-left"></use>
+            <use href="#arrow-left"></use>
           </svg>
         </button>
         <button class="btn btn--arrow btn-next js-pillar-next" aria-label="Next Slide">
           <svg viewBox="0 0 27 15">
-            <use xlink:href="#arrow-right"></use>
+            <use href="#arrow-right"></use>
           </svg>
         </button>
       </div>
