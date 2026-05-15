@@ -206,14 +206,20 @@
 
 .floating-filter-panel__drawer {
   .main-menu__col {
-    flex-basis: calc(25% - var(--wp--style--global--padding-size-large) / 4 + 0.5rem);
+    flex-basis: calc(
+      25% - var(--wp--style--global--padding-size-large) / 4 + 0.5rem
+    );
 
     @media (max-width: 1599px) {
-      flex-basis: calc(25% - var(--wp--style--global--padding-size-medium) / 4 + 0.5rem);
+      flex-basis: calc(
+        25% - var(--wp--style--global--padding-size-medium) / 4 + 0.5rem
+      );
     }
 
     @media (max-width: 1199px) {
-      flex-basis: calc(25% - var(--wp--style--global--padding-size-small) / 4 + 0.5rem);
+      flex-basis: calc(
+        25% - var(--wp--style--global--padding-size-small) / 4 + 0.5rem
+      );
     }
 
     padding: 2rem 0 0;
@@ -248,14 +254,23 @@
   }
 
   .main-menu__col--level-0 {
-    flex-basis: calc(var(--wp--style--global--padding-size-large) - 1.5rem + calc(25% - var(--wp--style--global--padding-size-large) / 4));
+    flex-basis: calc(
+      var(--wp--style--global--padding-size-large) - 1.5rem +
+        calc(25% - var(--wp--style--global--padding-size-large) / 4)
+    );
 
     @media (max-width: 1599px) {
-      flex-basis: calc(var(--wp--style--global--padding-size-medium) - 1.5rem + calc(25% - var(--wp--style--global--padding-size-medium) / 4));
+      flex-basis: calc(
+        var(--wp--style--global--padding-size-medium) - 1.5rem +
+          calc(25% - var(--wp--style--global--padding-size-medium) / 4)
+      );
     }
 
     @media (max-width: 1199px) {
-      flex-basis: calc(var(--wp--style--global--padding-size-small) - 1.5rem + calc(25% - var(--wp--style--global--padding-size-small) / 4));
+      flex-basis: calc(
+        var(--wp--style--global--padding-size-small) - 1.5rem +
+          calc(25% - var(--wp--style--global--padding-size-small) / 4)
+      );
     }
 
     padding-bottom: 90px;
@@ -361,6 +376,12 @@
       justify-content: space-between;
     }
 
+    // Standalone parent checkboxes (no submenu): normal left-to-right layout.
+    label.nav-link--plain {
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+
     &:hover,
     &.active {
       background: $primary-gradient-5;
@@ -414,7 +435,6 @@
       display: none;
     }
   }
-
 
   .filter-count {
     display: none;
@@ -535,7 +555,7 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: var(--color-grey-400, #80F7E6);
+    color: var(--color-grey-400, #80f7e6);
     opacity: 0.7;
   }
 }
@@ -568,7 +588,6 @@
 }
 
 .floating-filter-panel__drawer {
-
   .filter-checkbox {
     appearance: none;
     -webkit-appearance: none;
@@ -580,7 +599,9 @@
     background: transparent;
     cursor: pointer;
     position: relative;
-    transition: border-color 0.2s ease, background 0.2s ease;
+    transition:
+      border-color 0.2s ease,
+      background 0.2s ease;
 
     &::after {
       content: "";
@@ -1024,7 +1045,9 @@
     height: 8px;
     border-radius: 50%;
     border: 1px solid var(--color-white);
-    transition: left 0.25s ease, background 0.25s ease;
+    transition:
+      left 0.25s ease,
+      background 0.25s ease;
   }
 }
 
