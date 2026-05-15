@@ -238,6 +238,10 @@
     margin-top: 40px;
     margin-bottom: 20px;
 
+    .link {
+      @include text-body-small;
+    }
+
     @media (max-width: 991px) {
       margin-top: 24px;
       margin-bottom: 0;

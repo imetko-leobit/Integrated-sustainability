@@ -900,7 +900,6 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 72px;
   z-index: 890;
   overflow: hidden;
   display: flex;
@@ -908,6 +907,10 @@
   transform: translateY(100%);
   transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   pointer-events: none;
+
+  min-height: 72px;
+  height: auto;
+  padding: 0.5rem 0;
 
   @include bg-image;
   background:
@@ -940,10 +943,11 @@
 .filter-summary-bar__chips {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
   gap: 1.5rem;
   overflow-x: auto;
   scrollbar-width: none;
+  flex-wrap: wrap;
+  row-gap: 0.5rem;
 
   &::-webkit-scrollbar {
     display: none;
