@@ -314,6 +314,19 @@ document.addEventListener("DOMContentLoaded", () => {
       const targetId = navItem.getAttribute("data-target");
       if (isMobile()) {
         if (targetId) goToLevel(targetId, navItem, true);
+      } else {
+        // Desktop: toggle – clicking an already-active item closes it
+        if (navItem.classList.contains(CLASS_ACTIVE)) {
+          const targetCol = targetId
+            ? panel.querySelector(`#${CSS.escape(targetId)}`)
+            : null;
+          const parentId = targetCol
+            ? targetCol.getAttribute("data-parent-id") || "filter-level-0"
+            : "filter-level-0";
+          goToLevel(parentId, null, false);
+        } else if (targetId) {
+          goToLevel(targetId, navItem, true);
+        }
       }
       return;
     }
