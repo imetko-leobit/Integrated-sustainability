@@ -33,15 +33,9 @@
 
   .logo-carousel__item {
     width: auto;
-
-
     display: flex;
     align-items: center;
     justify-content: center;
-
-    @media (max-width: 991px) {
-      flex: 0 0 calc(100% / 2.75);
-    }
   }
 
   .logo-carousel__img {
