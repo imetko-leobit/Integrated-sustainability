@@ -130,6 +130,7 @@
 
       @media (max-width: 991px) {
         justify-content: flex-start;
+        gap: 1rem;
       }
     }
 
@@ -172,6 +173,7 @@
 
         @media (max-width: 991px) {
           margin-bottom: 12px;
+          display: none;
         }
       }
 
@@ -191,8 +193,8 @@
       overflow: hidden;
 
       @media (max-width: 991px) {
-        height: 80px;
-        width: 80px;
+        height: 70px;
+        width: 70px;
       }
 
       .person-card__image {
