@@ -392,6 +392,7 @@
           url(../../assets/img/overlay.svg);
         background-position: bottom right;
         background-size: cover;
+        left: 0 !important;
       }
 
       &::-webkit-scrollbar {
