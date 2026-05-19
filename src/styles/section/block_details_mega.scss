@@ -780,3 +780,12 @@
     }
   }
 }
+
+.page-template-template-services-category {
+  .block-details-content-sidebar[data-block="media"]{
+    margin-bottom: 0;
+  }
+  .block-accordion_media-right .block-details-mega .asside-card--narrow{
+    padding-bottom: 0;
+  }
+}
