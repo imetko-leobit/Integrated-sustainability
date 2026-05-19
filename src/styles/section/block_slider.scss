@@ -322,6 +322,8 @@
       -webkit-line-clamp: 3;
       overflow: hidden;
       text-overflow: ellipsis;
+
+      white-space: break-spaces;
     }
 
     &__image-container {
