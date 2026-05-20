@@ -29,8 +29,7 @@
       grid-template-columns: 1fr;
       grid-template-areas:
         "b"
-        "c"
-        "a";
+        "c";
       gap: 32px;
     }
   }
@@ -86,6 +85,7 @@
     @media (max-width: 1599px) {
       padding-left: 80px;
     }
+
     @media (max-width: 1199px) {
       grid-column: 8/13;
       padding-left: 0;
@@ -94,6 +94,7 @@
     @media (max-width: 991px) {
       grid-column: 1;
       padding-left: 0;
+      display: none;
     }
   }
 
@@ -132,17 +133,45 @@
   }
 
   #project-profile {
+    .details__wrapper {
+      @media (min-width: 991px) {
+        gap: 0;
+      }
+    }
+
+    .title--top-divider {
+      @media (min-width: 991px) {
+        margin-top: 3rem;
+      }
+    }
+
     .logo-project-profile {
       max-width: 222px;
     }
+
     .tagline {
       margin-bottom: -18px;
-    }
-    .person-card {
-      margin-top: -18px;
 
+      @media (min-width: 991px) {
+        margin-bottom: 0;
+      }
+    }
+
+    .person-card {
       &:not(:last-child) {
         padding-bottom: 22px;
+      }
+
+      .card__name {
+        @media (min-width: 991px) {
+          @include text-body-base;
+        }
+      }
+
+      .card__credentials {
+        @media (min-width: 991px) {
+          display: none;
+        }
       }
     }
 
