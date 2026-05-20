@@ -82,9 +82,10 @@
     width: 100%;
     padding: 56px;
     @include bg-image;
-    position: relative;
     margin-top: -175px;
     padding-top: 175px;
+    position: sticky;
+    top: 130px;
 
     @media (max-width: 991px) {
       background-position: inherit;

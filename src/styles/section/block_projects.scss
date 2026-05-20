@@ -82,6 +82,7 @@
             display: none;
           }
         }
+
       }
     }
   }
@@ -104,6 +105,10 @@
     grid-column: span 4;
     height: 100%;
     padding-bottom: 74px;
+
+    .title{
+      text-transform: none;
+    }
 
     @media (max-width: 1199px) {
       grid-column: span 5;
